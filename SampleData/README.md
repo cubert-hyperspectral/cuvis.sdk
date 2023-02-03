@@ -8,7 +8,7 @@ https://cloud.cubert-gmbh.de/index.php/s/3oECVGWpC1NpNqC
 
 ### S5
 - __Lentils__: 	This dataset was recorded in the lab and features 6 different types of lentils on black background. 
-- __Gummybears and Plastic__: This dataset was recorded in the lab and features blue gummy bears and blue plastic pieces on black background. 
+- __Cornflakes and Pasta__: This dataset was recorded in the lab and features cornflakes and pasta on black background. 
 
 ### X20
 -
