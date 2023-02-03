@@ -5,7 +5,7 @@ You can download sample data from Cubert Hyperspectral Cameras with the followin
 https://cloud.cubert-gmbh.de/index.php/s/3oECVGWpC1NpNqC
 
 
-__sample_data__: Use this dataset to work with the examples given in C/Cpp/Python/Csharp/Matlab
+#### __sample_data__: Use this dataset to work with the examples given in C/Cpp/Python/Csharp/Matlab
 
 
 ## Other datasets for classification tasks:
