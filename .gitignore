@@ -1,0 +1,10 @@
+.pyd
+*.o
+*.orig
+*.a
+*.so
+*.x
+*.lib
+*.exe
+*.obj
+cuvis_il.py
