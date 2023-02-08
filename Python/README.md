@@ -10,4 +10,4 @@ https://cloud.cubert-gmbh.de/index.php/s/dPycyPcjnvee9F0
 
 After installing, check out the repository and copy the *\_cuvis\_pyil* as well as the cuvis\_il.py file into *Cubert-Community-Hub\Python\src\cuvis*.
 
-Then navigate to *Cubert-Community-Hub\Python\src* and run *python setup.py install* in the command line. 
+Then navigate from within your coding environment to *Cubert-Community-Hub\Python\src* and run *pip install . [-e]* in the command line. 
