@@ -1,0 +1,2 @@
+In order to import cuvis to your CMake project, Cuvis must be installed.
+Download the installer for windows or the .deb files for Ubuntu 20.04 here: https://cloud.cubert-gmbh.de/index.php/s/dPycyPcjnvee9F0
