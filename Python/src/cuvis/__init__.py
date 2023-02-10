@@ -1,11 +1,21 @@
 import os
 import sys
+import platform
 from pathlib import Path
 
 lib_dir = os.getenv("CUVIS")
-os.add_dll_directory(lib_dir)
-add_il = Path(lib_dir).parents[0].joinpath("sdk", "cuvis_python")
-sys.path.append(str(add_il))
+if lib_dir == None:
+    print('CUVIS environmental variable is not set!')
+    sys.exit(1)
+if platform.system() == "Windows":
+    os.add_dll_directory(lib_dir)
+    add_il = Path(lib_dir).parents[0].joinpath("sdk", "cuvis_python")
+    sys.path.append(str(add_il))
+elif platform.system() == 'Linux':
+    os.environ['PATH'] = lib_dir + os.pathsep + os.environ['PATH']
+else:
+    raise NotImplementedError('Invalid operating system detected!')
+    sys.exit(1)
 
 
 from .AcquisitionContext import AcquisitionContext

@@ -304,7 +304,10 @@ class LabelingGUI(object):
         -------
         int
         """
-        k = cv.waitKeyEx(1)  # & 0xFF
+        k = cv.waitKeyEx(1) # & 0xFF
+        print(k)
+        print(type(k))
+        print(int(k))
         # print(k)
         if k == ord('m'):
             self.brush = not self.brush
@@ -312,9 +315,9 @@ class LabelingGUI(object):
             self.adjust_scale(0.2)
         if k == ord('-'):
             self.adjust_scale(-0.2)
-        if k == ord('w'):
+        if k == ord('p'):
             self.adjust_alpha(0.1)
-        if k == ord('q'):
+        if k == ord('o'):
             self.adjust_alpha(-0.1)
         if k == ord('c'):
             self.store_layer(self.image_index, self.label_index)
@@ -329,18 +332,19 @@ class LabelingGUI(object):
             self.undo_layer()
         if k == ord('t'):
             self.mark_test()
-        if k == ord('a'):
+        if k == ord('k'):
             self.adjust_brush(-1)
-        if k == ord('s'):
+        if k == ord('l'):
             self.adjust_brush(1)
-        if k == 2490368:  # up
+        if k == ord('w'):  # up
             self.store_layer(self.image_index, self.label_index)
             self.label_index = self.label_index + 1
             if self.label_index > (len(self.labels) - 1):
                 self.label_index = len(self.labels) - 1
             # print("Label Index : " + str(self.label_index))
             return -1
-        if k == 2621440:  # down
+        if k == ord('s'):  # down
+            print('down')
             self.store_layer(self.image_index, self.label_index)
             self.label_index = self.label_index - 1
             if self.label_index < 0:
@@ -348,14 +352,14 @@ class LabelingGUI(object):
             # print("Label Index : " + str(self.label_index))
             return -1
 
-        if k == 2424832:  # left
+        if k == ord('a'):  # left
             self.store_layer(self.image_index, self.label_index)
             self.image_index = self.image_index - 1
             if self.image_index < 0:
                 self.image_index = 0
             # print("Image Index : " + str(self.image_index))
             return -1
-        if k == 2555904:  # right
+        if k == ord('d'):  # right
             self.store_layer(self.image_index, self.label_index)
             self.image_index = self.image_index + 1
             if self.image_index > (len(self.input_images) - 1):
@@ -478,7 +482,7 @@ class LabelingGUI(object):
                     cv.imshow('Cuvis Labeling Tool', self.img_show_bordered)
 
                     if self.handle_hotkeys() == -1:
-                        break;
+                        break
 
                 cv.destroyAllWindows()
 
@@ -598,13 +602,13 @@ class LabelingGUI(object):
         instructions = []
         instructions.append("Hold the left mouse button down to label with the brush")
         instructions.append("Press 'm' to toggle between brush and rect-labeling mode")
-        instructions.append("Press 'left' and 'right' arrow keys to go through images")
-        instructions.append("Press 'up' and 'down' arrow keys to go through labels")
+        instructions.append("Press 'a' and 'd' keys to go through images")
+        instructions.append("Press 'w' and 's' arrow keys to go through labels")
         instructions.append("Press 't' to mark image either as 'Training' or  'Test'")
         instructions.append("Press 'u' to undo a label")
         instructions.append("Press '+' and '-' keys to zoom")
-        instructions.append("Press 'q' and 'w' to adjust the alpha value of the labels (for visibility)")
-        instructions.append("Press 'a' and 's' to adjust the brush size")
+        instructions.append("Press 'o' and 'p' to adjust the alpha value of the labels (for visibility)")
+        instructions.append("Press 'k' and 'l' to adjust the brush size")
         instructions.append("Press 'c' to switch between b/w and color")
         instructions.append("Press 'f' to finish the labeling")
         instructions.append("Press 'Esc' to exit")

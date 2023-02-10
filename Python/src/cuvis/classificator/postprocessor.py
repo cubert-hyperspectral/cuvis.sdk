@@ -192,7 +192,8 @@ class Postprocessor(object):
 
         idx = 0
         size = len(results)
-
+        print(results)
+        print(len(results))
         self.load_result(results[idx])
         self.load_measurement(self.image_id)
         if self.img_raw is None:

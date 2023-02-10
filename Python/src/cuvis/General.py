@@ -1,5 +1,6 @@
 import logging
 import os
+import platform
 
 from . import cuvis_il
 from .cuvis_aux import SDKException
@@ -11,9 +12,13 @@ class General(object):
         FORMAT = '%(asctime)s -- %(levelname)s: %(message)s'
         if os.path.exists(path):
             log_path = path + os.sep
-        else:
+        elif platform.system() == "Linux":
+            log_path = os.path.expanduser('~') + os.sep + ".cuvis" + os.sep
+            print(log_path)
+            if not os.path.exists(log_path):
+                os.mkdir(log_path)
+        elif platform.system() == "Windows":
             log_path = os.getenv('APPDATA') + os.sep + ".cuvis" + os.sep
-
         if os.path.exists(log_path):
             logging.basicConfig(filename=log_path + "cuvisSDK_python.log",
                                 format=FORMAT,
