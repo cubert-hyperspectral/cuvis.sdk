@@ -1,0 +1,3 @@
+[submodule "Cpp/HyperTools"]
+	path = Cpp/HyperTools
+	url = https://github.com/tamu-edu-students/HyperTools.git
