@@ -3,9 +3,15 @@ import time
 import os
 from datetime import timedelta
 import sys
+import platform
 
-lib_dir = os.getenv("CUVIS")
-data_dir = os.path.normpath(os.path.join(lib_dir, os.path.pardir, "sdk", "sample_data", "set1"))
+
+if platform.system() == "Windows":
+    lib_dir = os.getenv("CUVIS")
+    data_dir = os.path.normpath(os.path.join(lib_dir, os.path.pardir, "sdk", "sample_data", "set1"))
+elif platform.system() == "Linux":
+    lib_dir = os.getenv("CUVIS_DATA")
+    data_dir = os.path.normpath(os.path.join(lib_dir, "sample_data", "set1"))
 
 
 def run_example_recordSingleImage(userSettingsDir=os.path.join(data_dir, "settings"),
