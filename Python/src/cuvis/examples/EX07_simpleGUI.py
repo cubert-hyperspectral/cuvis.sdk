@@ -137,8 +137,8 @@ def Cuvis_Capture():
     gives frownie face, when no measurement (when camera gets stuck)
     gives 2x2 grid when no data at all => refresh necessary
     '''
-    am = acquisitionContext.captureAsync()
-    res = am.get(datetime.timedelta(seconds=10))
+    am = acquisitionContext.capture()
+    res = am.get(datetime.timedelta(milliseconds=500))
     if res["Measurement"] is not None:
         mesu = res["Measurement"]
         mesu.set_name("img_{}".format(datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")))
