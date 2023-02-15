@@ -30,6 +30,7 @@ REQUIREMENTS = {
         'PySimpleGui',
         'opencv-python',
         'scikit-learn',
+        'jupyterlab',
         'dill',
     ],
 }
