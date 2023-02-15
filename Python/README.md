@@ -10,9 +10,18 @@ https://cloud.cubert-gmbh.de/index.php/s/dPycyPcjnvee9F0
 
 After installing, check out the repository and copy the *\_cuvis\_pyil* as well as the cuvis\_il.py file into *Cubert-Community-Hub\Python\src\cuvis*.
 
-Then navigate from within your coding environment to *Cubert-Community-Hub\Python\src* and run *pip install . [-e]* in the command line. 
+### Virtual Environment Creation
 
-## Python Specific Instructions
+Create a virtual environment with the following commands. This will protect your normal Python programming environment from the specific packages the CUVIS SDK needs to run.
+```
+cd <<Cubert-Community-Hub>>/Python/src
+python -m venv cubert_env
+./cubert_env/Scripts/activate
+```
+
+Then navigate from within your coding environment to *Cubert-Community-Hub\Python\src* and run *pip install . [-e]* in the command line.
+
+## Linux Specific Instructions
 
 Linux will require the application of additional environmental settings. Add the following variables to your `.bashrc` file.
 
@@ -24,3 +33,11 @@ To give cuvis permission to create log files, run this command to set ownership 
 ```
 sudo chown -R <<USER_NAME>> /opt/cuvis/
 ```
+### Running Jupyter Notebooks
+
+Jupyter notebooks are an interactive, web-based Python interpreter. There are example notebooks provided in the `notebooks` directory. With your virtual environment active, run the following command to enable interactive controls in the notebooks.
+
+```
+jupyter nbextension enable --py widgetsnbextension
+```
+You are now ready to launch a notebook. `cd notebooks` and run `jupyter-notebook` to start the Jupyter webserver.
