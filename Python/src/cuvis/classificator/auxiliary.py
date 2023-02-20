@@ -4,6 +4,8 @@ import warnings
 import cuvis
 import numpy as np
 import cv2 as cv
+import typing
+from typing import Dict, Tuple, Any, Optional
 from operator import truediv
 import time
 import xarray
@@ -436,6 +438,74 @@ def get_rgb_from_cu3(mesu):
 
     return rgb
 
+def find_cir_idx(mesu) -> typing.Tuple:
+    """
+
+    finds the indexes of the channels closest to the colors red, green and blue
+
+    Parameters
+    ----------
+    mesu : cuvis_measurement, required
+
+    Returns
+    -------
+    Tuple of index values
+
+    """
+    mesu_wl = mesu.Data["cube"].wavelength
+    mesu_wl = np.asarray(mesu_wl)
+
+    c = (np.abs(mesu_wl - 842)).argmin()
+    i = (np.abs(mesu_wl - 682)).argmin()
+    r = (np.abs(mesu_wl - 562)).argmin()
+    return c,i,r
+
+def get_cir_from_cu3(mesu):
+    """
+
+    generates a CIR image from a given cube (cu3)
+
+    Generates a rgb image from a given cube (cu3) by selecting 3 channels closest to the desired colors (red,
+    green, blue), stacking the channels and converting and scaling them to uint8.
+
+    Parameters
+    ----------
+    mesu : cuvis_measurement, required
+
+    Returns
+    -------
+        np.array(x,y,3)
+    """
+    c, i, r = find_cir_idx(mesu)
+    cube = mesu.Data["cube"].array
+    cir = np.stack((cube[:, :, i], cube[:, :, c], cube[:, :, r]), axis=2)  # rgb to bgr
+    cir = cv.convertScaleAbs(cir, alpha=(255.0 / 4096.0))  # convert between 12 bit and 8 bit
+
+    return cir
+
+def get_img_from_bands(mesu, band1, band2, band3):
+    """
+
+    generates a band image from a given cube (cu3)
+
+    Generates a rgb image from a given cube (cu3) by selecting 3 channels closest to the desired colors, stacking the channels and converting and scaling them to uint8.
+
+    Parameters
+    ----------
+    mesu : cuvis_measurement, required
+
+    Returns
+    -------
+        np.array(x,y,3)
+    """
+    cube = mesu.Data["cube"].array
+    b1 = mesu.Data["cube"].wavelength.index(band1)
+    b2 = mesu.Data["cube"].wavelength.index(band2)
+    b3 = mesu.Data["cube"].wavelength.index(band3)
+    img = np.stack((cube[:, :, b1], cube[:, :, b2], cube[:, :, b3]), axis=2)
+    img = cv.convertScaleAbs(img, alpha=(255.0 / 4096.0))  # convert between 12 bit and 8 bit
+
+    return img
 
 def convert_labels_binary_to_numeric(labels_binary):
     label_no = []
