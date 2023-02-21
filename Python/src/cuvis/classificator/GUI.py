@@ -2,6 +2,7 @@ import os
 import pickle
 import typing
 from collections import defaultdict
+from copy import deepcopy
 from io import BytesIO
 from typing import Dict, List, Optional, Tuple
 
@@ -28,6 +29,8 @@ class ClassificatorGUI():
         self.scale = 1.0
         self.classes = set()
         self.colors = {}
+        self.labeling_mode = 'Point'
+        self.prev_point = ()
         colors = list(webcolors.CSS3_HEX_TO_NAMES.values())
         np.random.shuffle(colors)
         self.all_colors = (n for n in colors)
@@ -73,7 +76,7 @@ class ClassificatorGUI():
         # Create column related to controlling the labeling GUI
         control_layout = [
             [
-                sg.Text('Data Cube Path', font=('Helvetica 14'), key='load_title'),
+                sg.Text('Data Cube Path', font=('Helvetica 12'), key='load_title'),
                 sg.In(size=(25, 1), enable_events=True, key="load_data"),
                 sg.FileBrowse(target='load_data', file_types=(("Cubert Datacubes", "*.cu3"),), initial_folder=os.getcwd(), button_color=('black on white'), visible=True, key="file_browse_button"),
             ], [
@@ -114,13 +117,19 @@ class ClassificatorGUI():
                 sg.Text('Class Name', font=('Helvetica 12')),
                 sg.In(size=(20, 1), enable_events=True, default_text='', key="class_name"),
                 sg.Button('Add', tooltip='Add new class', button_color=('black on white'), font='Helvetica 12', key='add_class'),
-                sg.Button('Delete', tooltip='Delete selected class', button_color=('black on white'), font='Helvetica 12', key='delete_class')
+                sg.Button('Delete', tooltip='Delete selected class', button_color=('black on white'), font='Helvetica 12', key='delete_class'),
+                sg.Push()
+            ], [
+                sg.Text('Labeling Strategy:', font=('Helvetica 12')),
+                sg.Combo(['Point','Rectangle'], default_value='Point', readonly=True, key='label_mode', disabled=False, enable_events=True),
+                sg.Push()
             ], [
                 sg.HorizontalSeparator()
             ], [
                 sg.Text('Save Labels', font=('Helvetica 12')),
                 sg.In(size=(25, 1), enable_events=True, key="save_path"),
-                sg.FileSaveAs(target='save_path', file_types=(("Pickle Files", "*.pckl"),), initial_folder='./models', button_color=('black on white'), visible=True, key="file_save_button"),
+                sg.FileSaveAs(target='save_path', button_text='Select File', file_types=(("Pickle Files", "*.pckl"),), initial_folder='./models', button_color=('black on white'), enable_events=True, key="save_labels"),
+                sg.Push()
             ], [
                 sg.VPush()
             ]
@@ -148,6 +157,7 @@ class ClassificatorGUI():
         try:
             # Load data
             self.mesu = cuvis.Measurement(values.get('load_data'))
+            self.orig_dim = self.mesu.Data['cube'].array.shape[:2]
             # Generate cube RGB
             self.curr_img = aux.get_rgb_from_cu3(self.mesu)
             self.curr_img = cv2.resize(self.curr_img, (self.height,self.height), interpolation = cv2.INTER_AREA)
@@ -312,11 +322,56 @@ class ClassificatorGUI():
             # Only allow valid pixels on the canvas
             # Create the label map of the pixels we have drawn
             label_map = self.labels[self.selected_class]
-            label_map[x][self.height-y] = 1
+            label_map = cv2.circle(label_map, (x, self.height-y), 1, 1, -1)
             self.labels[self.selected_class] = label_map
             # Draw the pixels on the map
             color = webcolors.name_to_rgb(self.colors[self.selected_class])
             self.curr_img = cv2.circle(self.curr_img, (x, self.height-y), 1, color, -1)
+            self.image_elem.draw_image(data=self.array_to_data(self.curr_img),location=(0, self.height))
+            # Update the labeled pixel label count
+            self.update_labeled_pixels()
+    
+    def label_rectangle(self, x: int, y: int):
+        '''
+        Label the image point collected from image canvas click or drag. Unlike the point approach this
+        method needs two points to create a rectangle
+
+        Parameters
+        ----------
+        x : int, row of the image, required
+        y : int, column of the image, required
+
+        Returns
+        -------
+        None
+        '''
+        if 0 <= x <= self.height and 0 <= y <= self.height:
+            if len(self.prev_point) == 0 or (x,y) == self.prev_point:
+                self.prev_point = (x,y)
+                return
+        
+            # Only allow valid pixels on the canvas
+            # Create the label map of the pixels we have drawn
+            label_map = self.labels[self.selected_class]
+            label_map = cv2.rectangle(
+                label_map, 
+                (self.prev_point[0], self.height-self.prev_point[1]),
+                (x, self.height-y),
+                1,
+                -1
+            )
+            self.labels[self.selected_class] = label_map
+            # Draw the pixels on the map
+            color = webcolors.name_to_rgb(self.colors[self.selected_class])
+            self.curr_img = cv2.rectangle(
+                self.curr_img, 
+                (self.prev_point[0], self.height-self.prev_point[1]),
+                (x, self.height-y),
+                color,
+                -1
+            )
+            # Clear the previous point
+            self.prev_point = ()
             self.image_elem.draw_image(data=self.array_to_data(self.curr_img),location=(0, self.height))
             # Update the labeled pixel label count
             self.update_labeled_pixels()
@@ -356,10 +411,21 @@ class ClassificatorGUI():
         None
         '''
         out_data = {}
+        # Create a copy of the data
+        labels = deepcopy(dict(self.labels))
+        # Resize the each of the labeled images
+        for key in labels.keys():
+            labels[key] = cv2.resize(labels[key], self.orig_dim, interpolation = cv2.INTER_AREA)
         out_data['cube_path'] = self.window['load_data'].get()
-        out_data['labels'] = dict(self.labels)
-        with open(path, 'w') as f:
+        out_data['labels'] = labels
+        with open(path, 'wb') as f:
             pickle.dump(out_data, f)
+
+    def redraw_label(self):
+        # TODO Redraw labels when a label is deleted
+        # TODO Redraw labels when base image is changed
+        # TODO Redraw labels when label point is deleted
+        pass
 
     def run(self):
         '''
@@ -382,12 +448,13 @@ class ClassificatorGUI():
                 x, y = values[event]
                 if self.selected_class:
                     # Draw a color on the image showing selected pixels
-                    self.label_image(x,y)              
+                    if self.labeling_mode == 'Point':
+                        self.label_image(x,y)
+                    elif self.labeling_mode == 'Rectangle':
+                        self.label_rectangle(x,y)        
             elif event == 'load_data':
                 # TODO handle load data, we need a more intelligent data structure here
-                print(values)
                 self.load_cube(values)
-                pass
             elif event in ['rgb','cir','custom_bands','band_1','band_2','band_3']:
                 # Update image render
                 self.render_bands(event, values)
@@ -397,6 +464,12 @@ class ClassificatorGUI():
             elif '+CLICKED+' in event and '-TABLE-' in event and event[2][0] is not None:
                 # Set the selected class to use for GUI elements
                 self.selected_class = self.window['-TABLE-'].get()[event[2][0]][0]
+            elif event == 'save_path':
+                # save the labels to disk
+                self.save_labels(values['save_path'])
+            elif event == 'label_mode':
+                # Change the label mode
+                self.labeling_mode = values['label_mode']
         self.window.close()
 
 if __name__ == '__main__':
