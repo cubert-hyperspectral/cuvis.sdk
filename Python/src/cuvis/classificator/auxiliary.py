@@ -433,7 +433,7 @@ def get_rgb_from_cu3(mesu):
     """
     r, g, b = find_rgb_idx(mesu)
     cube = mesu.Data["cube"].array
-    rgb = np.stack((cube[:, :, b], cube[:, :, g], cube[:, :, r]), axis=2)  # rgb to bgr
+    rgb = np.dstack((cube[:, :, r], cube[:, :, g], cube[:, :, b]))
     rgb = cv.convertScaleAbs(rgb, alpha=(255.0 / 4096.0))  # convert between 12 bit and 8 bit
 
     return rgb
@@ -478,7 +478,7 @@ def get_cir_from_cu3(mesu):
     """
     c, i, r = find_cir_idx(mesu)
     cube = mesu.Data["cube"].array
-    cir = np.stack((cube[:, :, i], cube[:, :, c], cube[:, :, r]), axis=2)  # rgb to bgr
+    cir = np.stack((cube[:, :, c], cube[:, :, i], cube[:, :, r]), axis=2)  # rgb to bgr
     cir = cv.convertScaleAbs(cir, alpha=(255.0 / 4096.0))  # convert between 12 bit and 8 bit
 
     return cir
@@ -557,23 +557,23 @@ def get_new_color(id):
     """
 
     if id < 0 or id > 9:
-        return (-1, -1, -1)
+        return (-1, -1, -1), 'invalid'
     if id == 0:  # red
-        return (0, 0, 255)
+        return (0, 0, 255), 'red'
     if id == 1:  # green
-        return (0, 255, 0)
+        return (0, 255, 0), 'green'
     if id == 2:  # blue
-        return (255, 0, 0)
+        return (255, 0, 0), 'blue'
     if id == 3:  # magenta
-        return (255, 0, 255)
+        return (255, 0, 255), 'magenta'
     if id == 4:  # lightblue
-        return (255, 255, 0)
+        return (255, 255, 0), 'light blue'
     if id == 5:  # yellow
-        return (0, 255, 255)
+        return (0, 255, 255), 'yellow'
     if id == 6:  # brown
-        return (23, 91, 191)
+        return (23, 91, 191), 'brown'
     if id == 7:  # orange
-        return (0, 127, 255)
+        return (0, 127, 255), 'orange'
 
 
 #  def __split_test_train__(self, lut):
