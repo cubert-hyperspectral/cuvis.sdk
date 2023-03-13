@@ -20,7 +20,7 @@ python -m venv cubert_env
 ./cubert_env/Scripts/activate
 ```
 
-Then navigate from within your coding environment to `Cubert-Community-Hub/Python/src` and run `pip install . [-e]` in the command line.
+Then navigate from within your coding environment to `Cubert-Community-Hub/Python/src` and run `pip install [--editable] .` in the command line.
 
 ## Linux Specific Instructions
 
