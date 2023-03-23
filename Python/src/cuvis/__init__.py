@@ -29,7 +29,3 @@ from .ProcessingContext import ProcessingContext
 from .Session import Session
 from .Viewer import Viewer
 from .Worker import Worker
-from . import classificator
-
-
-

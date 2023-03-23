@@ -7,20 +7,25 @@ Python Version: 3.9. _This is a strict requirement!_ The Python interpreter must
 In order to install the Python SDK, the Cuvis application must be installed first.
 
 Download the installer for windows (or the .deb files for Ubuntu 20.04) and the `_cuvis_pyil.pyd` file as well as the `cuvis_il.py` file [here](
-https://cloud.cubert-gmbh.de/index.php/s/dPycyPcjnvee9F0).
+https://cloud.cubert-gmbh.de/index.php/s/dPycyPcjnvee9F0). On Ubuntu systems these files will be named `_cuvis_pyil.so` and `cuvis_il.py`.
 
-After installing, check out the repository and copy the *\_cuvis\_pyil* as well as the cuvis\_il.py file into *Cubert-Community-Hub\Python\src\cuvis*.
+After installing, check out the repository and copy the `_cuvis_pyil` as well as the `cuvis_il.py` file into `Cuvis-SDK\Python\src\cuvis`.
 
 ### Virtual Environment Creation
 
 Create a virtual environment with the following commands. This will protect your normal Python programming environment from the specific packages the CUVIS SDK needs to run.
 ```
-cd <<Cubert-Community-Hub>>/Python/src
+cd <<Cuvis-SDK>>/Python/src
 python -m venv cubert_env
+# Windows
 ./cubert_env/Scripts/activate
+# Ubuntu
+source ./cubert_env/bin/activate
 ```
 
-Then navigate from within your coding environment to `Cubert-Community-Hub/Python/src` and run `pip install [--editable] .` in the command line.
+As prerequisites for building the package, ensure the system has the appropriate build tools installed: `pip install wheel setuptools==45 setuptools_scm`
+
+Then navigate from within your coding environment to `Cuvis-SDK/Python/src` and run `pip install [--editable] .` in the command line.
 
 ## Linux Specific Instructions
 
