@@ -18,7 +18,7 @@ Create a virtual environment with the following commands. This will protect your
 cd <<Cuvis-SDK>>/Python/src
 python -m venv cubert_env
 # Windows
-./cubert_env/Scripts/activate
+.\cubert_env\Scripts\activate
 # Ubuntu
 source ./cubert_env/bin/activate
 ```
