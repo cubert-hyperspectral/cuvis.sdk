@@ -25,7 +25,9 @@ source ./cubert_env/bin/activate
 
 As prerequisites for building the package, ensure the system has the appropriate build tools installed: `pip install wheel setuptools==45 setuptools_scm`
 
-Then navigate from within your coding environment to `Cuvis-SDK/Python/src` and run `pip install [--editable] .` in the command line.
+Then navigate from within your coding environment to `Cuvis-SDK/Python/src` and run `pip install [--editable] .` in the command line. 
+
+The editable/develop option also makes the examples available as editable submodule cuvis.examples.
 
 ## Linux Specific Instructions
 
