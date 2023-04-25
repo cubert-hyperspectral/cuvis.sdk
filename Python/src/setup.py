@@ -2,6 +2,7 @@ from setuptools import setup, find_packages
 from setuptools.command import develop
 import os
 import subprocess
+import platform
 
 
 name = 'cuvis'
@@ -50,8 +51,10 @@ class CustomDevelop(develop.develop, object):
     """
 
     def run(self):
-        print("running call: Xcopy .{0}..{0}examples .{0}examples /E/C/I".format(os.sep))
-        subprocess.check_call("Xcopy .{0}..{0}examples .{0}cuvis{0}examples /E/C/I".format(os.sep), shell=True)
+        if platform.system() == "Windows":
+            subprocess.check_call("Xcopy .{0}..{0}examples .{0}cuvis{0}examples /E/C/I".format(os.sep), shell=True)
+        elif platform.system() == 'Linux':
+            subprocess.check_call("cp -r .{0}..{0}examples .{0}cuvis{0}examples".format(os.sep), shell=True)
         super(CustomDevelop, self).run()
 
 
