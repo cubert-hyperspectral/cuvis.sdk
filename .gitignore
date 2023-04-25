@@ -33,3 +33,4 @@ var/
 *.egg
 *.in
 cubert_env/
+/Python/src/cuvis/examples/

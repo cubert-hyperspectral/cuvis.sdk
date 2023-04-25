@@ -1,7 +1,8 @@
-from pathlib import Path
-from setuptools import setup, find_packages, Extension
+from setuptools import setup, find_packages
+from setuptools.command import develop
 import os
-import shutil
+import subprocess
+
 
 name = 'cuvis'
 
@@ -43,6 +44,17 @@ else:
     Exception('CUVIS SDK does not seem to exist on this machine! Make sure that the environment variable CUVIS is set.')
 
 
+class CustomDevelop(develop.develop, object):
+    """
+    Class needed for "pip install -e ."
+    """
+
+    def run(self):
+        print("running call: Xcopy .{0}..{0}examples .{0}examples /E/C/I".format(os.sep))
+        subprocess.check_call("Xcopy .{0}..{0}examples .{0}cuvis{0}examples /E/C/I".format(os.sep), shell=True)
+        super(CustomDevelop, self).run()
+
+
 def __createManifest__(subdirs):
     """inventory all files in path and create a manifest file"""
     current = os.path.dirname(__file__)
@@ -69,4 +81,5 @@ setup(
     setup_requires=REQUIREMENTS['setup'],
     install_requires=REQUIREMENTS['install'],
     include_package_data=True,
+    cmdclass={"develop": CustomDevelop, },
 )
