@@ -63,8 +63,10 @@ def __createManifest__(subdirs):
     current = os.path.dirname(__file__)
     relative_paths = [os.path.relpath(path, current) for path in subdirs]
     with open(os.path.join(current, "MANIFEST.in"), "w") as manifest:
-        manifest.writelines("recursive-include {} *.pyd".format(" ".join(relative_paths)))
-        manifest.writelines("recursive-include {} *.so".format(" ".join(relative_paths)))
+        manifest.writelines(
+            "recursive-include {} *.pyd".format(" ".join(relative_paths)))
+        manifest.writelines(
+            "recursive-include {} *.so".format(" ".join(relative_paths)))
 
 
 add_il = os.path.join(os.path.dirname(__file__), "cuvis")
@@ -80,7 +82,9 @@ setup(
     license='',
     author='Ben Mueller @ Cubert GmbH, Ulm, Germany',
     author_email='mueller@cubert-gmbh.com',
-    description='CUVIS Python SDK. Linked to the cuvis installation at {}.'.format(lib_dir),
+    description='CUVIS Python SDK.'
+                ' Linked to the cuvis installation at {}.'.format(
+        lib_dir),
     setup_requires=REQUIREMENTS['setup'],
     install_requires=REQUIREMENTS['install'],
     include_package_data=True,
