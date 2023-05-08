@@ -25,6 +25,7 @@ class Measurement(object):
         self.Assembly = None
         self.Averages = None
         self.IntegrationTime = None
+        self.Distance = None
         self.SerialNumber = None
         self.ProductName = None
         self.ProcessingMode = None
@@ -64,6 +65,8 @@ class Measurement(object):
         self.Assembly = self.__metaData__.assembly
         self.Averages = self.__metaData__.averages
         self.IntegrationTime = self.__metaData__.integration_time
+        if self.__metaData__.distance > 0.0:
+            self.Distance = self.__metaData__.distance
         self.SerialNumber = self.__metaData__.serial_number
         self.ProductName = self.__metaData__.product_name
         self.ProcessingMode = \

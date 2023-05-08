@@ -23,27 +23,16 @@ class Session(object):
         self.__init__(file)
         pass
 
-    def getSizeNonDropped(self):
-        val = cuvis_il.new_p_int()
-        if cuvis_il.status_ok != cuvis_il.cuvis_session_file_get_size_non_dropped(self.__handle__, val):
-            raise SDKException()
-        return cuvis_il.p_int_value(val)
 
-    def getMeasurementsNonDropped(self, frameNo):
+    def getMeasurement(self, frameNo, type = 'session_item_type_frames'):
         _ptr = cuvis_il.new_p_int()
-        if cuvis_il.status_ok != cuvis_il.cuvis_session_file_get_mesu_non_dropped(self.__handle__, frameNo, _ptr):
+        if cuvis_il.status_ok != cuvis_il.cuvis_session_file_get_mesu(self.__handle__, frameNo, type, _ptr):
             raise SDKException()
         return Measurement(cuvis_il.p_int_value(_ptr))
 
-    def getMeasurement(self, frameNo):
-        _ptr = cuvis_il.new_p_int()
-        if cuvis_il.status_ok != cuvis_il.cuvis_session_file_get_mesu(self.__handle__, frameNo, _ptr):
-            raise SDKException()
-        return Measurement(cuvis_il.p_int_value(_ptr))
-
-    def getSize(self):
+    def getSize(self, type = 'session_item_type_frames'):
         val = cuvis_il.new_p_int()
-        if cuvis_il.status_ok != cuvis_il.cuvis_session_file_get_size(self.__handle__, val):
+        if cuvis_il.status_ok != cuvis_il.cuvis_session_file_get_size(self.__handle__, type,  val):
             raise SDKException()
         return cuvis_il.p_int_value(val)
 

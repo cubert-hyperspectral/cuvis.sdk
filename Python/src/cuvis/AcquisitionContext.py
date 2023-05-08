@@ -1,5 +1,6 @@
 from . import cuvis_il
 from .Async import Async, AsyncMesu
+from .Session import Session
 from .Calibration import Calibration
 from .General import ComponentInfo
 from .Measurement import Measurement
@@ -8,12 +9,17 @@ from .cuvis_types import HardwareState, OperationMode
 
 
 class AcquisitionContext(object):
-    def __init__(self, base):
+    def __init__(self, base, simulate=True):
         self.__handle__ = None
 
         if isinstance(base, Calibration):
             _ptr = cuvis_il.new_p_int()
             if cuvis_il.status_ok != cuvis_il.cuvis_acq_cont_create_from_calib(base.__handle__, _ptr):
+                raise SDKException()
+            self.__handle__ = cuvis_il.p_int_value(_ptr)
+        elif isinstance(base, Session):
+            _ptr = cuvis_il.new_p_int()
+            if cuvis_il.status_ok != cuvis_il.cuvis_acq_cont_create_from_session_file(base.__handle__, int(simulate), _ptr):
                 raise SDKException()
             self.__handle__ = cuvis_il.p_int_value(_ptr)
         else:

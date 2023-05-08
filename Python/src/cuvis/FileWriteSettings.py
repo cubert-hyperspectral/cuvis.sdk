@@ -202,7 +202,9 @@ class CubertWorkerSettings(GeneralExportSettings):
         self.WorkerCount = 0
         self.PollInterval = 10
         self.KeepOutOfSequence = False
-        self.WorkerQueueSize = 100
+        self.WorkerQueueHardLimit = 100
+        self.WorkerQueueSoftLimit = 80
+        self.CanDrop = False
 
         self.check_kwargs(kwargs)
 
@@ -211,7 +213,9 @@ class CubertWorkerSettings(GeneralExportSettings):
             self.WorkerCount = wa.worker_count
             self.PollInterval = wa.poll_interval
             self.KeepOutOfSequence = wa.keep_out_of_sequence > 0
-            self.WorkerQueueSize = wa.worker_queue_size
+            self.WorkerQueueHardLimit = wa.worker_queue_hard_limit
+            self.WorkerQueueSoftLimit = wa.worker_queue_soft_limit
+            self.CanDrop = wa.can_drop
         elif len(kwargs) != 0:
             raise SDKException("Could not handle input parameter(s) in CubertWorkerArgs: {}".format(kwargs.keys()))
 
@@ -223,5 +227,7 @@ class CubertWorkerSettings(GeneralExportSettings):
         wa.worker_count = int(self.WorkerCount)
         wa.poll_interval = int(self.PollInterval)
         wa.keep_out_of_sequence = int(self.KeepOutOfSequence)
-        wa.worker_queue_size = int(self.WorkerQueueSize)
+        wa.worker_queue_hard_limit = int(self.WorkerQueueHardLimit)
+        wa.worker_queue_soft_limit = int(self.WorkerQueueSoftLimit)
+        wa.can_drop = int(self.CanDrop)
         return ge, wa
