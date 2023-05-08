@@ -16,11 +16,11 @@ After installing, check out the repository and copy the `_cuvis_pyil` as well as
 From your coding environment open a command-shell and create a virtual environment with the following commands. This will protect your normal Python programming environment from the specific packages the CUVIS SDK needs to run.
 ```
 cd <<cuvis.sdk>>/Python/src
-python -m venv cubert_env
+python -m venv cuvis_env
 # Windows
-.\cubert_env\Scripts\activate
+.\cuvis_env\Scripts\activate
 # Ubuntu
-source ./cubert_env/bin/activate
+source ./cuvis_env/bin/activate
 ```
 
 As prerequisites for building the package, ensure the system has the appropriate build tools installed:
