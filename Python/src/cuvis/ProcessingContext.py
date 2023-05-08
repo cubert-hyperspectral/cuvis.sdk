@@ -1,10 +1,10 @@
 from . import cuvis_il
 from .Calibration import Calibration
+from .FileWriteSettings import CubertProcessingArgs
 from .Measurement import Measurement
-from .Session import Session
+from .SessionFile import SessionFile
 from .cuvis_aux import SDKException
 from .cuvis_types import ReferenceType, ProcessingMode
-from .FileWriteSettings import CubertProcessingArgs
 
 
 class ProcessingContext(object):
@@ -14,71 +14,85 @@ class ProcessingContext(object):
 
         if isinstance(base, Calibration):
             _ptr = cuvis_il.new_p_int()
-            if cuvis_il.status_ok != cuvis_il.cuvis_proc_cont_create_from_calib(base.__handle__, _ptr):
+            if cuvis_il.status_ok != cuvis_il.cuvis_proc_cont_create_from_calib(
+                    base.__handle__, _ptr):
                 raise SDKException()
             self.__handle__ = cuvis_il.p_int_value(_ptr)
-        elif isinstance(base, Session):
+        elif isinstance(base, SessionFile):
             _ptr = cuvis_il.new_p_int()
-            if cuvis_il.status_ok != cuvis_il.cuvis_proc_cont_create_from_session_file(base.__handle__, _ptr):
+            if cuvis_il.status_ok != cuvis_il.cuvis_proc_cont_create_from_session_file(
+                    base.__handle__, _ptr):
                 raise SDKException()
             self.__handle__ = cuvis_il.p_int_value(_ptr)
         elif isinstance(base, Measurement):
             _ptr = cuvis_il.new_p_int()
-            if cuvis_il.status_ok != cuvis_il.cuvis_proc_cont_create_from_mesu(base.__handle__, _ptr):
+            if cuvis_il.status_ok != cuvis_il.cuvis_proc_cont_create_from_mesu(
+                    base.__handle__, _ptr):
                 raise SDKException()
             self.__handle__ = cuvis_il.p_int_value(_ptr)
         else:
-            raise SDKException("could not interpret input of type {}.".format(type(base)))
+            raise SDKException(
+                "could not interpret input of type {}.".format(type(base)))
         pass
 
     def apply(self, mesu):
         if isinstance(mesu, Measurement):
-            if cuvis_il.status_ok != cuvis_il.cuvis_proc_cont_apply(self.__handle__, mesu.__handle__):
+            if cuvis_il.status_ok != cuvis_il.cuvis_proc_cont_apply(
+                    self.__handle__, mesu.__handle__):
                 raise SDKException()
             mesu.refresh()
             return mesu
         else:
-            raise SDKException("Can only apply ProcessingContext to Measurement!")
+            raise SDKException(
+                "Can only apply ProcessingContext to Measurement!")
         pass
 
     def setReference(self, mesu, refType):
-        if cuvis_il.status_ok != cuvis_il.cuvis_proc_cont_set_reference(self.__handle__, mesu.__handle__,
-                                                                        ReferenceType[refType]):
+        if cuvis_il.status_ok != cuvis_il.cuvis_proc_cont_set_reference(
+                self.__handle__, mesu.__handle__,
+                ReferenceType[refType]):
             raise SDKException()
         pass
 
     def clearReference(self, refType):
-        if cuvis_il.status_ok != cuvis_il.cuvis_proc_cont_clear_reference(self.__handle__, ReferenceType[refType]):
+        if cuvis_il.status_ok != cuvis_il.cuvis_proc_cont_clear_reference(
+                self.__handle__, ReferenceType[refType]):
             raise SDKException()
         pass
 
     def getReference(self, refType):
         _ptr = cuvis_il.new_p_int()
-        if cuvis_il.status_ok != cuvis_il.cuvis_proc_cont_get_reference(self.__handle__, _ptr,
-                                                                        ReferenceType[refType]):
+        if cuvis_il.status_ok != cuvis_il.cuvis_proc_cont_get_reference(
+                self.__handle__, _ptr,
+                ReferenceType[refType]):
             raise SDKException()
         return Measurement(cuvis_il.p_int_value(_ptr))
 
     def hasReference(self, refType):
         _ptr = cuvis_il.new_p_int()
-        if cuvis_il.status_ok != cuvis_il.cuvis_proc_cont_has_reference(self.__handle__, ReferenceType[refType],
-                                                                        _ptr):
+        if cuvis_il.status_ok != cuvis_il.cuvis_proc_cont_has_reference(
+                self.__handle__, ReferenceType[refType],
+                _ptr):
             raise SDKException()
         return cuvis_il.p_int_value(_ptr) == 1
 
     def setProcessingMode(self, pMode):
         self.__modeArgs__.processing_mode = ProcessingMode[pMode]
-        if cuvis_il.status_ok != cuvis_il.cuvis_proc_cont_set_args(self.__handle__, self.__modeArgs__):
+        if cuvis_il.status_ok != cuvis_il.cuvis_proc_cont_set_args(
+                self.__handle__, self.__modeArgs__):
             raise SDKException()
         pass
 
     def getProcessingMode(self):
-        return [key for key, val in ProcessingMode.items() if val == self.__modeArgs__.processing_mode][0]
+        return [key for key, val in ProcessingMode.items() if
+                val == self.__modeArgs__.processing_mode][0]
 
     def setProcessingArgs(self, pa):
         _, self.__modeArgs__ = pa.getInternal()
-        if cuvis_il.status_ok != cuvis_il.cuvis_proc_cont_set_args(self.__handle__, self.__modeArgs__):
+        if cuvis_il.status_ok != cuvis_il.cuvis_proc_cont_set_args(
+                self.__handle__, self.__modeArgs__):
             raise SDKException()
+
     pass
 
     def getProcessingArgs(self):
@@ -87,7 +101,8 @@ class ProcessingContext(object):
     def isCapable(self, mesu, pa):
         _, args = pa.getInternal()
         _ptr = cuvis_il.new_p_int()
-        if cuvis_il.status_ok != cuvis_il.cuvis_proc_cont_is_capable(self.__handle__, mesu.__handle__, args, _ptr):
+        if cuvis_il.status_ok != cuvis_il.cuvis_proc_cont_is_capable(
+                self.__handle__, mesu.__handle__, args, _ptr):
             raise SDKException()
         return cuvis_il.p_int_value(_ptr) == 1
 
@@ -99,13 +114,15 @@ class ProcessingContext(object):
         pass
 
     def calcDistance(self, distMM):
-        if cuvis_il.status_ok != cuvis_il.cuvis_proc_cont_calc_distance(self.__handle__, distMM):
+        if cuvis_il.status_ok != cuvis_il.cuvis_proc_cont_calc_distance(
+                self.__handle__, distMM):
             raise SDKException()
         return True
 
     def setRecalib(self, val):
         self.__modeArgs__.allow_recalib = int(val)
-        if cuvis_il.status_ok != cuvis_il.cuvis_proc_cont_set_args(self.__handle__, self.__modeArgs__):
+        if cuvis_il.status_ok != cuvis_il.cuvis_proc_cont_set_args(
+                self.__handle__, self.__modeArgs__):
             raise SDKException()
         pass
 

@@ -1,5 +1,5 @@
-import os
 import datetime
+import os
 from copy import deepcopy
 
 from . import cuvis_il
@@ -36,11 +36,13 @@ class Measurement(object):
             self.__handle__ = base
         elif isinstance(base, str) and os.path.exists(base):
             _ptr = cuvis_il.new_p_int()
-            if cuvis_il.status_ok != cuvis_il.cuvis_measurement_load(base, _ptr):
+            if cuvis_il.status_ok != cuvis_il.cuvis_measurement_load(base,
+                                                                     _ptr):
                 raise SDKException()
             self.__handle__ = cuvis_il.p_int_value(_ptr)
         else:
-            raise SDKException("Could not open Measurement! Either handle not available or file not found!")
+            raise SDKException(
+                "Could not open Measurement! Either handle not available or file not found!")
         self.__metaData__ = cuvis_il.cuvis_mesu_metadata_allocate()
         self.refresh()
         pass
@@ -51,17 +53,20 @@ class Measurement(object):
 
     def refresh(self):
         self.Data = {}
-        if cuvis_il.status_ok != cuvis_il.cuvis_measurement_get_metadata(self.__handle__, self.__metaData__):
+        if cuvis_il.status_ok != cuvis_il.cuvis_measurement_get_metadata(
+                self.__handle__, self.__metaData__):
             raise SDKException
 
         base_datetime = datetime.datetime(1970, 1, 1)
-        self.CaptureTime = base_datetime + datetime.timedelta(milliseconds=self.__metaData__.capture_time)
+        self.CaptureTime = base_datetime + datetime.timedelta(
+            milliseconds=self.__metaData__.capture_time)
         self.MeasurementFlags = self.__metaData__.measurement_flags
         cuvis_il.CUVIS_MESU_FLAG_DARK_INTTIME
-        #TODO: Flags should be more and better info!
+        # TODO: Flags should be more and better info!
         self.Path = self.__metaData__.path
         self.Comment = self.__metaData__.comment
-        self.FactoryCalibration = base_datetime + datetime.timedelta(milliseconds=self.__metaData__.factory_calibration)
+        self.FactoryCalibration = base_datetime + datetime.timedelta(
+            milliseconds=self.__metaData__.factory_calibration)
         self.Assembly = self.__metaData__.assembly
         self.Averages = self.__metaData__.averages
         self.IntegrationTime = self.__metaData__.integration_time
@@ -70,17 +75,20 @@ class Measurement(object):
         self.SerialNumber = self.__metaData__.serial_number
         self.ProductName = self.__metaData__.product_name
         self.ProcessingMode = \
-            [key for key, val in ProcessingMode.items() if val == self.__metaData__.processing_mode][0]
+            [key for key, val in ProcessingMode.items() if
+             val == self.__metaData__.processing_mode][0]
         self.Name = self.__metaData__.name
-        # self.Session = SessionData(self.__metaData__.session_info.name, self.__metaData__.session_info.session_no,
+        # self.SessionFile = SessionData(self.__metaData__.session_info.name, self.__metaData__.session_info.session_no,
         #                           self.__metaData__.session_info.sequence_no)
 
         pcount = cuvis_il.new_p_int()
-        if cuvis_il.status_ok != cuvis_il.cuvis_measurement_get_data_count(self.__handle__, pcount):
+        if cuvis_il.status_ok != cuvis_il.cuvis_measurement_get_data_count(
+                self.__handle__, pcount):
             raise SDKException()
         for ind in range(cuvis_il.p_int_value(pcount)):
             pType = cuvis_il.new_p_cuvis_data_type_t()
-            key = cuvis_il.cuvis_measurement_get_data_info_swig(self.__handle__, pType, ind)
+            key = cuvis_il.cuvis_measurement_get_data_info_swig(self.__handle__,
+                                                                pType, ind)
             cdtype = cuvis_il.p_cuvis_data_type_t_value(pType)
             if cdtype == cuvis_il.data_type_image:
                 data = cuvis_il.cuvis_imbuffer_t()
@@ -88,30 +96,37 @@ class Measurement(object):
                                                           key,
                                                           data)
                 t0 = datetime.datetime.now()
-                self.Data.update({key: ImageData(img_buf=data, dformat=DataFormat[data.format])})
+                self.Data.update({key: ImageData(img_buf=data,
+                                                 dformat=DataFormat[
+                                                     data.format])})
                 # print("image loading time: {}".format(datetime.datetime.now() - t0))
             elif cdtype == cuvis_il.data_type_string:
-                val = cuvis_il.cuvis_measurement_get_data_string_swig(self.__handle__, key)
+                val = cuvis_il.cuvis_measurement_get_data_string_swig(
+                    self.__handle__, key)
                 self.Data.update({key: val})
             elif cdtype == cuvis_il.data_type_gps:
                 gps = cuvis_il.cuvis_gps_t()
-                cuvis_il.cuvis_measurement_get_data_gps(self.__handle__, key, gps)
+                cuvis_il.cuvis_measurement_get_data_gps(self.__handle__, key,
+                                                        gps)
                 self.Data.update({key: gps})
             elif cdtype == cuvis_il.data_type_sensor_info:
                 info = cuvis_il.cuvis_sensor_info_t()
-                cuvis_il.cuvis_measurement_get_data_sensor_info(self.__handle__, key, info)
+                cuvis_il.cuvis_measurement_get_data_sensor_info(self.__handle__,
+                                                                key, info)
                 self.Data.update({key: info})
             else:
                 self.Data.update({key: "Not Implemented!"})
 
     def save(self, saveargs):
         ge, sa = saveargs.getInternal()
-        if cuvis_il.status_ok != cuvis_il.cuvis_measurement_save(self.__handle__, ge.export_dir, sa):
+        if cuvis_il.status_ok != cuvis_il.cuvis_measurement_save(
+                self.__handle__, ge.export_dir, sa):
             raise SDKException()
         pass
 
     def set_name(self, name):  # done
-        if cuvis_il.status_ok != cuvis_il.cuvis_measurement_set_name(self.__handle__, name):
+        if cuvis_il.status_ok != cuvis_il.cuvis_measurement_set_name(
+                self.__handle__, name):
             raise SDKException()
         self.Name = name
         pass
@@ -131,22 +146,26 @@ class Measurement(object):
         return_dict = {}
         for att in self.Data["IMAGE_info"].__dir__():
             if not (att.startswith("__") or att.startswith("this")):
-                return_dict.update({att: self.Data["IMAGE_info"].__getattribute__(att)})
+                return_dict.update(
+                    {att: self.Data["IMAGE_info"].__getattribute__(att)})
         try:
             return_dict["readout_time"] = str(
-                base_datetime + datetime.timedelta(milliseconds=return_dict["readout_time"]))
+                base_datetime + datetime.timedelta(
+                    milliseconds=return_dict["readout_time"]))
         except:
             print("No human readable readout_time available!")
         return return_dict
 
     def get_capabilities(self):
         _ptr = cuvis_il.new_p_int()
-        if cuvis_il.status_ok != cuvis_il.cuvis_measurement_get_capabilities(self.__handle__, _ptr):
+        if cuvis_il.status_ok != cuvis_il.cuvis_measurement_get_capabilities(
+                self.__handle__, _ptr):
             raise SDKException()
         return __bit_translate__(cuvis_il.p_int_value(_ptr))
 
     def set_comment(self, comment):
-        if cuvis_il.status_ok != cuvis_il.cuvis_measurement_set_comment(self.__handle__, comment):
+        if cuvis_il.status_ok != cuvis_il.cuvis_measurement_set_comment(
+                self.__handle__, comment):
             raise SDKException()
         self.Comment = comment
         self.__metaData__.comment = comment
@@ -156,7 +175,8 @@ class Measurement(object):
         return_MD = __object_declassifier__(self.__metaData__)
         for k, val in return_MD.items():
             if k in ["capture_time", "factory_calibration"]:
-                return_MD[k] = str(base_datetime + datetime.timedelta(milliseconds=val))
+                return_MD[k] = str(
+                    base_datetime + datetime.timedelta(milliseconds=val))
         return_MD.pop("this")
         return_MD.pop("thisown")
         return return_MD
@@ -193,8 +213,9 @@ class Measurement(object):
 
     def __deepcopy__(self, memo):
         _ptr = cuvis_il.new_p_int()
-        if cuvis_il.status_ok != cuvis_il.cuvis_measurement_deep_copy(self.__handle__, _ptr):
-           raise SDKException()
+        if cuvis_il.status_ok != cuvis_il.cuvis_measurement_deep_copy(
+                self.__handle__, _ptr):
+            raise SDKException()
         copy = Measurement(cuvis_il.p_int_value(_ptr))
         return copy
 
@@ -211,8 +232,9 @@ class Measurement(object):
                     setattr(res, k, None)
                     res.__metaData__ = cuvis_il.cuvis_mesu_metadata_t()
                     res.__metaData__ = cuvis_il.cuvis_mesu_metadata_allocate()
-                    if cuvis_il.status_ok != cuvis_il.cuvis_measurement_get_metadata(res.__handle__,
-                                                                                     res.__metaData__):
+                    if cuvis_il.status_ok != cuvis_il.cuvis_measurement_get_metadata(
+                            res.__handle__,
+                            res.__metaData__):
                         raise SDKException
                     else:
                         print("__metaData__ set!")
@@ -254,10 +276,13 @@ class ImageData(object):
             self.channels = img_buf.channels
 
             if img_buf.wavelength is not None:
-                self.wavelength = [cuvis_il.p_unsigned_int_getitem(img_buf.wavelength, z) for z in
-                                   range(self.channels)]
+                self.wavelength = [
+                    cuvis_il.p_unsigned_int_getitem(img_buf.wavelength, z) for z
+                    in
+                    range(self.channels)]
 
             # print("got image of size {}.".format(self.array.shape))
 
         else:
-            raise TypeError("Wrong data type for image buffer: {}".format(type(img_buf)))
+            raise TypeError(
+                "Wrong data type for image buffer: {}".format(type(img_buf)))
