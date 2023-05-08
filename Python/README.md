@@ -13,7 +13,7 @@ After installing, check out the repository and copy the `_cuvis_pyil` as well as
 
 ### Virtual Environment Creation
 
-Create a virtual environment with the following commands. This will protect your normal Python programming environment from the specific packages the CUVIS SDK needs to run.
+From your coding environment open a command-shell and create a virtual environment with the following commands. This will protect your normal Python programming environment from the specific packages the CUVIS SDK needs to run.
 ```
 cd <<cuvis.sdk>>/Python/src
 python -m venv cubert_env
@@ -51,6 +51,6 @@ Jupyter notebooks are interactive, web-based Python interpreters. There are exam
 ```
 jupyter nbextension enable --py widgetsnbextension
 ```
-You are now ready to launch a notebook. `cd notebooks` and run `jupyter-notebook` to start the Jupyter webserver.
+You are now ready to launch a notebook. `cd <<cuvis.sdk>>\Python\notebooks` and run `jupyter-notebook` to start the Jupyter webserver.
 
 In browser, select `Hyperspectral_Data_Exploration.ipynb` to open the notebook. A great beginner guide to Jupyter notebooks is available from [*Python Like You Mean It*](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Jupyter_Notebooks.html).
