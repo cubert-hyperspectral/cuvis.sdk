@@ -7,9 +7,11 @@
 *.lib
 *.exe
 *.obj
+*.bak
 .ipynb_checkpoints
 cuvis_il.py
 .eggs
+.idea
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -34,3 +36,4 @@ var/
 *.in
 cubert_env/
 /Python/src/cuvis/examples/
+/Python/src/cuvis/Measurement.py.bak
