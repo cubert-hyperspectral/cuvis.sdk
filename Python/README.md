@@ -27,10 +27,14 @@ As prerequisites for building the package, ensure the system has the appropriate
 `pip install wheel setuptools==45 setuptools_scm`
 
 Then navigate from within your coding environment to `cuvis.sdk/Python/src` and run 
-`pip install --editable .`
+`pip install .`
 in the command line. 
 
+## Developer Mode
+You can install the package in developer mode which allows for edits in the sourcecode (for debugging purposes, for example).
+For this mode you need to run the command `pip install --editable .`
 The editable/develop option also makes the examples available as editable submodule cuvis.examples.
+Note: The cuvis package methods can easily be overwritten in this mode. Be aware of this possibility.
 
 ## Linux Specific Instructions
 
