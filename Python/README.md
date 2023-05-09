@@ -30,7 +30,7 @@ Then navigate from within your coding environment to `cuvis.sdk/Python/src` and 
 `pip install .`
 in the command line. 
 
-## Developer Mode
+### Developer Mode
 You can install the package in developer mode which allows for edits in the sourcecode (for debugging purposes, for example).
 For this mode you need to run the command `pip install --editable .`
 The editable/develop option also makes the examples available as editable submodule cuvis.examples.
