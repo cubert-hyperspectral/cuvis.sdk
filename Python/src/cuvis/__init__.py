@@ -3,7 +3,7 @@ import platform
 import sys
 
 lib_dir = os.getenv("CUVIS")
-if lib_dir == None:
+if lib_dir is None:
     print('CUVIS environmental variable is not set!')
     sys.exit(1)
 if platform.system() == "Windows":

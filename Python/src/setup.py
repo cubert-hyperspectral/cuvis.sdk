@@ -17,7 +17,7 @@ REQUIREMENTS = {
     'install': [
         'Cpython',
         'setuptools < 64',
-        'numpy >= 1.23',
+        'numpy == 1.22.4',
         'matplotlib',
         'DateTime',
         'psutil',
