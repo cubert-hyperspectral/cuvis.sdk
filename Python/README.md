@@ -34,6 +34,7 @@ in the command line.
 You can install the package in developer mode which allows for edits in the sourcecode (for debugging purposes, for example).
 For this mode you need to run the command `pip install --editable .`
 The editable/develop option also makes the examples available as editable submodule cuvis.examples.
+
 Note: The cuvis package methods can easily be overwritten in this mode. Be aware of this possibility.
 
 ## Linux Specific Instructions
