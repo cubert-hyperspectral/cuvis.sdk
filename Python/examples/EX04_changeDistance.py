@@ -1,22 +1,25 @@
 import os
-import cuvis
 import platform
+
+import cuvis
 
 if platform.system() == "Windows":
     lib_dir = os.getenv("CUVIS")
-    data_dir = os.path.normpath(os.path.join(lib_dir, os.path.pardir, "sdk", "sample_data", "set1"))
+    data_dir = os.path.normpath(
+        os.path.join(lib_dir, os.path.pardir, "sdk", "sample_data", "set1"))
 elif platform.system() == "Linux":
     lib_dir = os.getenv("CUVIS_DATA")
     data_dir = os.path.normpath(os.path.join(lib_dir, "sample_data", "set1"))
 
-def run_example_changeDistance(userSettingsDir=os.path.join(data_dir, "settings"),
-                               measurementLoc=os.path.join(data_dir,
-                                                           "vegetation_000",
-                                                           "vegetation_000_000_snapshot.cu3"),
-                               factoryDir=os.path.join(data_dir, "factory"),
-                               distance=1000,
-                               exportDir=os.path.join(os.getcwd(), "EX04")):
 
+def run_example_changeDistance(
+        userSettingsDir=os.path.join(data_dir, "settings"),
+        measurementLoc=os.path.join(data_dir,
+                                    "vegetation_000",
+                                    "vegetation_000_000_snapshot.cu3"),
+        factoryDir=os.path.join(data_dir, "factory"),
+        distance=1000,
+        exportDir=os.path.join(os.getcwd(), "EX04")):
     print("loading user settings...")
     settings = cuvis.General(userSettingsDir)
     settings.setLogLevel("info")
@@ -40,10 +43,15 @@ def run_example_changeDistance(userSettingsDir=os.path.join(data_dir, "settings"
 
     saveArgs = cuvis.CubertSaveArgs(ExportDir=exportDir, AllowOverwrite=True)
 
-    assert processingContext.isCapable(mesu, processingContext.getProcessingArgs())
+    assert processingContext.isCapable(mesu,
+                                       processingContext.getProcessingArgs())
 
     print("changing distance...")
+    print("original distance...")
+    print(mesu.get_metadata()["distance"])
     processingContext.apply(mesu)
+    print("new distance...")
+    print(mesu.get_metadata()["distance"])
     print("saving...")
     mesu.save(saveArgs)
     print("finished.")
@@ -56,14 +64,16 @@ if __name__ == "__main__":
     print("Example 04: Change distance. Please provide:")
 
     def_input = os.path.join(data_dir, "settings")
-    userSettingsDir = input("User settings directory (default: {}): ".format(def_input))
+    userSettingsDir = input(
+        "User settings directory (default: {}): ".format(def_input))
     if userSettingsDir.strip().lower() in ["", "default"]:
         userSettingsDir = def_input
 
     def_input = os.path.join(data_dir,
                              "vegetation_000",
                              "vegetation_000_000_snapshot.cu3")
-    measurementLoc = input("Measurement file (.cu3) (default: {}): ".format(def_input))
+    measurementLoc = input(
+        "Measurement file (.cu3) (default: {}): ".format(def_input))
     if measurementLoc.strip().lower() in ["", "default"]:
         measurementLoc = def_input
 
@@ -79,8 +89,10 @@ if __name__ == "__main__":
     distance = float(distance)
 
     def_input = os.path.join(os.getcwd(), "EX04")
-    exportDir = input("Name of export directory (default: {}): ".format(def_input))
+    exportDir = input(
+        "Name of export directory (default: {}): ".format(def_input))
     if exportDir.strip().lower() in ["", "default"]:
         exportDir = def_input
 
-    run_example_changeDistance(userSettingsDir, measurementLoc, factoryDir, distance, exportDir)
+    run_example_changeDistance(userSettingsDir, measurementLoc, factoryDir,
+                               distance, exportDir)
