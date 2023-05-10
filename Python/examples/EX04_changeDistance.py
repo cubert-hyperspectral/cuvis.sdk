@@ -37,7 +37,7 @@ def run_example_changeDistance(
     processingContext = cuvis.ProcessingContext(calibration)
 
     print("setting distance...")
-    processingContext.calcDistance(1000)
+    processingContext.calcDistance(distance)
 
     processingContext.setProcessingMode("Raw")
 
