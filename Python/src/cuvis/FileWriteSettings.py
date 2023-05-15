@@ -1,6 +1,8 @@
 from . import cuvis_il
 from .cuvis_aux import SDKException
-from .cuvis_types import PanSharpeningInterpolationType, PanSharpeningAlgorithm, TiffCompressionMode, TiffFormat, \
+from .cuvis_types import PanSharpeningInterpolationType, \
+    PanSharpeningAlgorithm, \
+    TiffCompressionMode, TiffFormat, \
     OperationMode, ProcessingMode
 
 
@@ -24,7 +26,9 @@ class GeneralExportSettings(object):
 
         self.check_kwargs(kwargs)
 
-        if len(kwargs) == 1 and isinstance(list(kwargs.values())[0], cuvis_il.cuvis_export_general_settings_t):
+        if len(kwargs) == 1 and isinstance(
+                list(kwargs.values())[0],
+                cuvis_il.cuvis_export_general_settings_t):
             ge = list(kwargs.values())[0]
             self.ExportDir = ge.export_dir
             self.ChannelSelection = ge.channel_selection
@@ -34,26 +38,30 @@ class GeneralExportSettings(object):
                 [key for key, val in PanSharpeningInterpolationType.items() if
                  val == ge.pan_interpolation_type][0]
             self.PanSharpeningAlgorithmType = \
-                [key for key, val in PanSharpeningAlgorithm.items() if val == ge.pan_algorithm][0]
+                [key for key, val in PanSharpeningAlgorithm.items() if
+                 val == ge.pan_algorithm][0]
             self.AddPan = ge.add_pan > 0
             self.AddFullscalePan = ge.add_fullscale_pan > 0
             self.Permissive = ge.permissive > 0
         # elif len(kwargs) != 0:
-        #    raise SDKException("Could not handle every input parameter in GeneralExportSettings!")
+        #    raise SDKException("Could not handle every
+        #    input parameter in GeneralExportSettings!")
 
         pass
 
     def getInternal(self):
         ge = cuvis_il.cuvis_export_general_settings_t()
-        ge.export_dir = self.ExportDir
-        ge.channel_selection = self.ChannelSelection
-        ge.spectra_multiplier = float(self.SpectraMultiplier)
-        ge.pan_scale = float(self.PanScale)
-        ge.pan_interpolation_type = PanSharpeningInterpolationType[self.PanSharpeningInterpolationType]
-        ge.pan_algorithm = PanSharpeningAlgorithm[self.PanSharpeningAlgorithmType]
-        ge.add_pan = int(self.AddPan)
-        ge.add_fullscale_pan = int(self.AddFullscalePan)
-        ge.permissive = int(self.Permissive)
+        ge.__setattr__("export_dir", self.ExportDir)
+        ge.__setattr__("channel_selection", self.ChannelSelection)
+        ge.__setattr__("spectra_multiplier", float(self.SpectraMultiplier))
+        ge.__setattr__("pan_scale", float(self.PanScale))
+        ge.__setattr__("pan_interpolation_type", PanSharpeningInterpolationType[
+            self.PanSharpeningInterpolationType])
+        ge.__setattr__("pan_algorithm", PanSharpeningAlgorithm[
+            self.PanSharpeningAlgorithmType])
+        ge.__setattr__("add_pan", int(self.AddPan))
+        ge.__setattr__("add_fullscale_pan", int(self.AddFullscalePan))
+        ge.__setattr__("permissive", int(self.Permissive))
         return ge
 
 
@@ -77,20 +85,26 @@ class TiffExportSettings(GeneralExportSettings):
 
         self.check_kwargs(kwargs)
 
-        if len(kwargs) == 1 and isinstance(list(kwargs.values())[0], cuvis_il.cuvis_export_tiff_settings_t):
+        if len(kwargs) == 1 and isinstance(list(kwargs.values())[0],
+                                           cuvis_il.cuvis_export_tiff_settings_t):
             ts = list(kwargs.values())[0]
             self.CompressionMode = \
-                [key for key, val in TiffCompressionMode.items() if val == ts.compression_mode][0]
-            self.Format = [key for key, val in TiffFormat.items() if val == ts.format][0]
+                [key for key, val in TiffCompressionMode.items() if
+                 val == ts.compression_mode][0]
+            self.Format = \
+                [key for key, val in TiffFormat.items() if val == ts.format][0]
         elif len(kwargs) != 0:
-            raise SDKException("Could not handle input parameter(s) in TiffExportSettings: {}".format(kwargs.keys()))
+            raise SDKException(
+                "Could not handle input parameter(s) in "
+                "TiffExportSettings: {}".format(kwargs.keys()))
         pass
 
     def getInternal(self):
         ge = super().getInternal()
         ts = cuvis_il.cuvis_export_tiff_settings_t()
-        ts.compression_mode = TiffCompressionMode[self.CompressionMode]
-        ts.format = TiffFormat[self.Format]
+        ts.__setattr__("compression_mode",
+                       TiffCompressionMode[self.CompressionMode])
+        ts.__setattr__("format", TiffFormat[self.Format])
         return ge, ts
 
 
@@ -101,11 +115,14 @@ class ViewExportSettings(GeneralExportSettings):
 
         self.check_kwargs(kwargs)
 
-        if len(kwargs) == 1 and isinstance(list(kwargs.values())[0], cuvis_il.cuvis_export_view_settings_t):
+        if len(kwargs) == 1 and isinstance(list(kwargs.values())[0],
+                                           cuvis_il.cuvis_export_view_settings_t):
             vs = list(kwargs.values())[0]
             self.Userplugin = vs.userplugin
         elif len(kwargs) != 0:
-            raise SDKException("Could not handle input parameter(s) in ViewExportSettings: {}".format(kwargs.keys()))
+            raise SDKException(
+                "Could not handle input parameter(s) in ViewExportSettings: {}".format(
+                    kwargs.keys()))
         pass
 
         if '<userplugin xmlns="http://cubert-gmbh.de/user/plugin/userplugin.xsd">' not in self.Userplugin:
@@ -114,12 +131,13 @@ class ViewExportSettings(GeneralExportSettings):
                     userplugintmp = f.readlines()
                 self.Userplugin = "".join(userplugintmp)
             except:
-                raise ValueError("Could not read plugin from {}".format(self.Userplugin))
+                raise ValueError(
+                    "Could not read plugin from {}".format(self.Userplugin))
 
     def getInternal(self):
         ge = super().getInternal()
         vs = cuvis_il.cuvis_export_view_settings_t()
-        vs.userplugin = self.Userplugin
+        vs.__setattr__("userplugin", self.Userplugin)
         return ge, vs
 
 
@@ -139,36 +157,41 @@ class CubertSaveArgs(GeneralExportSettings):
 
         self.check_kwargs(kwargs)
 
-        if len(kwargs) == 1 and isinstance(list(kwargs.values())[0], cuvis_il.cuvis_save_args_t):
+        if len(kwargs) == 1 and isinstance(list(kwargs.values())[0],
+                                           cuvis_il.cuvis_save_args_t):
             sa = list(kwargs.values())[0]
             self.AllowOverwrite = sa.allow_overwrite > 0
             self.AllowFragmentation = sa.allow_fragmentation > 0
             self.AllowDrop = sa.allow_drop > 0
             self.AllowSessionFile = sa.allow_session_file > 0
             self.AllowInfoFile = sa.allow_info_file > 0
-            self.OperationMode = [k for k, v in OperationMode.items() if v == sa.operation_mode][0]
+            self.OperationMode = \
+                [k for k, v in OperationMode.items() if v == sa.operation_mode][
+                    0]
             self.FPS = sa.fps
             self.SoftLimit = sa.soft_limit
             self.HardLimit = sa.hard_limit
             self.MaxBuftime = sa.max_buftime
         elif len(kwargs) != 0:
-            raise SDKException("Could not handle input parameter(s) in CubertSaveArgs: {}".format(kwargs.keys()))
+            raise SDKException(
+                "Could not handle input parameter(s) in CubertSaveArgs: {}".format(
+                    kwargs.keys()))
 
         pass
 
     def getInternal(self):
         ge = super().getInternal()
         sa = cuvis_il.cuvis_save_args_t()
-        sa.allow_overwrite = int(self.AllowOverwrite)
-        sa.allow_fragmentation = int(self.AllowFragmentation)
-        sa.allow_drop = int(self.AllowDrop)
-        sa.allow_session_file = int(self.AllowSessionFile)
-        sa.allow_info_file = int(self.AllowInfoFile)
-        sa.operation_mode = OperationMode[self.OperationMode]
-        sa.fps = int(self.FPS)
-        sa.soft_limit = int(self.SoftLimit)
-        sa.hard_limit = int(self.HardLimit)
-        sa.max_buftime = int(self.MaxBuftime)
+        sa.__setattr__("allow_overwrite", int(self.AllowOverwrite))
+        sa.__setattr__("allow_fragmentation", int(self.AllowFragmentation))
+        sa.__setattr__("allow_drop", int(self.AllowDrop))
+        sa.__setattr__("allow_session_file", int(self.AllowSessionFile))
+        sa.__setattr__("allow_info_file", int(self.AllowInfoFile))
+        sa.__setattr__("operation_mode", OperationMode[self.OperationMode])
+        sa.__setattr__("fps", int(self.FPS))
+        sa.__setattr__("soft_limit", int(self.SoftLimit))
+        sa.__setattr__("hard_limit", int(self.HardLimit))
+        sa.__setattr__("max_buftime", int(self.MaxBuftime))
         return ge, sa
 
 
@@ -180,19 +203,25 @@ class CubertProcessingArgs(GeneralExportSettings):
 
         self.check_kwargs(kwargs)
 
-        if len(kwargs) == 1 and isinstance(list(kwargs.values())[0], cuvis_il.cuvis_proc_args_t):
+        if len(kwargs) == 1 and isinstance(list(kwargs.values())[0],
+                                           cuvis_il.cuvis_proc_args_t):
             pa = list(kwargs.values())[0]
             self.AllowRecalib = pa.allow_recalib > 0
-            self.ProcessingMode = [k for k, v in ProcessingMode.items() if v == pa.processing_mode][0]
+            self.ProcessingMode = \
+                [k for k, v in ProcessingMode.items() if
+                 v == pa.processing_mode][0]
         elif len(kwargs) != 0:
-            raise SDKException("Could not handle input parameter(s) in CubertProcessingArgs: {}".format(kwargs.keys()))
+            raise SDKException(
+                "Could not handle input parameter(s) in CubertProcessingArgs: {}".format(
+                    kwargs.keys()))
         pass
 
     def getInternal(self):
         ge = super().getInternal()
         pa = cuvis_il.cuvis_proc_args_t()
-        pa.allow_recalib = int(self.AllowRecalib)
-        pa.processing_mode = int(ProcessingMode[self.ProcessingMode])
+        pa.__setattr__("allow_recalib", int(self.AllowRecalib))
+        pa.__setattr__("processing_mode",
+                       int(ProcessingMode[self.ProcessingMode]))
         return ge, pa
 
 
@@ -206,22 +235,25 @@ class CubertWorkerSettings(GeneralExportSettings):
 
         self.check_kwargs(kwargs)
 
-        if len(kwargs) == 1 and isinstance(list(kwargs.values())[0], cuvis_il.cuvis_worker_settings_t):
+        if len(kwargs) == 1 and isinstance(list(kwargs.values())[0],
+                                           cuvis_il.cuvis_worker_settings_t):
             wa = list(kwargs.values())[0]
             self.WorkerCount = wa.worker_count
             self.PollInterval = wa.poll_interval
             self.KeepOutOfSequence = wa.keep_out_of_sequence > 0
             self.WorkerQueueSize = wa.worker_queue_size
         elif len(kwargs) != 0:
-            raise SDKException("Could not handle input parameter(s) in CubertWorkerArgs: {}".format(kwargs.keys()))
+            raise SDKException(
+                "Could not handle input parameter(s) in CubertWorkerArgs: {}".format(
+                    kwargs.keys()))
 
         pass
 
     def getInternal(self):
         ge = super().getInternal()
         wa = cuvis_il.cuvis_worker_settings_t()
-        wa.worker_count = int(self.WorkerCount)
-        wa.poll_interval = int(self.PollInterval)
-        wa.keep_out_of_sequence = int(self.KeepOutOfSequence)
-        wa.worker_queue_size = int(self.WorkerQueueSize)
+        wa.__setattr__("worker_count", int(self.WorkerCount))
+        wa.__setattr__("poll_interval", int(self.PollInterval))
+        wa.__setattr__("keep_out_of_sequence", int(self.KeepOutOfSequence))
+        wa.__setattr__("worker_queue_size", int(self.WorkerQueueSize))
         return ge, wa
