@@ -123,14 +123,14 @@ class Measurement(object):
             raise SDKException()
         pass
 
-    def set_name(self, name):
+    def setName(self, name):
         if cuvis_il.status_ok != cuvis_il.cuvis_measurement_set_name(
                 self.__handle__, name):
             raise SDKException()
         self.Name = name
         pass
 
-    def get_thumbnail(self):
+    def getThumbnail(self):
         thumbnail = [val for key, val in self.Data.items() if "view" in key]
         if len(thumbnail) == 0:
             print("No thumbnail available. Use cube instead!")
@@ -141,7 +141,7 @@ class Measurement(object):
             shapes = [th.array.shape for th in thumbnail]
             return thumbnail[shapes.index(min(shapes))]
 
-    def get_data_info(self):
+    def getDataInfo(self):
         return_dict = {}
         for att in self.Data["IMAGE_info"].__dir__():
             if not (att.startswith("__") or att.startswith("this")):
@@ -155,14 +155,14 @@ class Measurement(object):
             print("No human readable readout_time available!")
         return return_dict
 
-    def get_capabilities(self):
+    def getCapabilities(self):
         _ptr = cuvis_il.new_p_int()
         if cuvis_il.status_ok != cuvis_il.cuvis_measurement_get_capabilities(
                 self.__handle__, _ptr):
             raise SDKException()
         return __bit_translate__(cuvis_il.p_int_value(_ptr))
 
-    def get_calibration_id(self):
+    def getCalibrationID(self):
         _id = cuvis_il.new_p_int()
         # TODO: BREAKS! what must id be for getting it
         if cuvis_il.status_ok != cuvis_il.cuvis_measurement_get_calib_id(
@@ -178,7 +178,7 @@ class Measurement(object):
         self.__metaData__.comment = comment
         pass
 
-    def get_metadata(self):
+    def getMetadata(self):
         return_MD = __object_declassifier__(self.__metaData__)
         for k, val in return_MD.items():
             if k in ["capture_time", "factory_calibration"]:
@@ -188,18 +188,18 @@ class Measurement(object):
         return_MD.pop("thisown")
         return return_MD
 
-    def get_data_count(self):  # done
+    def getDataCount(self):  # done
         out = cuvis_il.new_p_int()
         cuvis_il.cuvis_measurement_get_data_count(self.__handle__, out)
         return cuvis_il.p_int_value(out)
 
-    def clear_cube(self):
+    def clearCube(self):
         if cuvis_il.status_ok != cuvis_il.cuvis_measurement_clear_cube(
                 self.__handle__):
             raise SDKException()
         pass
 
-    def clear_implicit_reference(self, ref_type):
+    def clearImplicitReference(self, ref_type):
         if cuvis_il.status_ok != \
                 cuvis_il.cuvis_measurement_clear_implicit_reference(
                     self.__handle__, ref_type):

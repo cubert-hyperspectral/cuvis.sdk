@@ -1,16 +1,34 @@
+import os
+from pathlib import Path
+
 from . import cuvis_il
+from .SessionFile import SessionFile
 from .cuvis_aux import SDKException
 from .cuvis_types import OperationMode
 
 
 class Calibration(object):
-    def __init__(self, calibdir=None):
+
+    def __init__(self, base, **kwargs):
         self.__handle__ = None
-        _ptr = cuvis_il.new_p_int()
-        if cuvis_il.status_ok != cuvis_il.cuvis_calib_create_from_path(calibdir,
-                                                                       _ptr):
-            raise SDKException()
-        self.__handle__ = cuvis_il.p_int_value(_ptr)
+
+        if isinstance(Path(base), Path) and os.path.exists(
+                os.path.dirname(
+                    Path(base))):
+            _ptr = cuvis_il.new_p_int()
+            if cuvis_il.status_ok != cuvis_il.cuvis_calib_create_from_path(
+                    base, _ptr):
+                raise SDKException()
+            self.__handle__ = cuvis_il.p_int_value(_ptr)
+        if isinstance(base, SessionFile):
+            _ptr = cuvis_il.new_p_int()
+            if cuvis_il.status_ok != \
+                    cuvis_il.cuvis_calib_create_from_session_file(
+                        base.__handle__, _ptr):
+                raise SDKException()
+        else:
+            raise SDKException(
+                "Could not interpret input of type {}.".format(type(base)))
         pass
 
     def getCapabilities(self):
@@ -29,6 +47,14 @@ class Calibration(object):
             except SDKException:
                 raise SDKException()
         return Usable_Modes  # __bit_translate__(cuvis_il.p_int_value(_ptr))
+
+    def getID(self):
+        _id = cuvis_il.new_p_int()
+        # TODO: BREAKS! what must id be for getting it
+        if cuvis_il.status_ok != cuvis_il.cuvis_calib_get_id(
+                self.__handle__, _id):
+            raise SDKException()
+        return _id
 
     def __del__(self):
         _ptr = cuvis_il.new_p_int()
