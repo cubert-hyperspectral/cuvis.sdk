@@ -1,13 +1,15 @@
-import cuvis
-import time
 import os
-from datetime import datetime, timedelta
-import sys
 import platform
+import sys
+import time
+from datetime import datetime, timedelta
+
+import cuvis
 
 if platform.system() == "Windows":
     lib_dir = os.getenv("CUVIS")
-    data_dir = os.path.normpath(os.path.join(lib_dir, os.path.pardir, "sdk", "sample_data", "set1"))
+    data_dir = os.path.normpath(
+        os.path.join(lib_dir, os.path.pardir, "sdk", "sample_data", "set1"))
 elif platform.system() == "Linux":
     lib_dir = os.getenv("CUVIS_DATA")
     data_dir = os.path.normpath(os.path.join(lib_dir, "sample_data", "set1"))
@@ -57,10 +59,11 @@ def run_example_recordVideo(userSettingsDir=os.path.join(data_dir, "settings"),
     for i in range(count):
         info = acquisitionContext.getComponentInfo(i)
         isOnline = acquisitionContext.getOnline(i)
-        print("Component {} is {}".format(info.DisplayName, "online" if isOnline else "offline"))
+        print("Component {} is {}".format(info.DisplayName,
+                                          "online" if isOnline else "offline"))
         print(" -- info:        {}".format(info.SensorInfo))
         print(" -- use:         {}".format(info.UserField))
-        print(" -- pixelformat: {}".format(info.Pixelformat))
+        print(" -- pixelformat: {}".format(info.PixelFormat))
 
     print("initializing hardware...")
     acquisitionContext.setIntegrationTime(exposure)
@@ -71,9 +74,9 @@ def run_example_recordVideo(userSettingsDir=os.path.join(data_dir, "settings"),
 
     print("configuring worker...")
     workerSettings = cuvis.CubertWorkerSettings(KeepOutOfSequence=0,
-                                            PollInterval=10,
-                                            WorkerCount=0,
-                                            WorkerQueueSize=100)
+                                                PollInterval=10,
+                                                WorkerCount=0,
+                                                WorkerQueueSize=100)
     worker = cuvis.Worker(workerSettings)
     worker.setAcquisitionContext(acquisitionContext)
     worker.setProcessingContext(processingContext)
@@ -92,7 +95,8 @@ def run_example_recordVideo(userSettingsDir=os.path.join(data_dir, "settings"),
         workerContainer = worker.getNextResult()
         if workerContainer["Measurement"].Data is not None:
             print("current handle index: {}".format(
-                workerContainer["Measurement"].get_metadata()["session_info_sequence_no"]))
+                workerContainer["Measurement"].get_metadata()[
+                    "session_info_sequence_no"]))
             if worker.getQueueSize() == worker.getQueueUsed():
                 print("worker queue is full! Main() loop can not keep up!")
                 break
@@ -111,7 +115,8 @@ if __name__ == "__main__":
     print("Example 06: Record video file. Please provide:")
 
     def_input = os.path.join(data_dir, "settings")
-    userSettingsDir = input("User settings directory (default: {}): ".format(def_input))
+    userSettingsDir = input(
+        "User settings directory (default: {}): ".format(def_input))
     if userSettingsDir.strip().lower() in ["", "default"]:
         userSettingsDir = def_input
 
@@ -121,28 +126,33 @@ if __name__ == "__main__":
         factoryDir = def_input
 
     def_input = os.path.join(os.getcwd(), "EX06")
-    recDir = input("Name of recording directory (default: {}): ".format(def_input))
+    recDir = input(
+        "Name of recording directory (default: {}): ".format(def_input))
     if recDir.strip().lower() in ["", "default"]:
         recDir = def_input
 
     def_input = 100
-    exposure = input("Exposure/Integration time [ms] (default: {}): ".format(def_input))
+    exposure = input(
+        "Exposure/Integration time [ms] (default: {}): ".format(def_input))
     if exposure.strip().lower() in ["", "default"]:
         exposure = def_input
     exposure = int(exposure)
 
     def_input = False
-    autoExp = input("Auto-exposure time [True/False] (default: {}): ".format(def_input))
+    autoExp = input(
+        "Auto-exposure time [True/False] (default: {}): ".format(def_input))
     if autoExp.strip().lower() in ["", "default"]:
         autoExp = def_input
 
     def_input = 2
-    fps = input("Target frames per second (fps) (default: {}): ".format(def_input))
+    fps = input(
+        "Target frames per second (fps) (default: {}): ".format(def_input))
     if fps.strip().lower() in ["", "default"]:
         fps = def_input
     fps = int(fps)
 
-    run_example_recordVideo(userSettingsDir, factoryDir, recDir, exposure, autoExp, fps)
+    run_example_recordVideo(userSettingsDir, factoryDir, recDir, exposure,
+                            autoExp, fps)
 
     while 1:
         sys.exit(0)
