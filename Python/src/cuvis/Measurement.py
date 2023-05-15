@@ -170,7 +170,7 @@ class Measurement(object):
             raise SDKException()
         return _id
 
-    def set_comment(self, comment):
+    def setComment(self, comment):
         if cuvis_il.status_ok != cuvis_il.cuvis_measurement_set_comment(
                 self.__handle__, comment):
             raise SDKException()

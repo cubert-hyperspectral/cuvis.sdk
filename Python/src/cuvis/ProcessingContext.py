@@ -20,8 +20,9 @@ class ProcessingContext(object):
             self.__handle__ = cuvis_il.p_int_value(_ptr)
         elif isinstance(base, SessionFile):
             _ptr = cuvis_il.new_p_int()
-            if cuvis_il.status_ok != cuvis_il.cuvis_proc_cont_create_from_session_file(
-                    base.__handle__, _ptr):
+            if cuvis_il.status_ok != \
+                    cuvis_il.cuvis_proc_cont_create_from_session_file(
+                        base.__handle__, _ptr):
                 raise SDKException()
             self.__handle__ = cuvis_il.p_int_value(_ptr)
         elif isinstance(base, Measurement):
@@ -125,6 +126,14 @@ class ProcessingContext(object):
                 self.__handle__, self.__modeArgs__):
             raise SDKException()
         pass
+
+    def getCalibrationID(self):
+        _id = cuvis_il.new_p_int()
+        # TODO: BREAKS! what must id be for getting it
+        if cuvis_il.status_ok != cuvis_il.cuvis_proc_cont_get_calib_id(
+                self.__handle__, _id):
+            raise SDKException()
+        return _id
 
     def getRecalib(self):
         return self.__modeArgs__.allow_recalib != 0
