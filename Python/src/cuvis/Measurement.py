@@ -41,7 +41,8 @@ class Measurement(object):
             self.__handle__ = cuvis_il.p_int_value(_ptr)
         else:
             raise SDKException(
-                "Could not open Measurement! Either handle not available or file not found!")
+                "Could not open Measurement! Either handle not"
+                " available or file not found!")
         self.__metaData__ = cuvis_il.cuvis_mesu_metadata_allocate()
         self.refresh()
         pass
@@ -60,7 +61,6 @@ class Measurement(object):
         self.CaptureTime = base_datetime + datetime.timedelta(
             milliseconds=self.__metaData__.capture_time)
         self.MeasurementFlags = self.__metaData__.measurement_flags
-        cuvis_il.CUVIS_MESU_FLAG_DARK_INTTIME
         # TODO: Flags should be more and better info!
         self.Path = self.__metaData__.path
         self.Comment = self.__metaData__.comment
@@ -75,7 +75,8 @@ class Measurement(object):
             [key for key, val in ProcessingMode.items() if
              val == self.__metaData__.processing_mode][0]
         self.Name = self.__metaData__.name
-        # self.Session = SessionData(self.__metaData__.session_info.name, self.__metaData__.session_info.session_no,
+        # self.Session = SessionData(self.__metaData__.session_info.name,
+        #                           self.__metaData__.session_info.session_no,
         #                           self.__metaData__.session_info.sequence_no)
 
         pcount = cuvis_il.new_p_int()
