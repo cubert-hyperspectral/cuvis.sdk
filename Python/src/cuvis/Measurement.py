@@ -75,7 +75,7 @@ class Measurement(object):
             [key for key, val in ProcessingMode.items() if
              val == self.__metaData__.processing_mode][0]
         self.Name = self.__metaData__.name
-        # self.Session = SessionData(self.__metaData__.session_info.name,
+        # self.SessionFile = SessionData(self.__metaData__.session_info.name,
         #                           self.__metaData__.session_info.session_no,
         #                           self.__metaData__.session_info.sequence_no)
 

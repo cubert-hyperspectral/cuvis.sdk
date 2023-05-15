@@ -28,6 +28,6 @@ from .FileWriteSettings import GeneralExportSettings, CubertSaveArgs, \
 from .General import General
 from .Measurement import Measurement
 from .ProcessingContext import ProcessingContext
-from .Session import Session
+from .SessionFile import SessionFile
 from .Viewer import Viewer
 from .Worker import Worker
