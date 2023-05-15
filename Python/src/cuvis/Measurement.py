@@ -123,7 +123,7 @@ class Measurement(object):
             raise SDKException()
         pass
 
-    def set_name(self, name):  # done
+    def set_name(self, name):
         if cuvis_il.status_ok != cuvis_il.cuvis_measurement_set_name(
                 self.__handle__, name):
             raise SDKException()
@@ -162,6 +162,14 @@ class Measurement(object):
             raise SDKException()
         return __bit_translate__(cuvis_il.p_int_value(_ptr))
 
+    def get_calibration_id(self):
+        _id = cuvis_il.new_p_int()
+        # TODO: BREAKS! what must id be for getting it
+        if cuvis_il.status_ok != cuvis_il.cuvis_measurement_get_calib_id(
+                self.__handle__, _id):
+            raise SDKException()
+        return _id
+
     def set_comment(self, comment):
         if cuvis_il.status_ok != cuvis_il.cuvis_measurement_set_comment(
                 self.__handle__, comment):
@@ -185,8 +193,21 @@ class Measurement(object):
         cuvis_il.cuvis_measurement_get_data_count(self.__handle__, out)
         return cuvis_il.p_int_value(out)
 
+    def clear_cube(self):
+        if cuvis_il.status_ok != cuvis_il.cuvis_measurement_clear_cube(
+                self.__handle__):
+            raise SDKException()
+        pass
+
+    def clear_implicit_reference(self, ref_type):
+        if cuvis_il.status_ok != \
+                cuvis_il.cuvis_measurement_clear_implicit_reference(
+                    self.__handle__, ref_type):
+            raise SDKException()
+
     def __del__(self):
         _ptr = cuvis_il.new_p_int()
+        self.clear_cube()
         cuvis_il.p_int_assign(_ptr, self.__handle__)
         cuvis_il.cuvis_measurement_free(_ptr)
         self.__handle__ = cuvis_il.p_int_value(_ptr)
@@ -231,10 +252,11 @@ class Measurement(object):
                     setattr(res, k, None)
                     res.__metaData__ = cuvis_il.cuvis_mesu_metadata_t()
                     res.__metaData__ = cuvis_il.cuvis_mesu_metadata_allocate()
-                    if cuvis_il.status_ok != cuvis_il.cuvis_measurement_get_metadata(
-                            res.__handle__,
-                            res.__metaData__):
-                        raise SDKException
+                    if cuvis_il.status_ok != \
+                            cuvis_il.cuvis_measurement_get_metadata(
+                                res.__handle__,
+                                res.__metaData__):
+                        raise SDKException()
                     else:
                         print("__metaData__ set!")
 
