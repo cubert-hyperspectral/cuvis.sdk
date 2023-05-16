@@ -1,15 +1,16 @@
 import os
+from pathlib import Path
 
 from . import cuvis_il
 from .Measurement import Measurement
 from .cuvis_aux import SDKException
-from .cuvis_types import OperationMode
+from .cuvis_types import OperationMode, __CuvisReadType__
 
 
 class SessionFile(object):
     def __init__(self, base):
         self.__handle__ = None
-        if isinstance(base, str) and os.path.exists(base):
+        if isinstance(Path(base), Path) and os.path.exists(base):
             _ptr = cuvis_il.new_p_int()
             if cuvis_il.status_ok != cuvis_il.cuvis_session_file_load(base,
                                                                       _ptr):
@@ -25,31 +26,17 @@ class SessionFile(object):
         self.__init__(file)
         pass
 
-    def getSizeNonDropped(self):
-        val = cuvis_il.new_p_int()
-        if cuvis_il.status_ok != cuvis_il.cuvis_session_file_get_size_non_dropped(
-                self.__handle__, val):
-            raise SDKException()
-        return cuvis_il.p_int_value(val)
-
-    def getMeasurementsNonDropped(self, frameNo):
-        _ptr = cuvis_il.new_p_int()
-        if cuvis_il.status_ok != cuvis_il.cuvis_session_file_get_mesu_non_dropped(
-                self.__handle__, frameNo, _ptr):
-            raise SDKException()
-        return Measurement(cuvis_il.p_int_value(_ptr))
-
-    def getMeasurement(self, frameNo):
+    def getMeasurement(self, frameNo, imgtype="MeasurementsWithoutDropped"):
         _ptr = cuvis_il.new_p_int()
         if cuvis_il.status_ok != cuvis_il.cuvis_session_file_get_mesu(
-                self.__handle__, frameNo, _ptr):
+                self.__handle__, frameNo, __CuvisReadType__[imgtype], _ptr):
             raise SDKException()
         return Measurement(cuvis_il.p_int_value(_ptr))
 
-    def getSize(self):
+    def getSize(self, imgtype="MeasurementsWithoutDropped"):
         val = cuvis_il.new_p_int()
         if cuvis_il.status_ok != cuvis_il.cuvis_session_file_get_size(
-                self.__handle__, val):
+                self.__handle__, __CuvisReadType__[imgtype], val):
             raise SDKException()
         return cuvis_il.p_int_value(val)
 
