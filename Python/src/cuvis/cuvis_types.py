@@ -38,17 +38,10 @@ __CuvisReferenceType__ = dict({
     ("Reference_Distance", cuvis_il.Reference_Distance),
 })
 
-# TODO: fix me
-# __CuvisReadType__ = dict({
-#    ("Measurements_With_Dropped", cuvis_il.MeasurementsWithDropped),
-#    ("Measurements_Without_Dropped", cuvis_il.MeasurementsWithoutDropped),
-#    ("References", cuvis_il.References)
-# })
-
-__CuvisReadType__ = dict({
-    ("Measurements_With_Dropped", 0),
-    ("Measurements_Without_Dropped", 1),
-    ("References", 2)
+__CuvisItemType__ = dict({
+    ("all_frames", cuvis_il.session_item_type_frames),
+    ("no_gaps", cuvis_il.session_item_type_frames_no_gaps),
+    ("references", cuvis_il.session_item_type_references)
 })
 
 DataFormat = dict({

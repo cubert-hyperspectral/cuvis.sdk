@@ -4,7 +4,7 @@ from pathlib import Path
 from . import cuvis_il
 from .Measurement import Measurement
 from .cuvis_aux import SDKException
-from .cuvis_types import OperationMode, __CuvisReadType__
+from .cuvis_types import OperationMode, __CuvisItemType__
 
 
 class SessionFile(object):
@@ -26,17 +26,17 @@ class SessionFile(object):
         self.__init__(file)
         pass
 
-    def getMeasurement(self, frameNo, imgtype="MeasurementsWithoutDropped"):
+    def getMeasurement(self, frameNo, itemtype="no_gaps"):
         _ptr = cuvis_il.new_p_int()
         if cuvis_il.status_ok != cuvis_il.cuvis_session_file_get_mesu(
-                self.__handle__, frameNo, __CuvisReadType__[imgtype], _ptr):
+                self.__handle__, frameNo, __CuvisItemType__[itemtype], _ptr):
             raise SDKException()
         return Measurement(cuvis_il.p_int_value(_ptr))
 
-    def getSize(self, imgtype="MeasurementsWithoutDropped"):
+    def getSize(self, itemtype="no_gaps"):
         val = cuvis_il.new_p_int()
         if cuvis_il.status_ok != cuvis_il.cuvis_session_file_get_size(
-                self.__handle__, __CuvisReadType__[imgtype], val):
+                self.__handle__, __CuvisItemType__[itemtype], val):
             raise SDKException()
         return cuvis_il.p_int_value(val)
 
