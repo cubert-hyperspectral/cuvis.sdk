@@ -13,7 +13,7 @@ class Measurement(object):
 
     def __init__(self, base):
         self.__handle__ = None
-        self.__metaData__ = cuvis_il.cuvis_mesu_metadata_t()
+        self.__metaData__ = cuvis_il.cuvis_mesu_metadata_allocate()
 
         self.Data = None
 
@@ -43,7 +43,6 @@ class Measurement(object):
             raise SDKException(
                 "Could not open Measurement! Either handle not"
                 " available or file not found!")
-        self.__metaData__ = cuvis_il.cuvis_mesu_metadata_allocate()
         self.refresh()
         pass
 
@@ -207,7 +206,7 @@ class Measurement(object):
 
     def __del__(self):
         _ptr = cuvis_il.new_p_int()
-        self.clear_cube()
+        self.clearCube()
         cuvis_il.p_int_assign(_ptr, self.__handle__)
         cuvis_il.cuvis_measurement_free(_ptr)
         self.__handle__ = cuvis_il.p_int_value(_ptr)
