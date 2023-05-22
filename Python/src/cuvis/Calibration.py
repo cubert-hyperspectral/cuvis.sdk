@@ -12,15 +12,13 @@ class Calibration(object):
     def __init__(self, base, **kwargs):
         self.__handle__ = None
 
-        if isinstance(Path(base), Path) and os.path.exists(
-                os.path.dirname(
-                    Path(base))):
+        if isinstance(Path(base), Path) and os.path.exists(Path(base)):
             _ptr = cuvis_il.new_p_int()
             if cuvis_il.status_ok != cuvis_il.cuvis_calib_create_from_path(
                     base, _ptr):
                 raise SDKException()
             self.__handle__ = cuvis_il.p_int_value(_ptr)
-        if isinstance(base, SessionFile):
+        elif isinstance(base, SessionFile):
             _ptr = cuvis_il.new_p_int()
             if cuvis_il.status_ok != \
                     cuvis_il.cuvis_calib_create_from_session_file(
@@ -49,11 +47,7 @@ class Calibration(object):
         return Usable_Modes  # __bit_translate__(cuvis_il.p_int_value(_ptr))
 
     def getID(self):
-        _id = cuvis_il.new_p_int()
-        # TODO: BREAKS! what must id be for getting it
-        if cuvis_il.status_ok != cuvis_il.cuvis_calib_get_id(
-                self.__handle__, _id):
-            raise SDKException()
+        _id = cuvis_il.cuvis_calib_get_id_swig(self.__handle__)
         return _id
 
     def __del__(self):

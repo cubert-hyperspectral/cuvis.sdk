@@ -128,11 +128,7 @@ class ProcessingContext(object):
         pass
 
     def getCalibrationID(self):
-        _id = cuvis_il.new_p_int()
-        # TODO: BREAKS! what must id be for getting it
-        if cuvis_il.status_ok != cuvis_il.cuvis_proc_cont_get_calib_id(
-                self.__handle__, _id):
-            raise SDKException()
+        _id = cuvis_il.cuvis_proc_cont_get_calib_id_swig(self.__handle__)
         return _id
 
     def getRecalib(self):

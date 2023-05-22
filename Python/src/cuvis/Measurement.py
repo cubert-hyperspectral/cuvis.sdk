@@ -162,11 +162,7 @@ class Measurement(object):
         return __bit_translate__(cuvis_il.p_int_value(_ptr))
 
     def getCalibrationID(self):
-        _id = cuvis_il.new_p_int()
-        # TODO: BREAKS! what must id be for getting it
-        if cuvis_il.status_ok != cuvis_il.cuvis_measurement_get_calib_id(
-                self.__handle__, _id):
-            raise SDKException()
+        _id = cuvis_il.cuvis_measurement_get_calib_id_swig(self.__handle__)
         return _id
 
     def setComment(self, comment):
