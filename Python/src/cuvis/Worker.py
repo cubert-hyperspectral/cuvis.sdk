@@ -103,11 +103,11 @@ class Worker(object):
             raise SDKException()
         return cuvis_il.p_int_value(val) != 0
 
-    def getNextResult(self):
+    def getNextResult(self, timeout):
         this_mesu = cuvis_il.new_p_int()
         this_viewer = cuvis_il.new_p_int()
         if cuvis_il.status_ok != cuvis_il.cuvis_worker_get_next_result(
-                self.__handle__, this_mesu, this_viewer):
+                self.__handle__, this_mesu, this_viewer, timeout):
             raise SDKException()
         mesu = Measurement(cuvis_il.p_int_value(this_mesu))
         if self.viewerSet:
@@ -118,15 +118,22 @@ class Worker(object):
         # return mesu
 
     def getQueueSize(self):
-        val = cuvis_il.new_p_int()
-        if cuvis_il.status_ok != cuvis_il.cuvis_worker_get_queue_limit(
-                self.__handle__, val):
+        val_hard = cuvis_il.new_p_int()
+        val_soft = cuvis_il.new_p_int()
+        if cuvis_il.status_ok != cuvis_il.cuvis_worker_get_queue_limits(
+                self.__handle__, val_hard, val_soft):
             raise SDKException()
-        return cuvis_il.p_int_value(val)
+        return {"hard_limit": cuvis_il.p_int_value(val_hard),
+                "soft_limit": cuvis_il.p_int_value(val_soft)}
 
-    def setQueueSize(self, val):
-        if cuvis_il.status_ok != cuvis_il.cuvis_worker_set_queue_limit(
-                self.__handle__, val):
+    def setQueueSize(self, limit_dict):
+        val_hard = limit_dict.get("hard_limit", None)
+        val_soft = limit_dict.get("soft_limit", None)
+        if val_soft is None or val_hard is None:
+            raise SDKException("make sure both hard_limit and soft_limit are "
+                               "set")
+        if cuvis_il.status_ok != cuvis_il.cuvis_worker_set_queue_limits(
+                self.__handle__, val_hard, val_soft):
             raise SDKException()
         pass
 
