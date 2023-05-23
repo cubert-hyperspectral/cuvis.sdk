@@ -9,7 +9,7 @@ from .cuvis_types import OperationMode
 
 class Calibration(object):
 
-    def __init__(self, base, **kwargs):
+    def __init__(self, base):
         self.__handle__ = None
 
         if isinstance(Path(base), Path) and os.path.exists(Path(base)):

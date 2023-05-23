@@ -56,7 +56,6 @@ class Measurement(object):
                 self.__handle__, self.__metaData__):
             raise SDKException
 
-        base_datetime = datetime.datetime(1970, 1, 1)
         self.CaptureTime = base_datetime + datetime.timedelta(
             milliseconds=self.__metaData__.capture_time)
         self.MeasurementFlags = self.__metaData__.measurement_flags
@@ -95,7 +94,8 @@ class Measurement(object):
                 # t0 = datetime.datetime.now()
                 self.Data.update({key: ImageData(img_buf=data,
                                                  dformat=DataFormat[
-                                                     data.format])})
+                                                     data.__getattribute__(
+                                                         "format")])})
                 # print("image loading time: {}".format(
                 # datetime.datetime.now() - t0))
             elif cdtype == cuvis_il.data_type_string:
@@ -231,8 +231,8 @@ class Measurement(object):
         if cuvis_il.status_ok != cuvis_il.cuvis_measurement_deep_copy(
                 self.__handle__, _ptr):
             raise SDKException()
-        copy = Measurement(cuvis_il.p_int_value(_ptr))
-        return copy
+        # copy = Measurement(cuvis_il.p_int_value(_ptr))
+        # return copy
 
         cls = self.__class__
         res = cls.__new__(cls)
@@ -276,24 +276,25 @@ class ImageData(object):
             if dformat is None:
                 raise TypeError("Missing format for reading image buffer")
 
-            if img_buf.format == 1:
+            if img_buf.__getattribute__("format") == 1:
                 self.array = cuvis_il.cuvis_read_imbuf_uint8(img_buf)
-            elif img_buf.format == 2:
+            elif img_buf.__getattribute__("format") == 2:
                 self.array = cuvis_il.cuvis_read_imbuf_uint16(img_buf)
-            elif img_buf.format == 3:
+            elif img_buf.__getattribute__("format") == 3:
                 self.array = cuvis_il.cuvis_read_imbuf_uint32(img_buf)
-            elif img_buf.format == 4:
+            elif img_buf.__getattribute__("format") == 4:
                 self.array = cuvis_il.cuvis_read_imbuf_float32(img_buf)
             else:
                 raise SDKException()
 
-            self.width = img_buf.width
-            self.height = img_buf.height
-            self.channels = img_buf.channels
+            self.width = img_buf.__getattribute__("width")
+            self.height = img_buf.__getattribute__("height")
+            self.channels = img_buf.__getattribute__("channels")
 
-            if img_buf.wavelength is not None:
+            if img_buf.__getattribute__("wavelength") is not None:
                 self.wavelength = [
-                    cuvis_il.p_unsigned_int_getitem(img_buf.wavelength, z) for z
+                    cuvis_il.p_unsigned_int_getitem(
+                        img_buf.__getattribute__("wavelength"), z) for z
                     in
                     range(self.channels)]
 

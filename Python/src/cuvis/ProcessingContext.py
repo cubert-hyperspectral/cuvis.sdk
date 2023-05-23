@@ -78,7 +78,7 @@ class ProcessingContext(object):
         return cuvis_il.p_int_value(_ptr) == 1
 
     def setProcessingMode(self, pMode):
-        self.__modeArgs__.processing_mode = ProcessingMode[pMode]
+        self.__modeArgs__.__setattr__("processing_mode", ProcessingMode[pMode])
         if cuvis_il.status_ok != cuvis_il.cuvis_proc_cont_set_args(
                 self.__handle__, self.__modeArgs__):
             raise SDKException()
@@ -86,7 +86,7 @@ class ProcessingContext(object):
 
     def getProcessingMode(self):
         return [key for key, val in ProcessingMode.items() if
-                val == self.__modeArgs__.processing_mode][0]
+                val == self.__modeArgs__.__getattribute__("processing_mode")][0]
 
     def setProcessingArgs(self, pa):
         _, self.__modeArgs__ = pa.getInternal()
@@ -121,7 +121,7 @@ class ProcessingContext(object):
         return True
 
     def setRecalib(self, val):
-        self.__modeArgs__.allow_recalib = int(val)
+        self.__modeArgs__.__setattr__("allow_recalib", int(val))
         if cuvis_il.status_ok != cuvis_il.cuvis_proc_cont_set_args(
                 self.__handle__, self.__modeArgs__):
             raise SDKException()
@@ -132,4 +132,4 @@ class ProcessingContext(object):
         return _id
 
     def getRecalib(self):
-        return self.__modeArgs__.allow_recalib != 0
+        return self.__modeArgs__.__getattribute__("allow_recalib") != 0
