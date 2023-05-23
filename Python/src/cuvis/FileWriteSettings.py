@@ -85,8 +85,9 @@ class TiffExportSettings(GeneralExportSettings):
 
         self.check_kwargs(kwargs)
 
-        if len(kwargs) == 1 and isinstance(list(kwargs.values())[0],
-                                           cuvis_il.cuvis_export_tiff_settings_t):
+        if len(kwargs) == 1 and isinstance(
+                list(kwargs.values())[0],
+                cuvis_il.cuvis_export_tiff_settings_t):
             ts = list(kwargs.values())[0]
             self.CompressionMode = \
                 [key for key, val in TiffCompressionMode.items() if
@@ -115,17 +116,20 @@ class ViewExportSettings(GeneralExportSettings):
 
         self.check_kwargs(kwargs)
 
-        if len(kwargs) == 1 and isinstance(list(kwargs.values())[0],
-                                           cuvis_il.cuvis_export_view_settings_t):
+        if len(kwargs) == 1 and isinstance(
+                list(kwargs.values())[0],
+                cuvis_il.cuvis_export_view_settings_t):
             vs = list(kwargs.values())[0]
             self.Userplugin = vs.userplugin
         elif len(kwargs) != 0:
             raise SDKException(
-                "Could not handle input parameter(s) in ViewExportSettings: {}".format(
-                    kwargs.keys()))
+                "Could not handle input parameter(s) in ViewExportSettings: "
+                "{}".format(kwargs.keys()))
         pass
 
-        if '<userplugin xmlns="http://cubert-gmbh.de/user/plugin/userplugin.xsd">' not in self.Userplugin:
+        if '<userplugin xmlns=' \
+           '"http://cubert-gmbh.de/user/plugin/userplugin.xsd">' not \
+                in self.Userplugin:
             try:
                 with open(self.Userplugin) as f:
                     userplugintmp = f.readlines()
@@ -174,8 +178,8 @@ class CubertSaveArgs(GeneralExportSettings):
             self.MaxBuftime = sa.max_buftime
         elif len(kwargs) != 0:
             raise SDKException(
-                "Could not handle input parameter(s) in CubertSaveArgs: {}".format(
-                    kwargs.keys()))
+                "Could not handle input parameter(s) in CubertSaveArgs: "
+                "{}".format(kwargs.keys()))
 
         pass
 
@@ -212,8 +216,8 @@ class CubertProcessingArgs(GeneralExportSettings):
                  v == pa.processing_mode][0]
         elif len(kwargs) != 0:
             raise SDKException(
-                "Could not handle input parameter(s) in CubertProcessingArgs: {}".format(
-                    kwargs.keys()))
+                "Could not handle input parameter(s) in CubertProcessingArgs: "
+                "{}".format(kwargs.keys()))
         pass
 
     def getInternal(self):
@@ -244,8 +248,8 @@ class CubertWorkerSettings(GeneralExportSettings):
             self.WorkerQueueSize = wa.worker_queue_size
         elif len(kwargs) != 0:
             raise SDKException(
-                "Could not handle input parameter(s) in CubertWorkerArgs: {}".format(
-                    kwargs.keys()))
+                "Could not handle input parameter(s) in CubertWorkerArgs: "
+                "{}".format(kwargs.keys()))
 
         pass
 

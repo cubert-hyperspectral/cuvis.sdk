@@ -48,16 +48,16 @@ class Viewer(object):
         currentView = cuvis_il.p_int_value(_ptr)
 
         countHandle = cuvis_il.new_p_int()
-        if cuvis_il.status_ok != cuvis_il.cuvis_view_get_data_count(currentView,
-                                                                    countHandle):
+        if cuvis_il.status_ok != cuvis_il.cuvis_view_get_data_count(
+                currentView, countHandle):
             raise SDKException()
 
         dataCount = cuvis_il.p_int_value(countHandle)
 
         for i in range(dataCount):
             view_data = cuvis_il.cuvis_view_data_t()
-            if cuvis_il.status_ok != cuvis_il.cuvis_view_get_data(currentView,
-                                                                  i, view_data):
+            if cuvis_il.status_ok != cuvis_il.cuvis_view_get_data(
+                    currentView, i, view_data):
                 raise SDKException()
 
             if view_data.__getattribute__("data").format == \
