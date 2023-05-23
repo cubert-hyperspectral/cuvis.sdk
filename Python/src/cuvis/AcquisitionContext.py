@@ -236,31 +236,31 @@ class AcquisitionContext(object):
             raise SDKException()
         return cuvis_il.p_int_value(val)
 
-    def getDriverQueueUsed(self):
+    def getDriverQueueUsed(self, idref):
         val = cuvis_il.new_p_int()
         if cuvis_il.status_ok != cuvis_il.cuvis_comp_driver_queue_used_get(
-                self.__handle__, val):
+                self.__handle__, idref, val):
             raise SDKException()
         return cuvis_il.p_int_value(val)
 
-    def getHardwareQueueUsed(self):
+    def getHardwareQueueUsed(self, idref):
         val = cuvis_il.new_p_int()
         if cuvis_il.status_ok != cuvis_il.cuvis_comp_hardware_queue_used_get(
-                self.__handle__, val):
+                self.__handle__, idref, val):
             raise SDKException()
         return cuvis_il.p_int_value(val)
 
-    def getDriverQueueSize(self):
+    def getDriverQueueSize(self, idref):
         val = cuvis_il.new_p_int()
         if cuvis_il.status_ok != cuvis_il.cuvis_comp_driver_queue_size_get(
-                self.__handle__, val):
+                self.__handle__, idref, val):
             raise SDKException()
         return cuvis_il.p_int_value(val)
 
-    def getHardwareQueueSize(self):
+    def getHardwareQueueSize(self, idref):
         val = cuvis_il.new_p_int()
         if cuvis_il.status_ok != cuvis_il.cuvis_comp_hardware_queue_size_get(
-                self.__handle__, val):
+                self.__handle__, val, idref):
             raise SDKException()
         return cuvis_il.p_int_value(val)
 
@@ -344,7 +344,7 @@ class AcquisitionContext(object):
     def setPreviewModeAsync(self, val):
         _pasync = cuvis_il.new_p_int()
         if cuvis_il.status_ok != cuvis_il.cuvis_acq_cont_preview_mode_set_async(
-                self.__handle__, val):
+                self.__handle__, _pasync, val):
             raise SDKException()
         return Async(cuvis_il.p_int_value(_pasync))
 
