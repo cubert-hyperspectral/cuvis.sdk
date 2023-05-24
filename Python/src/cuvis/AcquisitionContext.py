@@ -23,7 +23,7 @@ class AcquisitionContext(object):
             _ptr = cuvis_il.new_p_int()
             if cuvis_il.status_ok != \
                     cuvis_il.cuvis_acq_cont_create_from_session_file(
-                        base.__handle__, __simulate__, _ptr):
+                        base.__handle__, int(__simulate__), _ptr):
                 raise SDKException()
         else:
             raise SDKException(
