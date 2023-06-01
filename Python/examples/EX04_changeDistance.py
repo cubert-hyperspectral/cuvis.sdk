@@ -3,29 +3,44 @@ import platform
 
 import cuvis
 
+### default directories and files
+data_dir = None
+
 if platform.system() == "Windows":
     lib_dir = os.getenv("CUVIS")
-    data_dir = os.path.normpath(
-        os.path.join(lib_dir, os.path.pardir, "sdk", "sample_data", "set1"))
+    data_dir = os.path.normpath(os.path.join(lib_dir, os.path.pardir, "sdk",
+                                             "sample_data", "set_examples"))
 elif platform.system() == "Linux":
     lib_dir = os.getenv("CUVIS_DATA")
-    data_dir = os.path.normpath(os.path.join(lib_dir, "sample_data", "set1"))
+    data_dir = os.path.normpath(
+        os.path.join(lib_dir, "sample_data", "set_examples"))
+
+# default image
+# TODO needs fixing. Needs a X20 image (non P)
+loc_file = os.path.join(data_dir,
+                        "set4_tractor",
+                        "complete.cu3s")
+# default settings
+loc_settings = os.path.join(data_dir, "settings")
+
+loc_distance = int(1000)
+
+# default output
+loc_output = os.path.join(os.getcwd(), "EX04_distance_changed")
 
 
-def run_example_changeDistance(
-        userSettingsDir=os.path.join(data_dir, "settings"),
-        measurementLoc=os.path.join(data_dir,
-                                    "vegetation_000",
-                                    "vegetation_000_000_snapshot.cu3"),
-        factoryDir=os.path.join(data_dir, "factory"),
-        distance=1000,
-        exportDir=os.path.join(os.getcwd(), "EX04")):
+def run_example_changeDistance(userSettingsDir=loc_settings,
+                               measurementLoc=loc_file,
+                               distance=loc_distance,
+                               exportDir=loc_output):
     print("loading user settings...")
     settings = cuvis.General(userSettingsDir)
     settings.setLogLevel("info")
 
-    print("loading measurement file...")
-    mesu = cuvis.Measurement(measurementLoc)
+    print("loading session file...")
+    session = cuvis.SessionFile(measurementLoc)
+    mesu = session.getMeasurement(0)
+    assert mesu.__handle__
 
     print("Data 1 {} t={}ms mode={}".format(mesu.Name,
                                             mesu.IntegrationTime,
@@ -33,8 +48,7 @@ def run_example_changeDistance(
                                             ))
 
     print("loading calibration and processing context (factory)...")
-    calibration = cuvis.Calibration(calibdir=factoryDir)
-    processingContext = cuvis.ProcessingContext(calibration)
+    processingContext = cuvis.ProcessingContext(session)
 
     print("setting distance...")
     processingContext.calcDistance(distance)
@@ -63,36 +77,24 @@ if __name__ == "__main__":
 
     print("Example 04: Change distance. Please provide:")
 
-    def_input = os.path.join(data_dir, "settings")
     userSettingsDir = input(
-        "User settings directory (default: {}): ".format(def_input))
+        "User settings directory (default: {}): ".format(loc_settings))
     if userSettingsDir.strip().lower() in ["", "default"]:
-        userSettingsDir = def_input
+        userSettingsDir = loc_settings
 
-    def_input = os.path.join(data_dir,
-                             "vegetation_000",
-                             "vegetation_000_000_snapshot.cu3")
     measurementLoc = input(
-        "Measurement file (.cu3) (default: {}): ".format(def_input))
+        "Measurement file (.cu3) (default: {}): ".format(loc_file))
     if measurementLoc.strip().lower() in ["", "default"]:
-        measurementLoc = def_input
+        measurementLoc = loc_file
 
-    def_input = os.path.join(data_dir, "factory")
-    factoryDir = input("Factory directory (default: {}): ".format(def_input))
-    if factoryDir.strip().lower() in ["", "default"]:
-        factoryDir = def_input
-
-    def_input = 1000
-    distance = input("New distance [mm] (default: {}): ".format(def_input))
+    distance = input("New distance [mm] (default: {}): ".format(loc_distance))
     if distance.strip().lower() in ["", "default"]:
-        distance = def_input
-    distance = float(distance)
+        distance = loc_distance
 
-    def_input = os.path.join(os.getcwd(), "EX04")
     exportDir = input(
-        "Name of export directory (default: {}): ".format(def_input))
+        "Name of export directory (default: {}): ".format(loc_output))
     if exportDir.strip().lower() in ["", "default"]:
-        exportDir = def_input
+        exportDir = loc_output
 
-    run_example_changeDistance(userSettingsDir, measurementLoc, factoryDir,
+    run_example_changeDistance(userSettingsDir, measurementLoc,
                                distance, exportDir)

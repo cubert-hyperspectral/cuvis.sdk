@@ -34,3 +34,5 @@ var/
 *.in
 cubert_env/
 /Python/src/cuvis/examples/
+/Python/examples/EX02_reprocessed/
+/Python/examples/EX03_export/
