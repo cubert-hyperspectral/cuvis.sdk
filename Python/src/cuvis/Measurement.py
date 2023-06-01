@@ -1,6 +1,5 @@
 import datetime
 import os
-from copy import deepcopy
 
 from . import cuvis_il
 from .cuvis_aux import SDKException, __bit_translate__, __object_declassifier__
@@ -231,33 +230,34 @@ class Measurement(object):
         if cuvis_il.status_ok != cuvis_il.cuvis_measurement_deep_copy(
                 self.__handle__, _ptr):
             raise SDKException()
-        # copy = Measurement(cuvis_il.p_int_value(_ptr))
-        # return copy
+        copy = Measurement(cuvis_il.p_int_value(_ptr))
+        return copy
 
-        cls = self.__class__
-        res = cls.__new__(cls)
-        memo[id(self)] = res
-        for k, v in self.__dict__.items():
-            print("copying: {}".format(k))
-            try:
-                setattr(res, k, deepcopy(v, memo))
-            except:
-                print("issues with deep copying {}".format(k))
-                if k == "__metaData__":
-                    setattr(res, k, None)
-                    res.__metaData__ = cuvis_il.cuvis_mesu_metadata_t()
-                    res.__metaData__ = cuvis_il.cuvis_mesu_metadata_allocate()
-                    if cuvis_il.status_ok != \
-                            cuvis_il.cuvis_measurement_get_metadata(
-                                res.__handle__,
-                                res.__metaData__):
-                        raise SDKException()
-                    else:
-                        print("__metaData__ set!")
+        ## failback: detailed copy bit by bit.
+        # cls = self.__class__
+        # res = cls.__new__(cls)
+        # memo[id(self)] = res
+        # for k, v in self.__dict__.items():
+        #    print("copying: {}".format(k))
+        #    try:
+        #        setattr(res, k, deepcopy(v, memo))
+        #    except:
+        #        print("issues with deep copying {}".format(k))
+        #        if k == "__metaData__":
+        #            setattr(res, k, None)
+        #            res.__metaData__ = cuvis_il.cuvis_mesu_metadata_t()
+        #            res.__metaData__ = cuvis_il.cuvis_mesu_metadata_allocate()
+        #            if cuvis_il.status_ok != \
+        #                    cuvis_il.cuvis_measurement_get_metadata(
+        #                        res.__handle__,
+        #                        res.__metaData__):
+        #                raise SDKException()
+        #            else:
+        #                print("__metaData__ set!")
 
-                else:
-                    setattr(res, k, v)
-        return res
+        #        else:
+        #            setattr(res, k, v)
+        # return res
 
 
 class ImageData(object):
