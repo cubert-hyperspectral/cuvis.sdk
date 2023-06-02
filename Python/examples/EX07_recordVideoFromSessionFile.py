@@ -35,12 +35,12 @@ loc_autoexp = False
 loc_fps = 2
 
 
-def run_example_recordVideo(userSettingsDir=loc_settings,
-                            measurementLoc=loc_file,
-                            recDir=loc_output,
-                            exposure=loc_exptime,
-                            autoExp=loc_autoexp,
-                            fps=loc_fps):
+def run_example_recordVideoFromSessionFile(userSettingsDir=loc_settings,
+                                           measurementLoc=loc_file,
+                                           recDir=loc_output,
+                                           exposure=loc_exptime,
+                                           autoExp=loc_autoexp,
+                                           fps=loc_fps):
     print("loading user settings...")
     settings = cuvis.General(userSettingsDir)
     settings.setLogLevel("info")
