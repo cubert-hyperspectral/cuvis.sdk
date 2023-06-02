@@ -117,7 +117,7 @@ class Worker(object):
         return {"Measurement": mesu, "View": view}
         # return mesu
 
-    def getQueueSize(self):
+    def getQueueLimits(self):
         val_hard = cuvis_il.new_p_int()
         val_soft = cuvis_il.new_p_int()
         if cuvis_il.status_ok != cuvis_il.cuvis_worker_get_queue_limits(
@@ -126,7 +126,7 @@ class Worker(object):
         return {"hard_limit": cuvis_il.p_int_value(val_hard),
                 "soft_limit": cuvis_il.p_int_value(val_soft)}
 
-    def setQueueSize(self, limit_dict):
+    def setQueueLimits(self, limit_dict):
         val_hard = limit_dict.get("hard_limit", None)
         val_soft = limit_dict.get("soft_limit", None)
         if val_soft is None or val_hard is None:

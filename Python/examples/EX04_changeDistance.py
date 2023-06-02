@@ -16,7 +16,7 @@ elif platform.system() == "Linux":
         os.path.join(lib_dir, "sample_data", "set_examples"))
 
 # default image
-# TODO needs fixing. Needs a X20 image (non P)
+# TODO needs fixing. Needs an X20 image (non P)
 loc_file = os.path.join(data_dir,
                         "set4_tractor",
                         "complete.cu3s")
@@ -90,6 +90,7 @@ if __name__ == "__main__":
     distance = input("New distance [mm] (default: {}): ".format(loc_distance))
     if distance.strip().lower() in ["", "default"]:
         distance = loc_distance
+    distance = int(distance)
 
     exportDir = input(
         "Name of export directory (default: {}): ".format(loc_output))

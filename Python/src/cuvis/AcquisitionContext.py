@@ -25,6 +25,7 @@ class AcquisitionContext(object):
                     cuvis_il.cuvis_acq_cont_create_from_session_file(
                         base.__handle__, int(__simulate__), _ptr):
                 raise SDKException()
+            self.__handle__ = cuvis_il.p_int_value(_ptr)
         else:
             raise SDKException(
                 "Could not interpret input of type {}.".format(type(base)))
