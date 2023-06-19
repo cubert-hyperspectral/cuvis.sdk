@@ -4,5 +4,5 @@ from .EX03_exportMeasurement import run_example_exportMeasurement
 from .EX04_changeDistance import run_example_changeDistance
 from .EX05_recordSingleImages import run_example_recordSingleImage
 from .EX06_recordVideo import run_example_recordVideo
-from .EX07_recordVideo
-# from .EX07_simpleGUI import run_example_simpleGUI
+from .EX07_recordVideoFromSessionFile import \
+    run_example_recordVideoFromSessionFile
