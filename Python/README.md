@@ -7,7 +7,7 @@ Python Version: 3.9. _This is a strict requirement!_ The Python interpreter must
 In order to install the Python SDK, the Cuvis application must be installed first.
 
 Download the installer for windows (or the .deb files for Ubuntu 20.04) and the `_cuvis_pyil.pyd` file as well as the `cuvis_il.py` file [here](
-https://cloud.cubert-gmbh.de/index.php/s/dPycyPcjnvee9F0). On Ubuntu systems these files will be named `_cuvis_pyil.so` and `cuvis_il.py`.
+https://cloud.cubert-gmbh.de/index.php/s/kKVtx0x2fmYqVgx). On Ubuntu systems these files will be named `_cuvis_pyil.so` and `cuvis_il.py`.
 
 After installing, check out the repository and copy the `_cuvis_pyil` as well as the `cuvis_il.py` file into `Cuvis.sdk\Python\src\cuvis`.
 
