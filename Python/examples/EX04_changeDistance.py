@@ -16,10 +16,9 @@ elif platform.system() == "Linux":
         os.path.join(lib_dir, "sample_data", "set_examples"))
 
 # default image
-# TODO needs fixing. Needs an X20 image (non P)
 loc_file = os.path.join(data_dir,
-                        "set4_tractor",
-                        "complete.cu3s")
+                        "set0_lab",
+                        "x20_calib_color.cu3s")
 # default settings
 loc_settings = os.path.join(data_dir, "settings")
 

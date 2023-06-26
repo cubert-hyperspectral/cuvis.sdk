@@ -25,8 +25,8 @@ elif platform.system() == "Linux":
 
 # default images
 loc_file = os.path.join(data_dir,
-                        "set4_tractor",
-                        "complete.cu3s")
+                        "set0_lab",
+                        "x20p_calib_color.cu3s")
 loc_plugin = os.path.join(plugin_dir, "cai.xml")
 
 # default settings

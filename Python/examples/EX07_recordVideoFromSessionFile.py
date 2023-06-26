@@ -21,8 +21,8 @@ elif platform.system() == "Linux":
 
 # default image
 loc_file = os.path.join(data_dir,
-                        "example_session",
-                        "Ulm_001.cu3s")
+                        "set0_lab",
+                        "x20p_calib_color.cu3s")
 # default settings
 loc_settings = os.path.join(data_dir, "settings")
 

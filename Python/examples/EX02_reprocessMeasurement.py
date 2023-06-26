@@ -17,17 +17,17 @@ elif platform.system() == "Linux":
 
 # default images
 loc_file = os.path.join(data_dir,
-                        "set4_tractor",
-                        "raw.cu3s")
+                        "set0_lab",
+                        "x20_calib_color_raw.cu3s")
 loc_dark = os.path.join(data_dir,
-                        "set4_tractor",
-                        "dark.cu3s")
+                        "set0_lab",
+                        "x20_calib_color_dark.cu3s")
 loc_white = os.path.join(data_dir,
-                         "set4_tractor",
-                         "white.cu3s")
+                         "set0_lab",
+                         "x20_calib_color_white.cu3s")
 loc_distance = os.path.join(data_dir,
-                            "set4_tractor",
-                            "distance.cu3s")
+                            "set0_lab",
+                            "x20_calib_color_distance.cu3s")
 
 # default settings
 loc_settings = os.path.join(data_dir, "settings")
