@@ -1,0 +1,20 @@
+.TH "log" 3 "Thu Jun 22 2023" "Version 3.2.0" "CUVIS C++ SDK" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+log \- Logging
+.SH SYNOPSIS
+.br
+.PP
+.SH "Detailed Description"
+.PP 
+
+.SS "Log configuration"
+When a local '\&.cuvis' directory exists with an empty 'log\&.cfg' file, the cuvis\&.dll will create a debug log in that directory\&.
+.PP
+The log file name is the process name followed by log, e\&.g\&. 'example\&.exe\&.log', if the process is named 'example\&.log'
+.PP
+If a local '\&.cuvis' directory is not found, the system-wide configuration of the logging is used (activated by default from the installation of cuvis): The configuration can be found under PROGRAMDATA%/cuvis/log\&.cfg (usually 'C:/Program Data/cuvis/log\&.cfg') for windwos or /etc/cuvis/log\&.cfg for linux\&. The log output can be found under PROGRAMDATA%/cuvis for windows and /var/log for linux\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CUVIS C++ SDK from the source code\&.

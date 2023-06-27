@@ -1,0 +1,79 @@
+.TH "cuvis_worker_settings_t" 3 "Thu Jun 22 2023" "Version 3.2.0" "CUVIS C++ SDK" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cuvis_worker_settings_t \- settings for the worker  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <cuvis\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBCUVIS_INT\fP \fBworker_count\fP"
+.br
+.RI "Number of threads\&. "
+.ti -1c
+.RI "\fBCUVIS_INT\fP \fBpoll_interval\fP"
+.br
+.RI "internal poll interval in milliseconds\&. "
+.ti -1c
+.RI "\fBCUVIS_INT\fP \fBkeep_out_of_sequence\fP"
+.br
+.RI "If images are retrieved out of sequence, do not drop them (if set to 1)\&. "
+.ti -1c
+.RI "\fBCUVIS_INT\fP \fBworker_queue_hard_limit\fP"
+.br
+.RI "The number of measurements / views that the worker can store for retrieval in total\&. "
+.ti -1c
+.RI "\fBCUVIS_INT\fP \fBworker_queue_soft_limit\fP"
+.br
+.RI "The number of measurements / views that the worker can store for retrieval before it will stop to accept new results\&. "
+.ti -1c
+.RI "\fBCUVIS_INT\fP \fBcan_drop\fP"
+.br
+.RI "If set to 0, the worker is not allowed to drop results from its result queue, if set to 1, dropping is allowed\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+settings for the worker 
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBCUVIS_INT\fP cuvis_worker_settings_t::can_drop"
+
+.PP
+If set to 0, the worker is not allowed to drop results from its result queue, if set to 1, dropping is allowed\&. This behaviour may be desired for video playback or similar tasks where data loss is acceptable in favor of processing speed\&. Dropping frames should be disallowed for bulk reprocessing tasks\&. 
+.SS "\fBCUVIS_INT\fP cuvis_worker_settings_t::keep_out_of_sequence"
+
+.PP
+If images are retrieved out of sequence, do not drop them (if set to 1)\&. 
+.PP
+\fBNote\fP
+.RS 4
+Typically, out-of sequence images occur, when the system can't keep up\&. You should reduce FPS or reduce disable processing\&. 
+.RE
+.PP
+
+.SS "\fBCUVIS_INT\fP cuvis_worker_settings_t::poll_interval"
+
+.PP
+internal poll interval in milliseconds\&. If set to 0, the internal default (10ms) is used 
+.SS "\fBCUVIS_INT\fP cuvis_worker_settings_t::worker_count"
+
+.PP
+Number of threads\&. give the number of worker threads to be used\&. If set to 0, the system's hardware concurrency is used (e\&.g 12 for a 6core/12 threads - CPU) 
+.SS "\fBCUVIS_INT\fP cuvis_worker_settings_t::worker_queue_hard_limit"
+
+.PP
+The number of measurements / views that the worker can store for retrieval in total\&. 
+.SS "\fBCUVIS_INT\fP cuvis_worker_settings_t::worker_queue_soft_limit"
+
+.PP
+The number of measurements / views that the worker can store for retrieval before it will stop to accept new results\&. Ideally the hard limit minus the worker count\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CUVIS C++ SDK from the source code\&.

@@ -1,0 +1,42 @@
+.TH "cuvis_proc_args_t" 3 "Thu Jun 22 2023" "Version 3.2.0" "CUVIS C++ SDK" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cuvis_proc_args_t \- processing arguments  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <cuvis\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBCUVIS_PROCESSING_MODE\fP \fBprocessing_mode\fP"
+.br
+.RI "the processing mode to be used\&. "
+.ti -1c
+.RI "\fBCUVIS_INT\fP \fBallow_recalib\fP"
+.br
+.RI "allow to use different calibration (expert option) "
+.in -1c
+.SH "Detailed Description"
+.PP 
+processing arguments 
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBCUVIS_INT\fP cuvis_proc_args_t::allow_recalib"
+
+.PP
+allow to use different calibration (expert option) This options allows to process raw data with a different calibration\&. this is, however, limited to the same hardware\&.
+.PP
+If the hardware was mechanically changed, results may be poor or not usable at all\&. Unless the accuracy of the result can be verified, this option is not recommended\&. 
+.SS "\fBCUVIS_PROCESSING_MODE\fP cuvis_proc_args_t::processing_mode"
+
+.PP
+the processing mode to be used\&. use \fBcuvis_proc_cont_is_capable\fP to check, if the mode is currently possible of a specific measurement 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CUVIS C++ SDK from the source code\&.

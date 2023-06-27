@@ -1,0 +1,52 @@
+.TH "cuvis_sensor_info_t" 3 "Thu Jun 22 2023" "Version 3.2.0" "CUVIS C++ SDK" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cuvis_sensor_info_t
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <cuvis\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBaverages\fP"
+.br
+.RI "number of averages used "
+.ti -1c
+.RI "int32_t \fBtemperature\fP"
+.br
+.RI "the sensors's temperature while readout (0 if not applicable) "
+.ti -1c
+.RI "double \fBgain\fP"
+.br
+.RI "gain value while recording "
+.ti -1c
+.RI "\fBCUVIS_TIMESTAMP\fP \fBreadout_time\fP"
+.br
+.RI "the timestamp (UTC) of the image readout (senor's hardware clock ) "
+.in -1c
+.SH "Member Data Documentation"
+.PP 
+.SS "uint32_t cuvis_sensor_info_t::averages"
+
+.PP
+number of averages used 
+.SS "double cuvis_sensor_info_t::gain"
+
+.PP
+gain value while recording 
+.SS "\fBCUVIS_TIMESTAMP\fP cuvis_sensor_info_t::readout_time"
+
+.PP
+the timestamp (UTC) of the image readout (senor's hardware clock ) 
+.SS "int32_t cuvis_sensor_info_t::temperature"
+
+.PP
+the sensors's temperature while readout (0 if not applicable) 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CUVIS C++ SDK from the source code\&.

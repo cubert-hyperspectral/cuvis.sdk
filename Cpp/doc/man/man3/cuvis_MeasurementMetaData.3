@@ -1,0 +1,144 @@
+.TH "cuvis::MeasurementMetaData" 3 "Thu Jun 22 2023" "Version 3.2.0" "CUVIS C++ SDK" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cuvis::MeasurementMetaData \- measurement meta structure  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <cuvis\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMeasurementMetaData\fP (\fBmesu_metadata_t\fP const &meta)"
+.br
+.RI "Constructor to create default parameters\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::string \fBname\fP"
+.br
+.RI "The name of the measurement\&. "
+.ti -1c
+.RI "std::string \fBpath\fP"
+.br
+.RI "The output file path\&. "
+.ti -1c
+.RI "std::string \fBcomment\fP"
+.br
+.RI "The User Comment linked to the measurement\&. "
+.ti -1c
+.RI "\fBtimestamp_t\fP \fBcapture_time\fP"
+.br
+.RI "The Capture Time of the \fBMeasurement\fP\&. "
+.ti -1c
+.RI "\fBtimestamp_t\fP \fBfactory_calibration\fP"
+.br
+.RI "The factory calibration date of the device\&. "
+.ti -1c
+.RI "std::string \fBproduct_name\fP"
+.br
+.RI "The name of the device, which took the measurement\&. "
+.ti -1c
+.RI "std::string \fBserial_number\fP"
+.br
+.RI "The serial number of the device, which took the measurement\&. "
+.ti -1c
+.RI "std::string \fBassembly\fP"
+.br
+.RI "The Assembly Data of the device\&. "
+.ti -1c
+.RI "double \fBintegration_time\fP"
+.br
+.RI "The integration time of the measurement (exposure time) in ms\&. "
+.ti -1c
+.RI "unsigned \fBaverages\fP"
+.br
+.RI "Number of averaging taken\&. "
+.ti -1c
+.RI "std::optional< double > \fBdistance\fP"
+.br
+.RI "The distance, the measurement was recorded in, in millimeters, if available\&. "
+.ti -1c
+.RI "\fBSessionInfo\fP \fBsession_info\fP"
+.br
+.RI "The session information of the measurement\&. "
+.ti -1c
+.RI "\fBprocessing_mode_t\fP \fBprocessing_mode\fP"
+.br
+.ti -1c
+.RI "std::map< std::string, std::string > \fBmeasurement_flags\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+measurement meta structure 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "cuvis::MeasurementMetaData::MeasurementMetaData (\fBmesu_metadata_t\fP const & meta)"
+
+.PP
+Constructor to create default parameters\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "std::string cuvis::MeasurementMetaData::assembly"
+
+.PP
+The Assembly Data of the device\&. 
+.SS "unsigned cuvis::MeasurementMetaData::averages"
+
+.PP
+Number of averaging taken\&. 
+.SS "\fBtimestamp_t\fP cuvis::MeasurementMetaData::capture_time"
+
+.PP
+The Capture Time of the \fBMeasurement\fP\&. 
+.SS "std::string cuvis::MeasurementMetaData::comment"
+
+.PP
+The User Comment linked to the measurement\&. 
+.SS "std::optional<double> cuvis::MeasurementMetaData::distance"
+
+.PP
+The distance, the measurement was recorded in, in millimeters, if available\&. 
+.SS "\fBtimestamp_t\fP cuvis::MeasurementMetaData::factory_calibration"
+
+.PP
+The factory calibration date of the device\&. 
+.SS "double cuvis::MeasurementMetaData::integration_time"
+
+.PP
+The integration time of the measurement (exposure time) in ms\&. 
+.SS "std::map<std::string, std::string> cuvis::MeasurementMetaData::measurement_flags"
+
+.SS "std::string cuvis::MeasurementMetaData::name"
+
+.PP
+The name of the measurement\&. 
+.SS "std::string cuvis::MeasurementMetaData::path"
+
+.PP
+The output file path\&. 
+.SS "\fBprocessing_mode_t\fP cuvis::MeasurementMetaData::processing_mode"
+
+.SS "std::string cuvis::MeasurementMetaData::product_name"
+
+.PP
+The name of the device, which took the measurement\&. 
+.SS "std::string cuvis::MeasurementMetaData::serial_number"
+
+.PP
+The serial number of the device, which took the measurement\&. 
+.SS "\fBSessionInfo\fP cuvis::MeasurementMetaData::session_info"
+
+.PP
+The session information of the measurement\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CUVIS C++ SDK from the source code\&.

@@ -1,0 +1,76 @@
+.TH "cuvis::SessionInfo" 3 "Thu Jun 22 2023" "Version 3.2.0" "CUVIS C++ SDK" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cuvis::SessionInfo
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <cuvis\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSessionInfo\fP ()"
+.br
+.RI "Constructor to create default parameters\&. "
+.ti -1c
+.RI "\fBSessionInfo\fP (\fBsession_info_t\fP const &sess)"
+.br
+.RI "Constructor to create session info from session\&. "
+.ti -1c
+.RI "\fBoperator session_info_t\fP () const"
+.br
+.RI "convert to C - SDK settings structure "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::string \fBname\fP"
+.br
+.RI "session_info name "
+.ti -1c
+.RI "unsigned \fBsession_no\fP"
+.br
+.RI "\fBSessionFile\fP number\&. "
+.ti -1c
+.RI "unsigned \fBsequence_no\fP"
+.br
+.RI "Sequence number\&. "
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "cuvis::SessionInfo::SessionInfo ()"
+
+.PP
+Constructor to create default parameters\&. 
+.SS "cuvis::SessionInfo::SessionInfo (\fBsession_info_t\fP const & sess)"
+
+.PP
+Constructor to create session info from session\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "cuvis::SessionInfo::operator \fBsession_info_t\fP () const"
+
+.PP
+convert to C - SDK settings structure internal session_info info of acquisition context
+.SH "Member Data Documentation"
+.PP 
+.SS "std::string cuvis::SessionInfo::name"
+
+.PP
+session_info name 
+.SS "unsigned cuvis::SessionInfo::sequence_no"
+
+.PP
+Sequence number\&. Increases with each recorded frame\&. Reset, if session_no changes 
+.SS "unsigned cuvis::SessionInfo::session_no"
+
+.PP
+\fBSessionFile\fP number\&. Will be increased by stopping & starting recording 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CUVIS C++ SDK from the source code\&.

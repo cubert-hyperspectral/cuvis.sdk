@@ -1,0 +1,48 @@
+.TH "cuvis_session_info_t" 3 "Thu Jun 22 2023" "Version 3.2.0" "CUVIS C++ SDK" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cuvis_session_info_t \- internal session_info info of acquisition context  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <cuvis\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBCUVIS_CHAR\fP \fBname\fP [\fBCUVIS_MAXBUF\fP]"
+.br
+.RI "session_info name "
+.ti -1c
+.RI "\fBCUVIS_INT\fP \fBsession_no\fP"
+.br
+.RI "SessionFile number\&. "
+.ti -1c
+.RI "\fBCUVIS_INT\fP \fBsequence_no\fP"
+.br
+.RI "Sequence number\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+internal session_info info of acquisition context 
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBCUVIS_CHAR\fP cuvis_session_info_t::name[\fBCUVIS_MAXBUF\fP]"
+
+.PP
+session_info name 
+.SS "\fBCUVIS_INT\fP cuvis_session_info_t::sequence_no"
+
+.PP
+Sequence number\&. Increases with each recorded frame\&. Reset, if session_no changes 
+.SS "\fBCUVIS_INT\fP cuvis_session_info_t::session_no"
+
+.PP
+SessionFile number\&. Will be increased by stopping & starting recording 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CUVIS C++ SDK from the source code\&.

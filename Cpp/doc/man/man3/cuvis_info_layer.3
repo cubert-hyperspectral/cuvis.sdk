@@ -1,0 +1,145 @@
+.TH "cuvis_info_layer" 3 "Thu Jun 22 2023" "Version 3.2.0" "CUVIS C++ SDK" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cuvis_info_layer \- The info layer
+.PP
+ \- The info layer can be retrieved with the function \fBcuvis_measurement_get_data_image\fP Though is appears to be an image and will also be exported and fragmented as an image it is actually a set of flags\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBCUVIS_MESU_CUBE_INFO_KEY\fP   'cube_info_layer'"
+.br
+.RI "name of the info channel of its respective cube\&. "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_PAN_INFO_KEY\fP   'pan_info_layer'"
+.br
+.RI "name of the info channel of its respective pan image\&. "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_INFO_OK\fP   0"
+.br
+.RI "no flag set, only valid, if pixel value is equal 0 "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_INFO_OVERILLUMINATED\fP   1"
+.br
+.RI "one or more channels of the spectrum are over-exposed / the pan image is over-exposed at this position "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_INFO_BAD_PIXEL\fP   2"
+.br
+.RI "the pixel is marked bad, eg\&. "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_INFO_OVERILLUMINATED_REFERENCE\fP   4"
+.br
+.RI "one or more channels of the spectrum of the white reference that was used to calculate this position was over-exposed "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_INFO_UNDERFLOW_MEASUREMENT_MIN_DARK\fP   8"
+.br
+.RI "the meausurement was darker then the dark reference at this position (underflow) "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_INFO_UNDERFLOW_WHITE_MIN_DARK\fP   16"
+.br
+.RI "the white reference was darker then the dark reference at this position (underflow) "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_INFO_REFERENCE_CALC_OVERFLOW\fP   32"
+.br
+.RI "the reflectance value exceeded the maximum value possible by the data format (i\&.e\&. "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_INFO_INCOMPLETE\fP   64"
+.br
+.RI "the spectrum at this position is incomplete, e\&.g by a bad / too close distance calibration "
+.in -1c
+.SH "Detailed Description"
+.PP 
+The info layer can be retrieved with the function \fBcuvis_measurement_get_data_image\fP Though is appears to be an image and will also be exported and fragmented as an image it is actually a set of flags\&. 
+
+Each position of the a info-layer pixel represents a data flag for a respective cube (or pan image)\&.
+.PP
+E\&.g\&. if a cube (\fBCUVIS_MESU_CUBE_KEY\fP) has the size of 410x410x164 (W x H x Chn), the respective info layer (\fBCUVIS_MESU_CUBE_INFO_KEY\fP) will have a size of 410x410\&. The info_layer value at position x,y contains the flags for the whole spectrum at position x,y in the cube\&.
+.PP
+The same is true for the pan-chromatic image ((\fBCUVIS_MESU_CUBE_INFO_KEY\fP) and \fBCUVIS_MESU_CUBE_INFO_KEY\fP, respectively)
+.PP
+The info layer pixel value is retrieved by binary operation\&.
+.PP
+\fBNote\fP
+.RS 4
+The info layer may not be available on all devices\&.
+.RE
+.PP
+Example:
+.PP
+.PP
+.nf
+// mesu is a measurement already loaded
+// load the info channel to cube_info_layer_buffer
+CUVIS_IMBUFFER cube_info_layer_buffer;
+cuvis_measurement_get_data_image(mesu, CUVIS_MESU_CUBE_INFO_KEY, &cube_info_layer_buffer);
+//now load pixel x=15, y=17' s flag information
+int x = 15, y = 17;
+uint16_t info_ptr = (const uint16_t*)(cube_info_layer_buffer\&.raw);
+cube_info_layer_buffer pixel_info = IMBUFFER_GET(info_ptr, x, y, 0, imbuf);
+//check if the pixel is ok
+if (pixel_info == CUVIS_MESU_INFO_OK)
+    printf("pixel 15|17 ok \n");
+else
+{
+    // multiple flags can be set
+    if ((pixel_info  & CUVIS_MESU_INFO_BAD_PIXEL) != 0)
+        printf("pixel 15|17 is over-illuminated \n");
+
+    if ((pixel_info  & CUVIS_MESU_INFO_OVERILLUMINATED) != 0)
+        printf("pixel 15|17 is a bad pixel \n");
+    // \&.\&.\&.
+}
+.fi
+.PP
+ 
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define CUVIS_MESU_CUBE_INFO_KEY   'cube_info_layer'"
+
+.PP
+name of the info channel of its respective cube\&. 
+.SS "#define CUVIS_MESU_INFO_BAD_PIXEL   2"
+
+.PP
+the pixel is marked bad, eg\&. a pixel of the respective spectrum is dead 
+.SS "#define CUVIS_MESU_INFO_INCOMPLETE   64"
+
+.PP
+the spectrum at this position is incomplete, e\&.g by a bad / too close distance calibration 
+.SS "#define CUVIS_MESU_INFO_OK   0"
+
+.PP
+no flag set, only valid, if pixel value is equal 0 
+.SS "#define CUVIS_MESU_INFO_OVERILLUMINATED   1"
+
+.PP
+one or more channels of the spectrum are over-exposed / the pan image is over-exposed at this position 
+.SS "#define CUVIS_MESU_INFO_OVERILLUMINATED_REFERENCE   4"
+
+.PP
+one or more channels of the spectrum of the white reference that was used to calculate this position was over-exposed 
+.SS "#define CUVIS_MESU_INFO_REFERENCE_CALC_OVERFLOW   32"
+
+.PP
+the reflectance value exceeded the maximum value possible by the data format (i\&.e\&. the value reflectance reached or exceeded 655\&.35% (uint16 value of 65535) 
+.SS "#define CUVIS_MESU_INFO_UNDERFLOW_MEASUREMENT_MIN_DARK   8"
+
+.PP
+the meausurement was darker then the dark reference at this position (underflow) 
+.SS "#define CUVIS_MESU_INFO_UNDERFLOW_WHITE_MIN_DARK   16"
+
+.PP
+the white reference was darker then the dark reference at this position (underflow) 
+.SS "#define CUVIS_MESU_PAN_INFO_KEY   'pan_info_layer'"
+
+.PP
+name of the info channel of its respective pan image\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CUVIS C++ SDK from the source code\&.

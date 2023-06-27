@@ -1,0 +1,100 @@
+.TH "cuvis_spectral.hpp" 3 "Thu Jun 22 2023" "Version 3.2.0" "CUVIS C++ SDK" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cuvis_spectral.hpp
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <cassert>\fP
+.br
+\fC#include <cuvis\&.hpp>\fP
+.br
+\fC#include <opencv2/opencv\&.hpp>\fP
+.br
+\fC#include <vector>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBcuvis::aux::spectral::spectral_mean_t\fP"
+.br
+.RI "Couple of wavelength, respective mean value and standard deviation with default values\&. "
+.ti -1c
+.RI "struct \fBcuvis::aux::spectral::histogram_t\fP"
+.br
+.RI "Couple of wavelength, respective count and occurrence\&. "
+.ti -1c
+.RI "struct \fBcuvis::aux::spectral::point_t\fP"
+.br
+.RI "2-dimensional definition of a single point "
+.in -1c
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI "namespace \fBcuvis\fP"
+.br
+.ti -1c
+.RI "namespace \fBcuvis::aux\fP"
+.br
+.ti -1c
+.RI "namespace \fBcuvis::aux::spectral\fP"
+.br
+.RI "Helper functions and structures for spectral calculation\&. "
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "using \fBcuvis::aux::spectral::spectrum_t\fP = std::vector< spectral_mean_t >"
+.br
+.RI "A vector type for describing a spectrum with mean and standard deviation\&. "
+.ti -1c
+.RI "using \fBcuvis::aux::spectral::histogram_vector_t\fP = std::vector< histogram_t >"
+.br
+.RI "A vector type for describing a histogram for individual wavelengths with counts and ocurrences\&. "
+.ti -1c
+.RI "using \fBcuvis::aux::spectral::polygon_t\fP = std::vector< point_t >"
+.br
+.RI "A vector type for describing a polygon with x and y coordinates\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename data_t > spectrum_t \fBcuvis::aux::spectral::get_spectrum_polygon\fP (image_t< data_t > const &img, polygon_t const &poly)"
+.br
+.RI "Calculates a spectrum for a polygon\&. "
+.ti -1c
+.RI "template<typename data_t > histogram_vector_t \fBcuvis::aux::spectral::get_histogram\fP (image_t< data_t > const &img, size_t histogram_min_size, size_t count_bins, size_t wavelength_bins, bool detect_max_value)"
+.br
+.RI "Calculates a histogram for an image\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+\fBAuthors\fP
+.RS 4
+BenMGeo, Simon 
+.RE
+.PP
+\fBDate\fP
+.RS 4
+02/08/2023
+.RE
+.PP
+written for use with cuvis measurements of all modes\&. 
+.PP
+\fBCopyright\fP
+.RS 4
+Apache V2\&.0 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CUVIS C++ SDK from the source code\&.

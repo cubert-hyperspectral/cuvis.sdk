@@ -1,0 +1,55 @@
+.TH "cuvis::cuvis_sdk_exception" 3 "Thu Jun 22 2023" "Version 3.2.0" "CUVIS C++ SDK" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cuvis::cuvis_sdk_exception
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <cuvis\&.hpp>\fP
+.PP
+Inherits std::exception\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBcuvis_sdk_exception\fP (std::string const &msg, std::wstring const &wmsg)"
+.br
+.ti -1c
+.RI "char const * \fBwhat\fP (void) const noexcept"
+.br
+.ti -1c
+.RI "std::wstring \fBwhat_wstr\fP (void) const noexcept"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::string const \fB_msg\fP"
+.br
+.ti -1c
+.RI "std::wstring const \fB_wmsg\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "cuvis::cuvis_sdk_exception::cuvis_sdk_exception (std::string const & msg, std::wstring const & wmsg)"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "char const  * cuvis::cuvis_sdk_exception::what (void) const\fC [noexcept]\fP"
+
+.SS "std::wstring cuvis::cuvis_sdk_exception::what_wstr (void) const\fC [noexcept]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "std::string const cuvis::cuvis_sdk_exception::_msg\fC [protected]\fP"
+
+.SS "std::wstring const cuvis::cuvis_sdk_exception::_wmsg\fC [protected]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CUVIS C++ SDK from the source code\&.

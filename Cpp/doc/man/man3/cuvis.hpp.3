@@ -1,0 +1,324 @@
+.TH "cuvis.hpp" 3 "Thu Jun 22 2023" "Version 3.2.0" "CUVIS C++ SDK" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cuvis.hpp \- SDK calls for cuvis CPP SDK (wrapper)\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'cuvis\&.h'\fP
+.br
+\fC#include <atomic>\fP
+.br
+\fC#include <cassert>\fP
+.br
+\fC#include <chrono>\fP
+.br
+\fC#include <cstring>\fP
+.br
+\fC#include <deque>\fP
+.br
+\fC#include <exception>\fP
+.br
+\fC#include <filesystem>\fP
+.br
+\fC#include <functional>\fP
+.br
+\fC#include <future>\fP
+.br
+\fC#include <map>\fP
+.br
+\fC#include <memory>\fP
+.br
+\fC#include <mutex>\fP
+.br
+\fC#include <optional>\fP
+.br
+\fC#include <string>\fP
+.br
+\fC#include <thread>\fP
+.br
+\fC#include <type_traits>\fP
+.br
+\fC#include <variant>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBcuvis::common_image_t< data_t >\fP"
+.br
+.RI "Metaclass for handling image data (2d or 3d) "
+.ti -1c
+.RI "struct \fBcuvis::image_t< data_t >\fP"
+.br
+.RI "Image data from a measurement\&. "
+.ti -1c
+.RI "struct \fBcuvis::view_t< data_t >\fP"
+.br
+.RI "Image data created from \fBViewExporter\fP\&. "
+.ti -1c
+.RI "struct \fBcuvis::GeneralExportArgs\fP"
+.br
+.RI "Export Settings common to all exporters\&. "
+.ti -1c
+.RI "struct \fBcuvis::SaveArgs\fP"
+.br
+.RI "Options for saving cu3s/cu3 files\&. "
+.ti -1c
+.RI "struct \fBcuvis::TiffArgs\fP"
+.br
+.RI "Additional settings for exporting tiff\&. "
+.ti -1c
+.RI "struct \fBcuvis::EnviArgs\fP"
+.br
+.ti -1c
+.RI "struct \fBcuvis::ViewArgs\fP"
+.br
+.RI "viewer settings "
+.ti -1c
+.RI "struct \fBcuvis::ProcessingArgs\fP"
+.br
+.RI "processing arguments "
+.ti -1c
+.RI "struct \fBcuvis::WorkerArgs\fP"
+.br
+.RI "settings for the worker "
+.ti -1c
+.RI "struct \fBcuvis::SessionInfo\fP"
+.br
+.ti -1c
+.RI "struct \fBcuvis::MeasurementMetaData\fP"
+.br
+.RI "measurement meta structure "
+.ti -1c
+.RI "struct \fBcuvis::SensorInfoData\fP"
+.br
+.RI "sensor info data structure "
+.ti -1c
+.RI "class \fBcuvis::cuvis_sdk_exception\fP"
+.br
+.ti -1c
+.RI "class \fBcuvis::General\fP"
+.br
+.ti -1c
+.RI "class \fBcuvis::Measurement\fP"
+.br
+.RI "central measurement class "
+.ti -1c
+.RI "class \fBcuvis::Calibration\fP"
+.br
+.RI "central calibration Class "
+.ti -1c
+.RI "class \fBcuvis::SessionFile\fP"
+.br
+.ti -1c
+.RI "class \fBcuvis::ProcessingContext\fP"
+.br
+.ti -1c
+.RI "class \fBcuvis::Async\fP"
+.br
+.ti -1c
+.RI "class \fBcuvis::AsyncMesu\fP"
+.br
+.ti -1c
+.RI "class \fBcuvis::AcquisitionContext\fP"
+.br
+.ti -1c
+.RI "struct \fBcuvis::AcquisitionContext::component_state_info_t\fP"
+.br
+.ti -1c
+.RI "class \fBcuvis::Viewer\fP"
+.br
+.ti -1c
+.RI "class \fBcuvis::Exporter\fP"
+.br
+.ti -1c
+.RI "class \fBcuvis::CubeExporter\fP"
+.br
+.ti -1c
+.RI "class \fBcuvis::TiffExporter\fP"
+.br
+.ti -1c
+.RI "class \fBcuvis::EnviExporter\fP"
+.br
+.ti -1c
+.RI "class \fBcuvis::ViewExporter\fP"
+.br
+.ti -1c
+.RI "class \fBcuvis::Worker\fP"
+.br
+.ti -1c
+.RI "struct \fBcuvis::Worker::worker_return_t\fP"
+.br
+.in -1c
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI "namespace \fBcuvis\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBACQ_STUB_0a\fP(funname,  sdkname,  type_ifcae,  type_wrapped)"
+.br
+.ti -1c
+.RI "#define \fBACQ_STUB_0b\fP(funname,  sdkname,  type_ifcae,  type_wrapped)"
+.br
+.ti -1c
+.RI "#define \fBACQ_STUB_1a\fP(funname,  sdkname,  type_ifcae,  type_wrapped)"
+.br
+.ti -1c
+.RI "#define \fBACQ_STUB_1b\fP(funname,  sdkname,  type_ifcae,  type_wrapped)"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "using \fBcuvis::int_t\fP = \fBCUVIS_INT\fP"
+.br
+.ti -1c
+.RI "using \fBcuvis::event_t\fP = \fBCUVIS_EVENT\fP"
+.br
+.ti -1c
+.RI "using \fBcuvis::loglevel_t\fP = \fBcuvis_loglevel_t\fP"
+.br
+.RI "The available log levels\&. "
+.ti -1c
+.RI "using \fBcuvis::operation_mode_t\fP = \fBcuvis_operation_mode_t\fP"
+.br
+.RI "Operation mode of a camera\&. "
+.ti -1c
+.RI "using \fBcuvis::reference_type_t\fP = \fBcuvis_reference_type_t\fP"
+.br
+.RI "The type of a reference\&. "
+.ti -1c
+.RI "using \fBcuvis::processing_mode_t\fP = \fBcuvis_processing_mode_t\fP"
+.br
+.RI "The processing mode (a\&.k\&.a\&. "
+.ti -1c
+.RI "using \fBcuvis::pan_sharpening_interpolation_type_t\fP = \fBcuvis_pan_sharpening_interpolation_type_t\fP"
+.br
+.RI "the pan sharpening interpolation type for scaling up the cube before applying the pan image's weights "
+.ti -1c
+.RI "using \fBcuvis::pan_sharpening_algorithm_t\fP = \fBcuvis_pan_sharpening_algorithm_t\fP"
+.br
+.RI "the pan-sharpening algorithm for calculating the pan image's weights "
+.ti -1c
+.RI "using \fBcuvis::tiff_compression_mode_t\fP = \fBcuvis_tiff_compression_mode_t\fP"
+.br
+.RI "the tiff compression options "
+.ti -1c
+.RI "using \fBcuvis::tiff_format_t\fP = \fBcuvis_tiff_format_t\fP"
+.br
+.RI "the tiff export format\&. "
+.ti -1c
+.RI "using \fBcuvis::session_info_t\fP = \fBcuvis_session_info_t\fP"
+.br
+.RI "internal session_info info of acquisition context "
+.ti -1c
+.RI "using \fBcuvis::mesu_metadata_t\fP = \fBcuvis_mesu_metadata_t\fP"
+.br
+.RI "The measurement meta structure\&. "
+.ti -1c
+.RI "using \fBcuvis::sensor_info_t\fP = \fBcuvis_sensor_info_t\fP"
+.br
+.ti -1c
+.RI "using \fBcuvis::hardware_state_t\fP = \fBcuvis_hardware_state_t\fP"
+.br
+.RI "the state of the hardware "
+.ti -1c
+.RI "using \fBcuvis::capabilities_t\fP = \fBcuvis_capabilities_t\fP"
+.br
+.ti -1c
+.RI "using \fBcuvis::timestamp_t\fP = std::chrono::time_point< std::chrono::system_clock >"
+.br
+.RI "as timesamp use STL system clock "
+.ti -1c
+.RI "using \fBcuvis::cpp_event_callback_t\fP = std::function< void(event_t)>"
+.br
+.RI "The event call-back type must be of the format void fun(event_t) "
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum class \fBcuvis::async_result_t\fP { \fBcuvis::done\fP, \fBcuvis::timeout\fP, \fBcuvis::overwritten\fP, \fBcuvis::deferred\fP }"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+SDK calls for cuvis CPP SDK (wrapper)\&. 
+
+This header defines all public CPP SDK (wrapper) functions 
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define ACQ_STUB_0a(funname, sdkname, type_ifcae, type_wrapped)"
+\fBValue:\fP
+.PP
+.nf
+  type_wrapped get_##funname() const                            \
+  {                                                             \
+    type_ifcae res;                                             \
+    chk(sdkname##_get(*_acqCont, &res));                        \
+    return static_cast<type_wrapped>(res);                      \
+  }
+.fi
+.SS "#define ACQ_STUB_0b(funname, sdkname, type_ifcae, type_wrapped)"
+\fBValue:\fP
+.PP
+.nf
+  Async set_##funname(type_wrapped value) const                     \
+  {                                                                 \
+    CUVIS_ASYNC_CALL_RESULT async_handle;                           \
+    chk(sdkname##_set_async(                                        \
+        *_acqCont, &async_handle, static_cast<type_ifcae>(value))); \
+    Async async;                                                    \
+    async\&._async = std::shared_ptr<CUVIS_ASYNC_CALL_RESULT>(        \
+        new CUVIS_ASYNC_CALL_RESULT{async_handle},                  \
+        [](CUVIS_ASYNC_CALL_RESULT* handle) {                       \
+          cuvis_async_capture_free(handle);                         \
+          delete handle;                                            \
+        });                                                         \
+    return async;                                                   \
+  }
+.fi
+.SS "#define ACQ_STUB_1a(funname, sdkname, type_ifcae, type_wrapped)"
+\fBValue:\fP
+.PP
+.nf
+  type_wrapped get_##funname(size_t id) const                   \
+  {                                                             \
+    type_ifcae res;                                             \
+    chk(sdkname##_get(*_acqCont, id, &res));                    \
+    return static_cast<type_wrapped>(res);                      \
+  }
+.fi
+.SS "#define ACQ_STUB_1b(funname, sdkname, type_ifcae, type_wrapped)"
+\fBValue:\fP
+.PP
+.nf
+  Async set_##funname(size_t id, type_wrapped value) const              \
+  {                                                                     \
+    CUVIS_ASYNC_CALL_RESULT async_handle;                               \
+    chk(sdkname##_set_async(                                            \
+        *_acqCont, id, &async_handle, static_cast<type_ifcae>(value))); \
+    Async async;                                                        \
+    async\&._async = std::shared_ptr<CUVIS_ASYNC_CALL_RESULT>(            \
+        new CUVIS_ASYNC_CALL_RESULT{async_handle},                      \
+        [](CUVIS_ASYNC_CALL_RESULT* handle) {                           \
+          cuvis_async_capture_free(handle);                             \
+          delete handle;                                                \
+        });                                                             \
+    return async;                                                       \
+  }
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CUVIS C++ SDK from the source code\&.
