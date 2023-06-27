@@ -27,7 +27,7 @@ int main(int argc, char* argv[])
   {
     printf("To few Arguments! Please provide:\n");
     printf("user settings directory\n");
-    printf("factory directory\n");
+    printf("sessionfile\n");
     printf("name of recording directory\n");
     printf("exposure time in ms\n");
     printf("auto exposure [1/0]\n");
@@ -38,7 +38,7 @@ int main(int argc, char* argv[])
   }
 
   char* const userSettingsDir = argv[1];
-  char* const factoryDir = argv[2];
+  char* const sessionfile = argv[2];
   char* const recDir = argv[3];
   char* const exposureString = argv[4];
   char* const autoExpString = argv[5];
@@ -55,8 +55,8 @@ int main(int argc, char* argv[])
   printf("Example 06 video");
   printf("\nUser Settings Dir: ");
   printf(userSettingsDir);
-  printf("\nFactory Dir: ");
-  printf(factoryDir);
+  printf("\Sessionfile: ");
+  printf(sessionfile);
   printf("\nRecording Dir: ");
   printf(recDir);
   printf("\nExposure in ms: %d\n", exposure_ms);
@@ -64,7 +64,7 @@ int main(int argc, char* argv[])
   printf("Target FPS: %4.2f\n", fps);
   fflush(stdout);
 
-  CUVIS_CALIB calib;
+  CUVIS_SESSION_FILE sessFile;
   CUVIS_ACQ_CONT acqCont;
   CUVIS_PROC_CONT procCont;
 
@@ -72,20 +72,24 @@ int main(int argc, char* argv[])
   fflush(stdout);
   CUVIS_CHECK(cuvis_init(userSettingsDir));
 
-  printf("loading calibration...\n");
+  printf("loading session file... \n");
   fflush(stdout);
-  CUVIS_CHECK(cuvis_calib_create_from_path(factoryDir, &calib));
+  CUVIS_CHECK(cuvis_session_file_load(sessionfile, &sessFile));
 
   printf("loading acquisition context... \n");
   fflush(stdout);
-  CUVIS_CHECK(cuvis_acq_cont_create_from_calib(calib, &acqCont));
+  CUVIS_CHECK(cuvis_acq_cont_create_from_session_file(
+      sessFile,
+      1,
+      &acqCont)); // simulating = true --> use frames from sessionfile instead of real camera
 
   printf("load processing context \n");
   fflush(stdout);
-  CUVIS_CHECK(cuvis_proc_cont_create_from_calib(calib, &procCont));
+  CUVIS_CHECK(cuvis_proc_cont_create_from_session_file(sessFile, &procCont));
 
   printf("prepare saving of measurements... \n");
   fflush(stdout);
+
   CUVIS_EXPORTER cube_exporter;
 
   CUVIS_EXPORT_GENERAL_SETTINGS general_settings = {
@@ -117,9 +121,8 @@ int main(int argc, char* argv[])
   CUVIS_SESSION_INFO sess = {"video", 0, 0};
   CUVIS_CHECK(cuvis_acq_cont_set_session_info(acqCont, &sess));
 
-  printf("waiting for camera to become online...\n");
+  printf("waiting for simulated camera to become ready...\n");
   fflush(stdout);
-
   for (;;)
   {
     CUVIS_HARDWARE_STATE state;
@@ -139,19 +142,16 @@ int main(int argc, char* argv[])
 
       break;
     }
-
 #ifdef WIN32
     Sleep(1000);
 #else
     usleep(1000000);
 #endif
-
     printf(".");
   }
 
   printf("component details:\n");
   fflush(stdout);
-
   CUVIS_INT compCount;
   CUVIS_CHECK(cuvis_acq_cont_get_component_count(acqCont, &compCount));
   for (unsigned compIdx = 0; compIdx < compCount; compIdx++)
@@ -240,7 +240,6 @@ int main(int argc, char* argv[])
 #else
       usleep(10000);
 #endif
-
     } while (0 != keepRunning);
 
     cuvis_worker_get_queue_limits(worker, &queue_limit, NULL);
@@ -284,7 +283,7 @@ int main(int argc, char* argv[])
   cuvis_exporter_free(&cube_exporter);
   cuvis_acq_cont_free(&acqCont);
   cuvis_proc_cont_free(&procCont);
-  cuvis_calib_free(&calib);
+  cuvis_session_file_free(&sessFile);
   printf("finished \n");
   fflush(stdout);
 }

@@ -22,9 +22,9 @@ int main(int argc, char* argv[])
 {
   if (argc != 7)
   {
-    std::cout << std::endl << "Too few Arguments! Please provide:" << std::endl;
+    std::cout << std::endl << "To few Arguments! Please provide:" << std::endl;
     std::cout << "user settings directory" << std::endl;
-    std::cout << "factory directory" << std::endl;
+    std::cout << "sessionfile" << std::endl;
     std::cout << "name of recording directory" << std::endl;
     std::cout << "exposure time in ms" << std::endl;
     std::cout << "auto exposure [1/0]" << std::endl;
@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
   }
 
   char* userSettingsDir = argv[1];
-  char* factoryDir = argv[2];
+  char* sessionfile = argv[2];
   char* recDir = argv[3];
   char* exposureString = argv[4];
   char* autoExpString = argv[5];
@@ -46,7 +46,7 @@ int main(int argc, char* argv[])
 
   std::cout << "Example 06 video cpp " << std::endl;
   std::cout << "User Settings Dir: " << userSettingsDir << std::endl;
-  std::cout << "Factory Dir: " << factoryDir << std::endl;
+  std::cout << "Sessionfile: " << sessionfile << std::endl;
   std::cout << "Recording Dir: " << recDir << std::endl;
   std::cout << "Exposure in ms: " << exposure_ms << std::endl;
   std::cout << "Auto Exposure: " << autoExp << std::endl;
@@ -69,13 +69,15 @@ int main(int argc, char* argv[])
       },
       loglevel_info);
 
-  std::cout << "loading calibration..." << std::endl;
-  cuvis::Calibration calib(factoryDir);
+  std::cout << "loading sessionfile..." << std::endl;
+  cuvis::SessionFile sess(sessionfile);
 
   std::cout << "loading acquisition context..." << std::endl;
-  cuvis::AcquisitionContext acq(calib);
-  CUVIS_SESSION_INFO sess = {"video", 0, 0};
-  acq.set_session_info(sess);
+  cuvis::AcquisitionContext acq(
+      sess,
+      true); // simulating = true --> use frames from sessionfile instead of real camera
+  CUVIS_SESSION_INFO sessinfo = {"video", 0, 0};
+  acq.set_session_info(sessinfo);
 
   std::cout << "prepare saving of measurements..." << std::endl;
   cuvis::SaveArgs sargs;
@@ -89,7 +91,7 @@ int main(int argc, char* argv[])
   cuvis::CubeExporter exporter(sargs);
 
   std::cout << "prepare processing of measurements..." << std::endl;
-  cuvis::ProcessingContext proc(calib);
+  cuvis::ProcessingContext proc(sess);
   cuvis::ProcessingArgs args;
   args.processing_mode = Cube_Raw;
   proc.set_processingArgs(args);
@@ -131,7 +133,7 @@ int main(int argc, char* argv[])
   }
   std::cout << std::endl;
 
-  std::cout << "initializing hardware..." << std::endl;
+  std::cout << "initializing simulated hardware..." << std::endl;
   acq.set_integration_time(exposure_ms).get();
   acq.set_operation_mode(OperationMode_Internal).get();
   acq.set_fps(fps).get();
@@ -171,7 +173,7 @@ int main(int argc, char* argv[])
 
   std::cout << "recording...! " << std::endl;
 
-  while (0 != keepRunning)
+  while (keepRunning)
   {
     CUVIS_INT hasNext = 0;
     do
