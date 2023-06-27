@@ -1,0 +1,64 @@
+.TH "cuvis_component_info_t" 3 "Thu Jun 22 2023" "Version 3.2.0" "CUVIS C++ SDK" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cuvis_component_info_t \- Information about components\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <cuvis\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBCUVIS_COMPONENT_TYPE\fP \fBtype\fP"
+.br
+.RI "type of the component "
+.ti -1c
+.RI "\fBCUVIS_CHAR\fP \fBdisplayname\fP [\fBCUVIS_MAXBUF\fP]"
+.br
+.RI "the name that can be displayed human-readable "
+.ti -1c
+.RI "\fBCUVIS_CHAR\fP \fBsensorinfo\fP [\fBCUVIS_MAXBUF\fP]"
+.br
+.RI "the sensor's meta-informaiton "
+.ti -1c
+.RI "\fBCUVIS_CHAR\fP \fBuserfield\fP [\fBCUVIS_MAXBUF\fP]"
+.br
+.RI "additional sensor informaiton "
+.ti -1c
+.RI "\fBCUVIS_CHAR\fP \fBpixelformat\fP [\fBCUVIS_MAXBUF\fP]"
+.br
+.RI "additional sensor informaiton "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Information about components\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBCUVIS_CHAR\fP cuvis_component_info_t::displayname[\fBCUVIS_MAXBUF\fP]"
+
+.PP
+the name that can be displayed human-readable 
+.SS "\fBCUVIS_CHAR\fP cuvis_component_info_t::pixelformat[\fBCUVIS_MAXBUF\fP]"
+
+.PP
+additional sensor informaiton 
+.SS "\fBCUVIS_CHAR\fP cuvis_component_info_t::sensorinfo[\fBCUVIS_MAXBUF\fP]"
+
+.PP
+the sensor's meta-informaiton 
+.SS "\fBCUVIS_COMPONENT_TYPE\fP cuvis_component_info_t::type"
+
+.PP
+type of the component 
+.SS "\fBCUVIS_CHAR\fP cuvis_component_info_t::userfield[\fBCUVIS_MAXBUF\fP]"
+
+.PP
+additional sensor informaiton 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CUVIS C++ SDK from the source code\&.

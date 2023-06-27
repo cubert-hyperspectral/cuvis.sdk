@@ -1,0 +1,72 @@
+.TH "cuvis_viewer_settings_t" 3 "Thu Jun 22 2023" "Version 3.2.0" "CUVIS C++ SDK" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cuvis_viewer_settings_t \- viewer settings  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <cuvis\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBCUVIS_CHAR\fP const  * \fBuserplugin\fP"
+.br
+.RI "The userplugin xml string\&. "
+.ti -1c
+.RI "double \fBpan_scale\fP"
+.br
+.RI "amount of pan-sharpening "
+.ti -1c
+.RI "\fBCUVIS_PAN_SHAPRENING_INTERPOLATION_TYPE\fP \fBpan_interpolation_type\fP"
+.br
+.RI "for pansharpening use this interpolation type to scale up the cube before adjusting the weights "
+.ti -1c
+.RI "\fBCUVIS_PAN_SHAPRENING_ALGORITHM_TYPE\fP \fBpan_algorithm\fP"
+.br
+.RI "method for calculating the weights "
+.ti -1c
+.RI "\fBCUVIS_INT\fP \fBcomplete\fP"
+.br
+.RI "also include parts that were not marked as 'show' "
+.ti -1c
+.RI "double \fBblend_opacity\fP"
+.br
+.RI "opacity for \fBpan_sharpening_algorithm_AlphablendPanOverlay\fP, give a value between 0 and 1 a value of 1\&.0 represents usage of 100% pan image, 0 will be 100% view image "
+.in -1c
+.SH "Detailed Description"
+.PP 
+viewer settings 
+.SH "Member Data Documentation"
+.PP 
+.SS "double cuvis_viewer_settings_t::blend_opacity"
+
+.PP
+opacity for \fBpan_sharpening_algorithm_AlphablendPanOverlay\fP, give a value between 0 and 1 a value of 1\&.0 represents usage of 100% pan image, 0 will be 100% view image 
+.SS "\fBCUVIS_INT\fP cuvis_viewer_settings_t::complete"
+
+.PP
+also include parts that were not marked as 'show' 
+.SS "\fBCUVIS_PAN_SHAPRENING_ALGORITHM_TYPE\fP cuvis_viewer_settings_t::pan_algorithm"
+
+.PP
+method for calculating the weights 
+.SS "\fBCUVIS_PAN_SHAPRENING_INTERPOLATION_TYPE\fP cuvis_viewer_settings_t::pan_interpolation_type"
+
+.PP
+for pansharpening use this interpolation type to scale up the cube before adjusting the weights 
+.SS "double cuvis_viewer_settings_t::pan_scale"
+
+.PP
+amount of pan-sharpening The value is relative to the pan image size, give a value between 0 and 1 
+.SS "\fBCUVIS_CHAR\fP const* cuvis_viewer_settings_t::userplugin"
+
+.PP
+The userplugin xml string\&. See userplugin manual\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CUVIS C++ SDK from the source code\&.

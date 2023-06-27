@@ -1,0 +1,120 @@
+.TH "cuvis::Worker" 3 "Thu Jun 22 2023" "Version 3.2.0" "CUVIS C++ SDK" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cuvis::Worker
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <cuvis\&.hpp>\fP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBworker_return_t\fP"
+.br
+.in -1c
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "using \fBworker_callback_t\fP = std::function< void(\fBworker_return_t\fP)>"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBWorker\fP (\fBWorkerArgs\fP const &args)"
+.br
+.ti -1c
+.RI "void \fBset_acq_cont\fP (\fBAcquisitionContext\fP const *acqCont)"
+.br
+.ti -1c
+.RI "void \fBset_proc_cont\fP (\fBProcessingContext\fP const *procCont)"
+.br
+.ti -1c
+.RI "void \fBset_exporter\fP (\fBExporter\fP const *exporter)"
+.br
+.ti -1c
+.RI "void \fBset_viewer\fP (\fBViewer\fP const *viewer)"
+.br
+.ti -1c
+.RI "std::future< int > \fBset_session_file\fP (\fBSessionFile\fP const *session, bool skip_dropped_frames=false)"
+.br
+.ti -1c
+.RI "std::pair< int, int > \fBquery_session_progress\fP ()"
+.br
+.ti -1c
+.RI "bool \fBget_drop_behavior\fP ()"
+.br
+.ti -1c
+.RI "void \fBset_drop_behavior\fP (bool canDrop)"
+.br
+.ti -1c
+.RI "bool \fBhas_next_result\fP () const"
+.br
+.ti -1c
+.RI "\fBworker_return_t\fP \fBget_next_result\fP () const"
+.br
+.ti -1c
+.RI "void \fBregister_worker_callback\fP (\fBworker_callback_t\fP callback, unsigned concurrency=1)"
+.br
+.ti -1c
+.RI "void \fBreset_worker_callback\fP ()"
+.br
+.ti -1c
+.RI "std::pair< int32_t, int32_t > \fBget_queue_limits\fP () const"
+.br
+.ti -1c
+.RI "size_t \fBget_queue_used\fP () const"
+.br
+.ti -1c
+.RI "void \fBset_queue_limits\fP (int32_t hard_limit, int32_t soft_limit)"
+.br
+.in -1c
+.SH "Member Typedef Documentation"
+.PP 
+.SS "using \fBcuvis::Worker::worker_callback_t\fP =  std::function<void(\fBworker_return_t\fP)>"
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "cuvis::Worker::Worker (\fBWorkerArgs\fP const & args)"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "bool cuvis::Worker::get_drop_behavior ()"
+
+.SS "\fBworker_return_t\fP cuvis::Worker::get_next_result () const"
+
+.SS "std::pair< int32_t, int32_t > cuvis::Worker::get_queue_limits () const"
+
+.SS "size_t cuvis::Worker::get_queue_used () const"
+
+.SS "bool cuvis::Worker::has_next_result () const"
+
+.SS "std::pair< int, int > cuvis::Worker::query_session_progress ()"
+
+.SS "void cuvis::Worker::register_worker_callback (\fBworker_callback_t\fP callback, unsigned concurrency = \fC1\fP)"
+
+.SS "void cuvis::Worker::reset_worker_callback ()"
+
+.SS "void cuvis::Worker::set_acq_cont (\fBAcquisitionContext\fP const * acqCont)"
+
+.SS "void cuvis::Worker::set_drop_behavior (bool canDrop)"
+
+.SS "void cuvis::Worker::set_exporter (\fBExporter\fP const * exporter)"
+
+.SS "void cuvis::Worker::set_proc_cont (\fBProcessingContext\fP const * procCont)"
+
+.SS "void cuvis::Worker::set_queue_limits (int32_t hard_limit, int32_t soft_limit)"
+
+.SS "std::future< int > cuvis::Worker::set_session_file (\fBSessionFile\fP const * session, bool skip_dropped_frames = \fCfalse\fP)"
+
+.SS "void cuvis::Worker::set_viewer (\fBViewer\fP const * viewer)"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CUVIS C++ SDK from the source code\&.

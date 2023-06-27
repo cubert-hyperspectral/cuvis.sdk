@@ -1,0 +1,66 @@
+.TH "cuvis::TiffArgs" 3 "Thu Jun 22 2023" "Version 3.2.0" "CUVIS C++ SDK" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cuvis::TiffArgs \- Additional settings for exporting tiff\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <cuvis\&.hpp>\fP
+.PP
+Inherits \fBcuvis::GeneralExportArgs\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTiffArgs\fP ()"
+.br
+.RI "Constructor to create default parameters\&. "
+.ti -1c
+.RI "\fBoperator cuvis_export_tiff_settings_t\fP () const"
+.br
+.RI "convert to C - SDK settings structure "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBtiff_compression_mode_t\fP \fBcompression_mode\fP"
+.br
+.RI "the tiff compression options "
+.ti -1c
+.RI "\fBtiff_format_t\fP \fBformat\fP"
+.br
+.RI "the tiff export format\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Additional settings for exporting tiff\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "cuvis::TiffArgs::TiffArgs ()"
+
+.PP
+Constructor to create default parameters\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "cuvis::TiffArgs::operator \fBcuvis_export_tiff_settings_t\fP () const"
+
+.PP
+convert to C - SDK settings structure 
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBtiff_compression_mode_t\fP cuvis::TiffArgs::compression_mode"
+
+.PP
+the tiff compression options 
+.SS "\fBtiff_format_t\fP cuvis::TiffArgs::format"
+
+.PP
+the tiff export format\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CUVIS C++ SDK from the source code\&.

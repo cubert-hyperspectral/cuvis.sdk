@@ -1,0 +1,3988 @@
+.TH "cuvis.h" 3 "Thu Jun 22 2023" "Version 3.2.0" "CUVIS C++ SDK" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cuvis.h \- SDK calls for cuvis C SDKis header defines all public C SDK functions and data types\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stddef\&.h>\fP
+.br
+\fC#include <stdint\&.h>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBcuvis_imbuffer_t\fP"
+.br
+.RI "image buffer data structure with meta-data "
+.ti -1c
+.RI "struct \fBcuvis_sensor_info_t\fP"
+.br
+.ti -1c
+.RI "struct \fBcuvis_gps_t\fP"
+.br
+.RI "The gps data structure\&. "
+.ti -1c
+.RI "struct \fBcuvis_session_info_t\fP"
+.br
+.RI "internal session_info info of acquisition context "
+.ti -1c
+.RI "struct \fBcuvis_mesu_metadata_t\fP"
+.br
+.RI "The measurement meta structure\&. "
+.ti -1c
+.RI "struct \fBcuvis_save_args_t\fP"
+.br
+.RI "options for saving as cu3/cu3s files "
+.ti -1c
+.RI "struct \fBcuvis_proc_args_t\fP"
+.br
+.RI "processing arguments "
+.ti -1c
+.RI "struct \fBcuvis_export_general_settings_t\fP"
+.br
+.RI "general export settings "
+.ti -1c
+.RI "struct \fBcuvis_export_view_settings_t\fP"
+.br
+.RI "Additional settings for exporting to a userplugin view\&. "
+.ti -1c
+.RI "struct \fBcuvis_export_tiff_settings_t\fP"
+.br
+.RI "Additional settings for exporting tiff\&. "
+.ti -1c
+.RI "struct \fBcuvis_viewer_settings_t\fP"
+.br
+.RI "viewer settings "
+.ti -1c
+.RI "struct \fBcuvis_view_data_t\fP"
+.br
+.RI "The view meta structure\&. "
+.ti -1c
+.RI "struct \fBcuvis_component_info_t\fP"
+.br
+.RI "Information about components\&. "
+.ti -1c
+.RI "struct \fBcuvis_event_base_data_t\fP"
+.br
+.ti -1c
+.RI "struct \fBcuvis_event_acquisition_data_t\fP"
+.br
+.ti -1c
+.RI "struct \fBcuvis_event_processing_event_t\fP"
+.br
+.ti -1c
+.RI "struct \fBcuvis_event_qualitiy_event_t\fP"
+.br
+.ti -1c
+.RI "struct \fBcuvis_event_component_data_t\fP"
+.br
+.ti -1c
+.RI "struct \fBcuvis_worker_settings_t\fP"
+.br
+.RI "settings for the worker "
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fB_CRT_SECURE_NO_WARNINGS\fP"
+.br
+.ti -1c
+.RI "#define \fBSDK_CAPI\fP"
+.br
+.ti -1c
+.RI "#define \fBSDK_CCALL\fP"
+.br
+.ti -1c
+.RI "#define \fBALLOCATE_AND_FREE\fP(DATATYPE,  NAME)"
+.br
+.RI "macro for creating allocate and free functions for c data structures "
+.ti -1c
+.RI "#define \fBACQ_GET_SINGLE_VALUE\fP(NAME,  TYPE,  COMMENT)"
+.br
+.RI "macro for creating acquisition getter functions "
+.ti -1c
+.RI "#define \fBACQ_SET_SINGLE_VALUE\fP(NAME,  TYPE,  UNIT_STR)"
+.br
+.RI "macro for creating stubs of sync and async acquisition setter functions "
+.ti -1c
+.RI "#define \fBCOMP_GET_SINGLE_VALUE\fP(NAME,  TYPE,  COMMENT)"
+.br
+.RI "macro for creating acquisition-component getter functions "
+.ti -1c
+.RI "#define \fBCOMP_SET_SINGLE_VALUE\fP(NAME,  TYPE,  UNIT_STR)"
+.br
+.RI "macro for creating stubs of sync and async acquisition-component setter functions "
+.ti -1c
+.RI "#define \fBCUVIS_INT\fP   int32_t"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_HANDLE\fP   \fBCUVIS_INT\fP"
+.br
+.RI "handle "
+.ti -1c
+.RI "#define \fBCUVIS_HANDLE_NULL\fP   \fBCUVIS_HANDLE\fP(0)"
+.br
+.RI "handle value of 0 is reserved for invalid handles "
+.ti -1c
+.RI "#define \fBCUVIS_MISC_PTR\fP   void*"
+.br
+.RI "placeholder data type "
+.ti -1c
+.RI "#define \fBCUVIS_CHAR\fP   char"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_WCHAR\fP   wchar_t"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_MAXBUF\fP   256"
+.br
+.RI "max string buffer length (e\&.g\&. "
+.ti -1c
+.RI "#define \fBCUVIS_STRING\fP   \fBCUVIS_CHAR\fP[\fBCUVIS_MAXBUF\fP]"
+.br
+.RI "cstring data type definition "
+.ti -1c
+.RI "#define \fBCUVIS_FLAGS\fP   uint32_t"
+.br
+.RI "field for binary flags "
+.ti -1c
+.RI "#define \fBCUVIS_TIMESTAMP\fP   uint64_t"
+.br
+.RI "time since epoch in millisecond steps "
+.ti -1c
+.RI "#define \fBCUVIS_MESU\fP   \fBCUVIS_HANDLE\fP"
+.br
+.RI "measurement handle "
+.ti -1c
+.RI "#define \fBCUVIS_SESSION_FILE\fP   \fBCUVIS_HANDLE\fP"
+.br
+.RI "measurement session_info file handle "
+.ti -1c
+.RI "#define \fBCUVIS_CALIB\fP   \fBCUVIS_HANDLE\fP"
+.br
+.RI "calibration handle "
+.ti -1c
+.RI "#define \fBCUVIS_ACQ_CONT\fP   \fBCUVIS_HANDLE\fP"
+.br
+.RI "acquisition context handle "
+.ti -1c
+.RI "#define \fBCUVIS_PROC_CONT\fP   \fBCUVIS_HANDLE\fP"
+.br
+.RI "processing context handle "
+.ti -1c
+.RI "#define \fBCUVIS_EXPORTER\fP   \fBCUVIS_HANDLE\fP"
+.br
+.RI "exporter handle (all exporter types) "
+.ti -1c
+.RI "#define \fBCUVIS_VIEWER\fP   \fBCUVIS_HANDLE\fP"
+.br
+.RI "data viewer handle "
+.ti -1c
+.RI "#define \fBCUVIS_VIEW\fP   \fBCUVIS_HANDLE\fP"
+.br
+.RI "data viewer result handle (view) "
+.ti -1c
+.RI "#define \fBCUVIS_WORKER\fP   \fBCUVIS_HANDLE\fP"
+.br
+.RI "worker handle "
+.ti -1c
+.RI "#define \fBCUVIS_ASYNC_CALL_RESULT\fP   \fBCUVIS_HANDLE\fP"
+.br
+.RI "handle to an async function call result\&. "
+.ti -1c
+.RI "#define \fBCUVIS_ASYNC_CAPTURE_RESULT\fP   \fBCUVIS_HANDLE\fP"
+.br
+.RI "handle to an async capture result\&. "
+.ti -1c
+.RI "#define \fBCUVIS_MODE_CAPABILITIES\fP   \fBCUVIS_INT\fP"
+.br
+.RI "holds capabilities for operation mode as flags "
+.ti -1c
+.RI "#define \fBCUVIS_MODE_CAPABILITY_ACQUISITION_CAPTURE\fP   1"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_MODE_CAPABILITY_ACQUISITION_TIMELAPSE\fP   2"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_MODE_CAPABILITY_ACQUISITION_CONTINUOUS\fP   4"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_MODE_CAPABILITY_ACQUISITION_SNAPSHOT\fP   8"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_MODE_CAPABILITY_ACQUISITION_SETINTEGRATIONTIME\fP   16"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_MODE_CAPABILITY_ACQUISITION_SETGAIN\fP   32"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_MODE_CAPABILITY_ACQUISITION_AVERAGING\fP   64"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_MODE_CAPABILITY_PROCESSING_SENSOR_RAW\fP   128"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_MODE_CAPABILITY_PROCESSING_CUBE_RAW\fP   256"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_MODE_CAPABILITY_PROCESSING_CUBE_REF\fP   512"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_MODE_CAPABILITY_PROCESSING_CUBE_DARKSUBTRACT\fP   1024"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_MODE_CAPABILITY_PROCESSING_CUBE_FLATFIELDING\fP   2048"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_MODE_CAPABILITY_PROCESSING_CUBE_SPECTRALRADIANCE\fP   4096"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_MODE_CAPABILITY_PROCESSING_SAVE_FILE\fP   8192"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_MODE_CAPABILITY_PROCESSING_CLEAR_RAW\fP   16384"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_MODE_CAPABILITY_PROCESSING_CALC_LIVE\fP   32768"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_MODE_CAPABILITY_PROCESSING_AUTOEXPOSURE\fP   65536"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_MODE_CAPABILITY_PROCESSING_ORIENTATION\fP   131072"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_MODE_CAPABILITY_PROCESSING_SET_WHITE\fP   262144"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_MODE_CAPABILITY_PROCESSING_SET_DARK\fP   524288"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_MODE_CAPABILITY_PROCESSING_SET_SPRADCALIB\fP   1048576"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_MODE_CAPABILITY_PROCESSING_SET_DISTANCECALIB\fP   2097152"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_MODE_CAPABILITY_PROCESSING_SET_DISTANCE_VALUE\fP   4194304"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_MODE_CAPABILITY_PROCESSING_USE_DARK_SPRADCALIB\fP   8388608"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_MODE_CAPABILITY_PROCESSING_USE_WHITE_SPRADCALIB\fP   16777216"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_MODE_CAPABILITY_PROCESSING_REQUIRE_WHITEDARK_REFLECTANCE\fP   33554432"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_MESU_FLAG_OVERILLUMINATED\fP   1"
+.br
+.RI "the measurement was over-illuminated "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_FLAG_POOR_REFERENCE\fP   2"
+.br
+.RI "A reference measurement used has poor quality\&. "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_FLAG_POOR_WHITE_BALANCING\fP   4"
+.br
+.RI "the white balancing detected bad data "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_FLAG_DARK_INTTIME\fP   8"
+.br
+.RI "the dark's integration time does not match the measurement "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_FLAG_DARK_TEMP\fP   16"
+.br
+.RI "the sensor temperature at dark's recording does not match measurement's recording device temperature "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_FLAG_WHITE_INTTIME\fP   32"
+.br
+.RI "the white's integration time does not match the measurement "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_FLAG_WHITE_TEMP\fP   64"
+.br
+.RI "the sensor temperature at white's recording does not match measurement's recording device temperature "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_FLAG_WHITEDARK_INTTIME\fP   128"
+.br
+.RI "the white's dark integration time does not match the measurement "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_FLAG_WHITEDARK_TEMP\fP   256"
+.br
+.RI "the sensor temperature at white's dark recording does not match measurement's recording device temperature "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_CUBE_KEY\fP   'cube'"
+.br
+.RI "name of the data field for the hyperspectral cube (in all modes except \fBPreview\fP) "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_PAN_KEY\fP   'pan'"
+.br
+.RI "name of the pan image (pixels registered to \fBCUVIS_MESU_CUBE_KEY\fP) "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_GPS_KEY\fP   'GPS_data'"
+.br
+.RI "name of the GPS data field, if available "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_PREVIEW_KEY\fP   'preview'"
+.br
+.RI "name of the generate preview image, if available\&. "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_DARKREF_KEY\fP   'dark_ref'"
+.br
+.RI "If this field is present, a dark was set while recording the measurement\&. "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_WHITEREF_KEY\fP   'white_ref'"
+.br
+.RI "If this field is present, a white was set while recording the measurement\&. "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_WHITEDARKREF_KEY\fP   'white_dark_ref'"
+.br
+.RI "If this field is present, a white's dark was set while recording the measurement\&. "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_FLAG_OVERILLUMINATED_KEY\fP   'Flag_DataIsOverilluminated'"
+.br
+.RI "see \fBCUVIS_MESU_FLAG_OVERILLUMINATED\fP "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_FLAG_POOR_REFERENCE_KEY\fP   'Flag_DataUsesPoorReference'"
+.br
+.RI "see \fBCUVIS_MESU_FLAG_POOR_REFERENCE\fP "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_FLAG_POOR_WHITE_BALANCING_KEY\fP   'Flag_PoorWhiteBalancingData'"
+.br
+.RI "see \fBCUVIS_MESU_FLAG_POOR_WHITE_BALANCING\fP "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_FLAG_DARK_INTTIME_KEY\fP   'Flag_IntegrationTimeMismatchDark'"
+.br
+.RI "see \fBCUVIS_MESU_FLAG_DARK_INTTIME\fP "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_FLAG_DARK_TEMP_KEY\fP   'Flag_TemperatureMismatchDark'"
+.br
+.RI "see \fBCUVIS_MESU_FLAG_DARK_TEMP\fP "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_FLAG_WHITE_INTTIME_KEY\fP     'Flag_IntegrationTimeMismatchWhiteDark'"
+.br
+.RI "see \fBCUVIS_MESU_FLAG_WHITE_INTTIME\fP "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_FLAG_WHITE_TEMP_KEY\fP   'Flag_TemperatureMismatchWhiteDark'"
+.br
+.RI "see \fBCUVIS_MESU_FLAG_WHITE_TEMP\fP "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_FLAG_WHITEDARK_INTTIME_KEY\fP     'Flag_IntegrationTimeMismatchWhiteDark'"
+.br
+.RI "see \fBCUVIS_MESU_FLAG_WHITEDARK_INTTIME\fP "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_FLAG_WHITEDARK_TEMP_KEY\fP   'Flag_TemperatureMismatchWhiteDark'"
+.br
+.RI "see \fBCUVIS_MESU_FLAG_WHITEDARK_TEMP\fP "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_CUBE_INFO_KEY\fP   'cube_info_layer'"
+.br
+.RI "name of the info channel of its respective cube\&. "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_PAN_INFO_KEY\fP   'pan_info_layer'"
+.br
+.RI "name of the info channel of its respective pan image\&. "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_INFO_OK\fP   0"
+.br
+.RI "no flag set, only valid, if pixel value is equal 0 "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_INFO_OVERILLUMINATED\fP   1"
+.br
+.RI "one or more channels of the spectrum are over-exposed / the pan image is over-exposed at this position "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_INFO_BAD_PIXEL\fP   2"
+.br
+.RI "the pixel is marked bad, eg\&. "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_INFO_OVERILLUMINATED_REFERENCE\fP   4"
+.br
+.RI "one or more channels of the spectrum of the white reference that was used to calculate this position was over-exposed "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_INFO_UNDERFLOW_MEASUREMENT_MIN_DARK\fP   8"
+.br
+.RI "the meausurement was darker then the dark reference at this position (underflow) "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_INFO_UNDERFLOW_WHITE_MIN_DARK\fP   16"
+.br
+.RI "the white reference was darker then the dark reference at this position (underflow) "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_INFO_REFERENCE_CALC_OVERFLOW\fP   32"
+.br
+.RI "the reflectance value exceeded the maximum value possible by the data format (i\&.e\&. "
+.ti -1c
+.RI "#define \fBCUVIS_MESU_INFO_INCOMPLETE\fP   64"
+.br
+.RI "the spectrum at this position is incomplete, e\&.g by a bad / too close distance calibration "
+.ti -1c
+.RI "#define \fBCUVIS_IMBUFFER\fP   struct \fBcuvis_imbuffer_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_STATUS\fP   enum \fBcuvis_status_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_LOGLEVEL\fP   enum \fBcuvis_loglevel_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_IMBUFFER_FORMAT\fP   enum \fBcuvis_imbuffer_format_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_DATA_TYPE\fP   enum \fBcuvis_data_type_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_PROCESSING_MODE\fP   enum \fBcuvis_processing_mode_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_OPERATION_MODE\fP   enum \fBcuvis_operation_mode_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_HARDWARE_STATE\fP   enum \fBcuvis_hardware_state_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_REFERENCE_TYPE\fP   enum \fBcuvis_reference_type_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_PAN_SHAPRENING_INTERPOLATION_TYPE\fP     enum \fBcuvis_pan_sharpening_interpolation_type_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_PAN_SHAPRENING_ALGORITHM_TYPE\fP     enum \fBcuvis_pan_sharpening_algorithm_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_TIFF_COMPRESSION_MODE\fP   enum \fBcuvis_tiff_compression_mode_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_TIFF_FORMAT\fP   enum \fBcuvis_tiff_format_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_VIEW_CATEGORY\fP   enum \fBcuvis_view_category_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_COMPONENT_TYPE\fP   enum \fBcuvis_component_type_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_SESSION_ITEM_TYPE\fP   enum \fBcuvis_session_item_type_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_SESSION_INFO\fP   struct \fBcuvis_session_info_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_EVENT_BASE_DATA\fP   struct \fBcuvis_event_base_data_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_EVENT_ACQUISITION_DATA\fP   struct \fBcuvis_event_acquisition_data_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_EVENT_PROCESSING_DATA\fP   struct \fBcuvis_event_processing_event_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_EVENT_QUALITY_DATA\fP   struct \fBcuvis_event_qualitiy_event_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_EVENT_COMPONENT_DATA\fP   struct \fBcuvis_event_component_data_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_GPS\fP   struct \fBcuvis_gps_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_MESU_METADATA\fP   struct \fBcuvis_mesu_metadata_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_SAVE_ARGS\fP   struct \fBcuvis_save_args_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_PROC_ARGS\fP   struct \fBcuvis_proc_args_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_EXPORT_GENERAL_SETTINGS\fP   struct \fBcuvis_export_general_settings_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_EXPORT_CUBE_SETTINGS\fP   struct \fBcuvis_save_args_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_EXPORT_VIEW_SETTINGS\fP   struct \fBcuvis_export_view_settings_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_EXPORT_TIFF_SETTINGS\fP   struct \fBcuvis_export_tiff_settings_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_VIEWER_SETTINGS\fP   struct \fBcuvis_viewer_settings_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_VIEW_DATA\fP   struct \fBcuvis_view_data_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_COMPONENT_INFO\fP   struct \fBcuvis_component_info_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_SENSOR_INFO\fP   struct \fBcuvis_sensor_info_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_WORKER_SETTINGS\fP   struct \fBcuvis_worker_settings_t\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_EVENT_PROCESSING\fP   (2 << 8)"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_EVENT_ACQUISTION\fP   (1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_EVENT_COMPONENT\fP   (\fBCUVIS_EVENT_ACQUISTION\fP | (1 << 4))"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_EVENT_TRIGGER_SKIPPED\fP   (\fBCUVIS_EVENT_COMPONENT\fP | 1)"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_EVENT\fP   \fBCUVIS_HANDLE\fP"
+.br
+.ti -1c
+.RI "#define \fBCUVIS_CHECK\fP(code)"
+.br
+.RI "simple check function for error code "
+.ti -1c
+.RI "#define \fBIMBUFFER_GET\fP(ptr,  x,  y,  chn,  imbuf)     ptr[((y) * (imbuf)\&.width + (x)) * (imbuf)\&.channels + (chn)]"
+.br
+.RI "helper macro for obtaining a pixel position from an imbuffer pointer "
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef void(\fBSDK_CCALL\fP * \fBlog_callback\fP) (const char *msg, \fBCUVIS_INT\fP level)"
+.br
+.ti -1c
+.RI "typedef void(\fBSDK_CCALL\fP * \fBlog_callback_localized\fP) (const \fBCUVIS_WCHAR\fP *msg, \fBCUVIS_INT\fP level)"
+.br
+.ti -1c
+.RI "typedef void(\fBSDK_CCALL\fP * \fBexternal_event_callback\fP) (\fBCUVIS_INT\fP i_handler_id, \fBCUVIS_EVENT\fP i_event)"
+.br
+.RI "event callback type "
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBcuvis_capabilities_t\fP { \fBAcquisitionCapture\fP = 1, \fBAcquisitionTimelapse\fP = 2, \fBAcquisitionContinuous\fP = 4, \fBAcquisitionSnapshot\fP = 8, \fBAcquisitionSetIntegrationtime\fP = 16, \fBAcquisitionSetGain\fP = 32, \fBAcquisitionAveraging\fP = 64, \fBProcessingSensorRaw\fP = 128, \fBProcessingCubeRaw\fP = 256, \fBProcessingCubeRef\fP = 512, \fBProcessingCubeDarkSubtract\fP = 1024, \fBProcessingCubeFlatFielding\fP = 2048, \fBProcessingCubeSpectralRadiance\fP = 4096, \fBProcessingSaveFile\fP = 8192, \fBProcessingClearRaw\fP = 16384, \fBProcessingCalcLive\fP = 32768, \fBProcessingAutoExposure\fP = 65536, \fBProcessingOrientation\fP = 131072, \fBProcessingSetWhite\fP = 262144, \fBProcessingSetDark\fP = 524288, \fBProcessingSetSprad\fP = 1048576, \fBProcessingSetDistanceCalib\fP = 2097152, \fBProcessingSetDistanceValue\fP = 4194304, \fBProcessingUseDarkSpradcalib\fP = 8388608, \fBProcessingUseWhiteSpradCalib\fP = 16777216, \fBProcessingRequireWhiteDarkReflectance\fP = 33554432 }"
+.br
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP { \fBstatus_ok\fP = 1, \fBstatus_error\fP = -1, \fBstatus_deferred\fP = -10, \fBstatus_overwritten\fP = -11, \fBstatus_timeout\fP = -12, \fBstatus_no_measurement\fP = -20, \fBstatus_not_available\fP = -30, \fBstatus_not_processed\fP = -41, \fBstatus_not_stored\fP = -42, \fBstatus_no_view\fP = -43 }"
+.br
+.RI "return state of any SDK function "
+.ti -1c
+.RI "enum \fBcuvis_hardware_state_t\fP { \fBhardware_state_offline\fP = 0, \fBhardware_state_partially_online\fP = 1, \fBhardware_state_online\fP = 2 }"
+.br
+.RI "the state of the hardware "
+.ti -1c
+.RI "enum \fBcuvis_loglevel_t\fP { \fBloglevel_fatal\fP = 0, \fBloglevel_error\fP = 1, \fBloglevel_warning\fP = 2, \fBloglevel_info\fP = 3, \fBloglevel_debug\fP = 4 }"
+.br
+.RI "The available log levels\&. "
+.ti -1c
+.RI "enum \fBcuvis_imbuffer_format_t\fP { \fBimbuffer_format_uint8\fP = 1, \fBimbuffer_format_uint16\fP = 2, \fBimbuffer_format_uint32\fP = 3, \fBimbuffer_format_float\fP = 4 }"
+.br
+.RI "supported image buffer formats "
+.ti -1c
+.RI "enum \fBcuvis_session_item_type_t\fP { \fBsession_item_type_frames\fP = 0, \fBsession_item_type_frames_no_gaps\fP = 1, \fBsession_item_type_references\fP = 2 }"
+.br
+.RI "The session file item type\&. "
+.ti -1c
+.RI "enum \fBcuvis_data_type_t\fP { \fBdata_type_unsupported\fP = 0, \fBdata_type_image\fP = 1, \fBdata_type_gps\fP = 2, \fBdata_type_string\fP = 3, \fBdata_type_sensor_info\fP = 4 }"
+.br
+.RI "the data field's type "
+.ti -1c
+.RI "enum \fBcuvis_processing_mode_t\fP { \fBCube_Raw\fP = 0, \fBCube_DarkSubtract\fP = 1, \fBCube_Reflectance\fP = 2, \fBCube_SpectralRadiance\fP = 3, \fBPreview\fP = 5 }"
+.br
+.RI "The processing mode (a\&.k\&.a\&. "
+.ti -1c
+.RI "enum \fBcuvis_reference_type_t\fP { \fBReference_Dark\fP = 0, \fBReference_White\fP = 1, \fBReference_WhiteDark\fP = 2, \fBReference_SpRad\fP = 3, \fBReference_Distance\fP = 4 }"
+.br
+.RI "The type of a reference\&. "
+.ti -1c
+.RI "enum \fBcuvis_operation_mode_t\fP { \fBOperationMode_Software\fP = 1, \fBOperationMode_Internal\fP = 2, \fBOperationMode_External\fP = 3, \fBOperationMode_Undefined\fP = 4 }"
+.br
+.RI "Operation mode of a camera\&. "
+.ti -1c
+.RI "enum \fBcuvis_pan_sharpening_interpolation_type_t\fP { \fBpan_sharpening_interpolation_type_NearestNeighbor\fP = 0, \fBpan_sharpening_interpolation_type_Linear\fP = 1, \fBpan_sharpening_interpolation_type_Cubic\fP = 2, \fBpan_sharpening_interpolation_type_Lanczos\fP = 3 }"
+.br
+.RI "the pan sharpening interpolation type for scaling up the cube before applying the pan image's weights "
+.ti -1c
+.RI "enum \fBcuvis_pan_sharpening_algorithm_t\fP { \fBpan_sharpening_algorithm_Noop\fP = 0, \fBpan_sharpening_algorithm_CubertMacroPixel\fP = 1, \fBpan_sharpening_algorithm_CubertPanRatio\fP = 2, \fBpan_sharpening_algorithm_AlphablendPanOverlay\fP = 3 }"
+.br
+.RI "the pan-sharpening algorithm for calculating the pan image's weights "
+.ti -1c
+.RI "enum \fBcuvis_tiff_compression_mode_t\fP { \fBtiff_compression_mode_None\fP = 0, \fBtiff_compression_mode_LZW\fP = 1 }"
+.br
+.RI "the tiff compression options "
+.ti -1c
+.RI "enum \fBcuvis_tiff_format_t\fP { \fBtiff_format_Single\fP = 0, \fBtiff_format_MultiChannel\fP = 1, \fBtiff_format_MultiPage\fP = 2 }"
+.br
+.RI "the tiff export format\&. "
+.ti -1c
+.RI "enum \fBcuvis_view_category_t\fP { \fBview_category_image\fP = 0, \fBview_category_data\fP = 1 }"
+.br
+.RI "image data types for view data "
+.ti -1c
+.RI "enum \fBcuvis_component_type_t\fP { \fBcomponent_type_image_sensor\fP = 0, \fBcomponent_type_misc_sensor\fP = 1 }"
+.br
+.RI "the component types "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_event_get_acquisition_data\fP (\fBCUVIS_EVENT\fP i_event, \fBCUVIS_EVENT_ACQUISITION_DATA\fP *o_p_acquisition_data)"
+.br
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_register_external_event_callback\fP (\fBexternal_event_callback\fP i_callback, \fBCUVIS_INT\fP i_type, \fBCUVIS_INT\fP *o_p_handler_id)"
+.br
+.RI "Register an event handler\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_unregister_event_callback\fP (\fBCUVIS_INT\fP i_handler_id)"
+.br
+.RI "Unregisters an event handler\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP const \fBCUVIS_CHAR\fP *\fBSDK_CCALL\fP \fBcuvis_get_last_error_msg\fP (void)"
+.br
+.RI "Call this function for obtaining the last error message\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP const \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_set_last_error_locale\fP (\fBCUVIS_CHAR\fP const *id)"
+.br
+.RI "Set the locale for localized error messages\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP const \fBCUVIS_WCHAR\fP *\fBSDK_CCALL\fP \fBcuvis_get_last_error_msg_localized\fP (void)"
+.br
+.RI "Call this function for obtaining the last localized error message\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_set_log_level\fP (\fBCUVIS_INT\fP level)"
+.br
+.RI "Set the internal log level\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_register_log_callback\fP (\fBlog_callback\fP i_callback, \fBCUVIS_INT\fP i_min_level)"
+.br
+.RI "Register an additional logger\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_reset_log_callback\fP ()"
+.br
+.RI "Unregister the additional logger\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_register_log_callback_localized\fP (\fBlog_callback_localized\fP i_callback_localized, \fBCUVIS_INT\fP i_min_level, \fBCUVIS_CHAR\fP const *i_locale_id)"
+.br
+.RI "Register an additional logger with localized language\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_reset_log_callback_localized\fP ()"
+.br
+.RI "Unregister the additional localized logger\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_init\fP (\fBCUVIS_CHAR\fP const *i_settings_path)"
+.br
+.RI "The init function set the settings path\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_version\fP (\fBCUVIS_CHAR\fP *o_pVersion)"
+.br
+.RI "Get the SDK version\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_async_call_get\fP (\fBCUVIS_ASYNC_CALL_RESULT\fP *io_pAsyncResult, \fBCUVIS_INT\fP timeout_ms)"
+.br
+.RI "get the result of a async call\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_async_capture_free\fP (\fBCUVIS_ASYNC_CAPTURE_RESULT\fP *io_pAsyncResult)"
+.br
+.RI "Fortet an async measurement result without calling it\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_async_call_free\fP (\fBCUVIS_ASYNC_CALL_RESULT\fP *io_pAsyncResult)"
+.br
+.RI "Fortet an async call result without calling it\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_acq_cont_capture\fP (\fBCUVIS_ACQ_CONT\fP i_acqCont, \fBCUVIS_MESU\fP *o_pMesu, \fBCUVIS_INT\fP timeout_ms)"
+.br
+.RI "Capture a measurement\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_acq_cont_capture_async\fP (\fBCUVIS_ACQ_CONT\fP i_acqCont, \fBCUVIS_ASYNC_CAPTURE_RESULT\fP *o_pAsyncResult)"
+.br
+.RI "Capture a measurement async\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_async_capture_get\fP (\fBCUVIS_ASYNC_CAPTURE_RESULT\fP *io_pAsyncResult, \fBCUVIS_INT\fP timeout_ms, \fBCUVIS_MESU\fP *o_pMesu)"
+.br
+.RI "get the result of a async capture\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_measurement_load\fP (const \fBCUVIS_CHAR\fP *i_path, \fBCUVIS_MESU\fP *o_pMesu)"
+.br
+.RI "Load a measurement from disk\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_measurement_deep_copy\fP (\fBCUVIS_MESU\fP i_mesu, \fBCUVIS_MESU\fP *o_pMesu)"
+.br
+.RI "create a deep copy of a measurement "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_measurement_clear_cube\fP (\fBCUVIS_PROC_CONT\fP i_mesu)"
+.br
+.RI "Clears the cube from a measurement\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_measurement_clear_implicit_reference\fP (\fBCUVIS_PROC_CONT\fP i_mesu, \fBCUVIS_REFERENCE_TYPE\fP i_type)"
+.br
+.RI "Clears an implicit reference measurement\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_session_file_load\fP (const \fBCUVIS_CHAR\fP *i_path, \fBCUVIS_SESSION_FILE\fP *o_pSess)"
+.br
+.RI "Load a session_info file from disk\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_session_file_free\fP (\fBCUVIS_SESSION_FILE\fP *o_pSess)"
+.br
+.RI "Release a session_info file handle\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_session_file_get_mesu\fP (\fBCUVIS_SESSION_FILE\fP i_sess, \fBCUVIS_INT\fP i_frameNo, \fBCUVIS_SESSION_ITEM_TYPE\fP i_type, \fBCUVIS_MESU\fP *o_pMesu)"
+.br
+.RI "Load a measurement from the session_info file\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_session_file_get_reference_mesu\fP (\fBCUVIS_SESSION_FILE\fP i_sess, \fBCUVIS_INT\fP i_frameNo, \fBCUVIS_REFERENCE_TYPE\fP i_type, \fBCUVIS_MESU\fP *o_pMesu)"
+.br
+.RI "Load a reference measurement from the session_info file\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_session_file_get_size\fP (\fBCUVIS_SESSION_FILE\fP i_sess, \fBCUVIS_SESSION_ITEM_TYPE\fP i_type, \fBCUVIS_INT\fP *o_pSize)"
+.br
+.RI "Get number of total frames of session_info file\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_session_file_get_fps\fP (\fBCUVIS_SESSION_FILE\fP i_sess, double *o_pFps)"
+.br
+.RI "get a session_info file's FPS "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_session_file_get_hash\fP (\fBCUVIS_SESSION_FILE\fP i_sess, \fBCUVIS_CHAR\fP *o_pHash)"
+.br
+.RI "get a session_info file's hash "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_session_file_get_operation_mode\fP (\fBCUVIS_SESSION_FILE\fP i_sess, \fBCUVIS_OPERATION_MODE\fP *o_pMode)"
+.br
+.RI "returns the operation mode the session_info file was recorded in "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_acq_cont_get_next_measurement\fP (\fBCUVIS_ACQ_CONT\fP i_acqCont, \fBCUVIS_MESU\fP *o_pMesu, \fBCUVIS_INT\fP timeout_ms)"
+.br
+.RI "Get measurement from internal cache\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_acq_cont_has_next_measurement\fP (\fBCUVIS_ACQ_CONT\fP i_acqCont, \fBCUVIS_INT\fP *o_pHasNext)"
+.br
+.RI "check if any measurements are available in the buffer "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_measurement_save\fP (\fBCUVIS_MESU\fP const i_mesu, const \fBCUVIS_CHAR\fP *i_path, \fBCUVIS_SAVE_ARGS\fP args)"
+.br
+.RI "Save a measurement to disk\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_measurement_set_name\fP (\fBCUVIS_MESU\fP const i_mesu, const \fBCUVIS_CHAR\fP *i_name)"
+.br
+.RI "Set the name of the measurement in memory\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_measurement_set_comment\fP (\fBCUVIS_MESU\fP const i_mesu, const \fBCUVIS_CHAR\fP *i_comment)"
+.br
+.RI "Set the comment of the measurement in memory\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_measurement_free\fP (\fBCUVIS_MESU\fP *io_pMesu)"
+.br
+.RI "Release a measurement handle\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_measurement_get_metadata\fP (\fBCUVIS_MESU\fP i_mesu, \fBCUVIS_MESU_METADATA\fP *o_pMetaData)"
+.br
+.RI "Obtain metadata from measurement\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_measurement_get_data_image\fP (\fBCUVIS_MESU\fP i_mesu, const \fBCUVIS_CHAR\fP *i_key, \fBCUVIS_IMBUFFER\fP *o_pBuf)"
+.br
+.RI "Get image data from measurement\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_measurement_get_data_string\fP (\fBCUVIS_MESU\fP i_mesu, const \fBCUVIS_CHAR\fP *i_key, \fBCUVIS_CHAR\fP *o_pValue)"
+.br
+.RI "Get string data from measurement\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_measurement_get_data_sensor_info\fP (\fBCUVIS_MESU\fP i_mesu, const \fBCUVIS_CHAR\fP *i_key, \fBCUVIS_SENSOR_INFO\fP *o_pValue)"
+.br
+.RI "Get image info data from measurement\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_measurement_get_data_gps\fP (\fBCUVIS_MESU\fP i_mesu, const \fBCUVIS_CHAR\fP *i_key, \fBCUVIS_GPS\fP *o_pGps)"
+.br
+.RI "Get GPS data from measurement\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_measurement_get_data_info\fP (\fBCUVIS_MESU\fP i_mesu, \fBCUVIS_CHAR\fP *o_pKey, \fBCUVIS_DATA_TYPE\fP *o_pType, \fBCUVIS_INT\fP i_id)"
+.br
+.RI "get meta-information of a data element "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_measurement_get_data_count\fP (\fBCUVIS_MESU\fP i_mesu, \fBCUVIS_INT\fP *o_pCount)"
+.br
+.RI "Retrieve the number of data elements\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_calib_create_from_path\fP (const \fBCUVIS_CHAR\fP *i_factoryDir, \fBCUVIS_CALIB\fP *o_pCalibration)"
+.br
+.RI "Create a calibration from factory path\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_calib_create_from_session_file\fP (const \fBCUVIS_SESSION_FILE\fP i_sess, \fBCUVIS_CALIB\fP *o_pCalibration)"
+.br
+.RI "Create a calibration from session file\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_calib_free\fP (\fBCUVIS_CALIB\fP *io_pCalibration)"
+.br
+.RI "Clear a loaded calibration by it's handle\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_acq_cont_create_from_calib\fP (\fBCUVIS_CALIB\fP i_calib, \fBCUVIS_ACQ_CONT\fP *o_pAcqCont)"
+.br
+.RI "Load a acquisition context from a given calibration\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_acq_cont_create_from_session_file\fP (\fBCUVIS_SESSION_FILE\fP i_sess, \fBCUVIS_INT\fP i_simulate, \fBCUVIS_ACQ_CONT\fP *o_pAcqCont)"
+.br
+.RI "Load a acquisition context from a given session_file\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_acq_cont_get_state\fP (\fBCUVIS_ACQ_CONT\fP i_acqCont, \fBCUVIS_HARDWARE_STATE\fP *o_pState)"
+.br
+.RI "get the online state of the hardware "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_acq_cont_get_session_info\fP (\fBCUVIS_ACQ_CONT\fP i_acqCont, \fBCUVIS_SESSION_INFO\fP *o_pSessionInfo)"
+.br
+.RI "get the acquisition session_info "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_acq_cont_set_session_info\fP (\fBCUVIS_ACQ_CONT\fP i_acqCont, \fBCUVIS_SESSION_INFO\fP const *i_pSessionInfo)"
+.br
+.RI "set the acquisition session_info "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_acq_cont_queue_size_set\fP (\fBCUVIS_ACQ_CONT\fP i_acqCont, \fBCUVIS_INT\fP i_size)"
+.br
+.RI "set the receive queue buffer size "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_acq_cont_free\fP (\fBCUVIS_ACQ_CONT\fP *io_pAcqCont)"
+.br
+.RI "Clear a loaded acquisition context by it's handle\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_acq_cont_get_component_info\fP (\fBCUVIS_ACQ_CONT\fP i_acqCont, \fBCUVIS_INT\fP i_id, \fBCUVIS_COMPONENT_INFO\fP *o_pCompInfo)"
+.br
+.RI "Get components general info\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_acq_cont_get_component_count\fP (\fBCUVIS_ACQ_CONT\fP i_acqCont, \fBCUVIS_INT\fP *o_pCount)"
+.br
+.RI "Get the number of components\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_proc_cont_create_from_calib\fP (\fBCUVIS_CALIB\fP i_calib, \fBCUVIS_PROC_CONT\fP *o_pProcCont)"
+.br
+.RI "Load a processing context from a given calibration\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_proc_cont_create_from_mesu\fP (\fBCUVIS_MESU\fP i_mesu, \fBCUVIS_PROC_CONT\fP *o_pProcCont)"
+.br
+.RI "Load a processing context from a given measurement\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_proc_cont_create_from_session_file\fP (\fBCUVIS_SESSION_FILE\fP i_sess, \fBCUVIS_PROC_CONT\fP *o_pProcCont)"
+.br
+.RI "Load a processing context from a given session_file\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_proc_cont_get_reference\fP (\fBCUVIS_PROC_CONT\fP i_procCont, \fBCUVIS_MESU\fP *o_pMesu, \fBCUVIS_REFERENCE_TYPE\fP i_type)"
+.br
+.RI "get a specific reference from the processing context "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_proc_cont_set_reference\fP (\fBCUVIS_PROC_CONT\fP i_procCont, \fBCUVIS_MESU\fP i_mesu, \fBCUVIS_REFERENCE_TYPE\fP i_type)"
+.br
+.RI "Set a reference measurement\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_proc_cont_clear_reference\fP (\fBCUVIS_PROC_CONT\fP i_procCont, \fBCUVIS_REFERENCE_TYPE\fP i_type)"
+.br
+.RI "Clears a reference measurement\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_proc_cont_calc_distance\fP (\fBCUVIS_PROC_CONT\fP i_procCont, double i_distanceMM)"
+.br
+.RI "Set the operating distance by value\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_proc_cont_has_reference\fP (\fBCUVIS_PROC_CONT\fP i_procCont, \fBCUVIS_REFERENCE_TYPE\fP i_type, \fBCUVIS_INT\fP *o_pHasReference)"
+.br
+.RI "Check if an explicit reference was set\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_proc_cont_is_capable\fP (\fBCUVIS_PROC_CONT\fP i_procCont, \fBCUVIS_MESU\fP i_mesu, \fBCUVIS_PROC_ARGS\fP args, \fBCUVIS_INT\fP *o_pIsCapable)"
+.br
+.RI "Check if a processing mode is possible for a measurement\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_proc_cont_apply\fP (\fBCUVIS_PROC_CONT\fP i_procCont, \fBCUVIS_MESU\fP i_mesu)"
+.br
+.RI "(Re-)Process a measurement "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_proc_cont_set_args\fP (\fBCUVIS_PROC_CONT\fP i_procCont, \fBCUVIS_PROC_ARGS\fP i_args)"
+.br
+.RI "Sets the processing arguments for a processing contex\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_proc_cont_free\fP (\fBCUVIS_PROC_CONT\fP *io_pProcCont)"
+.br
+.RI "Clear a loaded processing context by it's handle\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_exporter_create_cube\fP (\fBCUVIS_EXPORTER\fP *o_pExporter, \fBCUVIS_EXPORT_GENERAL_SETTINGS\fP generalSettings, \fBCUVIS_EXPORT_CUBE_SETTINGS\fP formatSettings)"
+.br
+.RI "Create a cube exporter\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_exporter_create_tiff\fP (\fBCUVIS_EXPORTER\fP *o_pExporter, \fBCUVIS_EXPORT_GENERAL_SETTINGS\fP generalSettings, \fBCUVIS_EXPORT_TIFF_SETTINGS\fP formatSettings)"
+.br
+.RI "Create a tiff exporter\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_exporter_create_envi\fP (\fBCUVIS_EXPORTER\fP *o_pExporter, \fBCUVIS_EXPORT_GENERAL_SETTINGS\fP generalSettings)"
+.br
+.RI "Create a ENVI exporter\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_exporter_create_view\fP (\fBCUVIS_EXPORTER\fP *o_pExporter, \fBCUVIS_EXPORT_GENERAL_SETTINGS\fP generalSettings, \fBCUVIS_EXPORT_VIEW_SETTINGS\fP formatSettings)"
+.br
+.RI "Create a VIEW exporter\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_exporter_apply\fP (\fBCUVIS_EXPORTER\fP i_exporter, \fBCUVIS_MESU\fP i_mesu)"
+.br
+.RI "Export a measurement with an exporter\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_exporter_get_queue_used\fP (\fBCUVIS_EXPORTER\fP i_exporter, \fBCUVIS_INT\fP *o_pQueueUsed)"
+.br
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_exporter_free\fP (\fBCUVIS_EXPORTER\fP *io_pExporter)"
+.br
+.RI "Release an exporter\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_viewer_create\fP (\fBCUVIS_VIEWER\fP *o_pViewer, \fBCUVIS_VIEWER_SETTINGS\fP viewerSettings)"
+.br
+.RI "Create a viewer\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_viewer_apply\fP (\fBCUVIS_VIEWER\fP i_viewer, \fBCUVIS_MESU\fP i_mesu, \fBCUVIS_VIEW\fP *o_pView)"
+.br
+.RI "Generate a view from a measurement\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_viewer_free\fP (\fBCUVIS_VIEWER\fP *io_pViewer)"
+.br
+.RI "Release a viewer\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_view_get_data_count\fP (\fBCUVIS_MESU\fP i_view, \fBCUVIS_INT\fP *o_pCount)"
+.br
+.RI "retrieves the number of view data elements "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_view_get_data\fP (\fBCUVIS_MESU\fP i_view, \fBCUVIS_INT\fP i_index, \fBCUVIS_VIEW_DATA\fP *o_pData)"
+.br
+.RI "Obtain data from view\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_view_free\fP (\fBCUVIS_VIEWER\fP *io_pView)"
+.br
+.RI "Release a view\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_calib_get_capabilities\fP (\fBCUVIS_CALIB\fP i_calibration, \fBCUVIS_OPERATION_MODE\fP i_mode, \fBCUVIS_INT\fP *o_pCapabilities)"
+.br
+.RI "Get the capabilites of a given mode\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_measurement_get_capabilities\fP (\fBCUVIS_MESU\fP i_mesu, \fBCUVIS_INT\fP *o_pCapabilities)"
+.br
+.RI "Get the capabilites of the measurement which were present in the calibration during capture\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_measurement_get_calib_id\fP (\fBCUVIS_MESU\fP i_mesu, \fBCUVIS_CHAR\fP *o_pCalibId)"
+.br
+.RI "Get the unique calibration id of a measurement\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_calib_get_id\fP (\fBCUVIS_CALIB\fP i_calib, \fBCUVIS_CHAR\fP *o_pCalibId)"
+.br
+.RI "Get the unique id of a calibration\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_proc_cont_get_calib_id\fP (\fBCUVIS_PROC_CONT\fP i_procCont, \fBCUVIS_CHAR\fP *o_pCalibId)"
+.br
+.RI "Get the unique calibration id of a processing context\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_worker_create\fP (\fBCUVIS_WORKER\fP *o_pWorker, \fBCUVIS_WORKER_SETTINGS\fP worker_settings)"
+.br
+.RI "Create a Worker\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_worker_free\fP (\fBCUVIS_WORKER\fP *io_pWorker)"
+.br
+.RI "release a worker "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_worker_set_acq_cont\fP (\fBCUVIS_WORKER\fP i_worker, \fBCUVIS_ACQ_CONT\fP i_acq_cont)"
+.br
+.RI "set the acquistion context for the worker\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_worker_set_proc_cont\fP (\fBCUVIS_WORKER\fP i_worker, \fBCUVIS_PROC_CONT\fP i_proc_cont)"
+.br
+.RI "set the processing context for the worker\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_worker_set_exporter\fP (\fBCUVIS_WORKER\fP i_worker, \fBCUVIS_EXPORTER\fP i_exporter)"
+.br
+.RI "set the exporter for the worker\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_worker_set_viewer\fP (\fBCUVIS_WORKER\fP i_worker, \fBCUVIS_VIEWER\fP i_viewer)"
+.br
+.RI "set the viewer for the worker\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_worker_set_session_file\fP (\fBCUVIS_WORKER\fP i_worker, \fBCUVIS_SESSION_FILE\fP i_session_file, \fBCUVIS_INT\fP i_SkipDroppedFrames)"
+.br
+.RI "set a session file for the worker to process (read access only)\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_worker_ingest_mesu\fP (\fBCUVIS_WORKER\fP i_worker, \fBCUVIS_MESU\fP i_mesu)"
+.br
+.RI "Push a mesurement into the worker to process\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_worker_query_session_progress\fP (\fBCUVIS_WORKER\fP i_worker, \fBCUVIS_INT\fP *o_frames_read, \fBCUVIS_INT\fP *o_frames_total)"
+.br
+.RI "Query the number of frames the worker has already read from a session file and the total number of frames in the session\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_worker_get_next_result\fP (\fBCUVIS_WORKER\fP i_worker, \fBCUVIS_MESU\fP *o_pMesu, \fBCUVIS_VIEW\fP *o_pView, \fBCUVIS_INT\fP i_Timeout_ms)"
+.br
+.RI "Get the next result in order\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_worker_has_next_result\fP (\fBCUVIS_WORKER\fP i_worker, \fBCUVIS_INT\fP *o_pHasNext)"
+.br
+.RI "Check, if a new worker result is available\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_worker_get_queue_limits\fP (\fBCUVIS_WORKER\fP i_worker, \fBCUVIS_INT\fP *o_pHardLimit, \fBCUVIS_INT\fP *o_pSoftLimit)"
+.br
+.RI "Query the number of frames the worker has already read from a session file and the total number of frames in the session\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_worker_get_queue_used\fP (\fBCUVIS_WORKER\fP i_worker, \fBCUVIS_INT\fP *o_pQueueUsed)"
+.br
+.RI "Query the number of items currently in the result queue\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_worker_set_queue_limits\fP (\fBCUVIS_WORKER\fP i_worker, \fBCUVIS_INT\fP i_HardLimit, \fBCUVIS_INT\fP i_SoftLimit)"
+.br
+.RI "Set the result queue limits: hard ^= queue size, soft ^= worker stops accepting mesu inputs\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_worker_set_drop_behavior\fP (\fBCUVIS_WORKER\fP i_worker, \fBCUVIS_INT\fP i_CanDrop)"
+.br
+.RI "Set whether the worker can drop results when the result queue is full\&. "
+.ti -1c
+.RI "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP \fBcuvis_worker_get_drop_behavior\fP (\fBCUVIS_WORKER\fP i_worker, \fBCUVIS_INT\fP *o_pCanDrop)"
+.br
+.RI "Query whether the worker is allowed to drop results when the result queue is full\&. "
+.ti -1c
+.RI "struct \fBcuvis_imbuffer_t\fP * \fBcuvis_imbuffer_allocate\fP (void)"
+.br
+.RI "Allocate function for struct \fBcuvis_imbuffer_t\fP \&. "
+.ti -1c
+.RI "void \fBcuvis_imbuffer_free\fP (struct \fBcuvis_imbuffer_t\fP *ptr)"
+.br
+.RI "Free function for struct \fBcuvis_imbuffer_t\fP 
+.br
+ "
+.ti -1c
+.RI "struct \fBcuvis_gps_t\fP * \fBcuvis_gps_allocate\fP (void)"
+.br
+.RI "Allocate function for struct \fBcuvis_gps_t\fP \&. "
+.ti -1c
+.RI "void \fBcuvis_gps_free\fP (struct \fBcuvis_gps_t\fP *ptr)"
+.br
+.RI "Free function for struct \fBcuvis_gps_t\fP 
+.br
+ "
+.ti -1c
+.RI "struct \fBcuvis_sensor_info_t\fP * \fBcuvis_sensor_info_allocate\fP (void)"
+.br
+.RI "Allocate function for struct \fBcuvis_sensor_info_t\fP \&. "
+.ti -1c
+.RI "void \fBcuvis_sensor_info_free\fP (struct \fBcuvis_sensor_info_t\fP *ptr)"
+.br
+.RI "Free function for struct \fBcuvis_sensor_info_t\fP 
+.br
+ "
+.ti -1c
+.RI "struct \fBcuvis_session_info_t\fP * \fBcuvis_session_info_allocate\fP (void)"
+.br
+.RI "Allocate function for struct \fBcuvis_session_info_t\fP \&. "
+.ti -1c
+.RI "void \fBcuvis_session_info_free\fP (struct \fBcuvis_session_info_t\fP *ptr)"
+.br
+.RI "Free function for struct \fBcuvis_session_info_t\fP 
+.br
+ "
+.ti -1c
+.RI "struct \fBcuvis_mesu_metadata_t\fP * \fBcuvis_mesu_metadata_allocate\fP (void)"
+.br
+.RI "Allocate function for struct \fBcuvis_mesu_metadata_t\fP \&. "
+.ti -1c
+.RI "void \fBcuvis_mesu_metadata_free\fP (struct \fBcuvis_mesu_metadata_t\fP *ptr)"
+.br
+.RI "Free function for struct \fBcuvis_mesu_metadata_t\fP 
+.br
+ "
+.ti -1c
+.RI "struct \fBcuvis_save_args_t\fP * \fBcuvis_save_args_allocate\fP (void)"
+.br
+.RI "Allocate function for struct \fBcuvis_save_args_t\fP \&. "
+.ti -1c
+.RI "void \fBcuvis_save_args_free\fP (struct \fBcuvis_save_args_t\fP *ptr)"
+.br
+.RI "Free function for struct \fBcuvis_save_args_t\fP 
+.br
+ "
+.ti -1c
+.RI "struct \fBcuvis_proc_args_t\fP * \fBcuvis_proc_args_allocate\fP (void)"
+.br
+.RI "Allocate function for struct \fBcuvis_proc_args_t\fP \&. "
+.ti -1c
+.RI "void \fBcuvis_proc_args_free\fP (struct \fBcuvis_proc_args_t\fP *ptr)"
+.br
+.RI "Free function for struct \fBcuvis_proc_args_t\fP 
+.br
+ "
+.ti -1c
+.RI "struct \fBcuvis_export_general_settings_t\fP * \fBcuvis_export_general_settings_allocate\fP (void)"
+.br
+.RI "Allocate function for struct \fBcuvis_export_general_settings_t\fP \&. "
+.ti -1c
+.RI "void \fBcuvis_export_general_settings_free\fP (struct \fBcuvis_export_general_settings_t\fP *ptr)"
+.br
+.RI "Free function for struct \fBcuvis_export_general_settings_t\fP 
+.br
+ "
+.ti -1c
+.RI "struct \fBcuvis_save_args_t\fP * \fBcuvis_export_cube_settings_allocate\fP (void)"
+.br
+.RI "Allocate function for struct \fBcuvis_save_args_t\fP \&. "
+.ti -1c
+.RI "void \fBcuvis_export_cube_settings_free\fP (struct \fBcuvis_save_args_t\fP *ptr)"
+.br
+.RI "Free function for struct \fBcuvis_save_args_t\fP 
+.br
+ "
+.ti -1c
+.RI "struct \fBcuvis_export_view_settings_t\fP * \fBcuvis_export_view_settings_allocate\fP (void)"
+.br
+.RI "Allocate function for struct \fBcuvis_export_view_settings_t\fP \&. "
+.ti -1c
+.RI "void \fBcuvis_export_view_settings_free\fP (struct \fBcuvis_export_view_settings_t\fP *ptr)"
+.br
+.RI "Free function for struct \fBcuvis_export_view_settings_t\fP 
+.br
+ "
+.ti -1c
+.RI "struct \fBcuvis_export_tiff_settings_t\fP * \fBcuvis_export_tiff_settings_allocate\fP (void)"
+.br
+.RI "Allocate function for struct \fBcuvis_export_tiff_settings_t\fP \&. "
+.ti -1c
+.RI "void \fBcuvis_export_tiff_settings_free\fP (struct \fBcuvis_export_tiff_settings_t\fP *ptr)"
+.br
+.RI "Free function for struct \fBcuvis_export_tiff_settings_t\fP 
+.br
+ "
+.ti -1c
+.RI "struct \fBcuvis_viewer_settings_t\fP * \fBcuvis_viewer_settings_allocate\fP (void)"
+.br
+.RI "Allocate function for struct \fBcuvis_viewer_settings_t\fP \&. "
+.ti -1c
+.RI "void \fBcuvis_viewer_settings_free\fP (struct \fBcuvis_viewer_settings_t\fP *ptr)"
+.br
+.RI "Free function for struct \fBcuvis_viewer_settings_t\fP 
+.br
+ "
+.ti -1c
+.RI "struct \fBcuvis_view_data_t\fP * \fBcuvis_view_data_allocate\fP (void)"
+.br
+.RI "Allocate function for struct \fBcuvis_view_data_t\fP \&. "
+.ti -1c
+.RI "void \fBcuvis_view_data_free\fP (struct \fBcuvis_view_data_t\fP *ptr)"
+.br
+.RI "Free function for struct \fBcuvis_view_data_t\fP 
+.br
+ "
+.ti -1c
+.RI "struct \fBcuvis_component_info_t\fP * \fBcuvis_cuvis_component_info_allocate\fP (void)"
+.br
+.RI "Allocate function for struct \fBcuvis_component_info_t\fP \&. "
+.ti -1c
+.RI "void \fBcuvis_cuvis_component_info_free\fP (struct \fBcuvis_component_info_t\fP *ptr)"
+.br
+.RI "Free function for struct \fBcuvis_component_info_t\fP 
+.br
+ "
+.ti -1c
+.RI "struct \fBcuvis_worker_settings_t\fP * \fBcuvis_worker_settings_allocate\fP (void)"
+.br
+.RI "Allocate function for struct \fBcuvis_worker_settings_t\fP \&. "
+.ti -1c
+.RI "void \fBcuvis_worker_settings_free\fP (struct \fBcuvis_worker_settings_t\fP *ptr)"
+.br
+.RI "Free function for struct \fBcuvis_worker_settings_t\fP 
+.br
+ "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_acq_cont_fps_get\fP (int32_t i_acqCont, double *o_pvalue)"
+.br
+.RI "Get cuvis_acq_cont_fps function\&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_acq_cont_fps_set\fP (int32_t i_acqCont, double value)"
+.br
+.RI "set cuvis_acq_cont_fps \&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_acq_cont_fps_set_async\fP (int32_t i_acqCont, int32_t *o_pAsyncResult, double value)"
+.br
+.RI "set cuvis_acq_cont_fps asynchronously\&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_acq_cont_average_get\fP (int32_t i_acqCont, int32_t *o_pvalue)"
+.br
+.RI "Get cuvis_acq_cont_average function\&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_acq_cont_average_set\fP (int32_t i_acqCont, int32_t value)"
+.br
+.RI "set cuvis_acq_cont_average \&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_acq_cont_average_set_async\fP (int32_t i_acqCont, int32_t *o_pAsyncResult, int32_t value)"
+.br
+.RI "set cuvis_acq_cont_average asynchronously\&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_acq_cont_integration_time_get\fP (int32_t i_acqCont, double *o_pvalue)"
+.br
+.RI "Get cuvis_acq_cont_integration_time function\&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_acq_cont_integration_time_set\fP (int32_t i_acqCont, double value)"
+.br
+.RI "set cuvis_acq_cont_integration_time \&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_acq_cont_integration_time_set_async\fP (int32_t i_acqCont, int32_t *o_pAsyncResult, double value)"
+.br
+.RI "set cuvis_acq_cont_integration_time asynchronously\&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_acq_cont_auto_exp_get\fP (int32_t i_acqCont, int32_t *o_pvalue)"
+.br
+.RI "Get cuvis_acq_cont_auto_exp function\&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_acq_cont_auto_exp_set\fP (int32_t i_acqCont, int32_t value)"
+.br
+.RI "set cuvis_acq_cont_auto_exp \&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_acq_cont_auto_exp_set_async\fP (int32_t i_acqCont, int32_t *o_pAsyncResult, int32_t value)"
+.br
+.RI "set cuvis_acq_cont_auto_exp asynchronously\&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_acq_cont_preview_mode_get\fP (int32_t i_acqCont, int32_t *o_pvalue)"
+.br
+.RI "Get cuvis_acq_cont_preview_mode function\&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_acq_cont_preview_mode_set\fP (int32_t i_acqCont, int32_t value)"
+.br
+.RI "set cuvis_acq_cont_preview_mode \&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_acq_cont_preview_mode_set_async\fP (int32_t i_acqCont, int32_t *o_pAsyncResult, int32_t value)"
+.br
+.RI "set cuvis_acq_cont_preview_mode asynchronously\&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_acq_cont_operation_mode_get\fP (int32_t i_acqCont, enum \fBcuvis_operation_mode_t\fP *o_pvalue)"
+.br
+.RI "Get cuvis_acq_cont_operation_mode function\&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_acq_cont_operation_mode_set\fP (int32_t i_acqCont, enum \fBcuvis_operation_mode_t\fP value)"
+.br
+.RI "set cuvis_acq_cont_operation_mode \&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_acq_cont_operation_mode_set_async\fP (int32_t i_acqCont, int32_t *o_pAsyncResult, enum \fBcuvis_operation_mode_t\fP value)"
+.br
+.RI "set cuvis_acq_cont_operation_mode asynchronously\&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_acq_cont_continuous_set\fP (int32_t i_acqCont, int32_t value)"
+.br
+.RI "set cuvis_acq_cont_continuous \&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_acq_cont_continuous_set_async\fP (int32_t i_acqCont, int32_t *o_pAsyncResult, int32_t value)"
+.br
+.RI "set cuvis_acq_cont_continuous asynchronously\&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_acq_cont_bandwidth_get\fP (int32_t i_acqCont, int32_t *o_pvalue)"
+.br
+.RI "Get cuvis_acq_cont_bandwidth function\&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_acq_cont_queue_size_get\fP (int32_t i_acqCont, int32_t *o_pvalue)"
+.br
+.RI "Get cuvis_acq_cont_queue_size function\&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_acq_cont_queue_used_get\fP (int32_t i_acqCont, int32_t *o_pvalue)"
+.br
+.RI "Get cuvis_acq_cont_queue_used function\&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_comp_online_get\fP (int32_t i_acqCont, int32_t i_id, int32_t *o_pvalue)"
+.br
+.RI "Get cuvis_comp_online function\&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_comp_temperature_get\fP (int32_t i_acqCont, int32_t i_id, int32_t *o_pvalue)"
+.br
+.RI "Get cuvis_comp_temperature function\&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_comp_bandwidth_get\fP (int32_t i_acqCont, int32_t i_id, int32_t *o_pvalue)"
+.br
+.RI "Get cuvis_comp_bandwidth function\&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_comp_driver_queue_size_get\fP (int32_t i_acqCont, int32_t i_id, int32_t *o_pvalue)"
+.br
+.RI "Get cuvis_comp_driver_queue_size function\&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_comp_driver_queue_used_get\fP (int32_t i_acqCont, int32_t i_id, int32_t *o_pvalue)"
+.br
+.RI "Get cuvis_comp_driver_queue_used function\&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_comp_hardware_queue_size_get\fP (int32_t i_acqCont, int32_t i_id, int32_t *o_pvalue)"
+.br
+.RI "Get cuvis_comp_hardware_queue_size function\&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_comp_hardware_queue_used_get\fP (int32_t i_acqCont, int32_t i_id, int32_t *o_pvalue)"
+.br
+.RI "Get cuvis_comp_hardware_queue_used function\&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_comp_gain_get\fP (int32_t i_acqCont, int32_t i_id, double *o_pvalue)"
+.br
+.RI "Get cuvis_comp_gain function\&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_comp_gain_set\fP (int32_t i_acqCont, int32_t i_id, double value)"
+.br
+.RI "set cuvis_comp_gain \&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_comp_gain_set_async\fP (int32_t i_acqCont, int32_t i_id, int32_t *o_pAsyncResult, double value)"
+.br
+.RI "set cuvis_comp_gain asynchronously\&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_comp_integration_time_factor_get\fP (int32_t i_acqCont, int32_t i_id, double *o_pvalue)"
+.br
+.RI "Get cuvis_comp_integration_time_factor function\&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_comp_integration_time_factor_set\fP (int32_t i_acqCont, int32_t i_id, double value)"
+.br
+.RI "set cuvis_comp_integration_time_factor \&. "
+.ti -1c
+.RI "enum \fBcuvis_status_t\fP \fBcuvis_comp_integration_time_factor_set_async\fP (int32_t i_acqCont, int32_t i_id, int32_t *o_pAsyncResult, double value)"
+.br
+.RI "set cuvis_comp_integration_time_factor asynchronously\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+SDK calls for cuvis C SDKis header defines all public C SDK functions and data types\&. 
+
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define _CRT_SECURE_NO_WARNINGS"
+
+.SS "#define ACQ_GET_SINGLE_VALUE(NAME, TYPE, COMMENT)"
+\fBValue:\fP
+.PP
+.nf
+ \
+  SDK_CAPI CUVIS_STATUS SDK_CCALL NAME##_get(                                \
+      CUVIS_ACQ_CONT i_acqCont, TYPE* o_pvalue);
+.fi
+.PP
+macro for creating acquisition getter functions 
+.SS "#define ACQ_SET_SINGLE_VALUE(NAME, TYPE, UNIT_STR)"
+\fBValue:\fP
+.PP
+.nf
+                               \
+  SDK_CAPI CUVIS_STATUS SDK_CCALL NAME##_set(                                                 \
+      CUVIS_ACQ_CONT i_acqCont, TYPE value);                                                  \ \
+  SDK_CAPI CUVIS_STATUS SDK_CCALL NAME##_set_async(                                           \
+      CUVIS_ACQ_CONT i_acqCont,                                                               \
+      CUVIS_ASYNC_CALL_RESULT* o_pAsyncResult,                                                \
+      TYPE value);
+.fi
+.PP
+macro for creating stubs of sync and async acquisition setter functions 
+.SS "#define ALLOCATE_AND_FREE(DATATYPE, NAME)"
+\fBValue:\fP
+.PP
+.nf
+                      \
+  SDK_CAPI DATATYPE* SDK_CCALL cuvis_##NAME##_allocate(void); \                           \
+  SDK_CAPI void SDK_CCALL cuvis_##NAME##_free(DATATYPE* ptr);
+.fi
+.PP
+macro for creating allocate and free functions for c data structures 
+.SS "#define COMP_GET_SINGLE_VALUE(NAME, TYPE, COMMENT)"
+\fBValue:\fP
+.PP
+.nf
+ \
+  SDK_CAPI CUVIS_STATUS SDK_CCALL NAME##_get(                                \
+      CUVIS_ACQ_CONT i_acqCont, CUVIS_INT i_id, TYPE* o_pvalue);
+.fi
+.PP
+macro for creating acquisition-component getter functions 
+.SS "#define COMP_SET_SINGLE_VALUE(NAME, TYPE, UNIT_STR)"
+\fBValue:\fP
+.PP
+.nf
+                               \
+  SDK_CAPI CUVIS_STATUS SDK_CCALL NAME##_set(                                                 \
+      CUVIS_ACQ_CONT i_acqCont, CUVIS_INT i_id, TYPE value);                                  \ \
+  SDK_CAPI CUVIS_STATUS SDK_CCALL NAME##_set_async(                                           \
+      CUVIS_ACQ_CONT i_acqCont,                                                               \
+      CUVIS_INT i_id,                                                                         \
+      CUVIS_ASYNC_CALL_RESULT* o_pAsyncResult,                                                \
+      TYPE value);
+.fi
+.PP
+macro for creating stubs of sync and async acquisition-component setter functions 
+.SS "#define CUVIS_ACQ_CONT   \fBCUVIS_HANDLE\fP"
+
+.PP
+acquisition context handle 
+.SS "#define CUVIS_ASYNC_CALL_RESULT   \fBCUVIS_HANDLE\fP"
+
+.PP
+handle to an async function call result\&. A handle can be checked by the function \fBcuvis_async_call_get\fP 
+.SS "#define CUVIS_ASYNC_CAPTURE_RESULT   \fBCUVIS_HANDLE\fP"
+
+.PP
+handle to an async capture result\&. A handle can be checked by the function \fBcuvis_async_capture_get\fP 
+.SS "#define CUVIS_CALIB   \fBCUVIS_HANDLE\fP"
+
+.PP
+calibration handle 
+.SS "#define CUVIS_CHAR   char"
+
+.SS "#define CUVIS_CHECK(code)"
+\fBValue:\fP
+.PP
+.nf
+  if (status_ok != (code))                                          \
+  {                                                                 \
+    printf("Call failed\&. %s\n", cuvis_get_last_error_msg()); \
+    return -1;                                                      \
+  }
+.fi
+.PP
+simple check function for error code 
+.SS "#define CUVIS_COMPONENT_INFO   struct \fBcuvis_component_info_t\fP"
+
+.SS "#define CUVIS_COMPONENT_TYPE   enum \fBcuvis_component_type_t\fP"
+
+.SS "#define CUVIS_DATA_TYPE   enum \fBcuvis_data_type_t\fP"
+
+.SS "#define CUVIS_EVENT   \fBCUVIS_HANDLE\fP"
+
+.SS "#define CUVIS_EVENT_ACQUISITION_DATA   struct \fBcuvis_event_acquisition_data_t\fP"
+
+.SS "#define CUVIS_EVENT_ACQUISTION   (1 << 8)"
+
+.SS "#define CUVIS_EVENT_BASE_DATA   struct \fBcuvis_event_base_data_t\fP"
+
+.SS "#define CUVIS_EVENT_COMPONENT   (\fBCUVIS_EVENT_ACQUISTION\fP | (1 << 4))"
+
+.SS "#define CUVIS_EVENT_COMPONENT_DATA   struct \fBcuvis_event_component_data_t\fP"
+
+.SS "#define CUVIS_EVENT_PROCESSING   (2 << 8)"
+
+.SS "#define CUVIS_EVENT_PROCESSING_DATA   struct \fBcuvis_event_processing_event_t\fP"
+
+.SS "#define CUVIS_EVENT_QUALITY_DATA   struct \fBcuvis_event_qualitiy_event_t\fP"
+
+.SS "#define CUVIS_EVENT_TRIGGER_SKIPPED   (\fBCUVIS_EVENT_COMPONENT\fP | 1)"
+
+.SS "#define CUVIS_EXPORT_CUBE_SETTINGS   struct \fBcuvis_save_args_t\fP"
+
+.SS "#define CUVIS_EXPORT_GENERAL_SETTINGS   struct \fBcuvis_export_general_settings_t\fP"
+
+.SS "#define CUVIS_EXPORT_TIFF_SETTINGS   struct \fBcuvis_export_tiff_settings_t\fP"
+
+.SS "#define CUVIS_EXPORT_VIEW_SETTINGS   struct \fBcuvis_export_view_settings_t\fP"
+
+.SS "#define CUVIS_EXPORTER   \fBCUVIS_HANDLE\fP"
+
+.PP
+exporter handle (all exporter types) 
+.SS "#define CUVIS_FLAGS   uint32_t"
+
+.PP
+field for binary flags 
+.SS "#define CUVIS_GPS   struct \fBcuvis_gps_t\fP"
+
+.SS "#define CUVIS_HANDLE   \fBCUVIS_INT\fP"
+
+.PP
+handle 
+.SS "#define CUVIS_HANDLE_NULL   \fBCUVIS_HANDLE\fP(0)"
+
+.PP
+handle value of 0 is reserved for invalid handles 
+.SS "#define CUVIS_HARDWARE_STATE   enum \fBcuvis_hardware_state_t\fP"
+
+.SS "#define CUVIS_IMBUFFER   struct \fBcuvis_imbuffer_t\fP"
+
+.SS "#define CUVIS_IMBUFFER_FORMAT   enum \fBcuvis_imbuffer_format_t\fP"
+
+.SS "#define CUVIS_INT   int32_t"
+
+.SS "#define CUVIS_LOGLEVEL   enum \fBcuvis_loglevel_t\fP"
+
+.SS "#define CUVIS_MAXBUF   256"
+
+.PP
+max string buffer length (e\&.g\&. for paths) 
+.SS "#define CUVIS_MESU   \fBCUVIS_HANDLE\fP"
+
+.PP
+measurement handle 
+.SS "#define CUVIS_MESU_FLAG_DARK_INTTIME   8"
+
+.PP
+the dark's integration time does not match the measurement If this flag is set, additional information can retrieved by calling \fBcuvis_measurement_get_data_sensor_info\fP with the key \fBCUVIS_MESU_FLAG_DARK_INTTIME_KEY\fP 
+.SS "#define CUVIS_MESU_FLAG_DARK_TEMP   16"
+
+.PP
+the sensor temperature at dark's recording does not match measurement's recording device temperature If this flag is set, additional information can retrieved by calling \fBcuvis_measurement_get_data_sensor_info\fP with the key \fBCUVIS_MESU_FLAG_DARK_TEMP_KEY\fP 
+.SS "#define CUVIS_MESU_FLAG_OVERILLUMINATED   1"
+
+.PP
+the measurement was over-illuminated One of the devices sensor data points were over-saturated while recording This may not be directly visible in the data cube, as the sensor data needs extensive processing\&. 
+.PP
+\fBNote\fP
+.RS 4
+only the spectral data is checked\&. The pan image's saturation is not checked\&.
+.RE
+.PP
+If this flag is set, additional information can retrieved by calling \fBcuvis_measurement_get_data_sensor_info\fP with the key \fBCUVIS_MESU_FLAG_OVERILLUMINATED_KEY\fP 
+.SS "#define CUVIS_MESU_FLAG_POOR_REFERENCE   2"
+
+.PP
+A reference measurement used has poor quality\&. One or more of the reference measurements used had a poor data quality\&. This may lead to invalid results\&.
+.PP
+If this flag is set, additional information can retrieved by calling \fBcuvis_measurement_get_data_sensor_info\fP with the key \fBCUVIS_MESU_FLAG_POOR_REFERENCE_KEY\fP 
+.SS "#define CUVIS_MESU_FLAG_POOR_WHITE_BALANCING   4"
+
+.PP
+the white balancing detected bad data If this flag is set, additional information can retrieved by calling \fBcuvis_measurement_get_data_sensor_info\fP with the key \fBCUVIS_MESU_FLAG_POOR_WHITE_BALANCING_KEY\fP 
+.SS "#define CUVIS_MESU_FLAG_WHITE_INTTIME   32"
+
+.PP
+the white's integration time does not match the measurement If this flag is set, additional information can retrieved by calling \fBcuvis_measurement_get_data_sensor_info\fP with the key \fBCUVIS_MESU_FLAG_WHITE_INTTIME_KEY\fP 
+.SS "#define CUVIS_MESU_FLAG_WHITE_TEMP   64"
+
+.PP
+the sensor temperature at white's recording does not match measurement's recording device temperature If this flag is set, additional information can retrieved by calling \fBcuvis_measurement_get_data_sensor_info\fP with the key \fBCUVIS_MESU_FLAG_WHITE_TEMP_KEY\fP 
+.SS "#define CUVIS_MESU_FLAG_WHITEDARK_INTTIME   128"
+
+.PP
+the white's dark integration time does not match the measurement If this flag is set, additional information can retrieved by calling \fBcuvis_measurement_get_data_sensor_info\fP with the key \fBCUVIS_MESU_FLAG_WHITEDARK_INTTIME_KEY\fP 
+.SS "#define CUVIS_MESU_FLAG_WHITEDARK_TEMP   256"
+
+.PP
+the sensor temperature at white's dark recording does not match measurement's recording device temperature If this flag is set, additional information can retrieved by calling \fBcuvis_measurement_get_data_sensor_info\fP with the key \fBCUVIS_MESU_FLAG_WHITEDARK_TEMP_KEY\fP 
+.SS "#define CUVIS_MESU_METADATA   struct \fBcuvis_mesu_metadata_t\fP"
+
+.SS "#define CUVIS_MISC_PTR   void*"
+
+.PP
+placeholder data type 
+.SS "#define CUVIS_MODE_CAPABILITIES   \fBCUVIS_INT\fP"
+
+.PP
+holds capabilities for operation mode as flags 
+.SS "#define CUVIS_MODE_CAPABILITY_ACQUISITION_AVERAGING   64"
+
+.SS "#define CUVIS_MODE_CAPABILITY_ACQUISITION_CAPTURE   1"
+
+.SS "#define CUVIS_MODE_CAPABILITY_ACQUISITION_CONTINUOUS   4"
+
+.SS "#define CUVIS_MODE_CAPABILITY_ACQUISITION_SETGAIN   32"
+
+.SS "#define CUVIS_MODE_CAPABILITY_ACQUISITION_SETINTEGRATIONTIME   16"
+
+.SS "#define CUVIS_MODE_CAPABILITY_ACQUISITION_SNAPSHOT   8"
+
+.SS "#define CUVIS_MODE_CAPABILITY_ACQUISITION_TIMELAPSE   2"
+
+.SS "#define CUVIS_MODE_CAPABILITY_PROCESSING_AUTOEXPOSURE   65536"
+
+.SS "#define CUVIS_MODE_CAPABILITY_PROCESSING_CALC_LIVE   32768"
+
+.SS "#define CUVIS_MODE_CAPABILITY_PROCESSING_CLEAR_RAW   16384"
+
+.SS "#define CUVIS_MODE_CAPABILITY_PROCESSING_CUBE_DARKSUBTRACT   1024"
+
+.SS "#define CUVIS_MODE_CAPABILITY_PROCESSING_CUBE_FLATFIELDING   2048"
+
+.SS "#define CUVIS_MODE_CAPABILITY_PROCESSING_CUBE_RAW   256"
+
+.SS "#define CUVIS_MODE_CAPABILITY_PROCESSING_CUBE_REF   512"
+
+.SS "#define CUVIS_MODE_CAPABILITY_PROCESSING_CUBE_SPECTRALRADIANCE   4096"
+
+.SS "#define CUVIS_MODE_CAPABILITY_PROCESSING_ORIENTATION   131072"
+
+.SS "#define CUVIS_MODE_CAPABILITY_PROCESSING_REQUIRE_WHITEDARK_REFLECTANCE   33554432"
+
+.SS "#define CUVIS_MODE_CAPABILITY_PROCESSING_SAVE_FILE   8192"
+
+.SS "#define CUVIS_MODE_CAPABILITY_PROCESSING_SENSOR_RAW   128"
+
+.SS "#define CUVIS_MODE_CAPABILITY_PROCESSING_SET_DARK   524288"
+
+.SS "#define CUVIS_MODE_CAPABILITY_PROCESSING_SET_DISTANCE_VALUE   4194304"
+
+.SS "#define CUVIS_MODE_CAPABILITY_PROCESSING_SET_DISTANCECALIB   2097152"
+
+.SS "#define CUVIS_MODE_CAPABILITY_PROCESSING_SET_SPRADCALIB   1048576"
+
+.SS "#define CUVIS_MODE_CAPABILITY_PROCESSING_SET_WHITE   262144"
+
+.SS "#define CUVIS_MODE_CAPABILITY_PROCESSING_USE_DARK_SPRADCALIB   8388608"
+
+.SS "#define CUVIS_MODE_CAPABILITY_PROCESSING_USE_WHITE_SPRADCALIB   16777216"
+
+.SS "#define CUVIS_OPERATION_MODE   enum \fBcuvis_operation_mode_t\fP"
+
+.SS "#define CUVIS_PAN_SHAPRENING_ALGORITHM_TYPE     enum \fBcuvis_pan_sharpening_algorithm_t\fP"
+
+.SS "#define CUVIS_PAN_SHAPRENING_INTERPOLATION_TYPE     enum \fBcuvis_pan_sharpening_interpolation_type_t\fP"
+
+.SS "#define CUVIS_PROC_ARGS   struct \fBcuvis_proc_args_t\fP"
+
+.SS "#define CUVIS_PROC_CONT   \fBCUVIS_HANDLE\fP"
+
+.PP
+processing context handle 
+.SS "#define CUVIS_PROCESSING_MODE   enum \fBcuvis_processing_mode_t\fP"
+
+.SS "#define CUVIS_REFERENCE_TYPE   enum \fBcuvis_reference_type_t\fP"
+
+.SS "#define CUVIS_SAVE_ARGS   struct \fBcuvis_save_args_t\fP"
+
+.SS "#define CUVIS_SENSOR_INFO   struct \fBcuvis_sensor_info_t\fP"
+
+.SS "#define CUVIS_SESSION_FILE   \fBCUVIS_HANDLE\fP"
+
+.PP
+measurement session_info file handle 
+.SS "#define CUVIS_SESSION_INFO   struct \fBcuvis_session_info_t\fP"
+
+.SS "#define CUVIS_SESSION_ITEM_TYPE   enum \fBcuvis_session_item_type_t\fP"
+
+.SS "#define CUVIS_STATUS   enum \fBcuvis_status_t\fP"
+
+.SS "#define CUVIS_STRING   \fBCUVIS_CHAR\fP[\fBCUVIS_MAXBUF\fP]"
+
+.PP
+cstring data type definition 
+.SS "#define CUVIS_TIFF_COMPRESSION_MODE   enum \fBcuvis_tiff_compression_mode_t\fP"
+
+.SS "#define CUVIS_TIFF_FORMAT   enum \fBcuvis_tiff_format_t\fP"
+
+.SS "#define CUVIS_TIMESTAMP   uint64_t"
+
+.PP
+time since epoch in millisecond steps 
+.SS "#define CUVIS_VIEW   \fBCUVIS_HANDLE\fP"
+
+.PP
+data viewer result handle (view) 
+.SS "#define CUVIS_VIEW_CATEGORY   enum \fBcuvis_view_category_t\fP"
+
+.SS "#define CUVIS_VIEW_DATA   struct \fBcuvis_view_data_t\fP"
+
+.SS "#define CUVIS_VIEWER   \fBCUVIS_HANDLE\fP"
+
+.PP
+data viewer handle 
+.SS "#define CUVIS_VIEWER_SETTINGS   struct \fBcuvis_viewer_settings_t\fP"
+
+.SS "#define CUVIS_WCHAR   wchar_t"
+
+.SS "#define CUVIS_WORKER   \fBCUVIS_HANDLE\fP"
+
+.PP
+worker handle 
+.SS "#define CUVIS_WORKER_SETTINGS   struct \fBcuvis_worker_settings_t\fP"
+
+.SS "#define IMBUFFER_GET(ptr, x, y, chn, imbuf)     ptr[((y) * (imbuf)\&.width + (x)) * (imbuf)\&.channels + (chn)]"
+
+.PP
+helper macro for obtaining a pixel position from an imbuffer pointer 
+.SS "#define SDK_CAPI"
+
+.SS "#define SDK_CCALL"
+
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef void(\fBSDK_CCALL\fP * external_event_callback) (\fBCUVIS_INT\fP i_handler_id, \fBCUVIS_EVENT\fP i_event)"
+
+.PP
+event callback type 
+.SS "typedef void(\fBSDK_CCALL\fP * log_callback) (const char *msg, \fBCUVIS_INT\fP level)"
+
+.SS "typedef void(\fBSDK_CCALL\fP * log_callback_localized) (const \fBCUVIS_WCHAR\fP *msg, \fBCUVIS_INT\fP level)"
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBcuvis_capabilities_t\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIAcquisitionCapture \fP\fP
+.TP
+\fB\fIAcquisitionTimelapse \fP\fP
+.TP
+\fB\fIAcquisitionContinuous \fP\fP
+.TP
+\fB\fIAcquisitionSnapshot \fP\fP
+.TP
+\fB\fIAcquisitionSetIntegrationtime \fP\fP
+.TP
+\fB\fIAcquisitionSetGain \fP\fP
+.TP
+\fB\fIAcquisitionAveraging \fP\fP
+.TP
+\fB\fIProcessingSensorRaw \fP\fP
+.TP
+\fB\fIProcessingCubeRaw \fP\fP
+.TP
+\fB\fIProcessingCubeRef \fP\fP
+.TP
+\fB\fIProcessingCubeDarkSubtract \fP\fP
+.TP
+\fB\fIProcessingCubeFlatFielding \fP\fP
+.TP
+\fB\fIProcessingCubeSpectralRadiance \fP\fP
+.TP
+\fB\fIProcessingSaveFile \fP\fP
+.TP
+\fB\fIProcessingClearRaw \fP\fP
+.TP
+\fB\fIProcessingCalcLive \fP\fP
+.TP
+\fB\fIProcessingAutoExposure \fP\fP
+.TP
+\fB\fIProcessingOrientation \fP\fP
+.TP
+\fB\fIProcessingSetWhite \fP\fP
+.TP
+\fB\fIProcessingSetDark \fP\fP
+.TP
+\fB\fIProcessingSetSprad \fP\fP
+.TP
+\fB\fIProcessingSetDistanceCalib \fP\fP
+.TP
+\fB\fIProcessingSetDistanceValue \fP\fP
+.TP
+\fB\fIProcessingUseDarkSpradcalib \fP\fP
+.TP
+\fB\fIProcessingUseWhiteSpradCalib \fP\fP
+.TP
+\fB\fIProcessingRequireWhiteDarkReflectance \fP\fP
+.SS "enum \fBcuvis_component_type_t\fP"
+
+.PP
+the component types 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIcomponent_type_image_sensor \fP\fP
+the component is an image sensor (camera) 
+.TP
+\fB\fIcomponent_type_misc_sensor \fP\fP
+the component is a non-camera, e\&.g\&. GPS 
+.SS "enum \fBcuvis_data_type_t\fP"
+
+.PP
+the data field's type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIdata_type_unsupported \fP\fP
+the data type is unsupported or unknown by the SDK 
+.TP
+\fB\fIdata_type_image \fP\fP
+data type is image, retrieve with \fBcuvis_measurement_get_data_image\fP 
+.TP
+\fB\fIdata_type_gps \fP\fP
+data type is gps, retrieve with \fBcuvis_measurement_get_data_gps\fP 
+.TP
+\fB\fIdata_type_string \fP\fP
+data type is string, retrieve with \fBcuvis_measurement_get_data_string\fP 
+.TP
+\fB\fIdata_type_sensor_info \fP\fP
+data type is sensor info, retrieve with \fBcuvis_measurement_get_data_sensor_info\fP 
+.SS "enum \fBcuvis_hardware_state_t\fP"
+
+.PP
+the state of the hardware 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIhardware_state_offline \fP\fP
+at least one required components is offline 
+.TP
+\fB\fIhardware_state_partially_online \fP\fP
+all required components are online, at least one optional component is offline 
+.TP
+\fB\fIhardware_state_online \fP\fP
+all components are online 
+.SS "enum \fBcuvis_imbuffer_format_t\fP"
+
+.PP
+supported image buffer formats 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIimbuffer_format_uint8 \fP\fP
+8 bit, unsigned 
+.TP
+\fB\fIimbuffer_format_uint16 \fP\fP
+16 bit, unsigned 
+.TP
+\fB\fIimbuffer_format_uint32 \fP\fP
+32 bit, unsigned 
+.TP
+\fB\fIimbuffer_format_float \fP\fP
+IEEE 754 single-precision (32 bit) floating-point value (a\&.k\&.a float) 
+.SS "enum \fBcuvis_loglevel_t\fP"
+
+.PP
+The available log levels\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIloglevel_fatal \fP\fP
+only report error not recoverable 
+.TP
+\fB\fIloglevel_error \fP\fP
+report errors and \fBloglevel_fatal\fP messages 
+.TP
+\fB\fIloglevel_warning \fP\fP
+report warnings and \fBloglevel_error\fP messages\&. 
+.br
+ 
+.TP
+\fB\fIloglevel_info \fP\fP
+report status information and \fBloglevel_warning\fP messages\&. 
+.br
+ 
+.TP
+\fB\fIloglevel_debug \fP\fP
+report all messages, including debug messages 
+.br
+ 
+.SS "enum \fBcuvis_operation_mode_t\fP"
+
+.PP
+Operation mode of a camera\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIOperationMode_Software \fP\fP
+software trigger, aka 'single shot mode' or 'software mode' 
+.TP
+\fB\fIOperationMode_Internal \fP\fP
+triggered by internal clock, aka 'video mode' 
+.TP
+\fB\fIOperationMode_External \fP\fP
+triggered by external trigger, aka 'trigger mode' 
+.TP
+\fB\fIOperationMode_Undefined \fP\fP
+undefiend (e\&.g\&. changing) 
+.SS "enum \fBcuvis_pan_sharpening_algorithm_t\fP"
+
+.PP
+the pan-sharpening algorithm for calculating the pan image's weights 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIpan_sharpening_algorithm_Noop \fP\fP
+Interpolate \fBCUVIS_PAN_SHAPRENING_INTERPOLATION_TYPE\fP but no operation is applied to apply the pan image information to the data\&. This mode is recommended together with NearestNeighbor interpolation\&. 
+.TP
+\fB\fIpan_sharpening_algorithm_CubertMacroPixel \fP\fP
+cuvis macro pixel algorithm 
+.PP
+\fBAuthor\fP
+.RS 4
+Dr\&. Rene Heine
+.RE
+.PP
+Weights spectral 'macro pixel' with local pan image gradient 
+.TP
+\fB\fIpan_sharpening_algorithm_CubertPanRatio \fP\fP
+cuvis pan ratio algorithm 
+.PP
+\fBAuthor\fP
+.RS 4
+Arnd Brandes
+.RE
+.PP
+Relative pan-image brighness (white refernce and current image) is used as weight for specral image 
+.TP
+\fB\fIpan_sharpening_algorithm_AlphablendPanOverlay \fP\fP
+cuvis pan overlay algorithm 
+.PP
+\fBAuthor\fP
+.RS 4
+Philip Manke
+.RE
+.PP
+Mode used viewing classifier results with the pan image as an overlay\&. ONLY works with images from viewer 
+.SS "enum \fBcuvis_pan_sharpening_interpolation_type_t\fP"
+
+.PP
+the pan sharpening interpolation type for scaling up the cube before applying the pan image's weights 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIpan_sharpening_interpolation_type_NearestNeighbor \fP\fP
+nearest neighbor interpolation 
+.TP
+\fB\fIpan_sharpening_interpolation_type_Linear \fP\fP
+bilinear interpolation (recommended) 
+.TP
+\fB\fIpan_sharpening_interpolation_type_Cubic \fP\fP
+bicubic interpolation 
+.TP
+\fB\fIpan_sharpening_interpolation_type_Lanczos \fP\fP
+Lanczos (8x8) 
+.SS "enum \fBcuvis_processing_mode_t\fP"
+
+.PP
+The processing mode (a\&.k\&.a\&. capture mode) of a measurement\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fICube_Raw \fP\fP
+processed as cube, but without reference 
+.PP
+.nf
+ The measurement is processed into a cube. Effects of
+ sensor temperature, vignetting,
+ missing flat-fielding, etc. are not
+ corrected.
+
+.fi
+.PP
+ 
+.TP
+\fB\fICube_DarkSubtract \fP\fP
+processed as cube, with dark subtract as reference\&. 
+.PP
+.nf
+ Subtracts the dark from the raw measurement.
+ I_DS = I_RAW - I_DARK
+
+.fi
+.PP
+ 
+.TP
+\fB\fICube_Reflectance \fP\fP
+processed as cube, with dark subtract and white as reference 
+.PP
+.nf
+   Calculates the reflectance as follows:
+
+   I_REF = 10000(I_RAW - I_DARK) / (I_WHITE - I_WHITEDARK)
+
+   Depending on the camera, I_WHITEDARK will be substituted
+   I_DARK, is missing. Note the factor of 10000.
+   A value of 100% corresponds to 10000 counts.
+
+.fi
+.PP
+ 
+.TP
+\fB\fICube_SpectralRadiance \fP\fP
+processed as cube, with spectral radiance calibration 
+.PP
+.nf
+     The spectral radiance calibration is camera-dependent.
+     It's value is given in the units of W m^{-2} sr^{-1} um^{-1}
+
+.fi
+.PP
+ 
+.TP
+\fB\fIPreview \fP\fP
+unprocessed (no cube), only preview image 
+.SS "enum \fBcuvis_reference_type_t\fP"
+
+.PP
+The type of a reference\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIReference_Dark \fP\fP
+a dark reference for dark subtract/reflectance/sp\&. rad 
+.TP
+\fB\fIReference_White \fP\fP
+white reference measurement, brightness defined as 100% 
+.TP
+\fB\fIReference_WhiteDark \fP\fP
+the dark corresponding to the white reference measurement 
+.TP
+\fB\fIReference_SpRad \fP\fP
+spectral sprad measurement object (spectral fields) 
+.TP
+\fB\fIReference_Distance \fP\fP
+spectral distance reference (spectral fields)\&. If normal mesu\&. is used, measurement is calculated from it 
+.SS "enum \fBcuvis_session_item_type_t\fP"
+
+.PP
+The session file item type\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIsession_item_type_frames \fP\fP
+all regular measurements, also list dropped frames 
+.TP
+\fB\fIsession_item_type_frames_no_gaps \fP\fP
+all regular measurements, excluding dropped frames (i\&.e\&. actual images) 
+.TP
+\fB\fIsession_item_type_references \fP\fP
+all reference measurements 
+.SS "enum \fBcuvis_status_t\fP"
+
+.PP
+return state of any SDK function 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIstatus_ok \fP\fP
+the function encountered no problems 
+.TP
+\fB\fIstatus_error \fP\fP
+the failed for some reason\&. Call cuvis_get_last_error_msg for details 
+.TP
+\fB\fIstatus_deferred \fP\fP
+a async function has not been started yet 
+.TP
+\fB\fIstatus_overwritten \fP\fP
+the async call was overwritten by another async call to the same internal values 
+.TP
+\fB\fIstatus_timeout \fP\fP
+obtaining a async function result has timed out\&. Call again later 
+.TP
+\fB\fIstatus_no_measurement \fP\fP
+polling a measurement returned no result / frame was dropped 
+.TP
+\fB\fIstatus_not_available \fP\fP
+retrieving a value is (currently) not possible 
+.TP
+\fB\fIstatus_not_processed \fP\fP
+processing the measurement with the worker failed, raw data is available 
+.TP
+\fB\fIstatus_not_stored \fP\fP
+storing the measurement with the worker/exporter failed 
+.TP
+\fB\fIstatus_no_view \fP\fP
+obtaining the measurement's view with the worker failed, raw data is available 
+.SS "enum \fBcuvis_tiff_compression_mode_t\fP"
+
+.PP
+the tiff compression options 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fItiff_compression_mode_None \fP\fP
+do not compress data 
+.TP
+\fB\fItiff_compression_mode_LZW \fP\fP
+compress LZW\&. 
+.SS "enum \fBcuvis_tiff_format_t\fP"
+
+.PP
+the tiff export format\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fItiff_format_Single \fP\fP
+Export each channel as separate files\&. 
+.TP
+\fB\fItiff_format_MultiChannel \fP\fP
+Create a multi-channel tiff (recommended format) 
+.TP
+\fB\fItiff_format_MultiPage \fP\fP
+Create a multi-page tiff, i\&.e\&. each channel is a 'sub-image' within the tiff\&. 
+.br
+ 
+.SS "enum \fBcuvis_view_category_t\fP"
+
+.PP
+image data types for view data 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIview_category_image \fP\fP
+data is process as an image for displaying\&. Pan-sharpening may have been applied\&. The bit depth is always 8 per channel 
+.TP
+\fB\fIview_category_data \fP\fP
+data contains calculation results\&. The format is always single precision floating point\&. 
+.SH "Function Documentation"
+.PP 
+.SS "enum \fBcuvis_status_t\fP cuvis_acq_cont_auto_exp_get (int32_t i_acqCont, int32_t * o_pvalue)"
+
+.PP
+Get cuvis_acq_cont_auto_exp function\&. Details: set_auto_exp 
+.br
+ Result is written to o_pvalue 
+.SS "enum \fBcuvis_status_t\fP cuvis_acq_cont_auto_exp_set (int32_t i_acqCont, int32_t value)"
+
+.PP
+set cuvis_acq_cont_auto_exp \&. Unit: get_auto_exp 
+.br
+ Block until done or failed 
+.br
+ 
+.SS "enum \fBcuvis_status_t\fP cuvis_acq_cont_auto_exp_set_async (int32_t i_acqCont, int32_t * o_pAsyncResult, int32_t value)"
+
+.PP
+set cuvis_acq_cont_auto_exp asynchronously\&. Unit: get_auto_exp 
+.br
+ Use \fBcuvis_async_call_get\fP to sync again 
+.SS "enum \fBcuvis_status_t\fP cuvis_acq_cont_average_get (int32_t i_acqCont, int32_t * o_pvalue)"
+
+.PP
+Get cuvis_acq_cont_average function\&. Details: 'Number of averages' 
+.br
+ Result is written to o_pvalue 
+.SS "enum \fBcuvis_status_t\fP cuvis_acq_cont_average_set (int32_t i_acqCont, int32_t value)"
+
+.PP
+set cuvis_acq_cont_average \&. Unit: 'Number of averages' 
+.br
+ Block until done or failed 
+.br
+ 
+.SS "enum \fBcuvis_status_t\fP cuvis_acq_cont_average_set_async (int32_t i_acqCont, int32_t * o_pAsyncResult, int32_t value)"
+
+.PP
+set cuvis_acq_cont_average asynchronously\&. Unit: 'Number of averages' 
+.br
+ Use \fBcuvis_async_call_get\fP to sync again 
+.SS "enum \fBcuvis_status_t\fP cuvis_acq_cont_bandwidth_get (int32_t i_acqCont, int32_t * o_pvalue)"
+
+.PP
+Get cuvis_acq_cont_bandwidth function\&. Details: 'bandwidth in MBit/s' 
+.br
+ Result is written to o_pvalue 
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_acq_cont_capture (\fBCUVIS_ACQ_CONT\fP i_acqCont, \fBCUVIS_MESU\fP * o_pMesu, \fBCUVIS_INT\fP timeout_ms)"
+
+.PP
+Capture a measurement\&. This function is only available in operation mode 'Software'\&. The function executes a software trigger synchronously\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_acqCont\fP the acquisition context 
+.br
+\fIo_pMesu\fP the handle of the recorded image will be written to this variable 
+.br
+\fItimeout_ms\fP the timeout in ms\&. Give 0 to wait for ever\&. @retuns status_ok if the measurement was recorded\&. \fBstatus_timeout\fP or \fBstatus_deferred\fP is returned, if the capture was not completed (yet) 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_acq_cont_capture_async (\fBCUVIS_ACQ_CONT\fP i_acqCont, \fBCUVIS_ASYNC_CAPTURE_RESULT\fP * o_pAsyncResult)"
+
+.PP
+Capture a measurement async\&. This function is only available in operation mode 'Software'\&. The function executes a software trigger asynchronously\&. The recorded measurement can be obtained by the function \fBcuvis_async_capture_get\fP\&.
+.PP
+If o_pAsyncResult is set to NULL, the measurement is added to the Acqusition Context's internal queue\&. Retrieve it with \fBcuvis_acq_cont_get_next_measurement\fP or via the worker (if used) \fBcuvis_worker_get_next_result\fP
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_acqCont\fP the acquisition context 
+.br
+\fIo_pAsyncResult\fP the async capture handle will be written to this variable or NULL @retuns status_ok if the async call could be executed\&. 
+.RE
+.PP
+
+.SS "enum \fBcuvis_status_t\fP cuvis_acq_cont_continuous_set (int32_t i_acqCont, int32_t value)"
+
+.PP
+set cuvis_acq_cont_continuous \&. Unit: '0 = stop, 1 = run' 
+.br
+ Block until done or failed 
+.br
+ 
+.SS "enum \fBcuvis_status_t\fP cuvis_acq_cont_continuous_set_async (int32_t i_acqCont, int32_t * o_pAsyncResult, int32_t value)"
+
+.PP
+set cuvis_acq_cont_continuous asynchronously\&. Unit: '0 = stop, 1 = run' 
+.br
+ Use \fBcuvis_async_call_get\fP to sync again 
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_acq_cont_create_from_calib (\fBCUVIS_CALIB\fP i_calib, \fBCUVIS_ACQ_CONT\fP * o_pAcqCont)"
+
+.PP
+Load a acquisition context from a given calibration\&. Load the acquisition context from the calibration\&. This will load the hardware and initialize it\&. Do not load multiple instances of the came calibration / camera\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_calib\fP The calibration instance the processing context will be loaded from 
+.br
+\fIo_pAcqCont\fP The handle of the acquisition context\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if the acquisition context could be loaded 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_acq_cont_create_from_session_file (\fBCUVIS_SESSION_FILE\fP i_sess, \fBCUVIS_INT\fP i_simulate, \fBCUVIS_ACQ_CONT\fP * o_pAcqCont)"
+
+.PP
+Load a acquisition context from a given session_file\&. The acquisition context from the embedded acquisition context of the session_info file\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_sess\fP The session_file the processing context will be loaded from 
+.br
+\fIo_pAcqCont\fP The handle of the acquisition context\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if the acquisition context could be loaded 
+.RE
+.PP
+
+.SS "enum \fBcuvis_status_t\fP cuvis_acq_cont_fps_get (int32_t i_acqCont, double * o_pvalue)"
+
+.PP
+Get cuvis_acq_cont_fps function\&. Details: 'Frames per second' 
+.br
+ Result is written to o_pvalue 
+.SS "enum \fBcuvis_status_t\fP cuvis_acq_cont_fps_set (int32_t i_acqCont, double value)"
+
+.PP
+set cuvis_acq_cont_fps \&. Unit: 'Frames per second' 
+.br
+ Block until done or failed 
+.br
+ 
+.SS "enum \fBcuvis_status_t\fP cuvis_acq_cont_fps_set_async (int32_t i_acqCont, int32_t * o_pAsyncResult, double value)"
+
+.PP
+set cuvis_acq_cont_fps asynchronously\&. Unit: 'Frames per second' 
+.br
+ Use \fBcuvis_async_call_get\fP to sync again 
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_acq_cont_free (\fBCUVIS_ACQ_CONT\fP * io_pAcqCont)"
+
+.PP
+Clear a loaded acquisition context by it's handle\&. The internal memory is freed\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIio_pAcqCont\fP The handle of the processing context\&. The handle number will be invalidated\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if the acquisition context could be released 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_acq_cont_get_component_count (\fBCUVIS_ACQ_CONT\fP i_acqCont, \fBCUVIS_INT\fP * o_pCount)"
+
+.PP
+Get the number of components\&. The acquisition hardware is build from one or more components\&. Get the component count\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_acq_Cont\fP the acquisition context 
+.br
+\fIo_pCount\fP the number of components is written here 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+cuvis_ok if the number of components could be set 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_acq_cont_get_component_info (\fBCUVIS_ACQ_CONT\fP i_acqCont, \fBCUVIS_INT\fP i_id, \fBCUVIS_COMPONENT_INFO\fP * o_pCompInfo)"
+
+.PP
+Get components general info\&. Return general component information about a component build into the acquisition hardware\&. This helps identifying the correct component for settings specific component settings (e\&.g\&. gain)
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_acq_Cont\fP the acquisition context 
+.br
+\fIi_id\fP the device id (value between 0 and below \fBcuvis_acq_cont_get_component_count\fP) 
+.br
+\fIo_pCompInfo\fP the component info to be filled 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+cuvis_ok if the info fields could be filled\&. 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_acq_cont_get_next_measurement (\fBCUVIS_ACQ_CONT\fP i_acqCont, \fBCUVIS_MESU\fP * o_pMesu, \fBCUVIS_INT\fP timeout_ms)"
+
+.PP
+Get measurement from internal cache\&. This function is only available in operation mode 'Internal' or 'External'\&. The function obtains the image from the internal memory, if available\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_acqCont\fP the acquisition context 
+.br
+\fIo_pMesu\fP the handle of the recorded image will be written to this variable\&. 
+.br
+\fItimeout_ms\fP the timeout in ms\&. Give 0 to wait for ever\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+status_ok if the measurement was recorded\&. Returns status_no_measurement if no measurement was made available during the timeout time\&. If any error occurred status_error is returned\&. 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_acq_cont_get_session_info (\fBCUVIS_ACQ_CONT\fP i_acqCont, \fBCUVIS_SESSION_INFO\fP * o_pSessionInfo)"
+
+.PP
+get the acquisition session_info Get the acquisition session_info settings\&. Also use this function to get the current sequence number\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_acqCont\fP the acquisition context 
+.br
+\fIo_pSessionInfo\fP the state will be written here 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+status_ok, if no internal error occurred\&. 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_acq_cont_get_state (\fBCUVIS_ACQ_CONT\fP i_acqCont, \fBCUVIS_HARDWARE_STATE\fP * o_pState)"
+
+.PP
+get the online state of the hardware Hardware can be used, when at least it's required components are online\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_acqCont\fP the acquisition context 
+.br
+\fIo_pState\fP the state will be written here 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the state of the camera 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_acq_cont_has_next_measurement (\fBCUVIS_ACQ_CONT\fP i_acqCont, \fBCUVIS_INT\fP * o_pHasNext)"
+
+.PP
+check if any measurements are available in the buffer This function is only available in operation mode 'Internal' or 'External'\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_acqCont\fP the acquisition context 
+.br
+\fIo_pHasNext\fP value of 0 is written, if no measurements are available\&. value > 0, if a measurement is available\&. @retuns status_ok if no error occurred\&. If any error occurred status_error is returned\&. 
+.RE
+.PP
+
+.SS "enum \fBcuvis_status_t\fP cuvis_acq_cont_integration_time_get (int32_t i_acqCont, double * o_pvalue)"
+
+.PP
+Get cuvis_acq_cont_integration_time function\&. Details: 'Integration time in milliseconds' 
+.br
+ Result is written to o_pvalue 
+.SS "enum \fBcuvis_status_t\fP cuvis_acq_cont_integration_time_set (int32_t i_acqCont, double value)"
+
+.PP
+set cuvis_acq_cont_integration_time \&. Unit: 'Integration time in milliseconds' 
+.br
+ Block until done or failed 
+.br
+ 
+.SS "enum \fBcuvis_status_t\fP cuvis_acq_cont_integration_time_set_async (int32_t i_acqCont, int32_t * o_pAsyncResult, double value)"
+
+.PP
+set cuvis_acq_cont_integration_time asynchronously\&. Unit: 'Integration time in milliseconds' 
+.br
+ Use \fBcuvis_async_call_get\fP to sync again 
+.SS "enum \fBcuvis_status_t\fP cuvis_acq_cont_operation_mode_get (int32_t i_acqCont, enum \fBcuvis_operation_mode_t\fP * o_pvalue)"
+
+.PP
+Get cuvis_acq_cont_operation_mode function\&. Details: 'enumeration value' 
+.br
+ Result is written to o_pvalue 
+.SS "enum \fBcuvis_status_t\fP cuvis_acq_cont_operation_mode_set (int32_t i_acqCont, enum \fBcuvis_operation_mode_t\fP value)"
+
+.PP
+set cuvis_acq_cont_operation_mode \&. Unit: 'enumeration value' 
+.br
+ Block until done or failed 
+.br
+ 
+.SS "enum \fBcuvis_status_t\fP cuvis_acq_cont_operation_mode_set_async (int32_t i_acqCont, int32_t * o_pAsyncResult, enum \fBcuvis_operation_mode_t\fP value)"
+
+.PP
+set cuvis_acq_cont_operation_mode asynchronously\&. Unit: 'enumeration value' 
+.br
+ Use \fBcuvis_async_call_get\fP to sync again 
+.SS "enum \fBcuvis_status_t\fP cuvis_acq_cont_preview_mode_get (int32_t i_acqCont, int32_t * o_pvalue)"
+
+.PP
+Get cuvis_acq_cont_preview_mode function\&. Details: '0 = disable, 1 = enable' 
+.br
+ Result is written to o_pvalue 
+.SS "enum \fBcuvis_status_t\fP cuvis_acq_cont_preview_mode_set (int32_t i_acqCont, int32_t value)"
+
+.PP
+set cuvis_acq_cont_preview_mode \&. Unit: '0 = disable, 1 = enable' 
+.br
+ Block until done or failed 
+.br
+ 
+.SS "enum \fBcuvis_status_t\fP cuvis_acq_cont_preview_mode_set_async (int32_t i_acqCont, int32_t * o_pAsyncResult, int32_t value)"
+
+.PP
+set cuvis_acq_cont_preview_mode asynchronously\&. Unit: '0 = disable, 1 = enable' 
+.br
+ Use \fBcuvis_async_call_get\fP to sync again 
+.SS "enum \fBcuvis_status_t\fP cuvis_acq_cont_queue_size_get (int32_t i_acqCont, int32_t * o_pvalue)"
+
+.PP
+Get cuvis_acq_cont_queue_size function\&. Details: 'size of measurement queue' 
+.br
+ Result is written to o_pvalue 
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_acq_cont_queue_size_set (\fBCUVIS_ACQ_CONT\fP i_acqCont, \fBCUVIS_INT\fP i_size)"
+
+.PP
+set the receive queue buffer size Set the amounts of measurements that will be stored internally, ready for retrieval\&. Default=100\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_acqCont\fP the acquisition context 
+.br
+\fIi_size\fP the new queue size 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+status_ok if the new queue size could be set\&. 
+.RE
+.PP
+
+.SS "enum \fBcuvis_status_t\fP cuvis_acq_cont_queue_used_get (int32_t i_acqCont, int32_t * o_pvalue)"
+
+.PP
+Get cuvis_acq_cont_queue_used function\&. Details: 'used part of measurement queue' 
+.br
+ Result is written to o_pvalue 
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_acq_cont_set_session_info (\fBCUVIS_ACQ_CONT\fP i_acqCont, \fBCUVIS_SESSION_INFO\fP const * i_pSessionInfo)"
+
+.PP
+set the acquisition session_info Set the acquisition session_info settings\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_acqCont\fP the acquisition context 
+.br
+\fIi_pSessionInfo\fP the session_info details to be set 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+status_ok, if no internal error occurred\&. 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_async_call_free (\fBCUVIS_ASYNC_CALL_RESULT\fP * io_pAsyncResult)"
+
+.PP
+Fortet an async call result without calling it\&. 
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_async_call_get (\fBCUVIS_ASYNC_CALL_RESULT\fP * io_pAsyncResult, \fBCUVIS_INT\fP timeout_ms)"
+
+.PP
+get the result of a async call\&. Get the return code (and error message, if applicable) of an async function, that has been called\&. If result is not \fBstatus_ok\fP use the \fBcuvis_get_last_error_msg\fP function to get details\&.
+.PP
+If the timeout is used (value above 0ms), \fBstatus_timeout\fP or \fBstatus_deferred\fP will be returned, if the function is not yet finished\&. In that case, the asyncResult handle is still valid and can be used again\&. If the result is \fBstatus_ok\fP the function has finished\&. For both \fBstatus_ok\fP and \fBstatus_error\fP, the handle is now invalid\&.
+.PP
+If the result is \fBstatus_overwritten\fP the function's call was overwritten by another (similar) call\&. The actual value set by this async function was not used, but the one of the other call\&. On this result, the handle is now invalid\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIio_pAsyncResult\fP the async handle obtained by calling a async function\&. If the call finished, the handle will be invalidated 
+.br
+\fItimeout_ms\fP the timeout in ms\&. Give 0 to wait for ever\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if the async function finished successfully\&. \fBstatus_timeout\fP or \fBstatus_deferred\fP will be returned, if the function is not yet finished\&. If the call failed, because it was overwritten it this function will return \fBstatus_overwritten\fP\&. If it failed for other reasons, the this function returns \fBstatus_error\fP\&. 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_async_capture_free (\fBCUVIS_ASYNC_CAPTURE_RESULT\fP * io_pAsyncResult)"
+
+.PP
+Fortet an async measurement result without calling it\&. 
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_async_capture_get (\fBCUVIS_ASYNC_CAPTURE_RESULT\fP * io_pAsyncResult, \fBCUVIS_INT\fP timeout_ms, \fBCUVIS_MESU\fP * o_pMesu)"
+
+.PP
+get the result of a async capture\&. Get the return code (and error message, if applicable) of an async capture, that has been called\&. If result is not \fBstatus_ok\fP use the \fBcuvis_get_last_error_msg\fP function to get details\&.
+.PP
+If the timeout is used (value above 0ms), \fBstatus_timeout\fP or \fBstatus_deferred\fP will be returned, if the function is not yet finished\&. In that case, the asyncResult handle is still valid and can be used again\&. If the result is \fBstatus_ok\fP the function has finished\&. For both \fBstatus_ok\fP and \fBstatus_error\fP, the handle is now invalid\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIio_pAsyncResult\fP the async handle obtained by calling \fBcapture_async\fP\&. If the call finished, the handle will be invalidated 
+.br
+\fItimeout_ms\fP the timeout in ms\&. Give 0 to wait for ever\&. 
+.br
+\fIo_pMesu\fP write the measurement handle to this variable, if the call was successful\&. Else write CUVIS_HANDLE_NULL 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if the async function finished successfully\&. \fBstatus_timeout\fP or \fBstatus_deferred\fP will be returned, if the function is not yet finished\&. If it failed for other reasons, the this function returns \fBstatus_error\fP\&. 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_calib_create_from_path (const \fBCUVIS_CHAR\fP * i_factoryDir, \fBCUVIS_CALIB\fP * o_pCalibration)"
+
+.PP
+Create a calibration from factory path\&. The calibration is created from a factory path, containing the license and calibration file 'init\&.daq' as well as further calibration files (e\&.g\&. SpRad\&.cu3)\&.
+.PP
+The calibration is lazy-loading, i\&.e\&. the AcquisitionContext and the ProcessingContext will only be initialized, when explicitly called\&.
+.PP
+\fBNote\fP
+.RS 4
+do not load multiple calibration instances of the same camera
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_factoryDir\fP The path to the factory directory 
+.br
+\fIo_pCalibration\fP the handle of the calibration 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if the calibration could be loaded 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_calib_create_from_session_file (const \fBCUVIS_SESSION_FILE\fP i_sess, \fBCUVIS_CALIB\fP * o_pCalibration)"
+
+.PP
+Create a calibration from session file\&. Create a calibration from an existion session file\&.
+.PP
+The calibration is lazy-loading, i\&.e\&. the AcquisitionContext and the ProcessingContext will only be initialized, when explicitly called\&.
+.PP
+When you create a processing context from the calibration cerated with this function, you won't have the references from the session file set\&. Use \fBcuvis_proc_cont_create_from_session_file\fP to load a processing context where the referenecs are taken from the session file\&.
+.PP
+\fBNote\fP
+.RS 4
+do not load multiple calibration instances of the same camera
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_sess\fP The session file 
+.br
+\fIo_pCalibration\fP the handle of the calibration 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if the calibration could be loaded 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_calib_free (\fBCUVIS_CALIB\fP * io_pCalibration)"
+
+.PP
+Clear a loaded calibration by it's handle\&. The internal memory is freed\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIio_pCalibration\fP The handle of the calibration\&. The handle number will be invalidated\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if the calibration could be released 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_calib_get_capabilities (\fBCUVIS_CALIB\fP i_calibration, \fBCUVIS_OPERATION_MODE\fP i_mode, \fBCUVIS_INT\fP * o_pCapabilities)"
+
+.PP
+Get the capabilites of a given mode\&. Use this function to evaluate which functions are available for a camera calibration\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fI[im]\fP i_calibration The calibration 
+.br
+\fIi_mode\fP The mode to check the capabiliets 
+.br
+\fIo_pCapabilities\fP write the capabilites here\&. See CUVIS_MODE_CAPABILITIES_x flags\&. 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_calib_get_id (\fBCUVIS_CALIB\fP i_calib, \fBCUVIS_CHAR\fP * o_pCalibId)"
+
+.PP
+Get the unique id of a calibration\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_mesu\fP the measurement 
+.br
+\fIo_pCalibId\fP the output string 
+.RE
+.PP
+
+.SS "enum \fBcuvis_status_t\fP cuvis_comp_bandwidth_get (int32_t i_acqCont, int32_t i_id, int32_t * o_pvalue)"
+
+.PP
+Get cuvis_comp_bandwidth function\&. Details: 'bandwidth in MBit/s' 
+.br
+ Result is written to o_pvalue 
+.SS "enum \fBcuvis_status_t\fP cuvis_comp_driver_queue_size_get (int32_t i_acqCont, int32_t i_id, int32_t * o_pvalue)"
+
+.PP
+Get cuvis_comp_driver_queue_size function\&. Details: 'driver's internal receiving queue size' 
+.br
+ Result is written to o_pvalue 
+.SS "enum \fBcuvis_status_t\fP cuvis_comp_driver_queue_used_get (int32_t i_acqCont, int32_t i_id, int32_t * o_pvalue)"
+
+.PP
+Get cuvis_comp_driver_queue_used function\&. Details: 'driver's internal receiving queue used' 
+.br
+ Result is written to o_pvalue 
+.SS "enum \fBcuvis_status_t\fP cuvis_comp_gain_get (int32_t i_acqCont, int32_t i_id, double * o_pvalue)"
+
+.PP
+Get cuvis_comp_gain function\&. Details: 'a\&.u\&.' 
+.br
+ Result is written to o_pvalue 
+.SS "enum \fBcuvis_status_t\fP cuvis_comp_gain_set (int32_t i_acqCont, int32_t i_id, double value)"
+
+.PP
+set cuvis_comp_gain \&. Unit: 'a\&.u\&.' 
+.br
+ Block until done or failed 
+.br
+ 
+.SS "enum \fBcuvis_status_t\fP cuvis_comp_gain_set_async (int32_t i_acqCont, int32_t i_id, int32_t * o_pAsyncResult, double value)"
+
+.PP
+set cuvis_comp_gain asynchronously\&. Unit: 'a\&.u\&.' 
+.br
+ Use \fBcuvis_async_call_get\fP to sync again 
+.SS "enum \fBcuvis_status_t\fP cuvis_comp_hardware_queue_size_get (int32_t i_acqCont, int32_t i_id, int32_t * o_pvalue)"
+
+.PP
+Get cuvis_comp_hardware_queue_size function\&. Details: 'internal hardware buffer size (if supported)' 
+.br
+ Result is written to o_pvalue 
+.SS "enum \fBcuvis_status_t\fP cuvis_comp_hardware_queue_used_get (int32_t i_acqCont, int32_t i_id, int32_t * o_pvalue)"
+
+.PP
+Get cuvis_comp_hardware_queue_used function\&. Details: 'internal hardware buffer used (if supported)' 
+.br
+ Result is written to o_pvalue 
+.SS "enum \fBcuvis_status_t\fP cuvis_comp_integration_time_factor_get (int32_t i_acqCont, int32_t i_id, double * o_pvalue)"
+
+.PP
+Get cuvis_comp_integration_time_factor function\&. Details: 'factor to main integration time' 
+.br
+ Result is written to o_pvalue 
+.SS "enum \fBcuvis_status_t\fP cuvis_comp_integration_time_factor_set (int32_t i_acqCont, int32_t i_id, double value)"
+
+.PP
+set cuvis_comp_integration_time_factor \&. Unit: 'factor to main integration time' 
+.br
+ Block until done or failed 
+.br
+ 
+.SS "enum \fBcuvis_status_t\fP cuvis_comp_integration_time_factor_set_async (int32_t i_acqCont, int32_t i_id, int32_t * o_pAsyncResult, double value)"
+
+.PP
+set cuvis_comp_integration_time_factor asynchronously\&. Unit: 'factor to main integration time' 
+.br
+ Use \fBcuvis_async_call_get\fP to sync again 
+.SS "enum \fBcuvis_status_t\fP cuvis_comp_online_get (int32_t i_acqCont, int32_t i_id, int32_t * o_pvalue)"
+
+.PP
+Get cuvis_comp_online function\&. Details: '0 = false, 1 = true' 
+.br
+ Result is written to o_pvalue 
+.SS "enum \fBcuvis_status_t\fP cuvis_comp_temperature_get (int32_t i_acqCont, int32_t i_id, int32_t * o_pvalue)"
+
+.PP
+Get cuvis_comp_temperature function\&. Details: 'temperature in degrees celsius' 
+.br
+ Result is written to o_pvalue 
+.SS "struct \fBcuvis_component_info_t\fP * cuvis_cuvis_component_info_allocate (void)"
+
+.PP
+Allocate function for struct \fBcuvis_component_info_t\fP \&. 
+.SS "void cuvis_cuvis_component_info_free (struct \fBcuvis_component_info_t\fP * ptr)"
+
+.PP
+Free function for struct \fBcuvis_component_info_t\fP 
+.br
+ 
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_event_get_acquisition_data (\fBCUVIS_EVENT\fP i_event, \fBCUVIS_EVENT_ACQUISITION_DATA\fP * o_p_acquisition_data)"
+
+.SS "struct \fBcuvis_save_args_t\fP * cuvis_export_cube_settings_allocate (void)"
+
+.PP
+Allocate function for struct \fBcuvis_save_args_t\fP \&. 
+.SS "void cuvis_export_cube_settings_free (struct \fBcuvis_save_args_t\fP * ptr)"
+
+.PP
+Free function for struct \fBcuvis_save_args_t\fP 
+.br
+ 
+.SS "struct \fBcuvis_export_general_settings_t\fP * cuvis_export_general_settings_allocate (void)"
+
+.PP
+Allocate function for struct \fBcuvis_export_general_settings_t\fP \&. 
+.SS "void cuvis_export_general_settings_free (struct \fBcuvis_export_general_settings_t\fP * ptr)"
+
+.PP
+Free function for struct \fBcuvis_export_general_settings_t\fP 
+.br
+ 
+.SS "struct \fBcuvis_export_tiff_settings_t\fP * cuvis_export_tiff_settings_allocate (void)"
+
+.PP
+Allocate function for struct \fBcuvis_export_tiff_settings_t\fP \&. 
+.SS "void cuvis_export_tiff_settings_free (struct \fBcuvis_export_tiff_settings_t\fP * ptr)"
+
+.PP
+Free function for struct \fBcuvis_export_tiff_settings_t\fP 
+.br
+ 
+.SS "struct \fBcuvis_export_view_settings_t\fP * cuvis_export_view_settings_allocate (void)"
+
+.PP
+Allocate function for struct \fBcuvis_export_view_settings_t\fP \&. 
+.SS "void cuvis_export_view_settings_free (struct \fBcuvis_export_view_settings_t\fP * ptr)"
+
+.PP
+Free function for struct \fBcuvis_export_view_settings_t\fP 
+.br
+ 
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_exporter_apply (\fBCUVIS_EXPORTER\fP i_exporter, \fBCUVIS_MESU\fP i_mesu)"
+
+.PP
+Export a measurement with an exporter\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_exporter\fP The exporter 
+.br
+\fIi_mesu\fP the measurement 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if the measurement was exported successfully\&. \fBstatus_not_stored\fP if the measurement could not be stored\&. 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_exporter_create_cube (\fBCUVIS_EXPORTER\fP * o_pExporter, \fBCUVIS_EXPORT_GENERAL_SETTINGS\fP generalSettings, \fBCUVIS_EXPORT_CUBE_SETTINGS\fP formatSettings)"
+
+.PP
+Create a cube exporter\&. @params[out] o_pExporter The handle of the exporter @params[in] generalSettings General export settings @params[in] formatSettings Additional Cube export settings 
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if the exporter was created successfully 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_exporter_create_envi (\fBCUVIS_EXPORTER\fP * o_pExporter, \fBCUVIS_EXPORT_GENERAL_SETTINGS\fP generalSettings)"
+
+.PP
+Create a ENVI exporter\&. @params[out] o_pExporter The handle of the exporter @params[in] generalSettings General export settings 
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if the exporter was created successfully 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_exporter_create_tiff (\fBCUVIS_EXPORTER\fP * o_pExporter, \fBCUVIS_EXPORT_GENERAL_SETTINGS\fP generalSettings, \fBCUVIS_EXPORT_TIFF_SETTINGS\fP formatSettings)"
+
+.PP
+Create a tiff exporter\&. @params[out] o_pExporter The handle of the exporter @params[in] generalSettings General export settings @params[in] formatSettings Additional TIF export settings 
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if the exporter was created successfully 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_exporter_create_view (\fBCUVIS_EXPORTER\fP * o_pExporter, \fBCUVIS_EXPORT_GENERAL_SETTINGS\fP generalSettings, \fBCUVIS_EXPORT_VIEW_SETTINGS\fP formatSettings)"
+
+.PP
+Create a VIEW exporter\&. Not to be confused with the VIEWER\&. The view exporter saves views to disk\&.
+.PP
+@params[out] o_pExporter The handle of the exporter @params[in] generalSettings General export settings @params[in] formatSettings Additional view export settings 
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if the exporter was created successfully 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_exporter_free (\fBCUVIS_EXPORTER\fP * io_pExporter)"
+
+.PP
+Release an exporter\&. @params[in,out] io_pExporter Exporter to be released\&. If successfully, handle will be invalidated 
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if the exporter was cleared\&. 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_exporter_get_queue_used (\fBCUVIS_EXPORTER\fP i_exporter, \fBCUVIS_INT\fP * o_pQueueUsed)"
+
+.SS "\fBSDK_CAPI\fP const \fBCUVIS_CHAR\fP *\fBSDK_CCALL\fP cuvis_get_last_error_msg (void)"
+
+.PP
+Call this function for obtaining the last error message\&. 
+.SS "\fBSDK_CAPI\fP const \fBCUVIS_WCHAR\fP *\fBSDK_CCALL\fP cuvis_get_last_error_msg_localized (void)"
+
+.PP
+Call this function for obtaining the last localized error message\&. \fBremember\fP to set locale with \fBcuvis_set_last_error_locale\fP first\&. 
+.SS "struct \fBcuvis_gps_t\fP * cuvis_gps_allocate (void)"
+
+.PP
+Allocate function for struct \fBcuvis_gps_t\fP \&. 
+.SS "void cuvis_gps_free (struct \fBcuvis_gps_t\fP * ptr)"
+
+.PP
+Free function for struct \fBcuvis_gps_t\fP 
+.br
+ 
+.SS "struct \fBcuvis_imbuffer_t\fP * cuvis_imbuffer_allocate (void)"
+
+.PP
+Allocate function for struct \fBcuvis_imbuffer_t\fP \&. 
+.SS "void cuvis_imbuffer_free (struct \fBcuvis_imbuffer_t\fP * ptr)"
+
+.PP
+Free function for struct \fBcuvis_imbuffer_t\fP 
+.br
+ 
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_init (\fBCUVIS_CHAR\fP const * i_settings_path)"
+
+.PP
+The init function set the settings path\&. @params[in] i_settings_path The path to the settings directory\&. 
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_measurement_clear_cube (\fBCUVIS_PROC_CONT\fP i_mesu)"
+
+.PP
+Clears the cube from a measurement\&. Clears the proceessing result, i\&. e\&. the cube, from the measurement\&. This returns the measurement the state before applying the processing\&. This can be usefull for reduced data usage\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_mesu\fP The measurement 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_measurement_clear_implicit_reference (\fBCUVIS_PROC_CONT\fP i_mesu, \fBCUVIS_REFERENCE_TYPE\fP i_type)"
+
+.PP
+Clears an implicit reference measurement\&. Implict measurements are created, when a measurement is processed with a processing context, where explicit references are set\&. Then, these references are remebemred by the measurement\&. When changing the processing context, the references are implicitly available, still\&. Clearing them may be interesing if the references set are wrong/invalid or if disk space is a concearn\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_mesu\fP The measurement 
+.br
+\fIi_type\fP The type of the reference to be cleard 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_measurement_deep_copy (\fBCUVIS_MESU\fP i_mesu, \fBCUVIS_MESU\fP * o_pMesu)"
+
+.PP
+create a deep copy of a measurement All operations on a measurement are performed on the same object\&. If different processing needs to be perfomed on a measurement It should be deep-copied\&. The copied meausrement's name will be changed to end with '_copy'
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_mesu\fP The measurement copy source\&. 
+.br
+\fIo_pMesu\fP The copy will be linked to the handle given\&. 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_measurement_free (\fBCUVIS_MESU\fP * io_pMesu)"
+
+.PP
+Release a measurement handle\&. Release a measurement by it's handle\&. The handle will be overwritten to \fBCUVIS_HANDLE_NULL\fP This will not affect any measurements on disk\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIio_pMesu\fP The handle to the measurement to be deleted 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if the measurement was released\&. 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_measurement_get_calib_id (\fBCUVIS_MESU\fP i_mesu, \fBCUVIS_CHAR\fP * o_pCalibId)"
+
+.PP
+Get the unique calibration id of a measurement\&. The id unique to a calibration is stored into everything created from it, as such a measurement also contains this id\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_mesu\fP the measurement 
+.br
+\fIo_pCalibId\fP the output string 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_measurement_get_capabilities (\fBCUVIS_MESU\fP i_mesu, \fBCUVIS_INT\fP * o_pCapabilities)"
+
+.PP
+Get the capabilites of the measurement which were present in the calibration during capture\&. This doesn't indicate which capabilities are currently available for the measurement\&. See \fBcuvis_proc_cont_is_capable\fP
+.PP
+Use this function to evaluate which functions are available for a given measurement\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fI[im]\fP i_calibration The measurement 
+.br
+\fIo_pCapabilities\fP write the capabilites here\&. See CUVIS_MODE_CAPABILITIES_x flags\&. 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_measurement_get_data_count (\fBCUVIS_MESU\fP i_mesu, \fBCUVIS_INT\fP * o_pCount)"
+
+.PP
+Retrieve the number of data elements\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_mesu\fP The measurement handle 
+.br
+\fIo_pCount\fP The number of data elements 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if the data element count could be retrieved 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_measurement_get_data_gps (\fBCUVIS_MESU\fP i_mesu, const \fBCUVIS_CHAR\fP * i_key, \fBCUVIS_GPS\fP * o_pGps)"
+
+.PP
+Get GPS data from measurement\&. Return gps data from a measurement\&.
+.PP
+This function can only be called, if he data type is \fBdata_type_gps\fP\&. This can be checked by the function \fBcuvis_measurement_get_data_info\fP\&.
+.PP
+see also: \fBReserved Keys\fP
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_mesu\fP The measurement handle 
+.br
+\fIi_key\fP the data frame identification key (see \fBcuvis_measurement_get_data_info\fP or \fBReserved Keys\fP) 
+.br
+\fIo_pGps\fP The gps buffer to be filled\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if the buffer could be filled with the gps data set\&. 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_measurement_get_data_image (\fBCUVIS_MESU\fP i_mesu, const \fBCUVIS_CHAR\fP * i_key, \fBCUVIS_IMBUFFER\fP * o_pBuf)"
+
+.PP
+Get image data from measurement\&. Return image data from a measurement\&. The image data is valid as long as the measurement handle is not released and the measurement is not re-processed\&.
+.PP
+This function can only be called, if he data type is \fBdata_type_image\fP\&. This can be checked by the function \fBcuvis_measurement_get_data_info\fP\&.
+.PP
+see also: \fBReserved Keys\fP
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_mesu\fP The measurement handle 
+.br
+\fIi_key\fP The data frame identification key (see \fBcuvis_measurement_get_data_info\fP or \fBReserved Keys\fP) 
+.br
+\fIo_pBuf\fP The image buffer to be filled 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if the buffer could be filled with the image element\&. \fBstatus_unavailable\fP if the requested data was empty, or the key could not be found 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_measurement_get_data_info (\fBCUVIS_MESU\fP i_mesu, \fBCUVIS_CHAR\fP * o_pKey, \fBCUVIS_DATA_TYPE\fP * o_pType, \fBCUVIS_INT\fP i_id)"
+
+.PP
+get meta-information of a data element Retrieve the meta-informations of a data element identified by it's positional number\&. A measurement has N data elements (obtain N with the functions \fBcuvis_measurement_get_data_count\fP) Thus, the meta-data of element 0 to N-1 can be obtained\&. The \fBo_pType\fP defined the data type: If it is \fBdata_type_image\fP, retrieve it with \fBcuvis_measurement_get_data_image\fP\&.
+.PP
+If it is data type is \fBdata_type_gps\fP, retrieve it with \fBcuvis_measurement_get_data_gps\fP\&. If it is \fBdata_type_string\fP, retrieve with \fBcuvis_measurement_get_data_string\fP If it is \fBdata_type_unsupported\fP, the data cannot be retrieved\&.
+.PP
+To retrieve the data, you will require the \fBo_pKey\fP wich you can obtain by using this function\&. The key is the name of the data channel\&.
+.PP
+Some keys are reserved, see \fBReserved Keys\fP
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_mesu\fP The measurement handle 
+.br
+\fIo_pKey\fP Output the data key 
+.br
+\fIo_pType\fP The data type 
+.br
+\fIi_id\fP The number of the data element 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if the data information could be obtained 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_measurement_get_data_sensor_info (\fBCUVIS_MESU\fP i_mesu, const \fBCUVIS_CHAR\fP * i_key, \fBCUVIS_SENSOR_INFO\fP * o_pValue)"
+
+.PP
+Get image info data from measurement\&. Return image data from a measurement\&. Tis
+.PP
+This function can only be called, if he data type is \fBdata_type_string\fP\&. This can be checked by the function \fBcuvis_measurement_get_data_info\fP\&.
+.PP
+see also: \fBReserved Keys\fP
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_mesu\fP The measurement handle 
+.br
+\fIi_key\fP the data frame identification key (see \fBcuvis_measurement_get_data_info\fP or \fBReserved Keys\fP) 
+.br
+\fIo_pValue\fP The string buffer to be filled\&. The provided array must have the length of \fBCUVIS_MAXBUF\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if the buffer could be filled with the string\&. 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_measurement_get_data_string (\fBCUVIS_MESU\fP i_mesu, const \fBCUVIS_CHAR\fP * i_key, \fBCUVIS_CHAR\fP * o_pValue)"
+
+.PP
+Get string data from measurement\&. Return string data from a measurement\&.
+.PP
+This function can only be called, if he data type is \fBdata_type_string\fP\&. This can be checked by the function \fBcuvis_measurement_get_data_info\fP\&.
+.PP
+see also: \fBReserved Keys\fP
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_mesu\fP The measurement handle 
+.br
+\fIi_key\fP the data frame identification key (see \fBcuvis_measurement_get_data_info\fP or \fBReserved Keys\fP) 
+.br
+\fIo_pValue\fP The string buffer to be filled\&. The provided array must have the length of \fBCUVIS_MAXBUF\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if the buffer could be filled with the string\&. 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_measurement_get_metadata (\fBCUVIS_MESU\fP i_mesu, \fBCUVIS_MESU_METADATA\fP * o_pMetaData)"
+
+.PP
+Obtain metadata from measurement\&. The meta-data from the measurement contains information about the measurement when it was recorded: when and how\&. Meta-Data do not contain the actual recorded data\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_mesu\fP The measurement's handle 
+.br
+\fIo_pMetaData\fP The meta structure to be filled 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP, if the meta-data could be loaded without errors 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_measurement_load (const \fBCUVIS_CHAR\fP * i_path, \fBCUVIS_MESU\fP * o_pMesu)"
+
+.PP
+Load a measurement from disk\&. The measurement is a cu3 file - and if fragmented some additional tiff files with a postfix, e\&.g\&. _cube\&.tiff To load the file, all fragmented parts must be in the same directory\&. Fragmented files must not be renamed\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_path\fP the file path of the measurement 
+.br
+\fIo_pMesu\fP the handle of the measurement\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP, if the measurement could be loaded\&. 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_measurement_save (\fBCUVIS_MESU\fP const i_mesu, const \fBCUVIS_CHAR\fP * i_path, \fBCUVIS_SAVE_ARGS\fP args)"
+
+.PP
+Save a measurement to disk\&. Saves a single measurement to the disk in cu3 format\&. The file name is given by the measurement's name (see \fBcuvis_measurement_set_name\fP)
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_path\fP The file directory 
+.br
+\fIi_mesu\fP The handle of the measurement to be saved 
+.br
+\fIargs\fP The saving options 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP, if the measurement was save successfully\&. 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_measurement_set_comment (\fBCUVIS_MESU\fP const i_mesu, const \fBCUVIS_CHAR\fP * i_comment)"
+
+.PP
+Set the comment of the measurement in memory\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_name\fP The new measurement's comment 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP, if the measurement's name was set successfully\&. 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_measurement_set_name (\fBCUVIS_MESU\fP const i_mesu, const \fBCUVIS_CHAR\fP * i_name)"
+
+.PP
+Set the name of the measurement in memory\&. By default, a newly aquired measurement has the name <SESSIONNAME>_<session_no>_<sequence_no> (see \fBCUVIS_SESSION_INFO\fP)\&. This will also be the name of the file while saving it\&. This can be changed by this function\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_name\fP The new measurement's name 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP, if the measurement's name was set successfully\&. 
+.RE
+.PP
+
+.SS "struct \fBcuvis_mesu_metadata_t\fP * cuvis_mesu_metadata_allocate (void)"
+
+.PP
+Allocate function for struct \fBcuvis_mesu_metadata_t\fP \&. 
+.SS "void cuvis_mesu_metadata_free (struct \fBcuvis_mesu_metadata_t\fP * ptr)"
+
+.PP
+Free function for struct \fBcuvis_mesu_metadata_t\fP 
+.br
+ 
+.SS "struct \fBcuvis_proc_args_t\fP * cuvis_proc_args_allocate (void)"
+
+.PP
+Allocate function for struct \fBcuvis_proc_args_t\fP \&. 
+.SS "void cuvis_proc_args_free (struct \fBcuvis_proc_args_t\fP * ptr)"
+
+.PP
+Free function for struct \fBcuvis_proc_args_t\fP 
+.br
+ 
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_proc_cont_apply (\fBCUVIS_PROC_CONT\fP i_procCont, \fBCUVIS_MESU\fP i_mesu)"
+
+.PP
+(Re-)Process a measurement Process a measurement according to the current settings of the processing context\&. Those get set via \fBcuvis_proc_set_proc_args\fP The availability of the modes depends, use \fBcuvis_proc_cont_is_capable\fP to check if the processing is possible\&.
+.PP
+In short: \fBCube_Raw\fP does not require references (\fBReference_Distance\fP is optional)
+.PP
+\fBCube_DarkSubtract\fP requires \fBReference_Dark\fP (and \fBReference_Distance\fP is optional)
+.PP
+\fBCube_Reflectance\fP requires \fBReference_Dark\fP and \fBReference_White\fP reference (and \fBReference_Distance\fP is optional), the \fBReference_WhiteDark\fP is strongly recommended if using different integration times\&.
+.PP
+\fBCube_SpectralRadiance\fP depends on the camera model: All cameras require \fBReference_SpRad\fP\&. The Fireflye requires: \fBReference_Dark\fP, \fBReference_White\fP, the Ultris series requires only \fBReference_Dark\fP\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_procCont\fP The handle of the processing context 
+.br
+\fIi_mesu\fP The measurement to be processed 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if measurement was processed\&. 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_proc_cont_calc_distance (\fBCUVIS_PROC_CONT\fP i_procCont, double i_distanceMM)"
+
+.PP
+Set the operating distance by value\&. Some cameras require a distance reference (calibration)\&. This is usually obtained from a measurement at that distance\&. However, if the distance is known, it can be set manually\&.
+.PP
+\fBNote\fP
+.RS 4
+Some OEM-Cameras or older models do not support this\&. 
+.PP
+Internally, a measurement is created\&. It can be obtained by \fBcuvis_proc_cont_get_reference\fP\&.
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_procCont\fP The handle of the processing context 
+.br
+\fIi_distanceMM\fP The distance in millimeters\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if the distance could be set 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_proc_cont_clear_reference (\fBCUVIS_PROC_CONT\fP i_procCont, \fBCUVIS_REFERENCE_TYPE\fP i_type)"
+
+.PP
+Clears a reference measurement\&. Clears a reference explicitly set by \fBcuvis_proc_cont_set_reference\fP
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_procCont\fP The handle of the processing context 
+.br
+\fIi_type\fP The type of the reference 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_proc_cont_create_from_calib (\fBCUVIS_CALIB\fP i_calib, \fBCUVIS_PROC_CONT\fP * o_pProcCont)"
+
+.PP
+Load a processing context from a given calibration\&. Load the processing context from the calibration\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_calib\fP The calibration instance the processing context will be loaded from 
+.br
+\fIo_pProcCont\fP The handle of the processing context\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if the processing context could be loaded 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_proc_cont_create_from_mesu (\fBCUVIS_MESU\fP i_mesu, \fBCUVIS_PROC_CONT\fP * o_pProcCont)"
+
+.PP
+Load a processing context from a given measurement\&. The processing context is loaded from the CALIBRATION directory, relative to the measurement given ( \&.\&./Calibration/* ) \&. This directory is present in the normal camera operation / recording, but the reference might get lost, if you manually move the measurements\&. In that case, this function will fail\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_mesu\fP The measurement with a valid reference to the processing context 
+.br
+\fIo_pProcCont\fP The handle of the processing context\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if the processing context could be loaded 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_proc_cont_create_from_session_file (\fBCUVIS_SESSION_FILE\fP i_sess, \fBCUVIS_PROC_CONT\fP * o_pProcCont)"
+
+.PP
+Load a processing context from a given session_file\&. The processing context from the embedded processing context of the session_info file\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_sess\fP The session_file with a valid reference to the processing context 
+.br
+\fIo_pProcCont\fP The handle of the processing context\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if the processing context could be loaded 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_proc_cont_free (\fBCUVIS_PROC_CONT\fP * io_pProcCont)"
+
+.PP
+Clear a loaded processing context by it's handle\&. The internal memory is freed\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIio_pProcCont\fP The handle of the processing context\&. The handle number will be invalidated\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if processing context could be freed\&. 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_proc_cont_get_calib_id (\fBCUVIS_PROC_CONT\fP i_procCont, \fBCUVIS_CHAR\fP * o_pCalibId)"
+
+.PP
+Get the unique calibration id of a processing context\&. The id unique to a calibration is stored into everything created from it, as such a processing context also contains this id\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_procCont\fP the processing context 
+.br
+\fIo_pCalibId\fP the output string 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_proc_cont_get_reference (\fBCUVIS_PROC_CONT\fP i_procCont, \fBCUVIS_MESU\fP * o_pMesu, \fBCUVIS_REFERENCE_TYPE\fP i_type)"
+
+.PP
+get a specific reference from the processing context The processing context can hold explicit references (e\&.g\&. a dark), see \fBcuvis_proc_cont_set_reference\fP\&. These reference can be obtained by this functions
+.PP
+\fBNote\fP
+.RS 4
+Implicit references given by a measurement are not returned\&. If they are available can only be checked indirectly by the \fBcuvis_proc_cont_is_capable\fP or by checking for the measurement's data keys \fBCUVIS_MESU_DARKREF_KEY\fP, \fBCUVIS_MESU_WHITEREF_KEY\fP and \fBCUVIS_MESU_WHITEDARKREF_KEY\fP
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_procCont\fP The handle of the processing context 
+.br
+\fIo_pMesu\fP The reference measurement's handle 
+.br
+\fIi_type\fP The type of the measurement to be retrieved\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if the reference measurement is available and could be loaded 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_proc_cont_has_reference (\fBCUVIS_PROC_CONT\fP i_procCont, \fBCUVIS_REFERENCE_TYPE\fP i_type, \fBCUVIS_INT\fP * o_pHasReference)"
+
+.PP
+Check if an explicit reference was set\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_procCont\fP The handle of the processing context 
+.br
+\fIi_type\fP The reference type 
+.br
+\fIo_pHasReference\fP true, if reference is explicitly set\&. false, otherwise 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if no error occurred\&. 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_proc_cont_is_capable (\fBCUVIS_PROC_CONT\fP i_procCont, \fBCUVIS_MESU\fP i_mesu, \fBCUVIS_PROC_ARGS\fP args, \fBCUVIS_INT\fP * o_pIsCapable)"
+
+.PP
+Check if a processing mode is possible for a measurement\&. Depending on the measurement, it's intrinsic references, the processing context's explicit references and the internal camera calibration itself the availability of a mode varies\&.
+.PP
+Use this function, to check whether a specific mode is explicitly possible for a measurement\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_procCont\fP The handle of the processing context 
+.br
+\fIi_mesu\fP The measurement to be checked 
+.br
+\fIi_args\fP The processing options to be checked 
+.br
+\fIo_pIsCapable\fP true, if mode is possible\&. false, otherwise 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if no error occurred\&. 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_proc_cont_set_args (\fBCUVIS_PROC_CONT\fP i_procCont, \fBCUVIS_PROC_ARGS\fP i_args)"
+
+.PP
+Sets the processing arguments for a processing contex\&. For processing a measurement see \fBcuvis_proc_cont_apply\fP
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_procCont\fP The handle of the processing context 
+.br
+\fIi_processingMode\fP The processing mode to be checked 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if measurement was processed\&. 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_proc_cont_set_reference (\fBCUVIS_PROC_CONT\fP i_procCont, \fBCUVIS_MESU\fP i_mesu, \fBCUVIS_REFERENCE_TYPE\fP i_type)"
+
+.PP
+Set a reference measurement\&. The available processing modes (\fBcuvis_processing_mode_t\fP) require certain references to be set\&. When a measurement is recorded with references in place, these references are available per measurement implicitly\&. However, if you want to process measurements with different references, or if the measurement lacks a reference, they can be set with this function\&.
+.PP
+.PP
+.nf
+CUVIS_MESU mesu;
+cuvis_measurement_load("mesu\&.cu3",&mesu);
+//contains implicit Reference_Dark
+
+CUVIS_PROC_CONT pc;
+cuvis_proc_cont_create_from_mesu(mesu,&pc); //will implicitly load Reference_Dark
+
+CUVIS_MESU white;
+cuvis_measurement_load("white\&.cu3",&white);
+
+cuvis_proc_cont_set_reference(pc, white, Reference_White);
+
+//Cube_Reflectance requires Reference_Dark and Reference_White
+cuvis_proc_cont_apply(pc,mesu,{Cube_Reflectance});
+.fi
+.PP
+ 
+.PP
+\fBNote\fP
+.RS 4
+The reference explicitly set by this function has priority over the implicit measurement\&.
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_procCont\fP The handle of the processing context 
+.br
+\fIi_mesu\fP The measurement to be used as explicit reference 
+.br
+\fIi_type\fP The type of the reference 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_register_external_event_callback (\fBexternal_event_callback\fP i_callback, \fBCUVIS_INT\fP i_type, \fBCUVIS_INT\fP * o_p_handler_id)"
+
+.PP
+Register an event handler\&. The event handler will be called on all events which satisfy the supplied event handler type\&. Returns an id for the event handler to allow unregistering of the specific event handler only valid during the runtime of the callback\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_callback\fP the event handler function callback 
+.br
+\fIi_type\fP the type of the event handler which is registered 
+.br
+\fIo_p_handler_id\fP a pointer where the handler id will be written to 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_register_log_callback (\fBlog_callback\fP i_callback, \fBCUVIS_INT\fP i_min_level)"
+
+.PP
+Register an additional logger\&. Only one classic callback will be set, multiple calls will overwrite the previous callback\&. The callback's message argument pointer is only valid during the runtime of the callback\&. The 'classic' logger will output original messages, instead of it's respective translations\&. For localized (translated) messages, 
+.PP
+\fBSee also\fP
+.RS 4
+\fBcuvis_reset_log_callback_localized\fP\&. 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+The classical logger and localized logger can be used simultaneously\&. 
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_callback\fP the function callback 
+.br
+\fIi_min_level\fP the minimum level of the callback 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_register_log_callback_localized (\fBlog_callback_localized\fP i_callback_localized, \fBCUVIS_INT\fP i_min_level, \fBCUVIS_CHAR\fP const * i_locale_id)"
+
+.PP
+Register an additional logger with localized language\&. Only one callback will be set, multiple calls will overwrite the previous callback\&. The callback's message argument pointer is only valid during the runtime of the callback\&. 
+.PP
+\fBNote\fP
+.RS 4
+The classical logger and localized logger can be used simultaneously\&. 
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_callback\fP the function callback 
+.br
+\fIi_min_level\fP the minimum level of the callback 
+.br
+\fIi_locale_id\fP set the locale id, e\&.g\&. 'de-DE\&.UTF8' for german\&. See the 'locale' directory for available translations\&. 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_reset_log_callback ()"
+
+.PP
+Unregister the additional logger\&. This will not clear the localized logger 
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_reset_log_callback_localized ()"
+
+.PP
+Unregister the additional localized logger\&. This will not clear the classic logger 
+.SS "struct \fBcuvis_save_args_t\fP * cuvis_save_args_allocate (void)"
+
+.PP
+Allocate function for struct \fBcuvis_save_args_t\fP \&. 
+.SS "void cuvis_save_args_free (struct \fBcuvis_save_args_t\fP * ptr)"
+
+.PP
+Free function for struct \fBcuvis_save_args_t\fP 
+.br
+ 
+.SS "struct \fBcuvis_sensor_info_t\fP * cuvis_sensor_info_allocate (void)"
+
+.PP
+Allocate function for struct \fBcuvis_sensor_info_t\fP \&. 
+.SS "void cuvis_sensor_info_free (struct \fBcuvis_sensor_info_t\fP * ptr)"
+
+.PP
+Free function for struct \fBcuvis_sensor_info_t\fP 
+.br
+ 
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_session_file_free (\fBCUVIS_SESSION_FILE\fP * o_pSess)"
+
+.PP
+Release a session_info file handle\&. Release a measurement by it's handle\&. The handle will be overwritten to \fBCUVIS_HANDLE_NULL\fP This will not affect any measurements on disk\&. Measurements loaded from the session_info file remain valid\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIo_pSess\fP The handle to the measurement to be deleted 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if the session_info file was released\&. 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_session_file_get_fps (\fBCUVIS_SESSION_FILE\fP i_sess, double * o_pFps)"
+
+.PP
+get a session_info file's FPS The session_info file meta-Information will be available only if the mode @cuvis_session_get_operation_mode returns 'Internal'
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_sess\fP the session_info file handle 
+.br
+\fIo_pFps\fP the frames per second the session_info was recorded with\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+status_ok if fps could be retrieved, status_not_available if the session_info file has not FPS property set\&. 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_session_file_get_hash (\fBCUVIS_SESSION_FILE\fP i_sess, \fBCUVIS_CHAR\fP * o_pHash)"
+
+.PP
+get a session_info file's hash 
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_sess\fP the session_info file handle 
+.br
+\fIo_pHash\fP the hash of the sessionfile\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+status_ok if hash could be retrieved, status_not_available if the sessionfile has no hash property set\&. 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_session_file_get_mesu (\fBCUVIS_SESSION_FILE\fP i_sess, \fBCUVIS_INT\fP i_frameNo, \fBCUVIS_SESSION_ITEM_TYPE\fP i_type, \fBCUVIS_MESU\fP * o_pMesu)"
+
+.PP
+Load a measurement from the session_info file\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_sess\fP the session_info file handle 
+.br
+\fIi_frameNo\fP the frame no\&. Counting from 0, must be below value of \fBcuvis_session_get_size\fP of it's respective \fBi_type\fP 
+.br
+\fIi_type\fP the type of listing (size depends on type) 
+.br
+\fIo_pMesu\fP the handle of the measurement\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP, if the measurement could be loaded\&. \fBstatus_no_measurement\fP if the measurement was dropped\&. \fBstatus_error\fP if the frame exeeds the number of frames\&. 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_session_file_get_operation_mode (\fBCUVIS_SESSION_FILE\fP i_sess, \fBCUVIS_OPERATION_MODE\fP * o_pMode)"
+
+.PP
+returns the operation mode the session_info file was recorded in The operation mode gives indication how the session_info file was recorded\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_sess\fP the session_info file handle 
+.br
+\fIo_pMode\fP the operation mode of the session_info file\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+status_ok if no error occurred\&. 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_session_file_get_reference_mesu (\fBCUVIS_SESSION_FILE\fP i_sess, \fBCUVIS_INT\fP i_frameNo, \fBCUVIS_REFERENCE_TYPE\fP i_type, \fBCUVIS_MESU\fP * o_pMesu)"
+
+.PP
+Load a reference measurement from the session_info file\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_sess\fP the session_info file handle 
+.br
+\fIi_frameNo\fP the reference no\&. Counting from 0, must be below value of \fBcuvis_session_get_size\fP using type session_item_type_references 
+.br
+\fIi_type\fP the type of reference measurement requested 
+.br
+\fIo_pMesu\fP the handle of the measurement\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP, if the measurement could be loaded\&. \fBstatus_no_measurement\fP if the measurement was dropped\&. \fBstatus_error\fP if the frame exeeds the number of frames\&. 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_session_file_get_size (\fBCUVIS_SESSION_FILE\fP i_sess, \fBCUVIS_SESSION_ITEM_TYPE\fP i_type, \fBCUVIS_INT\fP * o_pSize)"
+
+.PP
+Get number of total frames of session_info file\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_sess\fP the session_info file handle 
+.br
+\fIi_type\fP the type of listing (size depends on type) 
+.br
+\fIo_pSize\fP the size is written here\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if no error occurred\&. 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_session_file_load (const \fBCUVIS_CHAR\fP * i_path, \fBCUVIS_SESSION_FILE\fP * o_pSess)"
+
+.PP
+Load a session_info file from disk\&. The session_info file is a cu3s file and consists of binary cu3 measurement data\&. Call \fBcuvis_session_get_mesu\fP to obtain a single measurement frame\&. SessionFile files can be create with the Cube Exporter (see \fBcuvis_exporter_create_cube\fP) 
+.PP
+\fBNote\fP
+.RS 4
+Do not read a file currently opened for writing\&.
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_path\fP the file path of the session_info file 
+.br
+\fIo_pSess\fP the handle of the session_info file\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP, if the measurement could be loaded\&. 
+.RE
+.PP
+
+.SS "struct \fBcuvis_session_info_t\fP * cuvis_session_info_allocate (void)"
+
+.PP
+Allocate function for struct \fBcuvis_session_info_t\fP \&. 
+.SS "void cuvis_session_info_free (struct \fBcuvis_session_info_t\fP * ptr)"
+
+.PP
+Free function for struct \fBcuvis_session_info_t\fP 
+.br
+ 
+.SS "\fBSDK_CAPI\fP const \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_set_last_error_locale (\fBCUVIS_CHAR\fP const * id)"
+
+.PP
+Set the locale for localized error messages\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_locale_id\fP set the locale id, e\&.g\&. 'de' for german\&. See the 'locale' directory for available translations\&. 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_set_log_level (\fBCUVIS_INT\fP level)"
+
+.PP
+Set the internal log level\&. Log output will be redirected to cout
+.PP
+If this function is not called, a failback logger is used, with loglevel 'warning' The failback logger is de-activated, when this function is called or when a callback is registered for the log messages\&. However, when this function is called, messages are logged to console, even when a callaback is registered\&. debug = 4, info = 3, warning = 2, error = 1, fatal = 0
+.PP
+@params[in] level the log level to be set 
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_unregister_event_callback (\fBCUVIS_INT\fP i_handler_id)"
+
+.PP
+Unregisters an event handler\&. Supply a valid handler id to specific the correct callback which is going to be unregistered 
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_version (\fBCUVIS_CHAR\fP * o_pVersion)"
+
+.PP
+Get the SDK version\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIo_pVersion\fP The output version string\&. The provided array must have the length of \fBCUVIS_MAXBUF\fP 
+.RE
+.PP
+
+.SS "struct \fBcuvis_view_data_t\fP * cuvis_view_data_allocate (void)"
+
+.PP
+Allocate function for struct \fBcuvis_view_data_t\fP \&. 
+.SS "void cuvis_view_data_free (struct \fBcuvis_view_data_t\fP * ptr)"
+
+.PP
+Free function for struct \fBcuvis_view_data_t\fP 
+.br
+ 
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_view_free (\fBCUVIS_VIEWER\fP * io_pView)"
+
+.PP
+Release a view\&. @params[in,out] io_pView View to be released\&. If successfully, handle will be invalidated 
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if the exporter was cleared\&. 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_view_get_data (\fBCUVIS_MESU\fP i_view, \fBCUVIS_INT\fP i_index, \fBCUVIS_VIEW_DATA\fP * o_pData)"
+
+.PP
+Obtain data from view\&. The data contains the actual view
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_view\fP The view handle 
+.br
+\fIi_index\fP The element number 
+.br
+\fIo_pData\fP The actual view data 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP, if the meta-data could be loaded without errors 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_view_get_data_count (\fBCUVIS_MESU\fP i_view, \fBCUVIS_INT\fP * o_pCount)"
+
+.PP
+retrieves the number of view data elements 
+.PP
+\fBParameters\fP
+.RS 4
+\fIthe\fP view handle 
+.br
+\fIo_pCount\fP The number of elements 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_viewer_apply (\fBCUVIS_VIEWER\fP i_viewer, \fBCUVIS_MESU\fP i_mesu, \fBCUVIS_VIEW\fP * o_pView)"
+
+.PP
+Generate a view from a measurement\&. The view is processed from a measurement by the viewer\&. The resulting view handle can be accessed by the \fBcuvis_view_get_data_count\fP to get number of elements, \fBcuvis_view_get_data\fP to get a single date element and \fBcuvis_view_free\fP to release the view (this must always be called)
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_viewer\fP The viewer 
+.br
+\fIi_mesu\fP the measurement 
+.br
+\fIo_pView\fP the resulting view handle\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if the measurement was processed successfully\&. 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_viewer_create (\fBCUVIS_VIEWER\fP * o_pViewer, \fBCUVIS_VIEWER_SETTINGS\fP viewerSettings)"
+
+.PP
+Create a viewer\&. Not to be confused with the view exporter\&. The viewer returns the view in the memory
+.PP
+@params[out] o_pViewer The handle of the viewer @params[in] viewerSettings view settings 
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if the exporter was created successfully 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_viewer_free (\fBCUVIS_VIEWER\fP * io_pViewer)"
+
+.PP
+Release a viewer\&. @params[in,out] io_pViewer Viewer to be released\&. If successfully, handle will be invalidated 
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP if the exporter was cleared\&. 
+.RE
+.PP
+
+.SS "struct \fBcuvis_viewer_settings_t\fP * cuvis_viewer_settings_allocate (void)"
+
+.PP
+Allocate function for struct \fBcuvis_viewer_settings_t\fP \&. 
+.SS "void cuvis_viewer_settings_free (struct \fBcuvis_viewer_settings_t\fP * ptr)"
+
+.PP
+Free function for struct \fBcuvis_viewer_settings_t\fP 
+.br
+ 
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_worker_create (\fBCUVIS_WORKER\fP * o_pWorker, \fBCUVIS_WORKER_SETTINGS\fP worker_settings)"
+
+.PP
+Create a Worker\&. The encapsulates the functions of the Acquisiton Context, Processing Context, Exporter, and Viewer into a single container and manages the communications between these\&. It also enables multi-threaded operation 
+.PP
+\fBNote\fP
+.RS 4
+The set functions need to be called in order for the worker to be enabled\&.
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIo_pWorker\fP The worker handle to be created 
+.br
+\fIworker_settings\fP The worker configuration 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_worker_free (\fBCUVIS_WORKER\fP * io_pWorker)"
+
+.PP
+release a worker 
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_worker_get_drop_behavior (\fBCUVIS_WORKER\fP i_worker, \fBCUVIS_INT\fP * o_pCanDrop)"
+
+.PP
+Query whether the worker is allowed to drop results when the result queue is full\&. 
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_worker_get_next_result (\fBCUVIS_WORKER\fP i_worker, \fBCUVIS_MESU\fP * o_pMesu, \fBCUVIS_VIEW\fP * o_pView, \fBCUVIS_INT\fP i_Timeout_ms)"
+
+.PP
+Get the next result in order\&. The measurement will be readyly recorded, processed (if set), stored (if set) and have a view (if set)\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIi_worker\fP The worker handle 
+.br
+\fIo_pMesu\fP The recorded measurement or NULL if recording failed 
+.br
+\fIo_pView\fP The view, if calculated sucessfully, else NULL 
+.br
+\fIi_Timeout_ms\fP The number of milliseconds to wait for a result\&. -1 to wait indefinitely 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBstatus_ok\fP or on error: \fBstatus_error\fP, \fBstatus_not_processed\fP, \fBstatus_not_stored\fP, or \fBstatus_no_view\fP, or \fBstatus_not_available\fP 
+.RE
+.PP
+
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_worker_get_queue_limits (\fBCUVIS_WORKER\fP i_worker, \fBCUVIS_INT\fP * o_pHardLimit, \fBCUVIS_INT\fP * o_pSoftLimit)"
+
+.PP
+Query the number of frames the worker has already read from a session file and the total number of frames in the session\&. The worker automatically clears the session file upon reading the last frame\&. 
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_worker_get_queue_used (\fBCUVIS_WORKER\fP i_worker, \fBCUVIS_INT\fP * o_pQueueUsed)"
+
+.PP
+Query the number of items currently in the result queue\&. 
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_worker_has_next_result (\fBCUVIS_WORKER\fP i_worker, \fBCUVIS_INT\fP * o_pHasNext)"
+
+.PP
+Check, if a new worker result is available\&. 
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_worker_ingest_mesu (\fBCUVIS_WORKER\fP i_worker, \fBCUVIS_MESU\fP i_mesu)"
+
+.PP
+Push a mesurement into the worker to process\&. Worker must have neither a session file nor an acquisition context\&. 
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_worker_query_session_progress (\fBCUVIS_WORKER\fP i_worker, \fBCUVIS_INT\fP * o_frames_read, \fBCUVIS_INT\fP * o_frames_total)"
+
+.PP
+Query the number of frames the worker has already read from a session file and the total number of frames in the session\&. The worker automatically clears the session file upon reading the last frame\&. 
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_worker_set_acq_cont (\fBCUVIS_WORKER\fP i_worker, \fBCUVIS_ACQ_CONT\fP i_acq_cont)"
+
+.PP
+set the acquistion context for the worker\&. Give CUVIS_HANDLE_NULL to clear 
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_worker_set_drop_behavior (\fBCUVIS_WORKER\fP i_worker, \fBCUVIS_INT\fP i_CanDrop)"
+
+.PP
+Set whether the worker can drop results when the result queue is full\&. 
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_worker_set_exporter (\fBCUVIS_WORKER\fP i_worker, \fBCUVIS_EXPORTER\fP i_exporter)"
+
+.PP
+set the exporter for the worker\&. Give CUVIS_HANDLE_NULL to clear 
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_worker_set_proc_cont (\fBCUVIS_WORKER\fP i_worker, \fBCUVIS_PROC_CONT\fP i_proc_cont)"
+
+.PP
+set the processing context for the worker\&. Give CUVIS_HANDLE_NULL to clear 
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_worker_set_queue_limits (\fBCUVIS_WORKER\fP i_worker, \fBCUVIS_INT\fP i_HardLimit, \fBCUVIS_INT\fP i_SoftLimit)"
+
+.PP
+Set the result queue limits: hard ^= queue size, soft ^= worker stops accepting mesu inputs\&. 
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_worker_set_session_file (\fBCUVIS_WORKER\fP i_worker, \fBCUVIS_SESSION_FILE\fP i_session_file, \fBCUVIS_INT\fP i_SkipDroppedFrames)"
+
+.PP
+set a session file for the worker to process (read access only)\&. Give CUVIS_HANDLE_NULL to clear\&. Set parameter SkipDroppedFrames to 1 to skip any dropped frames contained in the session - 0 will insert empty frames\&. 
+.SS "\fBSDK_CAPI\fP \fBCUVIS_STATUS\fP \fBSDK_CCALL\fP cuvis_worker_set_viewer (\fBCUVIS_WORKER\fP i_worker, \fBCUVIS_VIEWER\fP i_viewer)"
+
+.PP
+set the viewer for the worker\&. Give CUVIS_HANDLE_NULL to clear 
+.SS "struct \fBcuvis_worker_settings_t\fP * cuvis_worker_settings_allocate (void)"
+
+.PP
+Allocate function for struct \fBcuvis_worker_settings_t\fP \&. 
+.SS "void cuvis_worker_settings_free (struct \fBcuvis_worker_settings_t\fP * ptr)"
+
+.PP
+Free function for struct \fBcuvis_worker_settings_t\fP 
+.br
+ 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CUVIS C++ SDK from the source code\&.

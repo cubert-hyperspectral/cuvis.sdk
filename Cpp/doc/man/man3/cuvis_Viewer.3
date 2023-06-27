@@ -1,0 +1,64 @@
+.TH "cuvis::Viewer" 3 "Thu Jun 22 2023" "Version 3.2.0" "CUVIS C++ SDK" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cuvis::Viewer
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <cuvis\&.hpp>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "using \fBviewer_settings_t\fP = \fBcuvis_viewer_settings_t\fP"
+.br
+.ti -1c
+.RI "using \fBview_variant_t\fP = std::variant< \fBview_t\fP< std::uint8_t >, \fBview_t\fP< float > >"
+.br
+.ti -1c
+.RI "using \fBview_data_t\fP = std::map< std::string, \fBview_variant_t\fP >"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBViewer\fP (\fBViewArgs\fP const &args)"
+.br
+.ti -1c
+.RI "\fBview_data_t\fP \fBapply\fP (\fBMeasurement\fP const &mesu)"
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "class \fBWorker\fP"
+.br
+.in -1c
+.SH "Member Typedef Documentation"
+.PP 
+.SS "using \fBcuvis::Viewer::view_data_t\fP =  std::map<std::string, \fBview_variant_t\fP>"
+
+.SS "using \fBcuvis::Viewer::view_variant_t\fP =  std::variant<\fBview_t\fP<std::uint8_t>, \fBview_t\fP<float> >"
+
+.SS "using \fBcuvis::Viewer::viewer_settings_t\fP =  \fBcuvis_viewer_settings_t\fP"
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "cuvis::Viewer::Viewer (\fBViewArgs\fP const & args)"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBview_data_t\fP cuvis::Viewer::apply (\fBMeasurement\fP const & mesu)"
+
+.SH "Friends And Related Function Documentation"
+.PP 
+.SS "friend class \fBWorker\fP\fC [friend]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CUVIS C++ SDK from the source code\&.

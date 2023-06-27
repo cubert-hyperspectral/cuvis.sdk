@@ -1,0 +1,74 @@
+.TH "cuvis::view_t< data_t >" 3 "Thu Jun 22 2023" "Version 3.2.0" "CUVIS C++ SDK" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cuvis::view_t< data_t > \- Image data created from \fBViewExporter\fP\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <cuvis\&.hpp>\fP
+.PP
+Inherits \fBcuvis::common_image_t< data_t >\fP\&.
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBcuvis_view_category_t\fP \fB_category\fP"
+.br
+.RI "The image categroy\&. "
+.ti -1c
+.RI "bool \fB_show\fP"
+.br
+.RI "Hint, if data can be shown on a screen as an image\&. "
+.ti -1c
+.RI "std::string \fB_id\fP"
+.br
+.RI "The name of the image\&. "
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "class \fBViewer\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+
+.SS "template<typename data_t>
+.br
+struct cuvis::view_t< data_t >"Image data created from \fBViewExporter\fP\&. 
+
+The \fBViewExpoter\fP generates image views (int 8 bit resolution) and data views (in floating point precision)\&. Each image is named by it's \fB_id\fP\&. Also the \fB_show\fP flag is set with respect to the setting of the view's author\&. See \fBViewExporter\fP for more information\&. See \fBcommon_image_t\fP for single pixel access\&.
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIdata_t\fP The pixel bit depth, either std::uint8_t or float 
+.RE
+.PP
+
+.SH "Friends And Related Function Documentation"
+.PP 
+.SS "template<typename data_t > friend class \fBViewer\fP\fC [friend]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "template<typename data_t > \fBcuvis_view_category_t\fP \fBcuvis::view_t\fP< data_t >::_category"
+
+.PP
+The image categroy\&. 
+.SS "template<typename data_t > std::string \fBcuvis::view_t\fP< data_t >::_id"
+
+.PP
+The name of the image\&. 
+.SS "template<typename data_t > bool \fBcuvis::view_t\fP< data_t >::_show"
+
+.PP
+Hint, if data can be shown on a screen as an image\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CUVIS C++ SDK from the source code\&.

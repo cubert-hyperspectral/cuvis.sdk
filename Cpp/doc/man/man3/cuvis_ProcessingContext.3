@@ -1,0 +1,154 @@
+.TH "cuvis::ProcessingContext" 3 "Thu Jun 22 2023" "Version 3.2.0" "CUVIS C++ SDK" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cuvis::ProcessingContext
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <cuvis\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBProcessingContext\fP (\fBCalibration\fP const &calib)"
+.br
+.ti -1c
+.RI "\fBProcessingContext\fP (\fBMeasurement\fP const &mesu)"
+.br
+.ti -1c
+.RI "\fBProcessingContext\fP (\fBSessionFile\fP const &session)"
+.br
+.ti -1c
+.RI "\fBMeasurement\fP & \fBapply\fP (\fBMeasurement\fP &mesu) const"
+.br
+.ti -1c
+.RI "bool \fBcalc_distance\fP (double distMM)"
+.br
+.ti -1c
+.RI "void \fBset_reference\fP (\fBMeasurement\fP const &mesu, \fBreference_type_t\fP type)"
+.br
+.RI "Set the reference for processing context\&. "
+.ti -1c
+.RI "void \fBclear_reference\fP (\fBreference_type_t\fP type)"
+.br
+.RI "Clear a reference measurement\&. "
+.ti -1c
+.RI "void \fBset_processingArgs\fP (\fBProcessingArgs\fP const &procArgs)"
+.br
+.RI "set the processing arguments for the processing context "
+.ti -1c
+.RI "std::optional< \fBMeasurement\fP > \fBget_reference\fP (\fBreference_type_t\fP type) const"
+.br
+.RI "get a specific reference from the processing context "
+.ti -1c
+.RI "\fBProcessingArgs\fP const & \fBget_processingArgs\fP () const"
+.br
+.RI "get the arguments of the processing context "
+.ti -1c
+.RI "bool \fBis_capable\fP (\fBMeasurement\fP const &mesu, \fBProcessingArgs\fP const &procArgs) const"
+.br
+.RI "Check if a processing mode is possible for a measurement\&. "
+.ti -1c
+.RI "bool \fBhas_reference\fP (\fBreference_type_t\fP type) const"
+.br
+.RI "Check if an explicit reference was set\&. "
+.ti -1c
+.RI "std::string \fBget_calib_id\fP () const"
+.br
+.RI "get the calibration id of the procession context "
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "class \fBWorker\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "cuvis::ProcessingContext::ProcessingContext (\fBCalibration\fP const & calib)"
+
+.SS "cuvis::ProcessingContext::ProcessingContext (\fBMeasurement\fP const & mesu)"
+
+.SS "cuvis::ProcessingContext::ProcessingContext (\fBSessionFile\fP const & session)"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBMeasurement\fP & cuvis::ProcessingContext::apply (\fBMeasurement\fP & mesu) const"
+
+.SS "bool cuvis::ProcessingContext::calc_distance (double distMM)"
+
+.SS "void cuvis::ProcessingContext::clear_reference (\fBreference_type_t\fP type)"
+
+.PP
+Clear a reference measurement\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItype\fP Type of reference to clear 
+.RE
+.PP
+
+.SS "std::string cuvis::ProcessingContext::get_calib_id () const"
+
+.PP
+get the calibration id of the procession context 
+.SS "\fBProcessingArgs\fP const  & cuvis::ProcessingContext::get_processingArgs () const"
+
+.PP
+get the arguments of the processing context 
+.SS "std::optional< \fBMeasurement\fP > cuvis::ProcessingContext::get_reference (\fBreference_type_t\fP type) const"
+
+.PP
+get a specific reference from the processing context The processing context can hold explicit references (e\&.g\&. a dark), see \fBProcessingArgs\&.set_reference\fP \&. These reference can be obtained by this functions 
+.SS "bool cuvis::ProcessingContext::has_reference (\fBreference_type_t\fP type) const"
+
+.PP
+Check if an explicit reference was set\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItype\fP reference type to check for 
+.RE
+.PP
+
+.SS "bool cuvis::ProcessingContext::is_capable (\fBMeasurement\fP const & mesu, \fBProcessingArgs\fP const & procArgs) const"
+
+.PP
+Check if a processing mode is possible for a measurement\&. Depending on the measurement, it's intrinsic references, the processing context's explicit references and the internal camera calibration itself the availability of a mode varies\&.
+.PP
+Use this function, to check whether a specific mode is explicitly possible for a measurement\&. 
+.SS "void cuvis::ProcessingContext::set_processingArgs (\fBProcessingArgs\fP const & procArgs)"
+
+.PP
+set the processing arguments for the processing context 
+.PP
+\fBParameters\fP
+.RS 4
+\fIprocArgs\fP arguments to set 
+.RE
+.PP
+
+.SS "void cuvis::ProcessingContext::set_reference (\fBMeasurement\fP const & mesu, \fBreference_type_t\fP type)"
+
+.PP
+Set the reference for processing context\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImesu\fP measurement The measurement to be used as explicit reference 
+.br
+\fItype\fP Type of reference to set 
+.RE
+.PP
+
+.SH "Friends And Related Function Documentation"
+.PP 
+.SS "friend class \fBWorker\fP\fC [friend]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CUVIS C++ SDK from the source code\&.

@@ -1,0 +1,70 @@
+.TH "cuvis::Exporter" 3 "Thu Jun 22 2023" "Version 3.2.0" "CUVIS C++ SDK" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cuvis::Exporter
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <cuvis\&.hpp>\fP
+.PP
+Inherited by \fBcuvis::CubeExporter\fP, \fBcuvis::EnviExporter\fP, \fBcuvis::TiffExporter\fP, and \fBcuvis::ViewExporter\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "using \fBgeneral_export_settings_t\fP = \fBcuvis_export_general_settings_t\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMeasurement\fP const & \fBapply\fP (\fBMeasurement\fP const &mesu) const"
+.br
+.ti -1c
+.RI "size_t \fBget_queue_used\fP () const"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBExporter\fP ()=default"
+.br
+.ti -1c
+.RI "void \fBsetHandle\fP (\fBCUVIS_EXPORTER\fP exporter)"
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "class \fBWorker\fP"
+.br
+.in -1c
+.SH "Member Typedef Documentation"
+.PP 
+.SS "using \fBcuvis::Exporter::general_export_settings_t\fP =  \fBcuvis_export_general_settings_t\fP"
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "cuvis::Exporter::Exporter ()\fC [protected]\fP, \fC [default]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBMeasurement\fP const  & cuvis::Exporter::apply (\fBMeasurement\fP const & mesu) const"
+
+.SS "size_t cuvis::Exporter::get_queue_used () const"
+
+.SS "void cuvis::Exporter::setHandle (\fBCUVIS_EXPORTER\fP exporter)\fC [protected]\fP"
+
+.SH "Friends And Related Function Documentation"
+.PP 
+.SS "friend class \fBWorker\fP\fC [friend]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CUVIS C++ SDK from the source code\&.

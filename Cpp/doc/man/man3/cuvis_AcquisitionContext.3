@@ -1,0 +1,276 @@
+.TH "cuvis::AcquisitionContext" 3 "Thu Jun 22 2023" "Version 3.2.0" "CUVIS C++ SDK" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cuvis::AcquisitionContext
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <cuvis\&.hpp>\fP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBcomponent_state_info_t\fP"
+.br
+.in -1c
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "using \fBmesu_callback_t\fP = std::function< void(\fBMeasurement\fP)>"
+.br
+.ti -1c
+.RI "using \fBcomponent_state_t\fP = std::pair< std::string, bool >"
+.br
+.ti -1c
+.RI "using \fBstate_callback_t\fP = std::function< void(\fBhardware_state_t\fP, std::map< \fBint_t\fP, \fBcomponent_state_info_t\fP >)>"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBAcquisitionContext\fP (\fBCalibration\fP const &calib)"
+.br
+.ti -1c
+.RI "\fBAcquisitionContext\fP (\fBSessionFile\fP const &sess, bool simulate=false)"
+.br
+.ti -1c
+.RI "\fB~AcquisitionContext\fP ()"
+.br
+.ti -1c
+.RI "\fBAsyncMesu\fP \fBcapture\fP ()"
+.br
+.ti -1c
+.RI "void \fBcapture_queue\fP ()"
+.br
+.ti -1c
+.RI "\fBhardware_state_t\fP \fBget_state\fP () const"
+.br
+.ti -1c
+.RI "std::optional< \fBMeasurement\fP > \fBget_next_measurement\fP (std::chrono::milliseconds timeout_ms=std::chrono::milliseconds(0)) const"
+.br
+.ti -1c
+.RI "\fBSessionInfo\fP \fBget_session_info\fP () const"
+.br
+.ti -1c
+.RI "\fBint_t\fP \fBget_component_count\fP () const"
+.br
+.ti -1c
+.RI "\fBCUVIS_COMPONENT_INFO\fP \fBget_component_info\fP (\fBint_t\fP id) const"
+.br
+.ti -1c
+.RI "void \fBset_session_info\fP (\fBSessionInfo\fP session)"
+.br
+.ti -1c
+.RI "void \fBset_queue_size\fP (\fBint_t\fP size)"
+.br
+.ti -1c
+.RI "bool \fBhas_next_measurement\fP () const"
+.br
+.ti -1c
+.RI "void \fBregister_state_change_callback\fP (\fBstate_callback_t\fP callback, bool output_initial_state=true)"
+.br
+.ti -1c
+.RI "void \fBreset_state_change_callback\fP ()"
+.br
+.ti -1c
+.RI "double \fBget_fps\fP () const"
+.br
+.ti -1c
+.RI "double \fBget_integration_time\fP () const"
+.br
+.ti -1c
+.RI "bool \fBget_auto_exp\fP () const"
+.br
+.ti -1c
+.RI "bool \fBget_preview_mode\fP () const"
+.br
+.ti -1c
+.RI "\fBoperation_mode_t\fP \fBget_operation_mode\fP () const"
+.br
+.ti -1c
+.RI "int \fBget_average\fP () const"
+.br
+.ti -1c
+.RI "int \fBget_bandwidth\fP () const"
+.br
+.ti -1c
+.RI "int \fBget_queue_size\fP () const"
+.br
+.ti -1c
+.RI "int \fBget_queue_used\fP () const"
+.br
+.ti -1c
+.RI "\fBAsync\fP \fBset_fps\fP (double value) const"
+.br
+.ti -1c
+.RI "\fBAsync\fP \fBset_integration_time\fP (double value) const"
+.br
+.ti -1c
+.RI "\fBAsync\fP \fBset_auto_exp\fP (bool value) const"
+.br
+.ti -1c
+.RI "\fBAsync\fP \fBset_preview_mode\fP (bool value) const"
+.br
+.ti -1c
+.RI "\fBAsync\fP \fBset_operation_mode\fP (\fBoperation_mode_t\fP value) const"
+.br
+.ti -1c
+.RI "\fBAsync\fP \fBset_average\fP (int value) const"
+.br
+.ti -1c
+.RI "\fBAsync\fP \fBset_continuous\fP (int value) const"
+.br
+.ti -1c
+.RI "int \fBget_component_online\fP (size_t id) const"
+.br
+.ti -1c
+.RI "double \fBget_component_gain\fP (size_t id) const"
+.br
+.ti -1c
+.RI "double \fBget_component_integration_time_factor\fP (size_t id) const"
+.br
+.ti -1c
+.RI "int \fBget_bandwidth\fP (size_t id) const"
+.br
+.ti -1c
+.RI "size_t \fBget_driver_queue_size\fP (size_t id) const"
+.br
+.ti -1c
+.RI "size_t \fBget_driver_queue_used\fP (size_t id) const"
+.br
+.ti -1c
+.RI "size_t \fBget_hardware_queue_size\fP (size_t id) const"
+.br
+.ti -1c
+.RI "size_t \fBget_hardware_queue_used\fP (size_t id) const"
+.br
+.ti -1c
+.RI "int \fBget_temperature\fP (size_t id) const"
+.br
+.ti -1c
+.RI "\fBAsync\fP \fBset_component_gain\fP (size_t id, double value) const"
+.br
+.ti -1c
+.RI "\fBAsync\fP \fBset_component_integration_time_factor\fP (size_t id, double value) const"
+.br
+.ti -1c
+.RI "\fBCUVIS_ACQ_CONT\fP \fBget_handle\fP () const"
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "class \fBWorker\fP"
+.br
+.in -1c
+.SH "Member Typedef Documentation"
+.PP 
+.SS "using \fBcuvis::AcquisitionContext::component_state_t\fP =  std::pair<std::string, bool>"
+
+.SS "using \fBcuvis::AcquisitionContext::mesu_callback_t\fP =  std::function<void(\fBMeasurement\fP)>"
+
+.SS "using \fBcuvis::AcquisitionContext::state_callback_t\fP =  std::function<void( \fBhardware_state_t\fP, std::map<\fBint_t\fP, \fBcomponent_state_info_t\fP>)>"
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "cuvis::AcquisitionContext::AcquisitionContext (\fBCalibration\fP const & calib)"
+
+.SS "cuvis::AcquisitionContext::AcquisitionContext (\fBSessionFile\fP const & sess, bool simulate = \fCfalse\fP)"
+
+.SS "cuvis::AcquisitionContext::~AcquisitionContext ()"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBAsyncMesu\fP cuvis::AcquisitionContext::capture ()"
+
+.SS "void cuvis::AcquisitionContext::capture_queue ()"
+
+.SS "bool cuvis::AcquisitionContext::get_auto_exp () const\fC [inline]\fP"
+
+.SS "int cuvis::AcquisitionContext::get_average () const\fC [inline]\fP"
+
+.SS "int cuvis::AcquisitionContext::get_bandwidth () const\fC [inline]\fP"
+
+.SS "int cuvis::AcquisitionContext::get_bandwidth (size_t id) const\fC [inline]\fP"
+
+.SS "\fBint_t\fP cuvis::AcquisitionContext::get_component_count () const"
+
+.SS "double cuvis::AcquisitionContext::get_component_gain (size_t id) const\fC [inline]\fP"
+
+.SS "\fBCUVIS_COMPONENT_INFO\fP cuvis::AcquisitionContext::get_component_info (\fBint_t\fP id) const"
+
+.SS "double cuvis::AcquisitionContext::get_component_integration_time_factor (size_t id) const\fC [inline]\fP"
+
+.SS "int cuvis::AcquisitionContext::get_component_online (size_t id) const\fC [inline]\fP"
+
+.SS "size_t cuvis::AcquisitionContext::get_driver_queue_size (size_t id) const\fC [inline]\fP"
+
+.SS "size_t cuvis::AcquisitionContext::get_driver_queue_used (size_t id) const\fC [inline]\fP"
+
+.SS "double cuvis::AcquisitionContext::get_fps () const\fC [inline]\fP"
+
+.SS "\fBCUVIS_ACQ_CONT\fP cuvis::AcquisitionContext::get_handle () const"
+
+.SS "size_t cuvis::AcquisitionContext::get_hardware_queue_size (size_t id) const\fC [inline]\fP"
+
+.SS "size_t cuvis::AcquisitionContext::get_hardware_queue_used (size_t id) const\fC [inline]\fP"
+
+.SS "double cuvis::AcquisitionContext::get_integration_time () const\fC [inline]\fP"
+
+.SS "std::optional< \fBMeasurement\fP > cuvis::AcquisitionContext::get_next_measurement (std::chrono::milliseconds timeout_ms = \fCstd::chrono::milliseconds(0)\fP) const"
+
+.SS "\fBoperation_mode_t\fP cuvis::AcquisitionContext::get_operation_mode () const\fC [inline]\fP"
+
+.SS "bool cuvis::AcquisitionContext::get_preview_mode () const\fC [inline]\fP"
+
+.SS "int cuvis::AcquisitionContext::get_queue_size () const\fC [inline]\fP"
+
+.SS "int cuvis::AcquisitionContext::get_queue_used () const\fC [inline]\fP"
+
+.SS "\fBSessionInfo\fP cuvis::AcquisitionContext::get_session_info () const"
+
+.SS "\fBhardware_state_t\fP cuvis::AcquisitionContext::get_state () const"
+
+.SS "int cuvis::AcquisitionContext::get_temperature (size_t id) const\fC [inline]\fP"
+
+.SS "bool cuvis::AcquisitionContext::has_next_measurement () const"
+
+.SS "void cuvis::AcquisitionContext::register_state_change_callback (\fBstate_callback_t\fP callback, bool output_initial_state = \fCtrue\fP)"
+
+.SS "void cuvis::AcquisitionContext::reset_state_change_callback ()"
+
+.SS "\fBAsync\fP cuvis::AcquisitionContext::set_auto_exp (bool value) const\fC [inline]\fP"
+
+.SS "\fBAsync\fP cuvis::AcquisitionContext::set_average (int value) const\fC [inline]\fP"
+
+.SS "\fBAsync\fP cuvis::AcquisitionContext::set_component_gain (size_t id, double value) const\fC [inline]\fP"
+
+.SS "\fBAsync\fP cuvis::AcquisitionContext::set_component_integration_time_factor (size_t id, double value) const\fC [inline]\fP"
+
+.SS "\fBAsync\fP cuvis::AcquisitionContext::set_continuous (int value) const\fC [inline]\fP"
+
+.SS "\fBAsync\fP cuvis::AcquisitionContext::set_fps (double value) const\fC [inline]\fP"
+
+.SS "\fBAsync\fP cuvis::AcquisitionContext::set_integration_time (double value) const\fC [inline]\fP"
+
+.SS "\fBAsync\fP cuvis::AcquisitionContext::set_operation_mode (\fBoperation_mode_t\fP value) const\fC [inline]\fP"
+
+.SS "\fBAsync\fP cuvis::AcquisitionContext::set_preview_mode (bool value) const\fC [inline]\fP"
+
+.SS "void cuvis::AcquisitionContext::set_queue_size (\fBint_t\fP size)"
+
+.SS "void cuvis::AcquisitionContext::set_session_info (\fBSessionInfo\fP session)"
+
+.SH "Friends And Related Function Documentation"
+.PP 
+.SS "friend class \fBWorker\fP\fC [friend]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CUVIS C++ SDK from the source code\&.

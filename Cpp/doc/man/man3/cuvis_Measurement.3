@@ -1,0 +1,258 @@
+.TH "cuvis::Measurement" 3 "Thu Jun 22 2023" "Version 3.2.0" "CUVIS C++ SDK" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cuvis::Measurement \- central measurement class  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <cuvis\&.hpp>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "using \fBimage_variant_t\fP = std::variant< \fBimage_t\fP< std::uint8_t >, \fBimage_t\fP< std::uint16_t >, \fBimage_t\fP< std::uint32_t >, \fBimage_t\fP< float > >"
+.br
+.ti -1c
+.RI "using \fBgps_data_t\fP = std::map< std::string, \fBcuvis_gps_t\fP >"
+.br
+.ti -1c
+.RI "using \fBstring_data_t\fP = std::map< std::string, std::string >"
+.br
+.ti -1c
+.RI "using \fBimage_data_t\fP = std::map< std::string, \fBimage_variant_t\fP >"
+.br
+.ti -1c
+.RI "using \fBsensor_info_data_t\fP = std::map< std::string, \fBSensorInfoData\fP >"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMeasurement\fP & \fBoperator=\fP (\fBMeasurement\fP const &measurement)=default"
+.br
+.ti -1c
+.RI "\fBMeasurement\fP (\fBMeasurement\fP &&measurement)=default"
+.br
+.ti -1c
+.RI "\fBMeasurement\fP (\fBMeasurement\fP const &source)"
+.br
+.ti -1c
+.RI "\fBMeasurement\fP (std::filesystem::path const &path)"
+.br
+.ti -1c
+.RI "std::vector< \fBcapabilities_t\fP > \fBget_capabilities\fP () const"
+.br
+.RI "Get the capabilites of the measurement which were present in the calibration during capture\&. "
+.ti -1c
+.RI "\fBMeasurementMetaData\fP const * \fBget_meta\fP () const"
+.br
+.RI "Get the metadata of the measurement\&. "
+.ti -1c
+.RI "\fBsensor_info_data_t\fP const * \fBget_sensor_info\fP () const"
+.br
+.RI "Get image info data from measurement\&. "
+.ti -1c
+.RI "\fBgps_data_t\fP const * \fBget_gps\fP () const"
+.br
+.RI "Get GPS data from measurement\&. "
+.ti -1c
+.RI "\fBimage_data_t\fP const * \fBget_imdata\fP () const"
+.br
+.RI "Get image data from measurement\&. "
+.ti -1c
+.RI "\fBstring_data_t\fP const * \fBget_strdata\fP () const"
+.br
+.RI "Get string data from measurement\&. "
+.ti -1c
+.RI "\fBimage_t\fP< std::uint8_t > const * \fBget_thumbnail\fP () const"
+.br
+.RI "Get thumbnail / preview image of measurement\&. "
+.ti -1c
+.RI "std::string \fBget_calib_id\fP () const"
+.br
+.RI "get calibration id of this measurement "
+.ti -1c
+.RI "void \fBsave\fP (\fBSaveArgs\fP const &args)"
+.br
+.RI "Save measurement\&. "
+.ti -1c
+.RI "void \fBset_name\fP (std::string const &name)"
+.br
+.RI "Set name of measurement\&. "
+.ti -1c
+.RI "void \fBset_comment\fP (std::string const &comment)"
+.br
+.RI "set comment of measurement "
+.ti -1c
+.RI "void \fBclear_cube\fP ()"
+.br
+.RI "clears the cube from the measurement "
+.ti -1c
+.RI "void \fBclear_implicit_reference\fP (\fBreference_type_t\fP type)"
+.br
+.RI "Clear the implicit reference measurement\&. "
+.ti -1c
+.RI "void \fBrefresh\fP ()"
+.br
+.RI "Resynchronize the \fBMeasurement\fP with the SDK data\&. "
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "class \fBProcessingContext\fP"
+.br
+.ti -1c
+.RI "class \fBExporter\fP"
+.br
+.ti -1c
+.RI "class \fBAsyncMesu\fP"
+.br
+.ti -1c
+.RI "class \fBViewer\fP"
+.br
+.ti -1c
+.RI "class \fBSessionFile\fP"
+.br
+.ti -1c
+.RI "class \fBAcquisitionContext\fP"
+.br
+.ti -1c
+.RI "class \fBWorker\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+central measurement class 
+.SH "Member Typedef Documentation"
+.PP 
+.SS "using \fBcuvis::Measurement::gps_data_t\fP =  std::map<std::string, \fBcuvis_gps_t\fP>"
+
+.SS "using \fBcuvis::Measurement::image_data_t\fP =  std::map<std::string, \fBimage_variant_t\fP>"
+
+.SS "using \fBcuvis::Measurement::image_variant_t\fP =  std::variant< \fBimage_t\fP<std::uint8_t>, \fBimage_t\fP<std::uint16_t>, \fBimage_t\fP<std::uint32_t>, \fBimage_t\fP<float> >"
+
+.SS "using \fBcuvis::Measurement::sensor_info_data_t\fP =  std::map<std::string, \fBSensorInfoData\fP>"
+
+.SS "using \fBcuvis::Measurement::string_data_t\fP =  std::map<std::string, std::string>"
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "cuvis::Measurement::Measurement (\fBMeasurement\fP && measurement)\fC [default]\fP"
+
+.SS "cuvis::Measurement::Measurement (\fBMeasurement\fP const & source)"
+
+.SS "cuvis::Measurement::Measurement (std::filesystem::path const & path)"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void cuvis::Measurement::clear_cube ()"
+
+.PP
+clears the cube from the measurement Clears the proceessing result, i\&. e\&. the cube, from the measurement\&. This returns the measurement the state before applying the processing\&. This can be usefull for reduced data usage\&. 
+.SS "void cuvis::Measurement::clear_implicit_reference (\fBreference_type_t\fP type)"
+
+.PP
+Clear the implicit reference measurement\&. Implict measurements are created, when a measurement is processed with a processing context, where explicit references are set\&. Then, these references are remebemred by the measurement\&. When changing the processing context, the references are implicitly available, still\&. Clearing them may be interesing if the references set are wrong/invalid or if disk space is a concearn\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fItype\fP Type of reference to clear 
+.RE
+.PP
+
+.SS "std::string cuvis::Measurement::get_calib_id () const"
+
+.PP
+get calibration id of this measurement 
+.SS "std::vector< \fBcapabilities_t\fP > cuvis::Measurement::get_capabilities () const"
+
+.PP
+Get the capabilites of the measurement which were present in the calibration during capture\&. This doesn't indicate which capabilities are currently available for the measurement\&. 
+.SS "\fBgps_data_t\fP const  * cuvis::Measurement::get_gps () const\fC [inline]\fP"
+
+.PP
+Get GPS data from measurement\&. 
+.SS "\fBimage_data_t\fP const  * cuvis::Measurement::get_imdata () const\fC [inline]\fP"
+
+.PP
+Get image data from measurement\&. Return image data from measurement\&. 
+.SS "\fBMeasurementMetaData\fP const  * cuvis::Measurement::get_meta () const"
+
+.PP
+Get the metadata of the measurement\&. The meta-data from the measurement contains information about the measurement when it was recorded: when and how\&. Meta-Data do not contain the actual recorded data\&. 
+.SS "\fBsensor_info_data_t\fP const  * cuvis::Measurement::get_sensor_info () const"
+
+.PP
+Get image info data from measurement\&. Return image data from a measurement\&. 
+.SS "\fBstring_data_t\fP const  * cuvis::Measurement::get_strdata () const\fC [inline]\fP"
+
+.PP
+Get string data from measurement\&. 
+.SS "\fBimage_t\fP< std::uint8_t > const  * cuvis::Measurement::get_thumbnail () const"
+
+.PP
+Get thumbnail / preview image of measurement\&. 
+.SS "\fBMeasurement\fP & cuvis::Measurement::operator= (\fBMeasurement\fP const & measurement)\fC [default]\fP"
+
+.SS "void cuvis::Measurement::refresh ()"
+
+.PP
+Resynchronize the \fBMeasurement\fP with the SDK data\&. usally this does not have to be called manually, but is rather called internally by any operation that may result in invalidated (meta-)data 
+.SS "void cuvis::Measurement::save (\fBSaveArgs\fP const & args)"
+
+.PP
+Save measurement\&. Save the measurement with given arguments
+.PP
+\fBParameters\fP
+.RS 4
+\fIargs\fP The Save Arguments to use for saving the measurement\&. See also \fBSaveArgs\fP 
+.RE
+.PP
+
+.SS "void cuvis::Measurement::set_comment (std::string const & comment)"
+
+.PP
+set comment of measurement 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcomment\fP String to use as comment for the measurement 
+.RE
+.PP
+
+.SS "void cuvis::Measurement::set_name (std::string const & name)"
+
+.PP
+Set name of measurement\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIname\fP String to use as name of the measuremen 
+.RE
+.PP
+
+.SH "Friends And Related Function Documentation"
+.PP 
+.SS "friend class \fBAcquisitionContext\fP\fC [friend]\fP"
+
+.SS "friend class \fBAsyncMesu\fP\fC [friend]\fP"
+
+.SS "friend class \fBExporter\fP\fC [friend]\fP"
+
+.SS "friend class \fBProcessingContext\fP\fC [friend]\fP"
+
+.SS "friend class \fBSessionFile\fP\fC [friend]\fP"
+
+.SS "friend class \fBViewer\fP\fC [friend]\fP"
+
+.SS "friend class \fBWorker\fP\fC [friend]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CUVIS C++ SDK from the source code\&.
