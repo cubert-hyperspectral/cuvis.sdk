@@ -2,7 +2,7 @@
 
 ## Importing Cuvis CPP SDK via CMake 
 
-__In order to import cuvis to your CMake project, Cuvis must be installed. Download the installer for windows or the .deb files for Ubuntu 20.04 here:__ https://cloud.cubert-gmbh.de/index.php/s/dPycyPcjnvee9F0
+__In order to import cuvis to your CMake project, Cuvis must be installed. Download the installer for windows or the .deb files for Ubuntu 20.04 here:__ https://cloud.cubert-gmbh.de/index.php/s/kKVtx0x2fmYqVgx
 
 First, you need to add the directory containing *FindCuvisCpp.cmake* to *CMAKE_MODULE_PATH*, e.g.:
 ```
