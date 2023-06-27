@@ -1,45 +1,63 @@
 import os
-import cuvis
 import platform
+
 import matplotlib.pyplot as plt
 import numpy as np
 
+import cuvis
+
+### default directories and files
+data_dir = None
+
 if platform.system() == "Windows":
     lib_dir = os.getenv("CUVIS")
-    data_dir = os.path.normpath(os.path.join(lib_dir, os.path.pardir, "sdk", "sample_data", "set1"))
+    data_dir = os.path.normpath(os.path.join(lib_dir, os.path.pardir, "sdk",
+                                             "sample_data", "set_examples"))
 elif platform.system() == "Linux":
     lib_dir = os.getenv("CUVIS_DATA")
-    data_dir = os.path.normpath(os.path.join(lib_dir, "sample_data", "set1"))
+    data_dir = os.path.normpath(
+        os.path.join(lib_dir, "sample_data", "set_examples"))
 
-def run_example_loadMeasurement(userSettingsDir=os.path.join(data_dir, "settings"),
-                                measurementLoc=os.path.join(data_dir,
-                                                            "vegetation_000",
-                                                            "vegetation_000_000_snapshot.cu3")):
+# default image
+loc_file = os.path.join(data_dir,
+                        "set0_lab",
+                        "x20_calib_color.cu3s")
+# default settings
+loc_settings = os.path.join(data_dir, "settings")
 
+
+def run_example_loadMeasurement(
+        userSettingsDir=loc_settings,
+        measurementLoc=loc_file):
     print("loading user settings...")
     settings = cuvis.General(userSettingsDir)
     settings.setLogLevel("info")
 
+    print("loading session...")
+    session = cuvis.SessionFile(measurementLoc)
+
     print("loading measurement file...")
-    mesu = cuvis.Measurement(measurementLoc)
+    mesu = session.getMeasurement(0)
+    assert mesu.__handle__
+
     print("Data 1 {} t={}ms mode={}".format(mesu.Name,
                                             mesu.IntegrationTime,
                                             mesu.ProcessingMode,
                                             ))
 
     # TODO: use correct flags when Measurement provides them
-    if not isinstance(mesu.MeasurementFlags, list):
-        mesu.MeasurementFlags = [mesu.MeasurementFlags]
 
-    if len(mesu.MeasurementFlags) > 0:
+    if isinstance(mesu.MeasurementFlags, list) and \
+            len(mesu.MeasurementFlags) > 0:
         print("Flags")
         for flag in mesu.MeasurementFlags:
-            print(" - {} ({})".format(flag, flag)) # TODO: just 0/1?!
+            print(" - {} ({})".format(flag, flag))
+            # supposed to be first and second
 
     assert mesu.ProcessingMode == "Raw", \
         "This example requires Raw mode!"
 
-    cube = mesu.Data.pop("cube", None)
+    cube = mesu.Data.get("cube", None)
     if cube is None:
         raise Exception("Cube not found")
 
@@ -69,16 +87,14 @@ if __name__ == "__main__":
 
     print("Example 01: Load Measurement. Please provide:")
 
-    def_input = os.path.join(data_dir, "settings")
-    userSettingsDir = input("User settings directory (default: {}): ".format(def_input))
+    userSettingsDir = input(
+        "User settings directory (default: {}): ".format(loc_settings))
     if userSettingsDir.strip().lower() in ["", "default"]:
-        userSettingsDir = def_input
+        userSettingsDir = loc_settings
 
-    def_input = os.path.join(data_dir,
-                             "vegetation_000",
-                             "vegetation_000_000_snapshot.cu3")
-    measurementLoc = input("Measurement file (.cu3) (default: {}): ".format(def_input))
+    measurementLoc = input(
+        "Measurement file (.cu3s) (default: {}): ".format(loc_file))
     if measurementLoc.strip().lower() in ["", "default"]:
-        measurementLoc = def_input
+        measurementLoc = loc_file
 
     run_example_loadMeasurement(userSettingsDir, measurementLoc)

@@ -19,14 +19,15 @@ elif platform.system() == "Linux":
     data_dir = os.path.normpath(
         os.path.join(lib_dir, "sample_data", "set_examples"))
 
-# default factory
-loc_factory = os.path.join(lib_dir, os.pardir,
-                           "factory")
+# default image
+loc_file = os.path.join(data_dir,
+                        "set0_lab",
+                        "x20p_calib_color.cu3s")
 # default settings
 loc_settings = os.path.join(data_dir, "settings")
 
 # default output
-loc_output = os.path.join(os.getcwd(), "EX06_video")
+loc_output = os.path.join(os.getcwd(), "EX07_video")
 
 # parameters
 loc_exptime = 100
@@ -34,21 +35,22 @@ loc_autoexp = False
 loc_fps = 2
 
 
-def run_example_recordVideo(userSettingsDir=loc_settings,
-                            factoryDir=loc_factory,
-                            recDir=loc_output,
-                            exposure=loc_exptime,
-                            autoExp=loc_autoexp,
-                            fps=loc_fps):
+def run_example_recordVideoFromSessionFile(userSettingsDir=loc_settings,
+                                           measurementLoc=loc_file,
+                                           recDir=loc_output,
+                                           exposure=loc_exptime,
+                                           autoExp=loc_autoexp,
+                                           fps=loc_fps):
     print("loading user settings...")
     settings = cuvis.General(userSettingsDir)
     settings.setLogLevel("info")
 
-    print("loading calibration (factory)...")
-    calibration = cuvis.Calibration(factoryDir)
+    print("loading session file ...")
+    session = cuvis.SessionFile(measurementLoc)
 
     print("loading acquisition context...")
-    acquisitionContext = cuvis.AcquisitionContext(calibration)
+    acquisitionContext = cuvis.AcquisitionContext(session, simulate=True)  #
+    # using images from session file instead of camera
     session_info = {"Name": "video", "SequenceNumber": 0, "SessionNumber": 0}
     acquisitionContext.setSessionInfo(session_info)
 
@@ -57,13 +59,13 @@ def run_example_recordVideo(userSettingsDir=loc_settings,
                                     AllowOverwrite=True,
                                     AllowSessionFile=True,
                                     FPS=fps,
-                                    OperationMode="Software")
+                                    OperationMode="Internal")
 
     print("writing files to: {}".format(recDir))
     cubeExporter = cuvis.CubeExporter(saveArgs)
 
     print("prepare processing of measurements...")
-    processingContext = cuvis.ProcessingContext(calibration)
+    processingContext = cuvis.ProcessingContext(session)
     processingContext.setProcessingMode("Raw")
 
     print("Waiting for camera to come online...")
@@ -84,7 +86,7 @@ def run_example_recordVideo(userSettingsDir=loc_settings,
         print(" -- use:         {}".format(info.UserField))
         print(" -- pixelformat: {}".format(info.PixelFormat))
 
-    print("initializing hardware...")
+    print("initializing simulated hardware...")
     acquisitionContext.setIntegrationTime(exposure)
     acquisitionContext.setOperationMode("Internal")
     acquisitionContext.setFPS(fps)
@@ -133,16 +135,17 @@ def run_example_recordVideo(userSettingsDir=loc_settings,
 
 
 if __name__ == "__main__":
-    print("Example 06: Record video file. Please provide:")
+    print("Example 07: Record video from session file. Please provide:")
 
     userSettingsDir = input(
         "User settings directory (default: {}): ".format(loc_settings))
     if userSettingsDir.strip().lower() in ["", "default"]:
         userSettingsDir = loc_settings
 
-    factoryDir = input("Factory directory (default: {}): ".format(loc_factory))
+    factoryDir = input("Session file (default: {}): ".format(
+        loc_file))
     if factoryDir.strip().lower() in ["", "default"]:
-        factoryDir = loc_factory
+        factoryDir = loc_file
 
     recDir = input(
         "Name of recording directory (default: {}): ".format(loc_output))

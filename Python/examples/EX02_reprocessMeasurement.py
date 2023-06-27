@@ -1,60 +1,89 @@
 import os
-import cuvis
 import platform
 
+import cuvis
+
+### default directories and files
+data_dir = None
 
 if platform.system() == "Windows":
     lib_dir = os.getenv("CUVIS")
-    data_dir = os.path.normpath(os.path.join(lib_dir, os.path.pardir, "sdk", "sample_data", "set1"))
+    data_dir = os.path.normpath(os.path.join(lib_dir, os.path.pardir, "sdk",
+                                             "sample_data", "set_examples"))
 elif platform.system() == "Linux":
     lib_dir = os.getenv("CUVIS_DATA")
-    data_dir = os.path.normpath(os.path.join(lib_dir, "sample_data", "set1"))
+    data_dir = os.path.normpath(
+        os.path.join(lib_dir, "sample_data", "set_examples"))
+
+# default images
+loc_file = os.path.join(data_dir,
+                        "set0_lab",
+                        "x20_calib_color_raw.cu3s")
+loc_dark = os.path.join(data_dir,
+                        "set0_lab",
+                        "x20_calib_color_dark.cu3s")
+loc_white = os.path.join(data_dir,
+                         "set0_lab",
+                         "x20_calib_color_white.cu3s")
+loc_distance = os.path.join(data_dir,
+                            "set0_lab",
+                            "x20_calib_color_distance.cu3s")
+
+# default settings
+loc_settings = os.path.join(data_dir, "settings")
+
+# default output
+loc_output = os.path.join(os.getcwd(), "EX02_reprocessed")
 
 
-
-def run_example_reprocessMeasurement(userSettingsDir=os.path.join(data_dir, "settings"),
-                                     measurementLoc=os.path.join(data_dir,
-                                                                 "vegetation_000",
-                                                                 "vegetation_000_000_snapshot.cu3"),
-                                     darkLoc=os.path.join(data_dir,
-                                                          "dark_000",
-                                                          "dark_000_000_snapshot.cu3"),
-                                     whiteLoc=os.path.join(data_dir,
-                                                           "white_000",
-                                                           "white_000_000_snapshot.cu3"),
-                                     distanceLoc=os.path.join(data_dir,
-                                                              "Calibration",
-                                                              "distanceCalib__outside_000_002_snapshot16201220972486840.cu3"),
-                                     factoryDir=os.path.join(data_dir, "factory"),
-                                     outDir=os.path.join(os.getcwd(), "EX02")):
-
+def run_example_reprocessMeasurement(
+        userSettingsDir=loc_settings,
+        measurementLoc=loc_file,
+        darkLoc=loc_dark,
+        whiteLoc=loc_white,
+        distanceLoc=loc_distance,
+        outDir=loc_output):
     print("loading user settings...")
     settings = cuvis.General(userSettingsDir)
     settings.setLogLevel("info")
 
     print("loading measurement file...")
-    mesu = cuvis.Measurement(measurementLoc)
+    sessionM = cuvis.SessionFile(measurementLoc)
+    mesu = sessionM.getMeasurement(0)
+    assert mesu.__handle__
 
     print("loading dark...")
-    dark = cuvis.Measurement(darkLoc)
+    sessionDk = cuvis.SessionFile(darkLoc)
+    dark = sessionDk.getMeasurement(0)
+    assert dark.__handle__
+
     print("loading white...")
-    white = cuvis.Measurement(whiteLoc)
-    print("loading dark...")
-    distance = cuvis.Measurement(distanceLoc)
+    sessionWt = cuvis.SessionFile(whiteLoc)
+    white = sessionWt.getMeasurement(0)
+    assert white.__handle__
+
+    print("loading distance...")
+    sessionDc = cuvis.SessionFile(distanceLoc)
+    distance = sessionDc.getMeasurement(0)
+    assert distance.__handle__
 
     print("Data 1 {} t={}ms mode={}".format(mesu.Name,
                                             mesu.IntegrationTime,
                                             mesu.ProcessingMode,
                                             ))
 
-    print("loading calibration and processing context (factory)...")
-    calibration = cuvis.Calibration(calibdir=factoryDir)
-    processingContext = cuvis.ProcessingContext(calibration)
+    print("loading processing context...")
+    processingContext = cuvis.ProcessingContext(sessionM)
 
     print("set references...")
     processingContext.setReference(dark, "Dark")
     processingContext.setReference(white, "White")
     processingContext.setReference(distance, "Distance")
+
+    procArgs = cuvis.CubertProcessingArgs()
+    saveArgs = cuvis.CubertSaveArgs(AllowOverwrite=True,
+                                    AllowSessionFile=True,
+                                    AllowInfoFile=False)
 
     modes = ["Raw",
              "DarkSubtract",
@@ -62,20 +91,18 @@ def run_example_reprocessMeasurement(userSettingsDir=os.path.join(data_dir, "set
              "SpectralRadiance"
              ]
 
-    procArgs = cuvis.CubertProcessingArgs()
-    saveArgs = cuvis.CubertSaveArgs(AllowOverwrite=True)
-
     for mode in modes:
 
         procArgs.ProcessingMode = mode
-        isCapable = processingContext.isCapable(mesu, procArgs)
 
-        if isCapable:
+        if processingContext.isCapable(mesu, procArgs):
             print("processing to mode {}...".format(mode))
             processingContext.setProcessingArgs(procArgs)
             mesu = processingContext.apply(mesu)
+            mesu.setName(mode)
             saveArgs.ExportDir = os.path.join(outDir, mode)
-            mesu.save(saveArgs)
+            exporter = cuvis.Export.CubeExporter(saveArgs)
+            exporter.apply(mesu)
 
         else:
             print("Cannot process to {} mode!".format(mode))
@@ -89,53 +116,37 @@ if __name__ == "__main__":
 
     print("Example 02: Reprocess Measurement. Please provide:")
 
-    def_input = os.path.join(data_dir, "settings")
-    userSettingsDir = input("User settings directory (default: {}): ".format(def_input))
+    userSettingsDir = input(
+        "User settings directory (default: {}): ".format(loc_settings))
     if userSettingsDir.strip().lower() in ["", "default"]:
-        userSettingsDir = def_input
+        userSettingsDir = loc_settings
 
-    def_input = os.path.join(data_dir,
-                             "vegetation_000",
-                             "vegetation_000_000_snapshot.cu3")
-    measurementLoc = input("Measurement file (.cu3) (default: {}): ".format(def_input))
+    measurementLoc = input(
+        "Measurement file (.cu3s) (default: {}): ".format(loc_file))
     if measurementLoc.strip().lower() in ["", "default"]:
-        measurementLoc = def_input
+        measurementLoc = loc_file
 
-    def_input = os.path.join(data_dir,
-                             "dark_000",
-                             "dark_000_000_snapshot.cu3")
-    darkLoc = input("Dark file (.cu3) (default: {}): ".format(def_input))
+    darkLoc = input("Dark file (.cu3s) (default: {}): ".format(loc_dark))
     if darkLoc.strip().lower() in ["", "default"]:
-        darkLoc = def_input
+        darkLoc = loc_dark
 
-    def_input = os.path.join(data_dir,
-                             "white_000",
-                             "white_000_000_snapshot.cu3")
-    whiteLoc = input("White file (.cu3) (default: {}): ".format(def_input))
+    whiteLoc = input("White file (.cu3s) (default: {}): ".format(loc_white))
     if whiteLoc.strip().lower() in ["", "default"]:
-        whiteLoc = def_input
+        whiteLoc = loc_white
 
-    def_input = os.path.join(data_dir,
-                             "Calibration",
-                             "distanceCalib__outside_000_002_snapshot16201220972486840.cu3")
-    distanceLoc = input("Distance file (.cu3) (default: {}): ".format(def_input))
+    distanceLoc = input(
+        "Distance file (.cu3s) (default: {}): ".format(loc_distance))
     if distanceLoc.strip().lower() in ["", "default"]:
-        distanceLoc = def_input
+        distanceLoc = loc_distance
 
-    def_input = os.path.join(data_dir, "factory")
-    factoryDir = input("Factory directory (default: {}): ".format(def_input))
-    if factoryDir.strip().lower() in ["", "default"]:
-        factoryDir = def_input
-
-    def_input = os.path.join(os.getcwd(), "EX02")
-    outDir = input("Name of output directory (default: {}): ".format(def_input))
+    outDir = input(
+        "Name of output directory (default: {}): ".format(loc_output))
     if outDir.strip().lower() in ["", "default"]:
-        outDir = def_input
+        outDir = loc_output
 
     run_example_reprocessMeasurement(userSettingsDir,
                                      measurementLoc,
                                      darkLoc,
                                      whiteLoc,
                                      distanceLoc,
-                                     factoryDir,
                                      outDir)

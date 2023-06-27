@@ -32,7 +32,7 @@ class SDKException(Exception):
 
     def __init__(self, *args):
         if len(args) == 0:
-            message = cuvis_il.cuvis_get_last_error_msg()
+            message = cuvis_il.cuvis_get_last_error_msg_localized()
         else:
             message = args
         logging.exception(message)
@@ -46,7 +46,9 @@ class SessionData(object):
         self.SequenceNumber = sequenceNumber
 
     def __repr__(self):
-        return "'Session: {}; no. {}, seq. {}'".format(self.Name, self.SessionNumber, self.SequenceNumber)
+        return "'SessionFile: {}; no. {}, seq. {}'".format(self.Name,
+                                                           self.SessionNumber,
+                                                           self.SequenceNumber)
 
 
 class GPSData(object):
@@ -57,5 +59,6 @@ class GPSData(object):
         self.time = None
 
     def __repr__(self):
-        return "'GPS: lon./lat.: {} / {}; alt. {}, time {}'".format(self.longitude, self.latitude, self.altitude,
-                                                                    self.time)
+        return "'GPS: lon./lat.: {} / {}; alt. {}, time {}'".format(
+            self.longitude, self.latitude, self.altitude,
+            self.time)

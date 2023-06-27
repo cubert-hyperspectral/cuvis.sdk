@@ -14,7 +14,8 @@ class AsyncMesu(object):
         _ptr = cuvis_il.new_p_int()
         _pmesu = cuvis_il.new_p_int()
         cuvis_il.p_int_assign(_ptr, self.__handle__)
-        res = cuvis_il.cuvis_async_capture_get(_ptr, int(timeout.total_seconds() * 1000), _pmesu)
+        res = cuvis_il.cuvis_async_capture_get(_ptr, int(timeout.total_seconds()
+                                                         * 1000), _pmesu)
 
         ret = {
             "state": None,
@@ -49,7 +50,8 @@ class Async(object):
     def get(self, timeout):
         _ptr = cuvis_il.new_p_int()
         cuvis_il.p_int_assign(_ptr, self.__handle__)
-        res = cuvis_il.cuvis_async_call_get(_ptr, int(timeout.total_seconds() * 1000))
+        res = cuvis_il.cuvis_async_call_get(_ptr, int(timeout.total_seconds()
+                                                      * 1000))
 
         if res == cuvis_il.status_ok:
             return AsyncResult["done"]
