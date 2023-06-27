@@ -1,17 +1,18 @@
 #include "cuvis.h"
+
 #include <stdbool.h>
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
+
 #ifdef WIN32
-#include <Windows.h>
+  #include <Windows.h>
 #else
-#include <unistd.h>
+  #include <unistd.h>
 #endif
 
 int main(int argc, char* argv[])
 {
-
-     if (argc != 6)
+  if (argc != 6)
   {
     printf("To few Arguments! Please provide:\n");
     printf("user settings directory\n");
@@ -23,40 +24,34 @@ int main(int argc, char* argv[])
 
     return -1;
   }
+
   char* const userSettingsDir = argv[1];
   char* const factoryDir = argv[2];
   char* const recDir = argv[3];
   char* const exposureString = argv[4];
   char* const nrImagesString = argv[5];
 
-
   int exposure_ms = atoi(exposureString);
   int nrImages = atoi(nrImagesString);
 
-    printf("Example 05 record single image\n");
-    printf("User Settings Dir: ");
-    printf(userSettingsDir);
-    printf("\nFactory Dir: "); 
-    printf(factoryDir);
-    printf("\nRecording Dir: ");
-    printf(recDir);
-    printf("\nExposure in ms: %d\n", exposure_ms);
-    printf("Number of Images: %d\n", nrImages);
-    fflush(stdout);
- 
-
-
+  printf("Example 05 record single image\n");
+  printf("User Settings Dir: ");
+  printf(userSettingsDir);
+  printf("\nFactory Dir: ");
+  printf(factoryDir);
+  printf("\nRecording Dir: ");
+  printf(recDir);
+  printf("\nExposure in ms: %d\n", exposure_ms);
+  printf("Number of Images: %d\n", nrImages);
+  fflush(stdout);
 
   CUVIS_CALIB calib;
   CUVIS_ACQ_CONT acqCont;
   CUVIS_PROC_CONT procCont;
 
-
- printf("loading user settings...\n");
+  printf("loading user settings...\n");
   fflush(stdout);
-  CUVIS_CHECK(
-      cuvis_init(userSettingsDir));
-
+  CUVIS_CHECK(cuvis_init(userSettingsDir));
 
   printf("load calibration...\n");
   fflush(stdout);
@@ -69,7 +64,6 @@ int main(int argc, char* argv[])
   printf("load acquisition context...\n");
   fflush(stdout);
   CUVIS_CHECK(cuvis_acq_cont_create_from_calib(calib, &acqCont));
-
 
   printf("prepare saving of measurements... \n");
   fflush(stdout);
@@ -87,30 +81,27 @@ int main(int argc, char* argv[])
 
   strcpy(general_settings.export_dir, recDir);
 
-
   CUVIS_EXPORT_CUBE_SETTINGS cube_settings;
   cube_settings.allow_fragmentation = 0;
   cube_settings.allow_overwrite = 1;
-  cube_settings.allow_session_file = 0;
+  cube_settings.allow_session_file = 1;
 
   CUVIS_WORKER_SETTINGS worker_settings;
   worker_settings.keep_out_of_sequence = 1;
   worker_settings.poll_interval = 0;
   worker_settings.worker_count = 0;
-  worker_settings.worker_queue_size = 0;
+  worker_settings.worker_queue_hard_limit = 2;
+  worker_settings.worker_queue_soft_limit = 1;
+  worker_settings.can_drop = 0;
 
   cuvis_exporter_create_cube(&cube_exporter, general_settings, cube_settings);
-      
+
   CUVIS_WORKER worker;
   cuvis_worker_create(&worker, worker_settings);
-
-
 
   CUVIS_PROC_ARGS procArgs;
   procArgs.allow_recalib = 0;
   procArgs.processing_mode = Cube_Raw;
-
-
 
   printf("waiting for camera to become online...\n");
   fflush(stdout);
@@ -176,7 +167,6 @@ int main(int argc, char* argv[])
   cuvis_acq_cont_operation_mode_set(acqCont, OperationMode_Software);
   ACQ_SET_SINGLE_VALUE(cuvis_acq_cont_auto_exp, CUVIS_INT, 1);
 
-
   printf("start recording now\n");
   fflush(stdout);
 
@@ -184,7 +174,6 @@ int main(int argc, char* argv[])
   {
     CUVIS_MESU mesu;
     CUVIS_VIEW view;
-    
 
     printf("trigger image nr. %d/10 (software) \n", k + 1);
     fflush(stdout);
@@ -197,16 +186,14 @@ int main(int argc, char* argv[])
 
     if (hasNext)
     {
-      cuvis_worker_get_next_result(worker, &mesu, &view);
+      cuvis_worker_get_next_result(worker, &mesu, &view, -1);
       printf("recorded mesu (id %d)\n", k);
       printf("process mesu  (id %d)\n", k);
       fflush(stdout);
       CUVIS_CHECK(cuvis_proc_cont_set_args(procCont, procArgs));
       CUVIS_CHECK(cuvis_proc_cont_apply(procCont, mesu));
 
-
-
-      printf("save to cu3   (id %d) \n", k);
+      printf("save to cu3s   (id %d) \n", k);
       fflush(stdout);
       //the cube exporter exports the measurement and sets the path in the measurement's meta-data
       cuvis_exporter_apply(cube_exporter, mesu);
@@ -214,7 +201,7 @@ int main(int argc, char* argv[])
       CUVIS_MESU_METADATA mesu_data;
       CUVIS_CHECK(cuvis_measurement_get_metadata(mesu, &mesu_data));
 
-      printf("location: %s/%s.cu3\n", mesu_data.path, mesu_data.name);
+      printf("location: %s/%s.cu3s\n", mesu_data.path, mesu_data.name);
 
       printf("release mesu  (id %d)\n", k);
       fflush(stdout);
@@ -231,7 +218,6 @@ int main(int argc, char* argv[])
   }
   printf("done. cleaning up...\n");
   fflush(stdout);
-
 
   cuvis_exporter_free(&cube_exporter);
   cuvis_proc_cont_free(&procCont);

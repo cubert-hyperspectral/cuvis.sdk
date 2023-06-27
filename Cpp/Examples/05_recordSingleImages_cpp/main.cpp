@@ -5,26 +5,23 @@
 
 int main(int argc, char* argv[])
 {
-  
   if (argc != 6)
   {
-    std::cout << std::endl << "To few Arguments! Please provide:" << std::endl;
+    std::cout << std::endl << "Too few Arguments! Please provide:" << std::endl;
     std::cout << "user settings directory" << std::endl;
     std::cout << "factory directory" << std::endl;
     std::cout << "name of recording directory" << std::endl;
     std::cout << "exposure time in ms" << std::endl;
     std::cout << "number of images" << std::endl;
 
-
     return -1;
   }
- 
+
   char* const userSettingsDir = argv[1];
   char* const factoryDir = argv[2];
   char* const recDir = argv[3];
   char* const exposureString = argv[4];
   char* const nrImagesString = argv[5];
-  
 
   int exposure_ms = std::stoi(exposureString);
   int nrImages = std::stoi(nrImagesString);
@@ -48,7 +45,7 @@ int main(int argc, char* argv[])
   cuvis::SaveArgs saveArgs;
   saveArgs.allow_overwrite = true;
   saveArgs.export_dir = recDir;
-  saveArgs.allow_session_file = false; //comment to produce *.cu3s files instead of *.cu3 files. *.cu3s files are currently not yet supported in Cuvis Touch. 
+  saveArgs.allow_session_file = true;
 
   cuvis::CubeExporter exporter(saveArgs);
 
@@ -61,7 +58,6 @@ int main(int argc, char* argv[])
   acq.set_operation_mode(cuvis::operation_mode_t::OperationMode_Software).get();
   acq.set_integration_time(exposure_ms).get();
 
-
   std::cout << "Start recording now" << std::endl;
   for (int k = 0; k < nrImages; k++)
   {
@@ -71,7 +67,7 @@ int main(int argc, char* argv[])
     if (mesu_res.first == cuvis::async_result_t::done &&
         mesu_res.second.has_value())
     {
-      auto & mesu = mesu_res.second.value();
+      auto& mesu = mesu_res.second.value();
 
       proc.apply(mesu);
       exporter.apply(mesu);

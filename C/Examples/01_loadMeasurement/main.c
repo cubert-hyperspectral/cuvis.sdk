@@ -4,21 +4,21 @@
 #include <stdint.h>
 #include <stdio.h>
 
-
-
 int main(int argc, char* argv[])
 {
   if (argc != 3)
   {
     printf("To few Arguments! Please provide:\n");
     printf("user settings directory\n");
-    printf("measurement file (.cu3)\n");
+    printf("sessionfile (.cu3s)\n");
 
     return -1;
   }
-  char* const userSettingsDir = argv[1];
-  char* const measurementLoc = argv[2];
 
+  char* const userSettingsDir = argv[1];
+  char* const sessionLoc = argv[2];
+
+  CUVIS_SESSION_FILE sess;
   CUVIS_MESU mesu1;
   unsigned chn;
 
@@ -28,19 +28,22 @@ int main(int argc, char* argv[])
   const uint16_t* cube16bit;
   //const uint16_t* info_ptr;
 
-
   printf("Example 01 load measurement\n");
   printf("\nUser Settings Dir: ");
   printf(userSettingsDir);
-  printf("\nmeasurement file (.cu3): ");
-  printf(measurementLoc);
+  printf("\nsessionfile (.cu3s): ");
+  printf(sessionLoc);
 
   printf("\nloading user settings...\n");
   CUVIS_CHECK(cuvis_init(userSettingsDir));
   CUVIS_CHECK(cuvis_set_log_level(loglevel_info));
 
+  printf("loading session...\n");
+  CUVIS_CHECK(cuvis_session_file_load(sessionLoc, &sess));
+
   printf("loading measurement...\n");
-  CUVIS_CHECK(cuvis_measurement_load(measurementLoc,&mesu1));
+  CUVIS_CHECK(cuvis_session_file_get_mesu(
+      sess, 0, session_item_type_frames_no_gaps, &mesu1));
 
   CUVIS_MESU_METADATA mesu_data;
   CUVIS_CHECK(cuvis_measurement_get_metadata(mesu1, &mesu_data));
@@ -60,7 +63,7 @@ int main(int argc, char* argv[])
       cuvis_measurement_get_data_image(mesu1, CUVIS_MESU_CUBE_KEY, &cube));
   CUVIS_IMBUFFER iminfo;
   cuvis_measurement_get_data_image(mesu1, CUVIS_MESU_CUBE_INFO_KEY, &iminfo);
-  
+
   CUVIS_CHECK(cuvis_measurement_get_metadata(mesu1, &mesu_data));
   if (mesu_data.measurement_flags & CUVIS_MESU_FLAG_OVERILLUMINATED)
   {
@@ -80,9 +83,7 @@ int main(int argc, char* argv[])
     printf("-- has GOOD reference --\n");
   }
 
-  printf(
-      "INFO cube No of channels: %d\n",
-      iminfo.channels);
+  printf("INFO cube No of channels: %d\n", iminfo.channels);
   printf("INFO cube width: %d\n", iminfo.width);
   printf("INFO cube height: %d\n", iminfo.height);
   printf("DATA cube width: %d\n", cube.width);
@@ -99,10 +100,9 @@ int main(int argc, char* argv[])
   //reinterpret as uint16
   cube16bit = (const uint16_t*)(cube.raw);
   //info_ptr = (const uint16_t*)(iminfo.raw);
-  
 
-  x = 15;
-  y = 20;
+  x = 120;
+  y = 200;
 
   assert(x < cube.width && "x index exceeds cube width");
   assert(y < cube.height && "x index exceeds cube width");
@@ -113,7 +113,6 @@ int main(int argc, char* argv[])
     // memory layout:
     //unsigned index = (y * cube.width + x) * cube.channels + chn;
     //uint16_t value = cube16bit[index];
-
 
     uint16_t value = IMBUFFER_GET(cube16bit, x, y, chn, cube);
     //only works with v3.X CUVIS data
@@ -126,7 +125,7 @@ int main(int argc, char* argv[])
         lambda,
         value
         //pixel_info);
-        );
+    );
   }
   printf(" \n");
 
@@ -134,17 +133,18 @@ int main(int argc, char* argv[])
   //{
   //  for (y = 0; y < cube.height; y++)
   //  {
-      // memory layout:
-      //unsigned index = (y * cube.width + x) * cube.channels + chn;
-      //uint16_t value = cube16bit[index];
+  // memory layout:
+  //unsigned index = (y * cube.width + x) * cube.channels + chn;
+  //uint16_t value = cube16bit[index];
 
-      //auto pixel_info = IMBUFFER_GET(info_ptr, x, y, 0, iminfo);
+  //auto pixel_info = IMBUFFER_GET(info_ptr, x, y, 0, iminfo);
 
-      //printf("%d; ", pixel_info);
+  //printf("%d; ", pixel_info);
   //  }
   //  printf(" \n");
   //}
 
   cuvis_measurement_free(&mesu1);
+  cuvis_session_file_free(&sess);
   printf("finished.\n");
 }
