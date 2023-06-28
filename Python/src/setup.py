@@ -80,7 +80,7 @@ __createManifest__([add_il])
 
 setup(
     name=name,
-    python_requires='== 3.9',
+    python_requires='>= 3.9, <3.10',
     version='3.2.0',
     packages=find_packages(),
     url='https://www.cubert-hyperspectral.com/',
