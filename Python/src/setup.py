@@ -69,9 +69,9 @@ def __createManifest__(subdirs):
     relative_paths = [os.path.relpath(path, current) for path in subdirs]
     with open(os.path.join(current, "MANIFEST.in"), "w") as manifest:
         manifest.writelines(
-            "recursive-include {} *.pyd".format(" ".join(relative_paths)))
+            "recursive-include {} *.pyd \n".format(" ".join(relative_paths)))
         manifest.writelines(
-            "recursive-include {} *.so".format(" ".join(relative_paths)))
+            "recursive-include {} *.so \n".format(" ".join(relative_paths)))
 
 
 add_il = os.path.join(os.path.dirname(__file__), "cuvis")
