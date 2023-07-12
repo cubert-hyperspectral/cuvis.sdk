@@ -19,7 +19,7 @@ class AcquisitionContext(object):
                     base.__handle__, _ptr):
                 raise SDKException()
             self.__handle__ = cuvis_il.p_int_value(_ptr)
-        if isinstance(base, SessionFile):
+        elif isinstance(base, SessionFile):
             _ptr = cuvis_il.new_p_int()
             if cuvis_il.status_ok != \
                     cuvis_il.cuvis_acq_cont_create_from_session_file(
