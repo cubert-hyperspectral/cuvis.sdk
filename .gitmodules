@@ -1,0 +1,21 @@
+[submodule "C/cuvis.c.examples"]
+	path = C/cuvis.c.examples
+	url = https://github.com/cubert-hyperspectral/cuvis.c.examples
+[submodule "C/cuvis.c"]
+	path = C/cuvis.c
+	url = https://github.com/cubert-hyperspectral/cuvis.c
+[submodule "Cpp/cuvis.cpp.examples"]
+	path = Cpp/cuvis.cpp.examples
+	url = https://github.com/cubert-hyperspectral/cuvis.cpp.examples
+[submodule "Cpp/cuvis.cpp"]
+	path = Cpp/cuvis.cpp
+	url = https://github.com/cubert-hyperspectral/cuvis.cpp
+[submodule "CSharp/cuvis.csharp.examples"]
+	path = CSharp/cuvis.csharp.examples
+	url = https://github.com/cubert-hyperspectral/cuvis.csharp.examples
+[submodule "CSharp/cuvis.csharp"]
+	path = CSharp/cuvis.csharp
+	url = https://github.com/cubert-hyperspectral/cuvis.csharp
+[submodule "Python/cuvis.pyil"]
+	path = Python/cuvis.pyil
+	url = https://github.com/cubert-hyperspectral/cuvis.pyil
