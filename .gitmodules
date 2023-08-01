@@ -19,3 +19,9 @@
 [submodule "Python/cuvis.pyil"]
 	path = Python/cuvis.pyil
 	url = https://github.com/cubert-hyperspectral/cuvis.pyil
+[submodule "Matlab/cuvis.matlab"]
+	path = Matlab/cuvis.matlab
+	url = https://github.com/cubert-hyperspectral/cuvis.matlab.git
+[submodule "Matlab/cuvis.matlab.examples"]
+	path = Matlab/cuvis.matlab.examples
+	url = https://github.com/cubert-hyperspectral/cuvis.matlab.examples.git
