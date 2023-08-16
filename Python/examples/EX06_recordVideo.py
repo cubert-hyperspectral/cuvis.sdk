@@ -42,7 +42,7 @@ def run_example_recordVideo(userSettingsDir=loc_settings,
                             fps=loc_fps):
     print("loading user settings...")
     settings = cuvis.General(userSettingsDir)
-    settings.setLogLevel("info")
+    settings.setLogLevel("debug")
 
     print("loading calibration (factory)...")
     calibration = cuvis.Calibration(factoryDir)
@@ -103,6 +103,7 @@ def run_example_recordVideo(userSettingsDir=loc_settings,
     worker.setProcessingContext(processingContext)
     worker.setExporter(cubeExporter)
 
+    worker.setQueueLimits({'hard_limit' : 100, 'soft_limit' : 90})
     print("recording...! (will stop after 2 minutes)")
     start = datetime.now()
     while (datetime.now() - start) < timedelta(minutes=2):
@@ -113,10 +114,10 @@ def run_example_recordVideo(userSettingsDir=loc_settings,
             else:
                 time.sleep(0.001)
 
-        workerContainer = worker.getNextResult()
+        workerContainer = worker.getNextResult(1000)
         if workerContainer["Measurement"].Data is not None:
             print("current handle index: {}".format(
-                workerContainer["Measurement"].get_metadata()[
+                workerContainer["Measurement"].getMetadata()[
                     "session_info_sequence_no"]))
             if worker.getQueueLimits()["soft_limit"] == worker.getQueueUsed():
                 print("worker queue is full! Main() loop can not keep up!")
@@ -159,6 +160,7 @@ if __name__ == "__main__":
         "Auto-exposure time [True/False] (default: {}): ".format(loc_autoexp))
     if autoExp.strip().lower() in ["", "default"]:
         autoExp = loc_autoexp
+    autoExp = int(autoExp)
 
     fps = input(
         "Target frames per second (fps) (default: {}): ".format(loc_fps))
