@@ -42,7 +42,7 @@ def run_example_recordVideo(userSettingsDir=loc_settings,
                             fps=loc_fps):
     print("loading user settings...")
     settings = cuvis.General(userSettingsDir)
-    settings.setLogLevel("debug")
+    settings.setLogLevel("info")
 
     print("loading calibration (factory)...")
     calibration = cuvis.Calibration(factoryDir)
