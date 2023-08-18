@@ -267,3 +267,43 @@ class CubertWorkerSettings(GeneralExportSettings):
         wa.__setattr__("soft_limit", int(self.WorkerQueueSoftLimit))
         wa.__setattr__("can_drop", int(self.CanDrop))
         return ge, wa
+
+class CubertViewerSettings(GeneralExportSettings):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.WorkerCount = 0
+        self.PollInterval = 10
+        self.KeepOutOfSequence = False
+        self.WorkerQueueHardLimit = 10
+        self.WorkerQueueSoftLimit = 10
+        self.CanDrop = True
+
+        self.check_kwargs(kwargs)
+
+        if len(kwargs) == 1 and isinstance(list(kwargs.values())[0],
+                                           cuvis_il.cuvis_viewer_settings_t):
+            wa = list(kwargs.values())[0]
+            self.WorkerCount = wa.worker_count
+            self.PollInterval = wa.poll_interval
+            self.KeepOutOfSequence = wa.keep_out_of_sequence > 0
+            self.WorkerQueueHardLimit = wa.hard_limit
+            self.WorkerQueueSoftLimit = wa.soft_limit
+            self.CanDrop = wa.can_drop == 1
+        elif len(kwargs) != 0:
+            raise SDKException(
+                "Could not handle input parameter(s) in CubertWorkerArgs: "
+                "{}".format(kwargs.keys()))
+
+        pass
+
+    def getInternal(self):
+        ge = super().getInternal()
+        wa = cuvis_il.cuvis_worker_settings_t()
+        wa.__setattr__("worker_count", int(self.WorkerCount))
+        wa.__setattr__("poll_interval", int(self.PollInterval))
+        wa.__setattr__("keep_out_of_sequence", int(self.KeepOutOfSequence))
+        wa.__setattr__("hard_limit", int(self.WorkerQueueHardLimit))
+        wa.__setattr__("soft_limit", int(self.WorkerQueueSoftLimit))
+        wa.__setattr__("can_drop", int(self.CanDrop))
+        return ge, wa
+

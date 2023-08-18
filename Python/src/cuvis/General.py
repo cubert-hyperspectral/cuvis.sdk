@@ -4,7 +4,8 @@ import platform
 
 from . import cuvis_il
 from .cuvis_aux import SDKException
-from .cuvis_types import ComponentType
+from .cuvis_types import ComponentType, PanSharpeningInterpolationType, \
+    PanSharpeningAlgorithm
 
 
 class General(object):
@@ -21,7 +22,7 @@ class General(object):
             log_path = os.getenv('APPDATA') + os.sep + ".cuvis" + os.sep
             if not os.path.exists(log_path):
                 os.mkdir(log_path)
-                
+
         if os.path.exists(log_path):
             logging.basicConfig(filename=log_path + "cuvisSDK_python.log",
                                 format=FORMAT,
@@ -57,7 +58,19 @@ class General(object):
         logging.basicConfig(level=lvl_dict[lvl]["logging"])
 
 
+def check_kwargs(self, kwargs):
+    [self.__setattr__(key, kwargs.pop(key, None)) for
+     key in kwargs.copy().keys() if key in self.__dict__.keys()]
+    pass
+
+
 class ComponentInfo(object):
+
+    def check_kwargs(self, kwargs):
+        [self.__setattr__(key, kwargs.pop(key, None)) for
+         key in kwargs.copy().keys() if key in self.__dict__.keys()]
+        pass
+
     def __init__(self, **kwargs):
         self.Type = None
         self.DisplayName = None
@@ -65,8 +78,7 @@ class ComponentInfo(object):
         self.UserField = None
         self.PixelFormat = None
 
-        [self.__setattr__(key, kwargs.pop(key, None)) for key in self.__dict__
-         if not key.startswith("__")]
+        self.check_kwargs(kwargs)
 
         if all([getattr(self, key) is None for key in self.__dict__ if
                 not key.startswith("__")]):
@@ -98,3 +110,65 @@ class ComponentInfo(object):
         ci.__setattr__("userfield", self.UserField)
         ci.__setattr__("pixelformat", self.PixelFormat)
         return ci
+
+
+class ViewerSettings(object):
+
+    def check_kwargs(self, kwargs):
+        [self.__setattr__(key, kwargs.pop(key, None)) for
+         key in kwargs.copy().keys() if key in self.__dict__.keys()]
+        pass
+
+    def __init__(self, **kwargs):
+        self.Userplugin = None
+        self.PanScale = 0.0
+        self.PanSharpeningInterpolationType = "Linear"
+        self.PanSharpeningAlgorithmType = "CubertMacroPixel"
+        self.Complete = True
+        self.BlendOpacity = 1.0
+
+        self.check_kwargs(kwargs)
+
+        if len(kwargs) == 1 and isinstance(
+                list(kwargs.values())[0],
+                cuvis_il.cuvis_viewer_settings_t):
+            vs = list(kwargs.values())[0]
+            self.Userplugin = vs.userplugin
+            self.PanScale = vs.pan_scale
+            self.PanSharpeningInterpolationType = \
+                [key for key, val in PanSharpeningInterpolationType.items() if
+                 val == vs.pan_interpolation_type][0]
+            self.PanSharpeningAlgorithmType = \
+                [key for key, val in PanSharpeningAlgorithm.items() if
+                 val == vs.pan_algorithm][0]
+            self.Complete = vs.complete > 0
+            self.BlendOpacity = vs.blend_opacity
+
+        elif len(kwargs) != 0:
+            raise SDKException(
+                "Could not handle input parameter(s) in ViewExportSettings: "
+                "{}".format(kwargs.keys()))
+        pass
+
+        if '<userplugin xmlns=' \
+           '"http://cubert-gmbh.de/user/plugin/userplugin.xsd">' not \
+                in self.Userplugin:
+            try:
+                with open(self.Userplugin) as f:
+                    userplugintmp = f.readlines()
+                self.Userplugin = "".join(userplugintmp)
+            except:
+                raise ValueError(
+                    "Could not read plugin from {}".format(self.Userplugin))
+
+    def getInternal(self):
+        vs = cuvis_il.cuvis_viewer_settings_t()
+        vs.__setattr__("userplugin", self.Userplugin)
+        vs.__setattr__("pan_scale", float(self.PanScale))
+        vs.__setattr__("pan_interpolation_type", PanSharpeningInterpolationType[
+            self.PanSharpeningInterpolationType])
+        vs.__setattr__("pan_algorithm", PanSharpeningAlgorithm[
+            self.PanSharpeningAlgorithmType])
+        vs.__setattr__("complete", int(self.Complete))
+        vs.__setattr__("blend_opacity", self.BlendOpacity)
+        return vs

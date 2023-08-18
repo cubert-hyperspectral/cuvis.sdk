@@ -25,7 +25,7 @@ from .FileWriteSettings import GeneralExportSettings, CubertSaveArgs, \
     CubertProcessingArgs, \
     EnviExportSettings, TiffExportSettings, ViewExportSettings, \
     CubertWorkerSettings
-from .General import General
+from .General import General, ViewerSettings
 from .Measurement import Measurement
 from .ProcessingContext import ProcessingContext
 from .SessionFile import SessionFile
