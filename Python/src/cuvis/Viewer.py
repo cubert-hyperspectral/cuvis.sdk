@@ -9,12 +9,12 @@ class Viewer(object):
         self.__handle__ = None
         self.ViewerSettings = settings
 
-        if isinstance(settings, int):
-            self.__handle__ = settings
-        if isinstance(self.ViewerSettings, cuvis_il.cuvis_viewer_settings_t):
+        _ptr = cuvis_il.new_p_int()
+        settings = settings.getInternal()
+        if isinstance(settings, cuvis_il.cuvis_viewer_settings_t):
             _ptr = cuvis_il.new_p_int()
             if cuvis_il.status_ok != cuvis_il.cuvis_viewer_create(
-                    _ptr, self.ViewerSettings):
+                    _ptr, settings):
                 raise SDKException()
             self.__handle__ = cuvis_il.p_int_value(_ptr)
         else:
