@@ -22,3 +22,9 @@
 [submodule "examples/cuvis.python"]
 	path = examples/cuvis.python
 	url = https://github.com/cubert-hyperspectral/cuvis.python.examples
+[submodule "cuvis.matlab"]
+	path = cuvis.matlab
+	url = https://github.com/cubert-hyperspectral/cuvis.matlab
+[submodule "examples/cuvis.matlab"]
+	path = examples/cuvis.matlab
+	url = https://github.com/cubert-hyperspectral/cuvis.matlab.examples
