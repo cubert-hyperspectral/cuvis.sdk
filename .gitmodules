@@ -10,21 +10,22 @@
 [submodule "cuvis.python"]
 	path = cuvis.python
 	url = https://github.com/cubert-hyperspectral/cuvis.python
-[submodule "examples/cuvis.c"]
-	path = examples/cuvis.c
-	url = https://github.com/cubert-hyperspectral/cuvis.c.examples
-[submodule "examples/cuvis.cpp"]
-	path = examples/cuvis.cpp
-	url = https://github.com/cubert-hyperspectral/cuvis.cpp.examples
-[submodule "examples/cuvis.csharp"]
-	path = examples/cuvis.csharp
-	url = https://github.com/cubert-hyperspectral/cuvis.csharp.examples
-[submodule "examples/cuvis.python"]
-	path = examples/cuvis.python
-	url = https://github.com/cubert-hyperspectral/cuvis.python.examples
 [submodule "cuvis.matlab"]
 	path = cuvis.matlab
 	url = https://github.com/cubert-hyperspectral/cuvis.matlab
-[submodule "examples/cuvis.matlab"]
-	path = examples/cuvis.matlab
+
+[submodule "examples/cuvis.matlab.examples"]
+	path = examples/cuvis.matlab.examples
 	url = https://github.com/cubert-hyperspectral/cuvis.matlab.examples
+[submodule "examples/cuvis.c.examples"]
+	path = examples/cuvis.c.examples
+	url = https://github.com/cubert-hyperspectral/cuvis.c.examples
+[submodule "examples/cuvis.cpp.examples"]
+	path = examples/cuvis.cpp.examples
+	url = https://github.com/cubert-hyperspectral/cuvis.cpp.examples
+[submodule "examples/cuvis.csharp.examples"]
+	path = examples/cuvis.csharp.examples
+	url = https://github.com/cubert-hyperspectral/cuvis.csharp.examples
+[submodule "examples/cuvis.python.examples"]
+	path = examples/cuvis.python.examples
+	url = https://github.com/cubert-hyperspectral/cuvis.python.examples
