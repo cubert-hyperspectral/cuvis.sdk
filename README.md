@@ -1,4 +1,4 @@
-![image](https://raw.githubusercontent.com/cubert-hyperspectral/cuvis.sdk/main/branding/logo/banner.png)
+![image](https://raw.githubusercontent.com/cubert-hyperspectral/cuvis.sdk/feature/fix_broken_logo_link/branding/logo/banner.png)
 
 # cuvis.sdk
 
