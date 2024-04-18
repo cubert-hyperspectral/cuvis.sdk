@@ -3,7 +3,8 @@
 # cuvis.sdk
 - **Website:** https://www.cubert-hyperspectral.com/
 - **Source code:** https://github.com/cubert-hyperspectral/
-- **Support:** http://support.cubert-hyperspectral.com/This repository contains __everything you need__ to connect and integrate __Cubert hyperspectral cameras__ into your processing pipeline in __various programming languages__. Even without a camera, you can start straight ahead with the __demo data provided__. 
+- **Support:** http://support.cubert-hyperspectral.com/
+This repository contains __everything you need__ to connect and integrate __Cubert hyperspectral cameras__ into your processing pipeline in __various programming languages__. Even without a camera, you can start straight ahead with the __demo data provided__. 
 
 The supported wrappers can be found in the top-level folder named after the respective languages. Notice that these are submodules linking to other cuvis repositories.
 The examples for all those wrappers can be found in the `examples` folder named after the respective language.
