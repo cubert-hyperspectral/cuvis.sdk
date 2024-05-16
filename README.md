@@ -11,7 +11,7 @@ This repository contains __everything you need__ to connect and integrate __Cube
 The supported wrappers can be found in the top-level folder named after the respective languages. Notice that these are submodules linking to other cuvis repositories.
 The examples for all those wrappers can be found in the `examples` folder named after the respective language.
 
-Further, we provide a set of example measurements to explore [here](https://cloud.cubert-gmbh.de/index.php/s/3oECVGWpC1NpNqC).
+Further, we provide a set of example measurements to explore [here](https://cloud.cubert-gmbh.de/s/SrkSRja5FKGS2Tw).
 These measurements are also used by the examples mentioned above.
 Also in the folder `sample_data` you can find a description of the provided data.
 
