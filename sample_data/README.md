@@ -2,7 +2,7 @@
 
 You can download sample data from Cubert Hyperspectral Cameras with the following link:
 
-https://cloud.cubert-gmbh.de/index.php/s/3oECVGWpC1NpNqC
+https://cloud.cubert-gmbh.de/s/SrkSRja5FKGS2Tw
 
 
 #### __cuvis_3.21_sample_data__: Extract this dataset into the cuvis.sdk/SampleData/ directory to work with the examples given in C/C++/Python/C#
