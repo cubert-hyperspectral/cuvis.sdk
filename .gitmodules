@@ -11,11 +11,11 @@
 	path = cuvis.python
 	url = https://github.com/cubert-hyperspectral/cuvis.python
 [submodule "cuvis.matlab"]
-	path = cuvis.matlab
+	path = deprecated/cuvis.matlab
 	url = https://github.com/cubert-hyperspectral/cuvis.matlab
 
 [submodule "examples/cuvis.matlab.examples"]
-	path = examples/cuvis.matlab.examples
+	path = deprecated/examples/cuvis.matlab.examples
 	url = https://github.com/cubert-hyperspectral/cuvis.matlab.examples
 [submodule "examples/cuvis.c.examples"]
 	path = examples/cuvis.c.examples
