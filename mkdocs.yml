@@ -5,6 +5,8 @@ edit_uri: blob/main/docs/
 
 theme:
   name: material
+  logo: assets/cubert_icon_light.png
+  favicon: assets/cubert_icon_light.png
   palette:
     - media: "(prefers-color-scheme: light)"
       primary: deep orange
