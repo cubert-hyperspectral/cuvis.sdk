@@ -54,11 +54,17 @@
   outline-offset: 1px;
 }
 
+.sdk-installer__toggles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin: 0.5rem 0 1rem;
+}
+
 .sdk-installer__toggle {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  margin: 0.5rem 0 1rem;
   font-size: 0.85rem;
   color: var(--md-default-fg-color--light);
   cursor: pointer;

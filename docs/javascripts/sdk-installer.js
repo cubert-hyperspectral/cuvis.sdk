@@ -238,11 +238,16 @@
     }
 
     let includePrerelease = form.dataset.prerelease === "1";
+    let includeJetsonExp = form.dataset.jetsonExp === "1";
 
     function visibleReleases() {
       return includePrerelease
         ? releases
         : releases.filter((r) => !r.prerelease);
+    }
+
+    function osIsExperimental(os) {
+      return /-jetson-experimental$/.test(os);
     }
 
     function render() {
@@ -268,7 +273,11 @@
       if (current) versionTag = current.release.tag_name;
 
       const osesAvailable = current
-        ? uniqueSorted(current.patternA.map((a) => a.os))
+        ? uniqueSorted(
+            current.patternA
+              .filter((a) => includeJetsonExp || !osIsExperimental(a.os))
+              .map((a) => a.os)
+          )
         : [];
       let os =
         form.dataset.os && osesAvailable.includes(form.dataset.os)
@@ -305,6 +314,7 @@
         form.dataset.arch = arch || "";
         form.dataset.cuda = cuda || "";
         form.dataset.prerelease = includePrerelease ? "1" : "0";
+        form.dataset.jetsonExp = includeJetsonExp ? "1" : "0";
       }
 
       function rerender() {
@@ -376,22 +386,44 @@
 
       form.appendChild(grid);
 
-      // Pre-release toggle.
-      const preWrap = el("label", { className: "sdk-installer__toggle" });
-      const preCheck = el("input", { type: "checkbox" });
-      preCheck.checked = includePrerelease;
-      preCheck.addEventListener("change", (e) => {
-        includePrerelease = e.target.checked;
-        // Drop tag/os/arch/cuda — the visible set just changed.
+      // Toggles. Each one drops the cached selection because the visible
+      // set changes; the next render() picks the first valid option.
+      const toggles = el("div", { className: "sdk-installer__toggles" });
+
+      function makeToggle(labelText, checked, onChange) {
+        const wrap = el("label", { className: "sdk-installer__toggle" });
+        const box = el("input", { type: "checkbox" });
+        box.checked = checked;
+        box.addEventListener("change", (e) => onChange(e.target.checked));
+        wrap.appendChild(box);
+        wrap.appendChild(document.createTextNode(" " + labelText));
+        return wrap;
+      }
+
+      function clearSelection() {
         versionTag = os = arch = cuda = undefined;
         form.dataset.version = form.dataset.os = form.dataset.arch = form.dataset.cuda = "";
-        rerender();
-      });
-      preWrap.appendChild(preCheck);
-      preWrap.appendChild(
-        document.createTextNode(" Show pre-release builds")
+      }
+
+      toggles.appendChild(
+        makeToggle("Show pre-release builds", includePrerelease, (checked) => {
+          includePrerelease = checked;
+          clearSelection();
+          rerender();
+        })
       );
-      form.appendChild(preWrap);
+      toggles.appendChild(
+        makeToggle(
+          "Show Jetson (experimental) builds",
+          includeJetsonExp,
+          (checked) => {
+            includeJetsonExp = checked;
+            clearSelection();
+            rerender();
+          }
+        )
+      );
+      form.appendChild(toggles);
 
       if (!current) return;
 
