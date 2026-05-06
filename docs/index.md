@@ -18,12 +18,10 @@ the SDK and finding the language binding that fits your project.
 Each wrapper lives in a top-level submodule of
 [`cuvis.sdk`](https://github.com/cubert-hyperspectral/cuvis.sdk):
 
-| Language | Repository |
-| --- | --- |
-| C        | [cuvis.c](https://github.com/cubert-hyperspectral/cuvis.c) |
-| C++      | [cuvis.cpp](https://github.com/cubert-hyperspectral/cuvis.cpp) |
-| C#       | [cuvis.csharp](https://github.com/cubert-hyperspectral/cuvis.csharp) |
-| Python   | [cuvis.python](https://github.com/cubert-hyperspectral/cuvis.python) |
+- **C** — [`cuvis.c`](https://github.com/cubert-hyperspectral/cuvis.c)
+- **C++** — [`cuvis.cpp`](https://github.com/cubert-hyperspectral/cuvis.cpp)
+- **C#** — [`cuvis.csharp`](https://github.com/cubert-hyperspectral/cuvis.csharp)
+- **Python** — [`cuvis.python`](https://github.com/cubert-hyperspectral/cuvis.python)
 
 The example code for each lives in `examples/<language>/` in the umbrella
 repo. Sample measurements (no camera required) are described in
