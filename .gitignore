@@ -36,3 +36,7 @@ cubert_env/
 /Python/src/cuvis/examples/
 /Python/examples/EX02_reprocessed/
 /Python/examples/EX03_export/
+
+# Local mirror of Cuvis SDK installers (downloaded from Nextcloud,
+# uploaded to GitHub Releases via gh release upload — never committed).
+_assets/
