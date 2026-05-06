@@ -29,22 +29,18 @@
     cuviscommon: "cuviscommon",
   };
 
-  const OS_LABEL = {
-    Windows: "Windows",
-    macOS: "macOS",
-    "Ubuntu20.04": "Ubuntu 20.04",
-    "Ubuntu22.04": "Ubuntu 22.04",
-    "Ubuntu24.04": "Ubuntu 24.04",
-    "Ubuntu20.04-jetson": "Ubuntu 20.04 (Jetson)",
-    "Ubuntu22.04-jetson": "Ubuntu 22.04 (Jetson)",
-    "Ubuntu24.04-jetson": "Ubuntu 24.04 (Jetson)",
-    "Ubuntu20.04-jetson-experimental": "Ubuntu 20.04 (Jetson, experimental)",
-    "Ubuntu22.04-jetson-experimental": "Ubuntu 22.04 (Jetson, experimental)",
-    "Ubuntu24.04-jetson-experimental": "Ubuntu 24.04 (Jetson, experimental)",
-  };
+  function osBucket(os) {
+    if (os.endsWith("-jetson-experimental")) {
+      return "Ubuntu (Jetson, experimental)";
+    }
+    if (os.endsWith("-jetson")) return "Ubuntu (Jetson)";
+    if (os.startsWith("Ubuntu")) return "Ubuntu";
+    return os;
+  }
 
-  function osLabel(os) {
-    return OS_LABEL[os] || os;
+  function osVersionOf(os) {
+    const m = os.match(/^Ubuntu([\d.]+)/);
+    return m ? m[1] : null;
   }
 
   function cudaLabel(cuda) {
@@ -158,7 +154,8 @@
   }
 
   function renderInstallCommand(osBucket, byRole) {
-    if (osBucket === "Ubuntu") {
+    // Treat Ubuntu and any Ubuntu-Jetson flavor as the .deb-pair install path.
+    if (osBucket.startsWith("Ubuntu")) {
       const common = byRole.cuviscommon;
       const lib = byRole.libcuvis;
       if (!common || !lib) return null;
@@ -272,37 +269,57 @@
         indexed.find((i) => i.release.tag_name === versionTag) || indexed[0];
       if (current) versionTag = current.release.tag_name;
 
-      const osesAvailable = current
-        ? uniqueSorted(
-            current.patternA
-              .filter((a) => includeJetsonExp || !osIsExperimental(a.os))
-              .map((a) => a.os)
+      const filteredAssets = current
+        ? current.patternA.filter(
+            (a) => includeJetsonExp || !osIsExperimental(a.os)
           )
         : [];
-      let os =
-        form.dataset.os && osesAvailable.includes(form.dataset.os)
-          ? form.dataset.os
-          : osesAvailable[0];
 
-      const archesAvailable = current
-        ? uniqueSorted(
-            current.patternA
-              .filter((a) => a.os === os)
-              .map((a) => a.arch)
-          )
-        : [];
+      const bucketsAvailable = uniqueSorted(
+        filteredAssets.map((a) => osBucket(a.os))
+      );
+      let bucket =
+        form.dataset.osBucket &&
+        bucketsAvailable.includes(form.dataset.osBucket)
+          ? form.dataset.osBucket
+          : bucketsAvailable[0];
+
+      const inBucket = filteredAssets.filter(
+        (a) => osBucket(a.os) === bucket
+      );
+
+      const osVersionsAvailable = uniqueSorted(
+        inBucket.map((a) => osVersionOf(a.os)).filter((v) => v !== null)
+      );
+      let osVersion;
+      if (osVersionsAvailable.length === 0) {
+        osVersion = null;
+      } else if (
+        form.dataset.osVersion &&
+        osVersionsAvailable.includes(form.dataset.osVersion)
+      ) {
+        osVersion = form.dataset.osVersion;
+      } else {
+        osVersion = osVersionsAvailable[0];
+      }
+
+      const inBucketVersion = inBucket.filter(
+        (a) => osVersion === null || osVersionOf(a.os) === osVersion
+      );
+
+      const archesAvailable = uniqueSorted(
+        inBucketVersion.map((a) => a.arch)
+      );
       let arch =
         form.dataset.arch && archesAvailable.includes(form.dataset.arch)
           ? form.dataset.arch
           : archesAvailable[0];
 
-      const cudasAvailable = current
-        ? uniqueSorted(
-            current.patternA
-              .filter((a) => a.os === os && a.arch === arch)
-              .map((a) => a.cuda)
-          )
-        : [];
+      const cudasAvailable = uniqueSorted(
+        inBucketVersion
+          .filter((a) => a.arch === arch)
+          .map((a) => a.cuda)
+      );
       let cuda =
         form.dataset.cuda && cudasAvailable.includes(form.dataset.cuda)
           ? form.dataset.cuda
@@ -310,7 +327,8 @@
 
       function persist() {
         form.dataset.version = versionTag || "";
-        form.dataset.os = os || "";
+        form.dataset.osBucket = bucket || "";
+        form.dataset.osVersion = osVersion || "";
         form.dataset.arch = arch || "";
         form.dataset.cuda = cuda || "";
         form.dataset.prerelease = includePrerelease ? "1" : "0";
@@ -336,8 +354,12 @@
             versionTag,
             (e) => {
               versionTag = e.target.value;
-              os = arch = cuda = undefined;
-              form.dataset.os = form.dataset.arch = form.dataset.cuda = "";
+              bucket = osVersion = arch = cuda = undefined;
+              form.dataset.osBucket =
+                form.dataset.osVersion =
+                form.dataset.arch =
+                form.dataset.cuda =
+                  "";
               rerender();
             }
           ).wrap
@@ -346,16 +368,35 @@
           buildSelect(
             "sdk-os",
             "OS",
-            osesAvailable.map((o) => ({ value: o, label: osLabel(o) })),
-            os,
+            bucketsAvailable.map((b) => ({ value: b, label: b })),
+            bucket,
             (e) => {
-              os = e.target.value;
-              arch = cuda = undefined;
-              form.dataset.arch = form.dataset.cuda = "";
+              bucket = e.target.value;
+              osVersion = arch = cuda = undefined;
+              form.dataset.osVersion =
+                form.dataset.arch =
+                form.dataset.cuda =
+                  "";
               rerender();
             }
           ).wrap
         );
+        if (osVersionsAvailable.length > 0) {
+          grid.appendChild(
+            buildSelect(
+              "sdk-os-version",
+              "OS version",
+              osVersionsAvailable.map((v) => ({ value: v, label: v })),
+              osVersion,
+              (e) => {
+                osVersion = e.target.value;
+                arch = cuda = undefined;
+                form.dataset.arch = form.dataset.cuda = "";
+                rerender();
+              }
+            ).wrap
+          );
+        }
         grid.appendChild(
           buildSelect(
             "sdk-arch",
@@ -401,8 +442,13 @@
       }
 
       function clearSelection() {
-        versionTag = os = arch = cuda = undefined;
-        form.dataset.version = form.dataset.os = form.dataset.arch = form.dataset.cuda = "";
+        versionTag = bucket = osVersion = arch = cuda = undefined;
+        form.dataset.version =
+          form.dataset.osBucket =
+          form.dataset.osVersion =
+          form.dataset.arch =
+          form.dataset.cuda =
+            "";
       }
 
       toggles.appendChild(
@@ -428,7 +474,11 @@
       if (!current) return;
 
       const matching = current.patternA.filter(
-        (a) => a.os === os && a.arch === arch && a.cuda === cuda
+        (a) =>
+          osBucket(a.os) === bucket &&
+          osVersionOf(a.os) === osVersion &&
+          a.arch === arch &&
+          a.cuda === cuda
       );
       const output = el("div", { className: "sdk-installer__output" });
 
@@ -445,8 +495,7 @@
       } else {
         const byRole = {};
         for (const a of matching) byRole[PKG_ROLE[a.pkg]] = a;
-        const osBucket = os.startsWith("Ubuntu") ? "Ubuntu" : os;
-        const cmd = renderInstallCommand(osBucket, byRole);
+        const cmd = renderInstallCommand(bucket, byRole);
         if (cmd) {
           output.appendChild(
             el("h3", {
