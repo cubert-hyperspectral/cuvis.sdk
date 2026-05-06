@@ -47,6 +47,58 @@
     return cuda === "nocuda" ? "No CUDA" : cuda.replace(/^cuda/, "CUDA ");
   }
 
+  // Best-guess OS bucket from the browser. Returns one of the bucket strings
+  // produced by osBucket() — 'Windows', 'macOS', 'Ubuntu' — or null.
+  let _detectedBucket;
+  function detectOsBucket() {
+    if (_detectedBucket !== undefined) return _detectedBucket;
+    const ua = (navigator.userAgent || "").toLowerCase();
+    const platformRaw =
+      (navigator.userAgentData && navigator.userAgentData.platform) ||
+      navigator.platform ||
+      "";
+    const platform = platformRaw.toLowerCase();
+    if (platform.includes("win") || ua.includes("windows")) {
+      _detectedBucket = "Windows";
+    } else if (
+      platform.includes("mac") ||
+      ua.includes("mac os") ||
+      ua.includes("macintosh")
+    ) {
+      _detectedBucket = "macOS";
+    } else if (platform.includes("linux") || ua.includes("linux")) {
+      _detectedBucket = "Ubuntu";
+    } else {
+      _detectedBucket = null;
+    }
+    return _detectedBucket;
+  }
+
+  // Switch any pymdownx-tabbed group on the page to the tab matching the
+  // current OS bucket. Tab labels we care about:
+  //   'Windows (PowerShell)' for Windows
+  //   'Ubuntu / macOS'       for everything else
+  // Skips if the bucket hasn't changed since the last sync, so a user who
+  // manually clicked a different tab isn't yanked back on every re-render.
+  let _lastSyncedBucket = null;
+  function syncTabsToBucket(bucket) {
+    if (!bucket || bucket === _lastSyncedBucket) return;
+    _lastSyncedBucket = bucket;
+    const wantsWindows = bucket === "Windows";
+    const labels = document.querySelectorAll(".tabbed-labels label");
+    for (const label of labels) {
+      const text = label.textContent || "";
+      const isWindowsTab = /windows|powershell/i.test(text);
+      const isUbuntuMacTab = /ubuntu|mac/i.test(text);
+      const shouldCheck = wantsWindows ? isWindowsTab : isUbuntuMacTab;
+      if (!shouldCheck) continue;
+      const id = label.getAttribute("for");
+      if (!id) continue;
+      const input = document.getElementById(id);
+      if (input && input.type === "radio") input.checked = true;
+    }
+  }
+
   function readCache() {
     try {
       const raw = localStorage.getItem(CACHE_KEY);
@@ -218,6 +270,9 @@
   async function run() {
     const form = document.getElementById("cuvis-sdk-installer");
     if (!form) return;
+    // Material's `navigation.instant` rebinds the same JS module on each
+    // page swap; reset so the new page's tabs get synced once.
+    _lastSyncedBucket = null;
 
     let releases;
     try {
@@ -278,11 +333,19 @@
       const bucketsAvailable = uniqueSorted(
         filteredAssets.map((a) => osBucket(a.os))
       );
-      let bucket =
+      let bucket;
+      if (
         form.dataset.osBucket &&
         bucketsAvailable.includes(form.dataset.osBucket)
-          ? form.dataset.osBucket
-          : bucketsAvailable[0];
+      ) {
+        bucket = form.dataset.osBucket;
+      } else {
+        const detected = detectOsBucket();
+        bucket =
+          detected && bucketsAvailable.includes(detected)
+            ? detected
+            : bucketsAvailable[0];
+      }
 
       const inBucket = filteredAssets.filter(
         (a) => osBucket(a.os) === bucket
@@ -339,6 +402,10 @@
         persist();
         render();
       }
+
+      // Sync the page-level pymdownx-tabbed groups to the picked OS bucket.
+      // No-op if the bucket hasn't changed since the last sync.
+      syncTabsToBucket(bucket);
 
       const grid = el("div", { className: "sdk-installer__grid" });
 
