@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cuvis-sdk-url"
+version = "0.1.0"
+description = "Resolve Cuvis SDK release-asset URLs from GitHub Releases"
+requires-python = ">=3.10"
+dependencies = []  # stdlib only
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[tool.setuptools]
+py-modules = ["cuvis_sdk_url"]
