@@ -637,7 +637,7 @@
         }
         const details = el(
           "details",
-          { className: "sdk-installer__details" },
+          { className: "sdk-installer__details", open: "" },
           el("summary", { textContent: "Direct download links" }),
           dl
         );
