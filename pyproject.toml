@@ -11,11 +11,11 @@ docs = [
     "mkdocs-material>=9.5.0",
     "mkdocs-macros-plugin>=1.0.0",
     "mkdocs-llmstxt>=0.2",
-    "cuvis-sdk-url",
 ]
+test = ["pytest>=7"]
 
 [tool.uv]
 package = false
 
-[tool.uv.sources]
-cuvis-sdk-url = { path = "python", editable = true }
+[tool.pytest.ini_options]
+pythonpath = ["scripts"]

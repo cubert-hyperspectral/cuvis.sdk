@@ -18,6 +18,7 @@ from cuvis_sdk_url import (
     REGEX_INSTALLER,
     REGEX_METADATA,
     install_command,
+    main,
     list_release_metadata,
     sdk_url,
     sdk_urls,
@@ -289,3 +290,60 @@ class TestCaching:
             sdk_urls(os="Ubuntu24.04", arch="amd64", cuda="nocuda")
             list_release_metadata()
         assert mock_open.call_count == 1
+
+
+# --- CLI ------------------------------------------------------------------
+
+
+class TestCli:
+    def test_urls_subcommand_emits_json(self, capsys):
+        with _patch_releases([_full_release()]):
+            rc = main(["urls", "--os", "Ubuntu24.04", "--arch", "amd64", "--cuda", "nocuda"])
+        assert rc == 0
+        payload = json.loads(capsys.readouterr().out)
+        assert set(payload) == {"libcuvis", "cuviscommon"}
+        assert payload["libcuvis"].endswith(LIB_ASSET)
+
+    def test_url_subcommand_picks_package(self, capsys):
+        with _patch_releases([_full_release()]):
+            rc = main(
+                [
+                    "url",
+                    "--os",
+                    "Ubuntu24.04",
+                    "--arch",
+                    "amd64",
+                    "--cuda",
+                    "nocuda",
+                    "--package",
+                    "libcuvis",
+                ]
+            )
+        assert rc == 0
+        out = capsys.readouterr().out.strip()
+        assert out.endswith(LIB_ASSET)
+
+    def test_install_command_subcommand_emits_three_lines(self, capsys):
+        with _patch_releases([_full_release()]):
+            rc = main(["install-command", "--os", "Ubuntu24.04"])
+        assert rc == 0
+        lines = capsys.readouterr().out.strip().splitlines()
+        assert len(lines) == 3
+        assert lines[0].startswith("curl -O ") and "cuviscommon" in lines[0]
+        assert lines[2] == "sudo dpkg -i cuviscommon_*.deb libcuvis_*.deb"
+
+    def test_metadata_subcommand_emits_pattern_b_json(self, capsys):
+        with _patch_releases([_full_release()]):
+            rc = main(["metadata"])
+        assert rc == 0
+        payload = json.loads(capsys.readouterr().out)
+        assert PDF in payload and SUMS in payload
+        assert WIN_ASSET not in payload
+
+    def test_no_match_returns_1_and_writes_stderr(self, capsys):
+        with _patch_releases([_full_release()]):
+            rc = main(["url", "--os", "macOS", "--arch", "amd64", "--cuda", "cuda12.3"])
+        assert rc == 1
+        captured = capsys.readouterr()
+        assert captured.out == ""
+        assert "macOS" in captured.err

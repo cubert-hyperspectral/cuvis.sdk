@@ -5,12 +5,20 @@ Registers the `cuvis_sdk_url` helper as a set of mkdocs-macros so that
 and get a baked-in shell command at build time. The result is used as the
 noscript fallback under the JS selector form.
 
-The helper is editable-installed via `[tool.uv.sources]` in the root
-`pyproject.toml`, so any edit to `python/cuvis_sdk_url.py` is visible in the
-next `uv run mkdocs build` without re-running `uv sync`.
+The helper lives at `scripts/cuvis_sdk_url.py` (no longer an installable
+package); we add `scripts/` to `sys.path` so the import below resolves.
+Edits to the script are visible in the next `uv run mkdocs build` with no
+intermediate install step.
 """
 
 from __future__ import annotations
+
+import sys
+from pathlib import Path
+
+_SCRIPTS_DIR = Path(__file__).resolve().parent.parent / "scripts"
+if str(_SCRIPTS_DIR) not in sys.path:
+    sys.path.insert(0, str(_SCRIPTS_DIR))
 
 
 def define_env(env):

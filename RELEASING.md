@@ -82,8 +82,10 @@ in-repo docs site selector (`docs/javascripts/sdk-installer.js`).
 
 - **Lint script** (this directory) — the source of truth; every release CI run
   shells out to it.
-- **`python/cuvis_sdk_url.py`** — `REGEX_INSTALLER` / `REGEX_METADATA`; consumed
-  at build time by the docs macros and at runtime by downstream Python users.
+- **`scripts/cuvis_sdk_url.py`** — `REGEX_INSTALLER` / `REGEX_METADATA`;
+  consumed at build time by the docs macros (via a `sys.path` injection in
+  `tools/docs_macros.py`) and as a CLI for shell-side URL resolution
+  (`uv run scripts/cuvis_sdk_url.py …`).
 - **`docs/javascripts/sdk-installer.js`** — same Pattern A / B for client-side
   parsing of the GitHub Releases API.
 

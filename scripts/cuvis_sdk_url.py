@@ -1,15 +1,23 @@
+# /// script
+# requires-python = ">=3.10"
+# dependencies = []
+# ///
 """Resolve Cuvis SDK release-asset URLs from GitHub Releases.
 
-Pure stdlib (urllib.request, json, re, time). Two consumption modes:
+Two consumption modes (pure stdlib — urllib.request, json, re, time, argparse):
 
-- Build time, as mkdocs-macros macros from `tools/docs_macros.py` in this same
-  repo: `{{ cuvis_install_command(os="Ubuntu24.04") }}` renders the shell
-  command at build time, used as the noscript fallback on the selector page.
+- **CLI** (primary). Run via `uv run scripts/cuvis_sdk_url.py <subcommand>`:
 
-- Runtime, by downstream users:
-  `from cuvis_sdk_url import sdk_url, install_command`.
+    uv run scripts/cuvis_sdk_url.py urls --os Ubuntu24.04
+    uv run scripts/cuvis_sdk_url.py install-command --os Windows --cuda cuda12.3
+    uv run scripts/cuvis_sdk_url.py url --os Ubuntu24.04 --package libcuvis
+    uv run scripts/cuvis_sdk_url.py metadata --version v3.5.3
 
-Public API: sdk_url, sdk_urls, install_command, list_release_metadata.
+- **Imported as a Python module from inside this repo** by `tools/docs_macros.py`
+  to render `{{ cuvis_install_command(os="Ubuntu24.04") }}` at mkdocs build time
+  as the noscript fallback on the selector page. tools/docs_macros.py adds
+  this directory to `sys.path` before the import.
+
 Exported regexes: REGEX_INSTALLER (Pattern A), REGEX_METADATA (Pattern B) —
 identical to the patterns in scripts/lint-release-assets.ps1 and the JS
 selector. If you change one, update the other two.
@@ -17,8 +25,10 @@ selector. If you change one, update the other two.
 
 from __future__ import annotations
 
+import argparse
 import json
 import re
+import sys
 import time
 import urllib.request
 from typing import Any
@@ -263,3 +273,102 @@ def list_release_metadata(
         if REGEX_METADATA.match(name) and not REGEX_INSTALLER.match(name):
             out[name] = asset.get("browser_download_url", "")
     return out
+
+
+# --- CLI ---------------------------------------------------------------------
+
+
+def _add_target_args(sp: argparse.ArgumentParser, *, with_package: bool = False) -> None:
+    sp.add_argument(
+        "--os",
+        required=True,
+        help="OS token: Windows | macOS | Ubuntu24.04 | Ubuntu22.04-jetson-experimental | …",
+    )
+    sp.add_argument("--arch", default="amd64", help="amd64 | arm64 (default: amd64)")
+    sp.add_argument(
+        "--cuda",
+        default="nocuda",
+        help="nocuda | cuda12.3 | cuda13.0 | … (default: nocuda)",
+    )
+    sp.add_argument(
+        "--version",
+        default=None,
+        help="Release tag, e.g. v3.5.3 (default: latest non-prerelease)",
+    )
+    sp.add_argument(
+        "--include-prerelease",
+        action="store_true",
+        help="Include prerelease releases when resolving --version",
+    )
+    if with_package:
+        sp.add_argument(
+            "--package",
+            default="installer",
+            choices=["installer", "libcuvis", "cuviscommon"],
+            help="Asset role (default: installer)",
+        )
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(
+        prog="cuvis_sdk_url",
+        description="Resolve Cuvis SDK release-asset URLs from GitHub Releases.",
+    )
+    sub = parser.add_subparsers(dest="cmd", required=True)
+
+    _add_target_args(sub.add_parser("url", help="Print one asset URL"), with_package=True)
+    _add_target_args(sub.add_parser("urls", help="Print JSON dict of role → URL"))
+    _add_target_args(
+        sub.add_parser("install-command", help="Print copy-pasteable install command")
+    )
+
+    p_meta = sub.add_parser(
+        "metadata", help="Print JSON dict of name → URL for Pattern-B release metadata"
+    )
+    p_meta.add_argument(
+        "--version",
+        default=None,
+        help="Release tag, e.g. v3.5.3 (default: latest non-prerelease)",
+    )
+    p_meta.add_argument(
+        "--include-prerelease",
+        action="store_true",
+        help="Include prerelease releases when resolving --version",
+    )
+
+    args = parser.parse_args(argv)
+
+    try:
+        if args.cmd == "metadata":
+            print(
+                json.dumps(
+                    list_release_metadata(
+                        version=args.version,
+                        include_prerelease=args.include_prerelease,
+                    ),
+                    indent=2,
+                )
+            )
+            return 0
+
+        target_kwargs = dict(
+            os=args.os,
+            arch=args.arch,
+            cuda=args.cuda,
+            version=args.version,
+            include_prerelease=args.include_prerelease,
+        )
+        if args.cmd == "url":
+            print(sdk_url(package=args.package, **target_kwargs))
+        elif args.cmd == "urls":
+            print(json.dumps(sdk_urls(**target_kwargs), indent=2))
+        elif args.cmd == "install-command":
+            print(install_command(**target_kwargs))
+    except LookupError as exc:
+        print(str(exc), file=sys.stderr)
+        return 1
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
