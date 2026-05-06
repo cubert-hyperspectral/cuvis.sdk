@@ -40,3 +40,7 @@ cubert_env/
 # Local mirror of Cuvis SDK installers (downloaded from Nextcloud,
 # uploaded to GitHub Releases via gh release upload — never committed).
 _assets/
+
+# uv-managed virtual envs and mkdocs build output.
+.venv/
+site/

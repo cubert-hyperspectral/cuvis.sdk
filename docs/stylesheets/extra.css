@@ -1,0 +1,124 @@
+/* Cuvis SDK installer selector — minimal styling on top of Material primary
+ * deep-orange. Material handles typography, spacing, and dark-mode contrast;
+ * this file only adds the selector form's grid + states.
+ */
+
+.sdk-installer {
+  display: block;
+  margin: 1.25rem 0 2rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.4rem;
+  background: var(--md-default-bg-color);
+}
+
+.sdk-installer__loading {
+  margin: 0;
+  color: var(--md-default-fg-color--light);
+  font-style: italic;
+}
+
+.sdk-installer__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.sdk-installer__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sdk-installer__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--md-default-fg-color--light);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.sdk-installer__select {
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.3rem;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font: inherit;
+  cursor: pointer;
+}
+
+.sdk-installer__select:focus {
+  outline: 2px solid var(--md-primary-fg-color);
+  outline-offset: 1px;
+}
+
+.sdk-installer__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.5rem 0 1rem;
+  font-size: 0.85rem;
+  color: var(--md-default-fg-color--light);
+  cursor: pointer;
+}
+
+.sdk-installer__heading {
+  margin: 1.25rem 0 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--md-default-fg-color--light);
+}
+
+.sdk-installer__cmd {
+  margin: 0 0 0.75rem;
+  background: var(--md-code-bg-color, #1e1e1e);
+  color: var(--md-code-fg-color, #f6f6f6);
+  padding: 0.85rem 1rem;
+  border-radius: 0.3rem;
+  overflow-x: auto;
+  font-size: 0.85em;
+}
+
+.sdk-installer__cmd code {
+  white-space: pre;
+  background: transparent;
+  padding: 0;
+  border: 0;
+  color: inherit;
+}
+
+.sdk-installer__downloads,
+.sdk-installer__metadata ul {
+  margin: 0.25rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.sdk-installer__details {
+  margin: 0.25rem 0 0;
+}
+
+.sdk-installer__details summary {
+  cursor: pointer;
+  color: var(--md-primary-fg-color);
+}
+
+.sdk-installer__warning,
+.sdk-installer__error p {
+  margin: 0.5rem 0;
+  padding: 0.6rem 0.85rem;
+  border-left: 3px solid var(--md-primary-fg-color);
+  background: var(--md-default-fg-color--lightest);
+  border-radius: 0 0.3rem 0.3rem 0;
+  color: var(--md-default-fg-color);
+  font-size: 0.9rem;
+}
+
+.sdk-installer__fallback {
+  margin: 1rem 0 0;
+  font-size: 0.85rem;
+  color: var(--md-default-fg-color--light);
+}
