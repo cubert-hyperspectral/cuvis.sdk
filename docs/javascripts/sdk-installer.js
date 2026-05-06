@@ -74,6 +74,47 @@
     return _detectedBucket;
   }
 
+  // Best-effort CUDA preference based on the browser-visible GPU vendor.
+  // Returns:
+  //   'nocuda' — macOS (no CUDA), or non-NVIDIA WebGL renderer, or
+  //              anonymized renderer (privacy-hardened browsers).
+  //   'cuda'   — WebGL renderer string contains 'NVIDIA' on Windows/Linux.
+  //   null     — couldn't even create a WebGL context (very unusual).
+  // The renderer string is just a vendor signal; we still don't know which
+  // CUDA toolkit is *installed*, so 'cuda' just means "prefer the first
+  // available cuda* option over nocuda" — the lowest cuda version, since
+  // alphabetical sort puts e.g. cuda11.8 before cuda12.6.
+  let _detectedCuda;
+  function detectCudaPreference() {
+    if (_detectedCuda !== undefined) return _detectedCuda;
+    if (detectOsBucket() === "macOS") {
+      _detectedCuda = "nocuda";
+      return _detectedCuda;
+    }
+    try {
+      const canvas = document.createElement("canvas");
+      const gl =
+        canvas.getContext("webgl") ||
+        canvas.getContext("experimental-webgl");
+      if (!gl) {
+        _detectedCuda = null;
+        return _detectedCuda;
+      }
+      const dbg = gl.getExtension("WEBGL_debug_renderer_info");
+      if (!dbg) {
+        _detectedCuda = "nocuda";
+        return _detectedCuda;
+      }
+      const renderer = String(
+        gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL) || ""
+      );
+      _detectedCuda = /nvidia/i.test(renderer) ? "cuda" : "nocuda";
+    } catch (_) {
+      _detectedCuda = null;
+    }
+    return _detectedCuda;
+  }
+
   // Switch any pymdownx-tabbed group on the page to the tab matching the
   // current OS bucket. Tab labels we care about:
   //   'Windows (PowerShell)' for Windows
@@ -383,10 +424,20 @@
           .filter((a) => a.arch === arch)
           .map((a) => a.cuda)
       );
-      let cuda =
-        form.dataset.cuda && cudasAvailable.includes(form.dataset.cuda)
-          ? form.dataset.cuda
-          : cudasAvailable[0];
+      let cuda;
+      if (form.dataset.cuda && cudasAvailable.includes(form.dataset.cuda)) {
+        cuda = form.dataset.cuda;
+      } else {
+        const cudaPref = detectCudaPreference();
+        if (cudaPref === "nocuda" && cudasAvailable.includes("nocuda")) {
+          cuda = "nocuda";
+        } else if (cudaPref === "cuda") {
+          cuda =
+            cudasAvailable.find((c) => c !== "nocuda") || cudasAvailable[0];
+        } else {
+          cuda = cudasAvailable[0];
+        }
+      }
 
       function persist() {
         form.dataset.version = versionTag || "";
