@@ -143,20 +143,23 @@ foreach ($p in $plan) {
     }
 }
 
-# --- sha256 sidecars + aggregate SHA256SUMS.txt ---
+# --- aggregate SHA256SUMS.txt ---
+#
+# We deliberately don't write per-file `.sha256` sidecars: they double the
+# release-page asset count for marginal benefit, and SHA256SUMS.txt already
+# carries the same data. Tools that want a single-line hash can `grep <name>
+# SHA256SUMS.txt` or use the GitHub API's per-asset `digest` field.
 
 Write-Host ""
 Write-Host "Hashing..." -ForegroundColor Cyan
 $staged = Get-ChildItem -LiteralPath $outDir -File `
-    | Where-Object { $_.Extension -ne '.sha256' -and $_.Name -ne 'SHA256SUMS.txt' } `
+    | Where-Object { $_.Name -ne 'SHA256SUMS.txt' } `
     | Sort-Object Name
 
 $sumsLines = New-Object System.Collections.Generic.List[string]
 foreach ($s in $staged) {
     $hash = (Get-FileHash -Algorithm SHA256 -LiteralPath $s.FullName).Hash.ToLower()
-    $line = "${hash}  $($s.Name)"
-    Set-Content -LiteralPath ("$($s.FullName).sha256") -Value $line -Encoding ascii -NoNewline
-    $sumsLines.Add($line)
+    $sumsLines.Add("${hash}  $($s.Name)")
 }
 $sumsPath = Join-Path $outDir 'SHA256SUMS.txt'
 if ($PSCmdlet.ShouldProcess($sumsPath, 'Write SHA256SUMS.txt')) {

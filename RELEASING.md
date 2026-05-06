@@ -41,8 +41,10 @@ The release stays published; only its asset list changes.
    - `Release Notes.pdf` → `RELEASE-NOTES_v<ver>.pdf`
    - `Application_Notes_Cuvis_SDK_<topic>.pdf` →
      `Application-Notes_Cuvis-SDK_<topic>.pdf`
-5. Computes SHA-256 for every asset, writes per-file `.sha256` sidecars, plus
-   an aggregate `SHA256SUMS.txt`.
+5. Computes SHA-256 for every binary and PDF and writes an aggregate
+   `SHA256SUMS.txt`. (No per-file `.sha256` sidecars — they doubled the
+   asset count for no real benefit; users can `grep <name> SHA256SUMS.txt`
+   or read the GitHub API's per-asset `digest` field.)
 6. Runs `scripts/lint-release-assets.ps1` against the staged file set; aborts
    on the first mismatch.
 7. With `-Upload`: uploads everything to the matching `v<ver>` release via
