@@ -1,76 +1,130 @@
-# Reference: `cuvis_sdk_url` Python helper
+# Reference: `cuvis_sdk_url` script
 
-`cuvis_sdk_url` is the same Python module that powers the build-time macros
-on this site and the runtime URL resolution for downstream tools. It's a
-pure-stdlib helper — no third-party dependencies.
+[`scripts/cuvis_sdk_url.py`](https://github.com/cubert-hyperspectral/cuvis.sdk/blob/main/scripts/cuvis_sdk_url.py)
+is a single-file Python script that resolves Cuvis SDK release-asset URLs
+from the live GitHub Releases API. It powers two things:
 
-Source:
-[`python/cuvis_sdk_url.py`](https://github.com/cubert-hyperspectral/cuvis.sdk/blob/main/python/cuvis_sdk_url.py).
+1. **The build-time macro** behind the `<noscript>` fallback on the
+   [Installation](installation.md) page (the docs build imports it as a
+   Python module via [`tools/docs_macros.py`](https://github.com/cubert-hyperspectral/cuvis.sdk/blob/main/tools/docs_macros.py)).
+2. **A copy-pasteable CLI** for shell scripting, CI, and one-off lookups.
 
-## Install
+Pure stdlib, Python 3.10+, no install step. PEP 723 inline metadata makes it
+`uv run`-friendly out of the box.
+
+## CLI
+
+Run from a clone of the repo:
 
 ```bash
-# From a clone of cubert-hyperspectral/cuvis.sdk:
-uv pip install -e ./python
-
-# Or directly from a checkout via path:
-pip install -e <path-to-cuvis.sdk>/python
+uv run scripts/cuvis_sdk_url.py <subcommand> [options]
 ```
 
-Requires Python 3.10+.
+Four subcommands. All except `metadata` take `--os`, `--arch` (default
+`amd64`), `--cuda` (default `nocuda`), `--version` (default: latest
+non-prerelease), and `--include-prerelease`.
 
-## Public API
+### `urls` — JSON dict of role → URL
 
-### `sdk_urls(os, arch="amd64", cuda="nocuda", *, version=None, include_prerelease=False) -> dict[str, str]`
+```bash
+uv run scripts/cuvis_sdk_url.py urls --os Ubuntu24.04
+# {
+#   "libcuvis":    "https://.../v3.5.3/libcuvis_3.5.3-0_Ubuntu24.04_amd64_nocuda.deb",
+#   "cuviscommon": "https://.../v3.5.3/cuviscommon_3.5.3-0_Ubuntu24.04_amd64_nocuda.deb"
+# }
+```
 
-Resolve all release-asset URLs for a given target. Returns a `{role: url}` dict.
-Roles are:
+### `url` — single asset URL (plain text)
 
-- `"installer"` — Windows `.exe`, macOS `.dmg`/`.pkg`, single-file installers.
-- `"libcuvis"`, `"cuviscommon"` — Ubuntu `.deb` pair. Install order matters:
-  cuviscommon first.
+```bash
+uv run scripts/cuvis_sdk_url.py url --os Windows --cuda cuda12.3
+# https://.../v3.5.3/Cuvis_C_SDK_Installer_3.5.3_Windows_amd64_cuda12.3.exe
 
-Raises `LookupError` if no asset matches.
+uv run scripts/cuvis_sdk_url.py url \
+    --os Ubuntu24.04 --package libcuvis
+# https://.../v3.5.3/libcuvis_3.5.3-0_Ubuntu24.04_amd64_nocuda.deb
+```
+
+`--package` is `installer` (default), `libcuvis`, or `cuviscommon`.
+
+### `install-command` — copy-paste shell block
+
+```bash
+uv run scripts/cuvis_sdk_url.py install-command --os Ubuntu24.04
+# curl -O https://.../cuviscommon_3.5.3-0_Ubuntu24.04_amd64_nocuda.deb
+# curl -O https://.../libcuvis_3.5.3-0_Ubuntu24.04_amd64_nocuda.deb
+# sudo dpkg -i cuviscommon_*.deb libcuvis_*.deb
+```
+
+Two lines on Windows (`Invoke-WebRequest` + `Start-Process`), three on
+Ubuntu (`curl`, `curl`, `sudo dpkg -i …`). Order matters on Linux:
+`cuviscommon` is installed before `libcuvis` because the latter depends
+on the former.
+
+### `metadata` — Pattern-B release artifacts
+
+```bash
+uv run scripts/cuvis_sdk_url.py metadata --version v3.5.1
+# {
+#   "RELEASE-NOTES_v3.5.1.pdf":          "https://.../RELEASE-NOTES_v3.5.1.pdf",
+#   "Application-Notes_Cuvis-SDK_Linux.pdf": "https://.../Application-Notes_Cuvis-SDK_Linux.pdf",
+#   "SHA256SUMS.txt":                    "https://.../SHA256SUMS.txt"
+# }
+```
+
+Returns release-notes PDFs, application-notes PDFs, and `SHA256SUMS.txt`.
+Pattern-A binaries (Pattern-A is the installer/package naming grammar)
+are explicitly excluded.
+
+## Pinning a specific version
+
+Pass `--version v3.5.0` (or any other tag from
+[the releases page](https://github.com/cubert-hyperspectral/cuvis.sdk/releases))
+to any subcommand. Without `--version`, the script picks the latest
+non-prerelease release.
+
+## Token reference
+
+The values you pass to `--os`, `--arch`, `--cuda` must match the asset's
+filename tokens exactly. They're enforced by the
+[Pattern A regex](https://github.com/cubert-hyperspectral/cuvis.sdk/blob/main/scripts/lint-release-assets.ps1).
+
+| Param | Allowed values |
+| --- | --- |
+| `--os` | `Windows`, `macOS`, `Ubuntu20.04`, `Ubuntu22.04`, `Ubuntu24.04`, `Ubuntu*-jetson-experimental` |
+| `--arch` | `amd64`, `arm64` |
+| `--cuda` | `nocuda`, `cuda11.8`, `cuda12.2`, `cuda12.3`, `cuda12.6`, `cuda13.0` |
+| `--package` (only `url`) | `installer` (default), `libcuvis`, `cuviscommon` |
+| `--version` | `None` = latest non-prerelease, or a tag like `v3.5.3` |
+
+If no asset matches the combination, the script exits 1 with a `LookupError`
+message on stderr.
+
+## Used as a Python module from inside the repo
+
+`tools/docs_macros.py` adds `scripts/` to `sys.path` and imports the
+public functions to register them as mkdocs-macros for the `<noscript>`
+fallback. Anyone working inside the repo can do the same:
 
 ```python
-from cuvis_sdk_url import sdk_urls
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path("/path/to/cuvis.sdk/scripts")))
 
-# Latest non-prerelease, Ubuntu 24.04 amd64 no-CUDA:
-sdk_urls(os="Ubuntu24.04")
-# {'libcuvis': 'https://github.com/.../libcuvis_3.5.3-0_Ubuntu24.04_amd64_nocuda.deb',
-#  'cuviscommon': 'https://github.com/.../cuviscommon_3.5.3-0_Ubuntu24.04_amd64_nocuda.deb'}
+from cuvis_sdk_url import sdk_url, sdk_urls, install_command
+sdk_urls(os="Ubuntu24.04", cuda="cuda12.6")
 ```
 
-### `sdk_url(os, arch="amd64", cuda="nocuda", *, version=None, include_prerelease=False, package="installer") -> str`
-
-Single-asset variant. `package` is the role name from `sdk_urls`.
-
-### `install_command(os, arch="amd64", cuda="nocuda", *, version=None, include_prerelease=False) -> str`
-
-Returns a copy-pasteable shell command. Three lines for Ubuntu (curl, curl,
-`sudo dpkg -i cuviscommon_*.deb libcuvis_*.deb`), two for Windows
-(`Invoke-WebRequest` + `Start-Process`), two for macOS.
-
-### `list_release_metadata(version=None, *, include_prerelease=False) -> dict[str, str]`
-
-Returns Pattern-B asset names mapped to download URLs (release-notes PDFs,
-SHA256SUMS.txt, application-notes, etc.) for the chosen release.
-
-## Exported regexes
-
-`REGEX_INSTALLER` (Pattern A — installers and packages) and `REGEX_METADATA`
-(Pattern B — release metadata). Identical to the patterns enforced by
-[`scripts/lint-release-assets.ps1`](https://github.com/cubert-hyperspectral/cuvis.sdk/blob/main/scripts/lint-release-assets.ps1)
-and the JS selector on the [Installation](installation.md) page.
+External Python projects shouldn't depend on this — there's no PyPI
+release. If you find yourself wanting one, you're better off writing a
+thin wrapper around the
+[GitHub Releases API](https://docs.github.com/en/rest/releases/releases)
+directly.
 
 ## Caching
 
-`sdk_urls`/`sdk_url`/etc. share a module-level cache keyed on
-`(include_prerelease, time-bucket)` where `time-bucket = floor(now /
-cache_seconds)`. By default `cache_seconds=1800` (30 minutes), so repeated
-calls in a process re-use one fetched payload. Pass `cache_seconds=0` to
-disable.
-
-GitHub's unauthenticated REST API allows 60 requests/hour/IP. If you're
-calling the helper in a tight loop, the cache keeps you well under that
-limit.
+The script keeps a module-level cache keyed on `(include_prerelease,
+time-bucket)` where `time-bucket = floor(now / cache_seconds)`. Default
+TTL is 30 minutes. Repeated calls within a process re-use one fetched
+payload. GitHub's unauthenticated REST API allows 60 requests/hour/IP, so
+the cache keeps even tight loops well clear.
