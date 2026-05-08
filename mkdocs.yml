@@ -9,19 +9,22 @@ theme:
   favicon: assets/cubert_icon_light.png
   palette:
     - media: "(prefers-color-scheme: light)"
-      primary: deep orange
-      accent: deep orange
+      primary: custom
+      accent: custom
       scheme: default
       toggle:
         icon: material/weather-sunny
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
-      primary: deep orange
-      accent: deep orange
+      primary: custom
+      accent: custom
       scheme: slate
       toggle:
         icon: material/weather-night
         name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
   features:
     - navigation.instant
     - navigation.tracking

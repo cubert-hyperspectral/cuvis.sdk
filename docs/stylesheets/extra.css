@@ -1,7 +1,144 @@
-/* Cuvis SDK installer selector — minimal styling on top of Material primary
- * deep-orange. Material handles typography, spacing, and dark-mode contrast;
- * this file only adds the selector form's grid + states.
- */
+/* Cubert CI palette + Rajdhani headings via Google Fonts.
+   Roboto + Roboto Mono come in via Material's font loader (mkdocs.yml). */
+
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap');
+
+/* Brand tokens ------------------------------------------------------------- */
+:root {
+  --cu-cool-dark: #191932;
+  --cu-cool-dark-deeper: #0f0f24;
+  --cu-cool-light: #ebf0f5;
+  --cu-turquoise-dark: #00f0c8;
+  --cu-turquoise-light: #00b48c;
+  --cu-lilac-dark: #c8aafa;
+  --cu-lilac-light: #5a3c96;
+  --cu-blue-dark: #5abefa;
+  --cu-blue-light: #00288c;
+  --cu-neutral-light: #fafafa;
+}
+
+/* Light scheme — page 6 right --------------------------------------------- */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color:        var(--cu-cool-dark);
+  --md-primary-fg-color--light: var(--cu-cool-dark);
+  --md-primary-fg-color--dark:  var(--cu-cool-dark-deeper);
+  --md-primary-bg-color:        #ffffff;
+  --md-primary-bg-color--light: #ffffffb3;
+
+  --md-accent-fg-color:         var(--cu-turquoise-light);
+  --md-accent-fg-color--transparent: rgba(0, 180, 140, 0.12);
+  --md-accent-bg-color:         #ffffff;
+  --md-accent-bg-color--light:  #ffffffb3;
+
+  --md-default-bg-color:        var(--cu-cool-light);
+  --md-default-fg-color:        var(--cu-cool-dark);
+  --md-default-fg-color--light: rgba(25, 25, 50, 0.75);
+  --md-default-fg-color--lighter: rgba(25, 25, 50, 0.4);
+
+  --md-typeset-a-color:         var(--cu-turquoise-light);
+  --md-code-bg-color:           var(--cu-neutral-light);
+  --md-code-fg-color:           var(--cu-cool-dark);
+}
+
+/* Dark scheme — page 6 left ----------------------------------------------- */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:        var(--cu-cool-dark-deeper);
+  --md-primary-fg-color--light: var(--cu-cool-dark);
+  --md-primary-fg-color--dark:  var(--cu-cool-dark-deeper);
+  --md-primary-bg-color:        #ffffff;
+  --md-primary-bg-color--light: #ffffffb3;
+
+  --md-accent-fg-color:         var(--cu-turquoise-dark);
+  --md-accent-fg-color--transparent: rgba(0, 240, 200, 0.15);
+  --md-accent-bg-color:         #ffffff;
+  --md-accent-bg-color--light:  #ffffffb3;
+
+  --md-default-bg-color:        var(--cu-cool-dark);
+  --md-default-fg-color:        var(--cu-neutral-light);
+  --md-default-fg-color--light: rgba(250, 250, 250, 0.8);
+  --md-default-fg-color--lighter: rgba(250, 250, 250, 0.5);
+
+  --md-typeset-a-color:         var(--cu-turquoise-dark);
+  --md-code-bg-color:           var(--cu-cool-dark-deeper);
+  --md-code-fg-color:           #e6e6f5;
+}
+
+/* Typography --------------------------------------------------------------- */
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-header__topic,
+.md-nav__title {
+  font-family: "Rajdhani", "Roboto", system-ui, sans-serif;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+}
+
+.md-typeset h1 { text-transform: uppercase; }
+.md-typeset h2 { text-transform: uppercase; }
+.md-typeset h3 {
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+}
+
+[data-md-color-scheme="default"] .md-typeset h3 { color: var(--cu-turquoise-light); }
+[data-md-color-scheme="slate"]   .md-typeset h3 { color: var(--cu-turquoise-dark); }
+
+/* Code-block hairline border --------------------------------------------- */
+[data-md-color-scheme="default"] .md-typeset pre,
+[data-md-color-scheme="default"] .md-typeset .highlight pre {
+  border: 1px solid var(--cu-turquoise-light);
+}
+[data-md-color-scheme="slate"] .md-typeset pre,
+[data-md-color-scheme="slate"] .md-typeset .highlight pre {
+  border: 1px solid var(--cu-turquoise-dark);
+}
+
+/* Admonitions ------------------------------------------------------------- */
+[data-md-color-scheme="default"] .md-typeset .admonition.warning,
+[data-md-color-scheme="default"] .md-typeset details.warning {
+  border-color: var(--cu-lilac-light);
+}
+[data-md-color-scheme="default"] .md-typeset .admonition.warning > .admonition-title,
+[data-md-color-scheme="default"] .md-typeset details.warning > summary {
+  background-color: rgba(90, 60, 150, 0.12);
+  border-color: var(--cu-lilac-light);
+}
+[data-md-color-scheme="slate"] .md-typeset .admonition.warning,
+[data-md-color-scheme="slate"] .md-typeset details.warning {
+  border-color: var(--cu-lilac-dark);
+}
+[data-md-color-scheme="slate"] .md-typeset .admonition.warning > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset details.warning > summary {
+  background-color: rgba(200, 170, 250, 0.15);
+  border-color: var(--cu-lilac-dark);
+}
+
+[data-md-color-scheme="default"] .md-typeset .admonition.danger,
+[data-md-color-scheme="default"] .md-typeset details.danger {
+  border-color: var(--cu-blue-light);
+}
+[data-md-color-scheme="default"] .md-typeset .admonition.danger > .admonition-title,
+[data-md-color-scheme="default"] .md-typeset details.danger > summary {
+  background-color: rgba(0, 40, 140, 0.12);
+  border-color: var(--cu-blue-light);
+}
+[data-md-color-scheme="slate"] .md-typeset .admonition.danger,
+[data-md-color-scheme="slate"] .md-typeset details.danger {
+  border-color: var(--cu-blue-dark);
+}
+[data-md-color-scheme="slate"] .md-typeset .admonition.danger > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset details.danger > summary {
+  background-color: rgba(90, 190, 250, 0.15);
+  border-color: var(--cu-blue-dark);
+}
+
+/* Cuvis SDK installer selector — minimal styling on top of brand palette.
+ * Material handles typography, spacing, and dark-mode contrast; this block
+ * only adds the selector form's grid + states. */
 
 .sdk-installer {
   display: block;
