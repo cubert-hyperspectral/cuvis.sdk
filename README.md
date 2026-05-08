@@ -5,7 +5,7 @@
 - **Website:** https://www.cubert-hyperspectral.com/
 - **Source code:** https://github.com/cubert-hyperspectral/
 - **Support:** http://support.cubert-hyperspectral.com/
-- **Install the Cuvis C SDK:** [GitHub Releases](https://github.com/cubert-hyperspectral/cuvis.sdk/releases) hosts every installer — Windows `.exe`, Ubuntu 20.04 / 22.04 / 24.04 `.deb` (amd64 plus Jetson arm64), and macOS. For a guided pick, the [installer-selector docs site](docs/installation.md) (`uv sync --extra docs && uv run mkdocs serve`) renders dropdowns for OS / architecture / CUDA against the live releases API.
+- **Cuvis.SDK:** https://github.com/cubert-hyperspectral/cuvis.sdk/releases
 
 This repository contains __everything you need__ to connect and integrate __Cubert hyperspectral cameras__ into your processing pipeline in __various programming languages__. Even without a camera, you can start straight ahead with the __demo data provided__. 
 
