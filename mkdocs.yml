@@ -1,5 +1,6 @@
 site_name: Cuvis SDK
 site_description: Cubert hyperspectral camera SDK — installers, wrappers, examples.
+site_url: https://cubert-hyperspectral.github.io/cuvis.sdk/
 repo_url: https://github.com/cubert-hyperspectral/cuvis.sdk
 edit_uri: blob/main/docs/
 
