@@ -24,7 +24,7 @@ directly.
 
 ## Verify the installer
 
-Each release ships a `SHA256SUMS.txt` plus per-file `.sha256` sidecars.
+Each release ships a `SHA256SUMS.txt` with one line per asset.
 
 === "Ubuntu / macOS"
 
@@ -36,7 +36,7 @@ Each release ships a `SHA256SUMS.txt` plus per-file `.sha256` sidecars.
 
     ```powershell
     Get-FileHash -Algorithm SHA256 .\Cuvis_C_SDK_Installer_*.exe
-    # Compare against the matching line in SHA256SUMS.txt or the .sha256 sidecar.
+    # Compare against the matching line in SHA256SUMS.txt.
     ```
 
 ## After install
