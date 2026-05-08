@@ -73,7 +73,7 @@ in-repo docs site selector (`docs/javascripts/sdk-installer.js`).
 | --- | --- | --- |
 | `<pkg>` | `Cuvis_C_SDK_Installer`, `libcuvis`, `cuviscommon` | Selector treats `libcuvis` + `cuviscommon` as a Linux pair on Ubuntu. |
 | `<pkgver>` | `3.5.3`, `3.5.3-0`, `3.4.1-1` | Carries the upstream installer's debian-revision verbatim. Selector groups by **release tag**, not `<pkgver>`. |
-| `<os>` | `Windows`, `macOS`, `Ubuntu24.04`, `Ubuntu22.04-jetson`, `Ubuntu22.04-jetson-experimental` | Jetson is an OS flavor. Promote `*-jetson-experimental` → `*-jetson` when stable. |
+| `<os>` | `Windows`, `Ubuntu24.04`, `Ubuntu22.04-jetson`, `Ubuntu22.04-jetson-experimental` | Jetson is an OS flavor. Promote `*-jetson-experimental` → `*-jetson` when stable. |
 | `<arch>` | `amd64`, `arm64` | Clean ISA enum. Jetson lives in `<os>`, not here. |
 | `<cuda>` | `nocuda`, `cuda11.8`, `cuda12.2`, `cuda12.3`, `cuda12.6`, `cuda13.0` | Extend as needed; the lint regex permits any `cuda<digits>.<digits>`. |
 | `<ext>` | `exe`, `deb`, `msi`, `dmg`, `pkg`, `tar.gz` | |
