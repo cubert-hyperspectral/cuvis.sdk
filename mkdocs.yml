@@ -1,0 +1,59 @@
+site_name: Cuvis SDK
+site_description: Cubert hyperspectral camera SDK — installers, wrappers, examples.
+repo_url: https://github.com/cubert-hyperspectral/cuvis.sdk
+edit_uri: blob/main/docs/
+
+theme:
+  name: material
+  logo: assets/cubert_icon_light.png
+  favicon: assets/cubert_icon_light.png
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      primary: custom
+      accent: custom
+      scheme: default
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      primary: custom
+      accent: custom
+      scheme: slate
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.top
+    - content.tabs.link
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+
+plugins:
+  - search
+  - macros:
+      module_name: tools/docs_macros
+
+extra_javascript:
+  - javascripts/sdk-installer.js
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - Reference: reference.md
