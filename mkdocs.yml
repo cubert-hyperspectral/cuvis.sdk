@@ -30,6 +30,8 @@ theme:
     - navigation.instant
     - navigation.tracking
     - navigation.top
+    - navigation.tabs
+    - navigation.tabs.sticky
     - content.tabs.link
     - content.code.copy
 
@@ -42,11 +44,43 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.highlight
   - pymdownx.inlinehilite
+  - pymdownx.details
 
 plugins:
   - search
   - macros:
       module_name: tools/docs_macros
+  - mkdoxy:
+      projects:
+        cuvis_c:
+          src-dirs: docs/_api_sources
+          full-doc: true
+          doxy-cfg:
+            FILE_PATTERNS: "*.h"
+            OPTIMIZE_OUTPUT_FOR_C: "YES"
+            EXTRACT_ALL: "YES"
+            GENERATE_HTML: "NO"
+            GENERATE_XML: "YES"
+            PROJECT_NAME: "Cuvis C API"
+        cuvis_cpp:
+          src-dirs: cuvis.cpp/interface
+          full-doc: true
+          doxy-cfg:
+            FILE_PATTERNS: "*.hpp"
+            EXTRACT_ALL: "YES"
+            GENERATE_HTML: "NO"
+            GENERATE_XML: "YES"
+            PROJECT_NAME: "Cuvis C++ API"
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [cuvis.python]
+          options:
+            allow_inspection: false
+            show_source: false
+            show_bases: true
+            show_root_heading: true
+            docstring_style: google
 
 extra_javascript:
   - javascripts/sdk-installer.js
@@ -57,4 +91,15 @@ extra_css:
 nav:
   - Home: index.md
   - Installation: installation.md
+  - Examples:
+    - Overview: examples/index.md
+    - 1 – Take Snapshot: examples/example_1_take_snapshot.md
+    - 2 – Load Measurement: examples/example_2_load_measurement.md
+    - 3 – Reprocess: examples/example_3_reprocess.md
+    - 4 – Exporters: examples/example_4_exporters.md
+    - 5 – Record Video: examples/example_5_record_video.md
+  - API Reference:
+    - C API: cuvis_c/modules.md
+    - C++ API: cuvis_cpp/annotated.md
+    - Python API: api/python.md
   - Reference: reference.md

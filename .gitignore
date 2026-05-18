@@ -44,3 +44,7 @@ _assets/
 # uv-managed virtual envs and mkdocs build output.
 .venv/
 site/
+
+# mkdoxy-generated API reference pages (regenerated at each mkdocs build)
+docs/cuvis_c/
+docs/cuvis_cpp/
