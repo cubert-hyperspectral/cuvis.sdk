@@ -14,6 +14,7 @@ docs = [
     "mkdocs-llmstxt>=0.2",
     "mkdoxy>=1.2.4",
     "mkdocstrings[python]>=0.25.0",
+    "mike>=2.0.0",
 ]
 test = ["pytest>=7"]
 
