@@ -11,6 +11,7 @@ is available. See git history for the removed LCS-based implementation.
 from __future__ import annotations
 
 import json
+import re
 import textwrap
 from pathlib import Path
 
@@ -70,12 +71,58 @@ def _parse_notebook(nb_path: Path) -> list[tuple[str, str]]:
 # Output formatting
 # ---------------------------------------------------------------------------
 
+_FENCE_RE = re.compile(r"^(?P<indent> {0,3})(?P<fence>`{3,}|~{3,})")
+_LIST_RE = re.compile(r"^\s{0,3}(?:[-+*]\s+|\d+[.)]\s+)")
+
+
+def _is_list_line(line: str) -> bool:
+    return bool(_LIST_RE.match(line))
+
+
+def _normalize_markdown_lists(prose: str) -> str:
+    """Insert paragraph/list spacing required by Python-Markdown.
+
+    Jupyter accepts a paragraph immediately followed by an indented list item.
+    MkDocs/Python-Markdown treats that as paragraph continuation unless a blank
+    line separates the paragraph from the list.
+    """
+    lines = prose.splitlines()
+    normalized: list[str] = []
+    fence_char = ""
+    fence_len = 0
+
+    for line in lines:
+        fence = _FENCE_RE.match(line)
+        if fence and not fence_char:
+            marker = fence.group("fence")
+            fence_char = marker[0]
+            fence_len = len(marker)
+        elif fence and fence_char:
+            marker = fence.group("fence")
+            if marker[0] == fence_char and len(marker) >= fence_len:
+                fence_char = ""
+                fence_len = 0
+
+        if (
+            not fence_char
+            and _is_list_line(line)
+            and normalized
+            and normalized[-1].strip()
+            and not _is_list_line(normalized[-1])
+        ):
+            normalized.append("")
+
+        normalized.append(line)
+
+    return "\n".join(normalized)
+
+
 def _format_section(prose: str, py_code: str) -> str:
     """Combine prose and a fenced Python code block into one page section."""
     parts: list[str] = []
 
     if prose.strip():
-        parts.append(prose.strip())
+        parts.append(_normalize_markdown_lists(prose.strip()))
 
     if py_code.strip():
         code = textwrap.dedent(py_code).strip()
