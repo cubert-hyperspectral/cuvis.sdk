@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- **Documentation site migrated into this repo** (from `cuvis.doc`) and published to GitHub Pages. Versioned with `mike`: pushing a `v*.*.*` tag publishes that version aliased to `latest` (`deploy-docs-versioned.yml`), and pushes to `main` publish a `dev` build (`deploy-docs.yml`). C and C++ API reference generated from the headers via `mkdoxy` (Doxygen XML), Python API reference via `mkdocstrings`, example pages generated from the Python notebooks, and an `llms.txt` / `llms-full.txt` index via `mkdocs-llmstxt`.
 - Rebranded the mkdocs site to follow Cubert CI. Switched the Material `palette` to `primary/accent: custom` and let `docs/stylesheets/extra.css` drive the palette directly across both Material schemes. Headings use Rajdhani via a Google Fonts `@import`; body and code stay on Roboto / Roboto Mono via Material's font loader. Existing `.sdk-installer` widget styles are preserved on top of the brand palette.
 - **CI: restored a strict docs build gate.** Added a `Docs build check` workflow (`.github/workflows/docs-check.yml`) that runs `mkdocs build --strict` on pull requests, plus a strict build step ahead of `mike deploy` in both the nightly and versioned deploy workflows, so dead links or missing generated pages fail CI instead of publishing a broken site.
 - **CI: serialized docs deploys.** Added a shared `concurrency: { group: docs-deploy, cancel-in-progress: false }` to both deploy workflows so a `main` push and a release-tag push cannot race each other's `git push` to `gh-pages`.
