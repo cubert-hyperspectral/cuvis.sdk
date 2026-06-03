@@ -56,11 +56,14 @@ plugins:
   - search
   - llmstxt:
       markdown_description: |
-        Cuvis SDK is the official SDK for Cubert hyperspectral cameras.
-        It provides C, C++, and Python APIs for camera control, data acquisition,
-        and hyperspectral data processing.
+        Cuvis SDK is the official SDK for Cubert hyperspectral cameras, providing
+        C, C++, and Python APIs for camera control, data acquisition, and
+        hyperspectral data processing. This index covers the guide and the Python
+        API; the full C and C++ API reference is browsable on the documentation site.
       full_output: llms-full.txt
       sections:
+        Overview:
+          - index.md
         Installation:
           - installation.md
         Examples:
