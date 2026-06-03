@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classcuvis_1_1cuvis__sdk__exception" kind="class" language="C++" prot="public">
+    <compoundname>cuvis::cuvis_sdk_exception</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">std::exception</basecompoundref>
+    <includes refid="cuvis_8hpp" local="no">cuvis.hpp</includes>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classcuvis_1_1cuvis__sdk__exception_1a43ccb4339cc03baea25ae86638876e85" prot="protected" static="no" mutable="no">
+        <type>std::string <ref refid="structcuvis_1_1image__t" kindref="compound">const</ref></type>
+        <definition>std::string const cuvis::cuvis_sdk_exception::_msg</definition>
+        <argsstring></argsstring>
+        <name>_msg</name>
+        <qualifiedname>cuvis::cuvis_sdk_exception::_msg</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="756" column="23" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="756" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcuvis_1_1cuvis__sdk__exception_1a51c4e718741c9486a5c345c57780f2fb" prot="protected" static="no" mutable="no">
+        <type>std::wstring <ref refid="structcuvis_1_1image__t" kindref="compound">const</ref></type>
+        <definition>std::wstring const cuvis::cuvis_sdk_exception::_wmsg</definition>
+        <argsstring></argsstring>
+        <name>_wmsg</name>
+        <qualifiedname>cuvis::cuvis_sdk_exception::_wmsg</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="757" column="24" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="757" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcuvis_1_1cuvis__sdk__exception_1a56e18e1f896d9bed7e721014dcd8af4d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>cuvis::cuvis_sdk_exception::cuvis_sdk_exception</definition>
+        <argsstring>(std::string const &amp;msg, std::wstring const &amp;wmsg)</argsstring>
+        <name>cuvis_sdk_exception</name>
+        <qualifiedname>cuvis::cuvis_sdk_exception::cuvis_sdk_exception</qualifiedname>
+        <param>
+          <type>std::string <ref refid="structcuvis_1_1image__t" kindref="compound">const</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <param>
+          <type>std::wstring <ref refid="structcuvis_1_1image__t" kindref="compound">const</ref> &amp;</type>
+          <declname>wmsg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="749" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1cuvis__sdk__exception_1a074099badd6abd96e7d8290a8e340095" prot="public" static="no" const="yes" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">char</ref> <ref refid="structcuvis_1_1image__t" kindref="compound">const</ref> *</type>
+        <definition>char const  * cuvis::cuvis_sdk_exception::what</definition>
+        <argsstring>(void) const noexcept</argsstring>
+        <name>what</name>
+        <qualifiedname>cuvis::cuvis_sdk_exception::what</qualifiedname>
+        <param>
+          <type><ref refid="structcuvis_1_1image__t" kindref="compound">void</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="751" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1cuvis__sdk__exception_1a3b8d23e2cf5a1deaeba3947b879fbdd2" prot="public" static="no" const="yes" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>std::wstring</type>
+        <definition>std::wstring cuvis::cuvis_sdk_exception::what_wstr</definition>
+        <argsstring>(void) const noexcept</argsstring>
+        <name>what_wstr</name>
+        <qualifiedname>cuvis::cuvis_sdk_exception::what_wstr</qualifiedname>
+        <param>
+          <type><ref refid="structcuvis_1_1image__t" kindref="compound">void</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="753" column="18"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>cuvis::cuvis_sdk_exception</label>
+        <link refid="classcuvis_1_1cuvis__sdk__exception"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::exception</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>cuvis::cuvis_sdk_exception</label>
+        <link refid="classcuvis_1_1cuvis__sdk__exception"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::exception</label>
+      </node>
+    </collaborationgraph>
+    <location file="cuvis.cpp/interface/cuvis.hpp" line="746" column="3" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="747" bodyend="758"/>
+    <listofallmembers>
+      <member refid="classcuvis_1_1cuvis__sdk__exception_1a43ccb4339cc03baea25ae86638876e85" prot="protected" virt="non-virtual"><scope>cuvis::cuvis_sdk_exception</scope><name>_msg</name></member>
+      <member refid="classcuvis_1_1cuvis__sdk__exception_1a51c4e718741c9486a5c345c57780f2fb" prot="protected" virt="non-virtual"><scope>cuvis::cuvis_sdk_exception</scope><name>_wmsg</name></member>
+      <member refid="classcuvis_1_1cuvis__sdk__exception_1a56e18e1f896d9bed7e721014dcd8af4d" prot="public" virt="non-virtual"><scope>cuvis::cuvis_sdk_exception</scope><name>cuvis_sdk_exception</name></member>
+      <member refid="classcuvis_1_1cuvis__sdk__exception_1a074099badd6abd96e7d8290a8e340095" prot="public" virt="non-virtual"><scope>cuvis::cuvis_sdk_exception</scope><name>what</name></member>
+      <member refid="classcuvis_1_1cuvis__sdk__exception_1a3b8d23e2cf5a1deaeba3947b879fbdd2" prot="public" virt="non-virtual"><scope>cuvis::cuvis_sdk_exception</scope><name>what_wstr</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

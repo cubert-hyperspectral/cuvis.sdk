@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classcuvis_1_1Viewer" kind="class" language="C++" prot="public">
+    <compoundname>cuvis::Viewer</compoundname>
+    <includes refid="cuvis_8hpp" local="no">cuvis.hpp</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classcuvis_1_1Viewer_1a1ed06f2993f782df39d7bf03d11211f1" prot="public" static="no">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">cuvis_viewer_settings_t</ref></type>
+        <definition>using cuvis::Viewer::viewer_settings_t =  cuvis_viewer_settings_t</definition>
+        <argsstring></argsstring>
+        <name>viewer_settings_t</name>
+        <qualifiedname>cuvis::Viewer::viewer_settings_t</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1385" column="5" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1385" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classcuvis_1_1Viewer_1aecc88715dabe19c6d77bfa4ab411a9ce" prot="public" static="no">
+        <type>std::variant&lt; <ref refid="structcuvis_1_1view__t" kindref="compound">view_t</ref>&lt; std::uint8_t &gt;, <ref refid="structcuvis_1_1view__t" kindref="compound">view_t</ref>&lt; <ref refid="structcuvis_1_1image__t" kindref="compound">float</ref> &gt; &gt;</type>
+        <definition>using cuvis::Viewer::view_variant_t =  std::variant&lt;view_t&lt;std::uint8_t&gt;, view_t&lt;float&gt; &gt;</definition>
+        <argsstring></argsstring>
+        <name>view_variant_t</name>
+        <qualifiedname>cuvis::Viewer::view_variant_t</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1386" column="5" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1386" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classcuvis_1_1Viewer_1aa5ca927a4e8588bcd0d2e1e0ec2554f6" prot="public" static="no">
+        <type>std::map&lt; std::string, <ref refid="classcuvis_1_1Viewer_1aecc88715dabe19c6d77bfa4ab411a9ce" kindref="member">view_variant_t</ref> &gt;</type>
+        <definition>using cuvis::Viewer::view_data_t =  std::map&lt;std::string, view_variant_t&gt;</definition>
+        <argsstring></argsstring>
+        <name>view_data_t</name>
+        <qualifiedname>cuvis::Viewer::view_data_t</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1387" column="5" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1387" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="classcuvis_1_1Viewer_1a9de4a9533dff2ecc0919852d4c05a67b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">class</ref></type>
+        <definition>friend class Worker</definition>
+        <argsstring></argsstring>
+        <name>Worker</name>
+        <qualifiedname>cuvis::Viewer::Worker</qualifiedname>
+        <param>
+          <type><ref refid="classcuvis_1_1Worker" kindref="compound">Worker</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1382" column="18" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1382" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcuvis_1_1Viewer_1a2198758a03ec465352d7f47577f20d09" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="structcuvis_1_1image__t" kindref="compound">CUVIS_VIEWER</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;CUVIS_VIEWER&gt; cuvis::Viewer::_viewer</definition>
+        <argsstring></argsstring>
+        <name>_viewer</name>
+        <qualifiedname>cuvis::Viewer::_viewer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1409" column="21" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1409" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcuvis_1_1Viewer_1a17c14e315d52423972cbf30fe7cc5a7c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>cuvis::Viewer::Viewer</definition>
+        <argsstring>(ViewArgs const &amp;args)</argsstring>
+        <name>Viewer</name>
+        <qualifiedname>cuvis::Viewer::Viewer</qualifiedname>
+        <param>
+          <type><ref refid="structcuvis_1_1ViewArgs" kindref="compound">ViewArgs</ref> <ref refid="structcuvis_1_1image__t" kindref="compound">const</ref> &amp;</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1390" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1Viewer_1a8d9b3925bd1341297d9ce5a784823638" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classcuvis_1_1Viewer_1aa5ca927a4e8588bcd0d2e1e0ec2554f6" kindref="member">view_data_t</ref></type>
+        <definition>view_data_t cuvis::Viewer::apply</definition>
+        <argsstring>(Measurement const &amp;mesu)</argsstring>
+        <name>apply</name>
+        <qualifiedname>cuvis::Viewer::apply</qualifiedname>
+        <param>
+          <type><ref refid="classcuvis_1_1Measurement" kindref="compound">Measurement</ref> <ref refid="structcuvis_1_1image__t" kindref="compound">const</ref> &amp;</type>
+          <declname>mesu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1391" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1Viewer_1ae958e013b99f2d044b5eb8978e516aeb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">CUVIS_VIEWER</ref></type>
+        <definition>CUVIS_VIEWER cuvis::Viewer::get_handle</definition>
+        <argsstring>() const</argsstring>
+        <name>get_handle</name>
+        <qualifiedname>cuvis::Viewer::get_handle</qualifiedname>
+        <briefdescription>
+<para>Expert: Return the current handle of the wrapper class. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1394" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1Viewer_1a8204c8b21487713fdf7521e0966b1ee0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">CUVIS_VIEWER</ref></type>
+        <definition>CUVIS_VIEWER cuvis::Viewer::get_handle_copy</definition>
+        <argsstring>() const</argsstring>
+        <name>get_handle_copy</name>
+        <qualifiedname>cuvis::Viewer::get_handle_copy</qualifiedname>
+        <briefdescription>
+<para>Expert: Create a copy of the current handle of the wrapper class and return it. This handle needs to be also freed before the resource will be released by the sdk. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1398" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1Viewer_1a10939156838e6a9c8f7008120d4f8eb3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>cuvis::Viewer::Viewer</definition>
+        <argsstring>(CUVIS_VIEWER handle)</argsstring>
+        <name>Viewer</name>
+        <qualifiedname>cuvis::Viewer::Viewer</qualifiedname>
+        <param>
+          <type><ref refid="structcuvis_1_1image__t" kindref="compound">CUVIS_VIEWER</ref></type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+<para>Expert: Create a wrapper class around a handle. This only allowed once per handle, otherwise the handle could be freed before all instances of the wrapper class are deleted. This can be useful if a previously a handle has been copied and now should be wrapped at another place in a program. Most of the time this is not necesarry and the wrapper class can be copied just as well. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1406" column="5"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classcuvis_1_1Viewer_1af8571361fd6b231c3d8d2ac0fae0039a" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classcuvis_1_1Viewer_1aa5ca927a4e8588bcd0d2e1e0ec2554f6" kindref="member">view_data_t</ref></type>
+        <definition>static view_data_t cuvis::Viewer::create_view_data</definition>
+        <argsstring>(CUVIS_VIEW)</argsstring>
+        <name>create_view_data</name>
+        <qualifiedname>cuvis::Viewer::create_view_data</qualifiedname>
+        <param>
+          <type><ref refid="structcuvis_1_1image__t" kindref="compound">CUVIS_VIEW</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1410" column="24"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="cuvis.cpp/interface/cuvis.hpp" line="1380" column="3" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1381" bodyend="1411"/>
+    <listofallmembers>
+      <member refid="classcuvis_1_1Viewer_1a2198758a03ec465352d7f47577f20d09" prot="private" virt="non-virtual"><scope>cuvis::Viewer</scope><name>_viewer</name></member>
+      <member refid="classcuvis_1_1Viewer_1a8d9b3925bd1341297d9ce5a784823638" prot="public" virt="non-virtual"><scope>cuvis::Viewer</scope><name>apply</name></member>
+      <member refid="classcuvis_1_1Viewer_1af8571361fd6b231c3d8d2ac0fae0039a" prot="private" virt="non-virtual"><scope>cuvis::Viewer</scope><name>create_view_data</name></member>
+      <member refid="classcuvis_1_1Viewer_1ae958e013b99f2d044b5eb8978e516aeb" prot="public" virt="non-virtual"><scope>cuvis::Viewer</scope><name>get_handle</name></member>
+      <member refid="classcuvis_1_1Viewer_1a8204c8b21487713fdf7521e0966b1ee0" prot="public" virt="non-virtual"><scope>cuvis::Viewer</scope><name>get_handle_copy</name></member>
+      <member refid="classcuvis_1_1Viewer_1aa5ca927a4e8588bcd0d2e1e0ec2554f6" prot="public" virt="non-virtual"><scope>cuvis::Viewer</scope><name>view_data_t</name></member>
+      <member refid="classcuvis_1_1Viewer_1aecc88715dabe19c6d77bfa4ab411a9ce" prot="public" virt="non-virtual"><scope>cuvis::Viewer</scope><name>view_variant_t</name></member>
+      <member refid="classcuvis_1_1Viewer_1a17c14e315d52423972cbf30fe7cc5a7c" prot="public" virt="non-virtual"><scope>cuvis::Viewer</scope><name>Viewer</name></member>
+      <member refid="classcuvis_1_1Viewer_1a10939156838e6a9c8f7008120d4f8eb3" prot="public" virt="non-virtual"><scope>cuvis::Viewer</scope><name>Viewer</name></member>
+      <member refid="classcuvis_1_1Viewer_1a1ed06f2993f782df39d7bf03d11211f1" prot="public" virt="non-virtual"><scope>cuvis::Viewer</scope><name>viewer_settings_t</name></member>
+      <member refid="classcuvis_1_1Viewer_1a9de4a9533dff2ecc0919852d4c05a67b" prot="private" virt="non-virtual"><scope>cuvis::Viewer</scope><name>Worker</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

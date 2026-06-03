@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structcuvis__sensor__info__t" kind="struct" language="C++" prot="public">
+    <compoundname>cuvis_sensor_info_t</compoundname>
+    <includes refid="cuvis_8h" local="no">cuvis.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structcuvis__sensor__info__t_1a84adfcf3021524df6463ae1fa7d636c9" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t cuvis_sensor_info_t::averages</definition>
+        <argsstring></argsstring>
+        <name>averages</name>
+        <qualifiedname>cuvis_sensor_info_t::averages</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>number of averages used </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="945" column="12" bodyfile="docs/_api_sources/cuvis.h" bodystart="945" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__sensor__info__t_1a236149034442f7cacdbf3ea0048fcd24" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double cuvis_sensor_info_t::temperature</definition>
+        <argsstring></argsstring>
+        <name>temperature</name>
+        <qualifiedname>cuvis_sensor_info_t::temperature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the sensors&apos;s temperature while readout (0 if not applicable) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="948" column="10" bodyfile="docs/_api_sources/cuvis.h" bodystart="948" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__sensor__info__t_1a40923a0a7793edb6a614a0341499cd98" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double cuvis_sensor_info_t::gain</definition>
+        <argsstring></argsstring>
+        <name>gain</name>
+        <qualifiedname>cuvis_sensor_info_t::gain</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gain value while recording </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="951" column="10" bodyfile="docs/_api_sources/cuvis.h" bodystart="951" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__sensor__info__t_1a5cd9ce1073974e618d712e749612f372" prot="public" static="no" mutable="no">
+        <type><ref refid="cuvis_8h_1a18c8038b7508c2ae8592f4c7e20f4034" kindref="member">CUVIS_TIMESTAMP</ref></type>
+        <definition>CUVIS_TIMESTAMP cuvis_sensor_info_t::readout_time</definition>
+        <argsstring></argsstring>
+        <name>readout_time</name>
+        <qualifiedname>cuvis_sensor_info_t::readout_time</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the timestamp (UTC) of the image readout (senor&apos;s hardware clock ) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="954" column="19" bodyfile="docs/_api_sources/cuvis.h" bodystart="954" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__sensor__info__t_1ae22ed7ae2759a8fd293400c7b3b9ca9b" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t cuvis_sensor_info_t::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>cuvis_sensor_info_t::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>width of buffer </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="957" column="12" bodyfile="docs/_api_sources/cuvis.h" bodystart="957" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__sensor__info__t_1a50a3ee986ff150d5d83ac81d381da542" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t cuvis_sensor_info_t::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>cuvis_sensor_info_t::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>height of buffer </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="959" column="12" bodyfile="docs/_api_sources/cuvis.h" bodystart="959" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__sensor__info__t_1a941978d808d9cdc5093193ffebf07a8a" prot="public" static="no" mutable="no">
+        <type><ref refid="cuvis_8h_1a7f1faedccb767d68d3c2d46d9d2904b6" kindref="member">CUVIS_SIZE</ref></type>
+        <definition>CUVIS_SIZE cuvis_sensor_info_t::raw_frame_id</definition>
+        <argsstring></argsstring>
+        <name>raw_frame_id</name>
+        <qualifiedname>cuvis_sensor_info_t::raw_frame_id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>ID given to this measurement by the device hardware or driver </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="962" column="14" bodyfile="docs/_api_sources/cuvis.h" bodystart="962" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__sensor__info__t_1a711b8bf15c4ceb00beb5bda6d97f2490" prot="public" static="no" mutable="no">
+        <type><ref refid="cuvis_8h_1ad6fd13ac609b8cbfad5f49e5ff0e11d3" kindref="member">CUVIS_CHAR</ref></type>
+        <definition>CUVIS_CHAR cuvis_sensor_info_t::pixel_format[CUVIS_MAXBUF]</definition>
+        <argsstring>[CUVIS_MAXBUF]</argsstring>
+        <name>pixel_format</name>
+        <qualifiedname>cuvis_sensor_info_t::pixel_format</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The sensor read-out pixel format used by this device. Informs how many bits per pixel are available. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="965" column="14" bodyfile="docs/_api_sources/cuvis.h" bodystart="965" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__sensor__info__t_1af8d69badadf8ad0d358977cb85d6242f" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double cuvis_sensor_info_t::integration_time</definition>
+        <argsstring></argsstring>
+        <name>integration_time</name>
+        <qualifiedname>cuvis_sensor_info_t::integration_time</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The real integration time of the sensor (exposure time) in ms </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="968" column="10" bodyfile="docs/_api_sources/cuvis.h" bodystart="968" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="docs/_api_sources/cuvis.h" line="942" column="1" bodyfile="docs/_api_sources/cuvis.h" bodystart="943" bodyend="969"/>
+    <listofallmembers>
+      <member refid="structcuvis__sensor__info__t_1a84adfcf3021524df6463ae1fa7d636c9" prot="public" virt="non-virtual"><scope>cuvis_sensor_info_t</scope><name>averages</name></member>
+      <member refid="structcuvis__sensor__info__t_1a40923a0a7793edb6a614a0341499cd98" prot="public" virt="non-virtual"><scope>cuvis_sensor_info_t</scope><name>gain</name></member>
+      <member refid="structcuvis__sensor__info__t_1a50a3ee986ff150d5d83ac81d381da542" prot="public" virt="non-virtual"><scope>cuvis_sensor_info_t</scope><name>height</name></member>
+      <member refid="structcuvis__sensor__info__t_1af8d69badadf8ad0d358977cb85d6242f" prot="public" virt="non-virtual"><scope>cuvis_sensor_info_t</scope><name>integration_time</name></member>
+      <member refid="structcuvis__sensor__info__t_1a711b8bf15c4ceb00beb5bda6d97f2490" prot="public" virt="non-virtual"><scope>cuvis_sensor_info_t</scope><name>pixel_format</name></member>
+      <member refid="structcuvis__sensor__info__t_1a941978d808d9cdc5093193ffebf07a8a" prot="public" virt="non-virtual"><scope>cuvis_sensor_info_t</scope><name>raw_frame_id</name></member>
+      <member refid="structcuvis__sensor__info__t_1a5cd9ce1073974e618d712e749612f372" prot="public" virt="non-virtual"><scope>cuvis_sensor_info_t</scope><name>readout_time</name></member>
+      <member refid="structcuvis__sensor__info__t_1a236149034442f7cacdbf3ea0048fcd24" prot="public" virt="non-virtual"><scope>cuvis_sensor_info_t</scope><name>temperature</name></member>
+      <member refid="structcuvis__sensor__info__t_1ae22ed7ae2759a8fd293400c7b3b9ca9b" prot="public" virt="non-virtual"><scope>cuvis_sensor_info_t</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

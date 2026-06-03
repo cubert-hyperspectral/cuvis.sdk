@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structcuvis__export__view__settings__t" kind="struct" language="C++" prot="public">
+    <compoundname>cuvis_export_view_settings_t</compoundname>
+    <includes refid="cuvis_8h" local="no">cuvis.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structcuvis__export__view__settings__t_1a41d6c137e2eeae5c462c30d83e09705f" prot="public" static="no" mutable="no">
+        <type><ref refid="cuvis_8h_1ad6fd13ac609b8cbfad5f49e5ff0e11d3" kindref="member">CUVIS_CHAR</ref> const  *</type>
+        <definition>CUVIS_CHAR const* cuvis_export_view_settings_t::userplugin</definition>
+        <argsstring></argsstring>
+        <name>userplugin</name>
+        <qualifiedname>cuvis_export_view_settings_t::userplugin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The userplugin xml string. See userplugin manual. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1391" column="20" bodyfile="docs/_api_sources/cuvis.h" bodystart="1391" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__export__view__settings__t_1a5edb94c89676b7ebb50a3bad6db624dc" prot="public" static="no" mutable="no">
+        <type><ref refid="cuvis_8h_1a411e2de5f4fe2d2210e985d8f323b144" kindref="member">CUVIS_INT</ref></type>
+        <definition>CUVIS_INT cuvis_export_view_settings_t::complete</definition>
+        <argsstring></argsstring>
+        <name>complete</name>
+        <qualifiedname>cuvis_export_view_settings_t::complete</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When using View Exporter: export all output elements of the user plugin, even if they&apos;re not marked as &quot;show&quot; </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1394" column="13" bodyfile="docs/_api_sources/cuvis.h" bodystart="1394" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__export__view__settings__t_1ab31820405e04cf5e800015e81c8cefa1" prot="public" static="no" mutable="no">
+        <type><ref refid="cuvis_8h_1a411e2de5f4fe2d2210e985d8f323b144" kindref="member">CUVIS_INT</ref></type>
+        <definition>CUVIS_INT cuvis_export_view_settings_t::pan_failback</definition>
+        <argsstring></argsstring>
+        <name>pan_failback</name>
+        <qualifiedname>cuvis_export_view_settings_t::pan_failback</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>failback to pan image if cube is not available </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1397" column="13" bodyfile="docs/_api_sources/cuvis.h" bodystart="1397" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Additional settings for exporting to a userplugin view. See also <ref refid="structcuvis__export__general__settings__t" kindref="compound">cuvis_export_general_settings_t</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="docs/_api_sources/cuvis.h" line="1388" column="1" bodyfile="docs/_api_sources/cuvis.h" bodystart="1389" bodyend="1398"/>
+    <listofallmembers>
+      <member refid="structcuvis__export__view__settings__t_1a5edb94c89676b7ebb50a3bad6db624dc" prot="public" virt="non-virtual"><scope>cuvis_export_view_settings_t</scope><name>complete</name></member>
+      <member refid="structcuvis__export__view__settings__t_1ab31820405e04cf5e800015e81c8cefa1" prot="public" virt="non-virtual"><scope>cuvis_export_view_settings_t</scope><name>pan_failback</name></member>
+      <member refid="structcuvis__export__view__settings__t_1a41d6c137e2eeae5c462c30d83e09705f" prot="public" virt="non-virtual"><scope>cuvis_export_view_settings_t</scope><name>userplugin</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

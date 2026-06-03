@@ -1,0 +1,490 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="group__cuvis__session" kind="group">
+    <compoundname>cuvis_session</compoundname>
+    <title>Session File</title>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="group__cuvis__session_1ga246e959c429baf4ceff96764c670a2bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_session_file_copy_handle</definition>
+        <argsstring>(CUVIS_SESSION_FILE i_sess, CUVIS_SESSION_FILE *o_pSess)</argsstring>
+        <name>cuvis_session_file_copy_handle</name>
+        <param>
+          <type><ref refid="cuvis_8h_1aafc04868b066901432da5a02e666727f" kindref="member">CUVIS_SESSION_FILE</ref></type>
+          <declname>i_sess</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1aafc04868b066901432da5a02e666727f" kindref="member">CUVIS_SESSION_FILE</ref> *</type>
+          <declname>o_pSess</declname>
+        </param>
+        <briefdescription>
+<para>Creates an additional session file handle. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates an additional handle that points to the same instance as the supplied handle</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_sess</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handle of the session file to copy </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pSess</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new handle of the session file. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dad52787b0cfb0da2c053a68bcdc54bc6f" kindref="member">status_ok</ref> if the session file handle could be doubled </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1994" column="33" declfile="docs/_api_sources/cuvis.h" declline="1994" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__session_1ga9d470ba12611e6b5112a5d7d991c8228" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_session_file_load</definition>
+        <argsstring>(const CUVIS_CHAR *i_path, CUVIS_SESSION_FILE *o_pSess)</argsstring>
+        <name>cuvis_session_file_load</name>
+        <param>
+          <type>const <ref refid="cuvis_8h_1ad6fd13ac609b8cbfad5f49e5ff0e11d3" kindref="member">CUVIS_CHAR</ref> *</type>
+          <declname>i_path</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1aafc04868b066901432da5a02e666727f" kindref="member">CUVIS_SESSION_FILE</ref> *</type>
+          <declname>o_pSess</declname>
+        </param>
+        <briefdescription>
+<para>Load a session_info file from disk. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The session_info file is a cu3s file and consists of binary cu3 measurement data. Call <ref refid="group__cuvis__session_1ga4ef5a62c11e92504516693c7643be105" kindref="member">cuvis_session_file_get_mesu</ref> to obtain a single measurement frame. SessionFile files can be create with the Cube Exporter (see <ref refid="group__cuvis__exporter_1gac8dbccda0642d3ed2cbcf432ab699712" kindref="member">cuvis_exporter_create_cube</ref>) <simplesect kind="note"><para>Do not read a file currently opened for writing.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the file path of the session_info file </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pSess</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the handle of the session_info file. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dad52787b0cfb0da2c053a68bcdc54bc6f" kindref="member">status_ok</ref>, if the measurement could be loaded. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="2008" column="33" declfile="docs/_api_sources/cuvis.h" declline="2008" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__session_1gaaad14206a0e3aecfe4081f61b5e11f8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_session_file_free</definition>
+        <argsstring>(CUVIS_SESSION_FILE *o_pSess)</argsstring>
+        <name>cuvis_session_file_free</name>
+        <param>
+          <type><ref refid="cuvis_8h_1aafc04868b066901432da5a02e666727f" kindref="member">CUVIS_SESSION_FILE</ref> *</type>
+          <declname>o_pSess</declname>
+        </param>
+        <briefdescription>
+<para>Release a session_info file handle. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Release a measurement by it&apos;s handle. The handle will be overwritten to <ref refid="cuvis_8h_1a3bd1442bbbbac3d65f28f5738b2743ed" kindref="member">CUVIS_HANDLE_NULL</ref> This will not affect any measurements on disk. Measurements loaded from the session_info file remain valid.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">o_pSess</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handle to the measurement to be deleted </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dad52787b0cfb0da2c053a68bcdc54bc6f" kindref="member">status_ok</ref> if the session_info file was released. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="2019" column="33" declfile="docs/_api_sources/cuvis.h" declline="2019" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__session_1ga4ef5a62c11e92504516693c7643be105" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_session_file_get_mesu</definition>
+        <argsstring>(CUVIS_SESSION_FILE i_sess, CUVIS_INT i_frameNo, CUVIS_SESSION_ITEM_TYPE i_type, CUVIS_MESU *o_pMesu)</argsstring>
+        <name>cuvis_session_file_get_mesu</name>
+        <param>
+          <type><ref refid="cuvis_8h_1aafc04868b066901432da5a02e666727f" kindref="member">CUVIS_SESSION_FILE</ref></type>
+          <declname>i_sess</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1a411e2de5f4fe2d2210e985d8f323b144" kindref="member">CUVIS_INT</ref></type>
+          <declname>i_frameNo</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1ac2de12c445949bd33c16822784121d02" kindref="member">CUVIS_SESSION_ITEM_TYPE</ref></type>
+          <declname>i_type</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1a79fa4e0f6faf8ddaabf6ee66dfa00d3e" kindref="member">CUVIS_MESU</ref> *</type>
+          <declname>o_pMesu</declname>
+        </param>
+        <briefdescription>
+<para>Load a measurement from the session_info file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_sess</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the session_info file handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">i_frameNo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the frame no. Counting from 0, must be below value of <ref refid="group__cuvis__session_1ga55ea068e315f18237e6a9e55cf71727e" kindref="member">cuvis_session_file_get_size</ref> of it&apos;s respective <computeroutput>i_type</computeroutput> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">i_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the type of listing (size depends on type) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pMesu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the handle of the measurement. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dad52787b0cfb0da2c053a68bcdc54bc6f" kindref="member">status_ok</ref>, if the measurement could be loaded. <ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9da032fa1a5c4c2acdfd16268b2d7fa6f21" kindref="member">status_no_measurement</ref> if the measurement was dropped. <ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9da405da0d107497b3596a3818a48478c9f" kindref="member">status_error</ref> if the frame exeeds the number of frames. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="2032" column="5" declfile="docs/_api_sources/cuvis.h" declline="2032" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__session_1gae78abd5bdc32811e294aa04ecbdd52a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_session_file_get_reference_mesu</definition>
+        <argsstring>(CUVIS_SESSION_FILE i_sess, CUVIS_INT i_frameNo, CUVIS_REFERENCE_TYPE i_type, CUVIS_MESU *o_pMesu)</argsstring>
+        <name>cuvis_session_file_get_reference_mesu</name>
+        <param>
+          <type><ref refid="cuvis_8h_1aafc04868b066901432da5a02e666727f" kindref="member">CUVIS_SESSION_FILE</ref></type>
+          <declname>i_sess</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1a411e2de5f4fe2d2210e985d8f323b144" kindref="member">CUVIS_INT</ref></type>
+          <declname>i_frameNo</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1af7e5c2da78987108b31247352bb0f6d9" kindref="member">CUVIS_REFERENCE_TYPE</ref></type>
+          <declname>i_type</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1a79fa4e0f6faf8ddaabf6ee66dfa00d3e" kindref="member">CUVIS_MESU</ref> *</type>
+          <declname>o_pMesu</declname>
+        </param>
+        <briefdescription>
+<para>Load a reference measurement from the session_info file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_sess</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the session_info file handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">i_frameNo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the reference number. Counting from 0. If <computeroutput>i_type</computeroutput> is not set, refers to the index of all references and must be below the value of <ref refid="group__cuvis__session_1ga55ea068e315f18237e6a9e55cf71727e" kindref="member">cuvis_session_file_get_size</ref> using type session_item_type_references. If <computeroutput>i_type</computeroutput> is set, must be 0. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">i_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the type of reference measurement requested </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pMesu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the handle of the measurement. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dad52787b0cfb0da2c053a68bcdc54bc6f" kindref="member">status_ok</ref>, if the reference could be loaded. <ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9da032fa1a5c4c2acdfd16268b2d7fa6f21" kindref="member">status_no_measurement</ref> if the reference does not exist. <ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9da405da0d107497b3596a3818a48478c9f" kindref="member">status_error</ref> if the i_frameNo exeeds the number of references. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="2045" column="5" declfile="docs/_api_sources/cuvis.h" declline="2045" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__session_1ga55ea068e315f18237e6a9e55cf71727e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_session_file_get_size</definition>
+        <argsstring>(CUVIS_SESSION_FILE i_sess, CUVIS_SESSION_ITEM_TYPE i_type, CUVIS_INT *o_pSize)</argsstring>
+        <name>cuvis_session_file_get_size</name>
+        <param>
+          <type><ref refid="cuvis_8h_1aafc04868b066901432da5a02e666727f" kindref="member">CUVIS_SESSION_FILE</ref></type>
+          <declname>i_sess</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1ac2de12c445949bd33c16822784121d02" kindref="member">CUVIS_SESSION_ITEM_TYPE</ref></type>
+          <declname>i_type</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1a411e2de5f4fe2d2210e985d8f323b144" kindref="member">CUVIS_INT</ref> *</type>
+          <declname>o_pSize</declname>
+        </param>
+        <briefdescription>
+<para>Get number of total frames of session_info file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_sess</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the session_info file handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">i_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the type of listing (size depends on type) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the size is written here. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dad52787b0cfb0da2c053a68bcdc54bc6f" kindref="member">status_ok</ref> if no error occurred. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="2054" column="33" declfile="docs/_api_sources/cuvis.h" declline="2054" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__session_1ga53da4034af2fb508f8b1a707b8c309bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_session_file_get_thumbnail</definition>
+        <argsstring>(CUVIS_SESSION_FILE i_sess, CUVIS_IMBUFFER *o_pThumbnail)</argsstring>
+        <name>cuvis_session_file_get_thumbnail</name>
+        <param>
+          <type><ref refid="cuvis_8h_1aafc04868b066901432da5a02e666727f" kindref="member">CUVIS_SESSION_FILE</ref></type>
+          <declname>i_sess</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1aa71eed068a38e8badf1512676c20174f" kindref="member">CUVIS_IMBUFFER</ref> *</type>
+          <declname>o_pThumbnail</declname>
+        </param>
+        <briefdescription>
+<para>Get the thumbnail image of a session file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the thumbnail of a session file. The image data is valid as long as the session file handle is not released.</para>
+<para>see also: <ref refid="group__cuvis__reserved__keys" kindref="compound">Reserved Keys</ref></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_sess</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The session file handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pThumbnail</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The image buffer to be filled </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dad52787b0cfb0da2c053a68bcdc54bc6f" kindref="member">status_ok</ref> if the buffer could be filled with the image element. <ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9da7fdd3396ac111ad131ec95e3411928a7" kindref="member">status_not_available</ref> if the requested data was empty, or the key could not be found </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="2068" column="33" declfile="docs/_api_sources/cuvis.h" declline="2068" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__session_1ga369da49a5fcdd8fb654c6ad6dbd2ce9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_session_file_get_fps</definition>
+        <argsstring>(CUVIS_SESSION_FILE i_sess, double *o_pFps)</argsstring>
+        <name>cuvis_session_file_get_fps</name>
+        <param>
+          <type><ref refid="cuvis_8h_1aafc04868b066901432da5a02e666727f" kindref="member">CUVIS_SESSION_FILE</ref></type>
+          <declname>i_sess</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>o_pFps</declname>
+        </param>
+        <briefdescription>
+<para>get a session_info file&apos;s FPS </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The session_info file meta-Information will be available only if the mode <ref refid="group__cuvis__session_1gae652b04fd2cee307d30c4f491105fe5d" kindref="member">cuvis_session_file_get_operation_mode</ref> returns &quot;Internal&quot;</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_sess</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the session_info file handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pFps</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the frames per second the session_info was recorded with. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>status_ok if fps could be retrieved, status_not_available if the session_info file has not FPS property set. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="2078" column="33" declfile="docs/_api_sources/cuvis.h" declline="2078" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__session_1ga4a8387188e36181e1867b9eacaf69592" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_session_file_get_hash</definition>
+        <argsstring>(CUVIS_SESSION_FILE i_sess, CUVIS_CHAR *o_pHash)</argsstring>
+        <name>cuvis_session_file_get_hash</name>
+        <param>
+          <type><ref refid="cuvis_8h_1aafc04868b066901432da5a02e666727f" kindref="member">CUVIS_SESSION_FILE</ref></type>
+          <declname>i_sess</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1ad6fd13ac609b8cbfad5f49e5ff0e11d3" kindref="member">CUVIS_CHAR</ref> *</type>
+          <declname>o_pHash</declname>
+        </param>
+        <briefdescription>
+<para>get a session_info file&apos;s hash </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_sess</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the session_info file handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pHash</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the hash of the sessionfile. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>status_ok if hash could be retrieved, status_not_available if the sessionfile has no hash property set. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="2086" column="33" declfile="docs/_api_sources/cuvis.h" declline="2086" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__session_1gae652b04fd2cee307d30c4f491105fe5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_session_file_get_operation_mode</definition>
+        <argsstring>(CUVIS_SESSION_FILE i_sess, CUVIS_OPERATION_MODE *o_pMode)</argsstring>
+        <name>cuvis_session_file_get_operation_mode</name>
+        <param>
+          <type><ref refid="cuvis_8h_1aafc04868b066901432da5a02e666727f" kindref="member">CUVIS_SESSION_FILE</ref></type>
+          <declname>i_sess</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1a1e2992f6dfbc40f72fc5ebe587ad5a5d" kindref="member">CUVIS_OPERATION_MODE</ref> *</type>
+          <declname>o_pMode</declname>
+        </param>
+        <briefdescription>
+<para>returns the operation mode the session_info file was recorded in </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The operation mode gives indication how the session_info file was recorded.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_sess</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the session_info file handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pMode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the operation mode of the session_info file. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>status_ok if no error occurred. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="2096" column="33" declfile="docs/_api_sources/cuvis.h" declline="2096" declcolumn="33"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The main file format of the SDK </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

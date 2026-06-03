@@ -1,0 +1,650 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="group__cuvis__proc" kind="group">
+    <compoundname>cuvis_proc</compoundname>
+    <title>Processing Context</title>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="group__cuvis__proc_1ga5e05f01deee882101ee089afdcfaf91b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_proc_cont_copy_handle</definition>
+        <argsstring>(CUVIS_PROC_CONT i_procCont, CUVIS_PROC_CONT *o_pProcCont)</argsstring>
+        <name>cuvis_proc_cont_copy_handle</name>
+        <param>
+          <type><ref refid="cuvis_8h_1a53f231856522945c06cddf2c0fcdcf84" kindref="member">CUVIS_PROC_CONT</ref></type>
+          <declname>i_procCont</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1a53f231856522945c06cddf2c0fcdcf84" kindref="member">CUVIS_PROC_CONT</ref> *</type>
+          <declname>o_pProcCont</declname>
+        </param>
+        <briefdescription>
+<para>Creates an additional processing context handle. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates an additional handle that points to the same instance as the supplied handle</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_procCont</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handle of the processing context to copy </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pProcCont</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new handle of the processing context. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dad52787b0cfb0da2c053a68bcdc54bc6f" kindref="member">status_ok</ref> if the processing context handle could be doubled </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="2604" column="33" declfile="docs/_api_sources/cuvis.h" declline="2604" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__proc_1ga96ddd0a000f2f5f452ecb9e6ac70c01c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_proc_cont_create_from_calib</definition>
+        <argsstring>(CUVIS_CALIB i_calib, CUVIS_PROC_CONT *o_pProcCont)</argsstring>
+        <name>cuvis_proc_cont_create_from_calib</name>
+        <param>
+          <type><ref refid="cuvis_8h_1a00367af6d90a7820cfb054901dee4061" kindref="member">CUVIS_CALIB</ref></type>
+          <declname>i_calib</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1a53f231856522945c06cddf2c0fcdcf84" kindref="member">CUVIS_PROC_CONT</ref> *</type>
+          <declname>o_pProcCont</declname>
+        </param>
+        <briefdescription>
+<para>Load a processing context from a given calibration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Load the processing context from the calibration.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_calib</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The calibration instance the processing context will be loaded from </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pProcCont</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handle of the processing context. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dad52787b0cfb0da2c053a68bcdc54bc6f" kindref="member">status_ok</ref> if the processing context could be loaded </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="2615" column="33" declfile="docs/_api_sources/cuvis.h" declline="2615" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__proc_1gaafd0b4af6e7d60fc80bb7803fdb3cca5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_proc_cont_create_from_mesu</definition>
+        <argsstring>(CUVIS_MESU i_mesu, CUVIS_INT i_loadReferences, CUVIS_PROC_CONT *o_pProcCont)</argsstring>
+        <name>cuvis_proc_cont_create_from_mesu</name>
+        <param>
+          <type><ref refid="cuvis_8h_1a79fa4e0f6faf8ddaabf6ee66dfa00d3e" kindref="member">CUVIS_MESU</ref></type>
+          <declname>i_mesu</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1a411e2de5f4fe2d2210e985d8f323b144" kindref="member">CUVIS_INT</ref></type>
+          <declname>i_loadReferences</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1a53f231856522945c06cddf2c0fcdcf84" kindref="member">CUVIS_PROC_CONT</ref> *</type>
+          <declname>o_pProcCont</declname>
+        </param>
+        <briefdescription>
+<para>Load a processing context from a given measurement. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The processing context is loaded from the CALIBRATION directory, relative to the measurement given ( ../Calibration/* ) . This directory is present in the normal camera operation / recording, but the reference might get lost, if you manually move the measurements. In that case, this function will fail.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_mesu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The measurement with a valid reference to the processing context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pProcCont</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handle of the processing context. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dad52787b0cfb0da2c053a68bcdc54bc6f" kindref="member">status_ok</ref> if the processing context could be loaded </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="2628" column="33" declfile="docs/_api_sources/cuvis.h" declline="2628" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__proc_1ga4ff14ebe38249e07395bd377bd2401eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_proc_cont_create_from_session_file</definition>
+        <argsstring>(CUVIS_SESSION_FILE i_sess, CUVIS_INT i_loadReferences, CUVIS_PROC_CONT *o_pProcCont)</argsstring>
+        <name>cuvis_proc_cont_create_from_session_file</name>
+        <param>
+          <type><ref refid="cuvis_8h_1aafc04868b066901432da5a02e666727f" kindref="member">CUVIS_SESSION_FILE</ref></type>
+          <declname>i_sess</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1a411e2de5f4fe2d2210e985d8f323b144" kindref="member">CUVIS_INT</ref></type>
+          <declname>i_loadReferences</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1a53f231856522945c06cddf2c0fcdcf84" kindref="member">CUVIS_PROC_CONT</ref> *</type>
+          <declname>o_pProcCont</declname>
+        </param>
+        <briefdescription>
+<para>Load a processing context from a given session_file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The processing context from the embedded processing context of the session_info file.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_sess</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The session_file with a valid reference to the processing context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pProcCont</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handle of the processing context. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dad52787b0cfb0da2c053a68bcdc54bc6f" kindref="member">status_ok</ref> if the processing context could be loaded </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="2638" column="33" declfile="docs/_api_sources/cuvis.h" declline="2638" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__proc_1ga0e7aefa748554ddefdab4749878785f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_proc_cont_get_reference</definition>
+        <argsstring>(CUVIS_PROC_CONT i_procCont, CUVIS_MESU *o_pMesu, CUVIS_REFERENCE_TYPE i_type)</argsstring>
+        <name>cuvis_proc_cont_get_reference</name>
+        <param>
+          <type><ref refid="cuvis_8h_1a53f231856522945c06cddf2c0fcdcf84" kindref="member">CUVIS_PROC_CONT</ref></type>
+          <declname>i_procCont</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1a79fa4e0f6faf8ddaabf6ee66dfa00d3e" kindref="member">CUVIS_MESU</ref> *</type>
+          <declname>o_pMesu</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1af7e5c2da78987108b31247352bb0f6d9" kindref="member">CUVIS_REFERENCE_TYPE</ref></type>
+          <declname>i_type</declname>
+        </param>
+        <briefdescription>
+<para>get a specific reference from the processing context </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The processing context can hold explicit references (e.g. a dark), see <ref refid="group__cuvis__proc_1ga970393728bb751fb2a8c179aeed69796" kindref="member">cuvis_proc_cont_set_reference</ref>. These reference can be obtained by this functions</para>
+<para><simplesect kind="note"><para>Implicit references given by a measurement are not returned. If they are available can only be checked indirectly by the <ref refid="group__cuvis__proc_1ga0b11e01ef2b5936406483a94513754ae" kindref="member">cuvis_proc_cont_is_capable</ref> or by checking for the measurement&apos;s data keys <ref refid="group__cuvis__reserved__keys_1ga480fceda6d8ddaf26dc845baa4500840" kindref="member">CUVIS_MESU_DARKREF_KEY</ref>, <ref refid="group__cuvis__reserved__keys_1gad59d63faeaf80719a01053e3643a5b27" kindref="member">CUVIS_MESU_WHITEREF_KEY</ref> and <ref refid="group__cuvis__reserved__keys_1ga8a6644917100914942ad24fecd406901" kindref="member">CUVIS_MESU_WHITEDARKREF_KEY</ref></para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_procCont</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handle of the processing context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pMesu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The reference measurement&apos;s handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">i_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of the measurement to be retrieved. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dad52787b0cfb0da2c053a68bcdc54bc6f" kindref="member">status_ok</ref> if the reference measurement is available and could be loaded </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="2655" column="33" declfile="docs/_api_sources/cuvis.h" declline="2655" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__proc_1ga970393728bb751fb2a8c179aeed69796" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_proc_cont_set_reference</definition>
+        <argsstring>(CUVIS_PROC_CONT i_procCont, CUVIS_MESU i_mesu, CUVIS_REFERENCE_TYPE i_type)</argsstring>
+        <name>cuvis_proc_cont_set_reference</name>
+        <param>
+          <type><ref refid="cuvis_8h_1a53f231856522945c06cddf2c0fcdcf84" kindref="member">CUVIS_PROC_CONT</ref></type>
+          <declname>i_procCont</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1a79fa4e0f6faf8ddaabf6ee66dfa00d3e" kindref="member">CUVIS_MESU</ref></type>
+          <declname>i_mesu</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1af7e5c2da78987108b31247352bb0f6d9" kindref="member">CUVIS_REFERENCE_TYPE</ref></type>
+          <declname>i_type</declname>
+        </param>
+        <briefdescription>
+<para>Set a reference measurement. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The available processing modes (<ref refid="cuvis_8h_1a0202f4d14b82cefb6ba0d79470335d88" kindref="member">cuvis_processing_mode_t</ref>) require certain references to be set. When a measurement is recorded with references in place, these references are available per measurement implicitly. However, if you want to process measurements with different references, or if the measurement lacks a reference, they can be set with this function.</para>
+<para><programlisting><codeline><highlight class="normal">CUVIS_MESU<sp/>mesu;</highlight></codeline>
+<codeline><highlight class="normal">cuvis_measurement_load(&quot;mesu.cu3&quot;,&amp;mesu);</highlight></codeline>
+<codeline><highlight class="normal">//contains<sp/>implicit<sp/>Reference_Dark</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">CUVIS_PROC_CONT<sp/>pc;</highlight></codeline>
+<codeline><highlight class="normal">cuvis_proc_cont_create_from_mesu(mesu,&amp;pc);<sp/>//will<sp/>implicitly<sp/>load<sp/>Reference_Dark</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">CUVIS_MESU<sp/>white;</highlight></codeline>
+<codeline><highlight class="normal">cuvis_measurement_load(&quot;white.cu3&quot;,&amp;white);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">cuvis_proc_cont_set_reference(pc,<sp/>white,<sp/>Reference_White);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//Cube_Reflectance<sp/>requires<sp/>Reference_Dark<sp/>and<sp/>Reference_White</highlight></codeline>
+<codeline><highlight class="normal">cuvis_proc_cont_apply(pc,mesu,{Cube_Reflectance});</highlight></codeline>
+</programlisting> <simplesect kind="note"><para>The reference explicitly set by this function has priority over the implicit measurement.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_procCont</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handle of the processing context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">i_mesu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The measurement to be used as explicit reference </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">i_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of the reference </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="2686" column="33" declfile="docs/_api_sources/cuvis.h" declline="2686" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__proc_1ga4c6c29c6121c490d58c44f47a1693120" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_proc_cont_clear_reference</definition>
+        <argsstring>(CUVIS_PROC_CONT i_procCont, CUVIS_REFERENCE_TYPE i_type)</argsstring>
+        <name>cuvis_proc_cont_clear_reference</name>
+        <param>
+          <type><ref refid="cuvis_8h_1a53f231856522945c06cddf2c0fcdcf84" kindref="member">CUVIS_PROC_CONT</ref></type>
+          <declname>i_procCont</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1af7e5c2da78987108b31247352bb0f6d9" kindref="member">CUVIS_REFERENCE_TYPE</ref></type>
+          <declname>i_type</declname>
+        </param>
+        <briefdescription>
+<para>Clears a reference measurement. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Clears a reference explicitly set by <ref refid="group__cuvis__proc_1ga970393728bb751fb2a8c179aeed69796" kindref="member">cuvis_proc_cont_set_reference</ref></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_procCont</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handle of the processing context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">i_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of the reference </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="2695" column="33" declfile="docs/_api_sources/cuvis.h" declline="2695" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__proc_1gaf0454eb5fe2e145eb05f187b570a28dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_proc_cont_calc_distance</definition>
+        <argsstring>(CUVIS_PROC_CONT i_procCont, double i_distanceMM)</argsstring>
+        <name>cuvis_proc_cont_calc_distance</name>
+        <param>
+          <type><ref refid="cuvis_8h_1a53f231856522945c06cddf2c0fcdcf84" kindref="member">CUVIS_PROC_CONT</ref></type>
+          <declname>i_procCont</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>i_distanceMM</declname>
+        </param>
+        <briefdescription>
+<para>Set the operating distance by value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Some cameras require a distance reference (calibration). This is usually obtained from a measurement at that distance. However, if the distance is known, it can be set manually.</para>
+<para><simplesect kind="note"><para>Some OEM-Cameras or older models do not support this. </para>
+</simplesect>
+<simplesect kind="note"><para>Internally, a measurement is created. It can be obtained by <ref refid="group__cuvis__proc_1ga0e7aefa748554ddefdab4749878785f9" kindref="member">cuvis_proc_cont_get_reference</ref>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_procCont</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handle of the processing context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">i_distanceMM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The distance in millimeters. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dad52787b0cfb0da2c053a68bcdc54bc6f" kindref="member">status_ok</ref> if the distance could be set </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="2709" column="33" declfile="docs/_api_sources/cuvis.h" declline="2709" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__proc_1ga390ec10f3279d75dd5706581f060478c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_proc_cont_has_reference</definition>
+        <argsstring>(CUVIS_PROC_CONT i_procCont, CUVIS_REFERENCE_TYPE i_type, CUVIS_INT *o_pHasReference)</argsstring>
+        <name>cuvis_proc_cont_has_reference</name>
+        <param>
+          <type><ref refid="cuvis_8h_1a53f231856522945c06cddf2c0fcdcf84" kindref="member">CUVIS_PROC_CONT</ref></type>
+          <declname>i_procCont</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1af7e5c2da78987108b31247352bb0f6d9" kindref="member">CUVIS_REFERENCE_TYPE</ref></type>
+          <declname>i_type</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1a411e2de5f4fe2d2210e985d8f323b144" kindref="member">CUVIS_INT</ref> *</type>
+          <declname>o_pHasReference</declname>
+        </param>
+        <briefdescription>
+<para>Check if an explicit reference was set. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_procCont</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handle of the processing context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">i_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The reference type </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pHasReference</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>true, if reference is explicitly set. false, otherwise </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dad52787b0cfb0da2c053a68bcdc54bc6f" kindref="member">status_ok</ref> if no error occurred. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="2719" column="33" declfile="docs/_api_sources/cuvis.h" declline="2719" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__proc_1ga0b11e01ef2b5936406483a94513754ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_proc_cont_is_capable</definition>
+        <argsstring>(CUVIS_PROC_CONT i_procCont, CUVIS_MESU i_mesu, CUVIS_PROC_ARGS i_args, CUVIS_INT *o_pIsCapable)</argsstring>
+        <name>cuvis_proc_cont_is_capable</name>
+        <param>
+          <type><ref refid="cuvis_8h_1a53f231856522945c06cddf2c0fcdcf84" kindref="member">CUVIS_PROC_CONT</ref></type>
+          <declname>i_procCont</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1a79fa4e0f6faf8ddaabf6ee66dfa00d3e" kindref="member">CUVIS_MESU</ref></type>
+          <declname>i_mesu</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1a2b83b0e0e92c1275e1ef4db28aa2e683" kindref="member">CUVIS_PROC_ARGS</ref></type>
+          <declname>i_args</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1a411e2de5f4fe2d2210e985d8f323b144" kindref="member">CUVIS_INT</ref> *</type>
+          <declname>o_pIsCapable</declname>
+        </param>
+        <briefdescription>
+<para>Check if a processing mode is possible for a measurement. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Depending on the measurement, it&apos;s intrinsic references, the processing context&apos;s explicit references and the internal camera calibration itself the availability of a mode varies.</para>
+<para>Use this function, to check whether a specific mode is explicitly possible for a measurement.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_procCont</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handle of the processing context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">i_mesu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The measurement to be checked </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">i_args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The processing options to be checked </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pIsCapable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>true, if mode is possible. false, otherwise </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dad52787b0cfb0da2c053a68bcdc54bc6f" kindref="member">status_ok</ref> if no error occurred. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="2736" column="33" declfile="docs/_api_sources/cuvis.h" declline="2736" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__proc_1ga84e58bab683a12bb9362b807f1a93217" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_proc_cont_apply</definition>
+        <argsstring>(CUVIS_PROC_CONT i_procCont, CUVIS_MESU i_mesu)</argsstring>
+        <name>cuvis_proc_cont_apply</name>
+        <param>
+          <type><ref refid="cuvis_8h_1a53f231856522945c06cddf2c0fcdcf84" kindref="member">CUVIS_PROC_CONT</ref></type>
+          <declname>i_procCont</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1a79fa4e0f6faf8ddaabf6ee66dfa00d3e" kindref="member">CUVIS_MESU</ref></type>
+          <declname>i_mesu</declname>
+        </param>
+        <briefdescription>
+<para>(Re-)Process a measurement </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Process a measurement according to the current settings of the processing context. Those get set via <ref refid="group__cuvis__proc_1ga0d5d0b36b4a2efd24e9835cc55625821" kindref="member">cuvis_proc_cont_set_args</ref> The availability of the modes depends, use <ref refid="group__cuvis__proc_1ga0b11e01ef2b5936406483a94513754ae" kindref="member">cuvis_proc_cont_is_capable</ref> to check if the processing is possible.</para>
+<para>In short: <ref refid="cuvis_8h_1a0202f4d14b82cefb6ba0d79470335d88aaf4c015cedaa6058330f8e81e0d5c6d4" kindref="member">Cube_Raw</ref> does not require references (<ref refid="cuvis_8h_1af6c3aaae05f308ef2a3742c4b8be6700ac9af142464e0b7c9817aa50d100d8cc4" kindref="member">Reference_Distance</ref> is optional)</para>
+<para><ref refid="cuvis_8h_1a0202f4d14b82cefb6ba0d79470335d88ad43f866a874865bdf474ff79867a8c7d" kindref="member">Cube_DarkSubtract</ref> requires <ref refid="cuvis_8h_1af6c3aaae05f308ef2a3742c4b8be6700a788e5986528fe19e4875cc34e61f4de6" kindref="member">Reference_Dark</ref> (and <ref refid="cuvis_8h_1af6c3aaae05f308ef2a3742c4b8be6700ac9af142464e0b7c9817aa50d100d8cc4" kindref="member">Reference_Distance</ref> is optional)</para>
+<para><ref refid="cuvis_8h_1a0202f4d14b82cefb6ba0d79470335d88ad16914a7abb37dac65e33e137e98dd14" kindref="member">Cube_Reflectance</ref> requires <ref refid="cuvis_8h_1af6c3aaae05f308ef2a3742c4b8be6700a788e5986528fe19e4875cc34e61f4de6" kindref="member">Reference_Dark</ref> and <ref refid="cuvis_8h_1af6c3aaae05f308ef2a3742c4b8be6700a42144fcfc845f6b39a04a5dc90f61513" kindref="member">Reference_White</ref> reference (and <ref refid="cuvis_8h_1af6c3aaae05f308ef2a3742c4b8be6700ac9af142464e0b7c9817aa50d100d8cc4" kindref="member">Reference_Distance</ref> is optional), the <ref refid="cuvis_8h_1af6c3aaae05f308ef2a3742c4b8be6700aac620b8e278a61f26d2d2623d95a6e7b" kindref="member">Reference_WhiteDark</ref> is strongly recommended if using different integration times.</para>
+<para><ref refid="cuvis_8h_1a0202f4d14b82cefb6ba0d79470335d88a7187b435f9998bb2316f3dab5cb0d91b" kindref="member">Cube_SpectralRadiance</ref> depends on the camera model: All cameras require <ref refid="cuvis_8h_1af6c3aaae05f308ef2a3742c4b8be6700a7d701ae716dc2286b71931029a227606" kindref="member">Reference_SpRad</ref>. The Fireflye requires: <ref refid="cuvis_8h_1af6c3aaae05f308ef2a3742c4b8be6700a788e5986528fe19e4875cc34e61f4de6" kindref="member">Reference_Dark</ref>, <ref refid="cuvis_8h_1af6c3aaae05f308ef2a3742c4b8be6700a42144fcfc845f6b39a04a5dc90f61513" kindref="member">Reference_White</ref>, the Ultris series requires only <ref refid="cuvis_8h_1af6c3aaae05f308ef2a3742c4b8be6700a788e5986528fe19e4875cc34e61f4de6" kindref="member">Reference_Dark</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_procCont</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handle of the processing context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">i_mesu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The measurement to be processed </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dad52787b0cfb0da2c053a68bcdc54bc6f" kindref="member">status_ok</ref> if measurement was processed. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="2759" column="33" declfile="docs/_api_sources/cuvis.h" declline="2759" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__proc_1ga0d5d0b36b4a2efd24e9835cc55625821" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_proc_cont_set_args</definition>
+        <argsstring>(CUVIS_PROC_CONT i_procCont, CUVIS_PROC_ARGS i_args)</argsstring>
+        <name>cuvis_proc_cont_set_args</name>
+        <param>
+          <type><ref refid="cuvis_8h_1a53f231856522945c06cddf2c0fcdcf84" kindref="member">CUVIS_PROC_CONT</ref></type>
+          <declname>i_procCont</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1a2b83b0e0e92c1275e1ef4db28aa2e683" kindref="member">CUVIS_PROC_ARGS</ref></type>
+          <declname>i_args</declname>
+        </param>
+        <briefdescription>
+<para>Sets the processing arguments for a processing contex. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>For processing a measurement see <ref refid="group__cuvis__proc_1ga84e58bab683a12bb9362b807f1a93217" kindref="member">cuvis_proc_cont_apply</ref></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_procCont</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handle of the processing context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">i_args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The processing arguments that will be set </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dad52787b0cfb0da2c053a68bcdc54bc6f" kindref="member">status_ok</ref> if measurement was processed. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="2769" column="33" declfile="docs/_api_sources/cuvis.h" declline="2769" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__proc_1ga3db5d0b7c37710399687a13d9ea50549" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_proc_cont_free</definition>
+        <argsstring>(CUVIS_PROC_CONT *io_pProcCont)</argsstring>
+        <name>cuvis_proc_cont_free</name>
+        <param>
+          <type><ref refid="cuvis_8h_1a53f231856522945c06cddf2c0fcdcf84" kindref="member">CUVIS_PROC_CONT</ref> *</type>
+          <declname>io_pProcCont</declname>
+        </param>
+        <briefdescription>
+<para>Clear a loaded processing context by it&apos;s handle. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The internal memory is freed. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">io_pProcCont</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handle of the processing context. The handle number will be invalidated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dad52787b0cfb0da2c053a68bcdc54bc6f" kindref="member">status_ok</ref> if processing context could be freed. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="2778" column="33" declfile="docs/_api_sources/cuvis.h" declline="2778" declcolumn="33"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Processing Images with the SDK. </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

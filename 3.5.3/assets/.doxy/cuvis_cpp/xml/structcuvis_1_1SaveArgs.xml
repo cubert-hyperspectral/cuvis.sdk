@@ -1,0 +1,266 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structcuvis_1_1SaveArgs" kind="struct" language="C++" prot="public">
+    <compoundname>cuvis::SaveArgs</compoundname>
+    <basecompoundref refid="structcuvis_1_1GeneralExportArgs" prot="public" virt="non-virtual">cuvis::GeneralExportArgs</basecompoundref>
+    <includes refid="cuvis_8hpp" local="no">cuvis.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structcuvis_1_1SaveArgs_1a5f9cacb3becfe0422cd6470563d6f9f9" prot="public" static="no" mutable="no">
+        <type><ref refid="group__typedefs_1gafd130eab9120117cdbccc67510a3b2e5" kindref="member">session_merge_mode_t</ref></type>
+        <definition>session_merge_mode_t cuvis::SaveArgs::merge_mode</definition>
+        <argsstring></argsstring>
+        <name>merge_mode</name>
+        <qualifiedname>cuvis::SaveArgs::merge_mode</qualifiedname>
+        <briefdescription>
+<para>allow to split to several files (default: false) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="364" column="26" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="364" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis_1_1SaveArgs_1ae9e4ee54647ce90b9957a64a16745ad8" prot="public" static="no" mutable="no">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">bool</ref></type>
+        <definition>bool cuvis::SaveArgs::allow_overwrite</definition>
+        <argsstring></argsstring>
+        <name>allow_overwrite</name>
+        <qualifiedname>cuvis::SaveArgs::allow_overwrite</qualifiedname>
+        <briefdescription>
+<para>allow to overwrite existing files (default: false) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="370" column="10" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="370" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis_1_1SaveArgs_1afc20ec6b76d332108dcc3b8ce108c461" prot="public" static="no" mutable="no">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">bool</ref></type>
+        <definition>bool cuvis::SaveArgs::allow_drop</definition>
+        <argsstring></argsstring>
+        <name>allow_drop</name>
+        <qualifiedname>cuvis::SaveArgs::allow_drop</qualifiedname>
+        <briefdescription>
+<para>allow to drop measurements if internal buffers a depleted (default: false) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="376" column="10" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="376" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis_1_1SaveArgs_1afdef99ef2455a62024946a4f68527fa3" prot="public" static="no" mutable="no">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">bool</ref></type>
+        <definition>bool cuvis::SaveArgs::allow_session_file</definition>
+        <argsstring></argsstring>
+        <name>allow_session_file</name>
+        <qualifiedname>cuvis::SaveArgs::allow_session_file</qualifiedname>
+        <briefdescription>
+<para>allow to drop measurements if internal buffers a depleted (default: false) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="382" column="10" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="382" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis_1_1SaveArgs_1af29e65b6bd7a010cf539d2af88162e02" prot="public" static="no" mutable="no">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">bool</ref></type>
+        <definition>bool cuvis::SaveArgs::allow_info_file</definition>
+        <argsstring></argsstring>
+        <name>allow_info_file</name>
+        <qualifiedname>cuvis::SaveArgs::allow_info_file</qualifiedname>
+        <briefdescription>
+<para>allow to write an additional .info file (default: true) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="388" column="10" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="388" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis_1_1SaveArgs_1af7a746c5a4e90c1a80b823fb09e3acb5" prot="public" static="no" mutable="no">
+        <type><ref refid="group__typedefs_1ga464fd3addc6132b4f60d1ffa09bb5711" kindref="member">operation_mode_t</ref></type>
+        <definition>operation_mode_t cuvis::SaveArgs::operation_mode</definition>
+        <argsstring></argsstring>
+        <name>operation_mode</name>
+        <qualifiedname>cuvis::SaveArgs::operation_mode</qualifiedname>
+        <briefdescription>
+<para>The operation mode to be stored with a session file (default: operation_mode_t.OperationMode_Software) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="394" column="22" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="394" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis_1_1SaveArgs_1a4fbe05dae140baaa99a9c27d7fc80bdb" prot="public" static="no" mutable="no">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">double</ref></type>
+        <definition>double cuvis::SaveArgs::fps</definition>
+        <argsstring></argsstring>
+        <name>fps</name>
+        <qualifiedname>cuvis::SaveArgs::fps</qualifiedname>
+        <briefdescription>
+<para>The fps to be stored with a session file (default: 0) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="400" column="12" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="400" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis_1_1SaveArgs_1ae52831af6361c7537dc1a26189dea3ca" prot="public" static="no" mutable="no">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">size_t</ref></type>
+        <definition>size_t cuvis::SaveArgs::soft_limit</definition>
+        <argsstring></argsstring>
+        <name>soft_limit</name>
+        <qualifiedname>cuvis::SaveArgs::soft_limit</qualifiedname>
+        <briefdescription>
+<para>Out-of-order frames are sorted within the cache, as long as the cache useage is below this limit. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="406" column="12" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="406" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis_1_1SaveArgs_1a040c7fe40ac9d22571c01c6fa367796f" prot="public" static="no" mutable="no">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">size_t</ref></type>
+        <definition>size_t cuvis::SaveArgs::hard_limit</definition>
+        <argsstring></argsstring>
+        <name>hard_limit</name>
+        <qualifiedname>cuvis::SaveArgs::hard_limit</qualifiedname>
+        <briefdescription>
+<para>Maximum number of elements in output cache. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="412" column="12" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="412" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis_1_1SaveArgs_1a69085e7c69921250674924b610deaf8b" prot="public" static="no" mutable="no">
+        <type>std::chrono::milliseconds</type>
+        <definition>std::chrono::milliseconds cuvis::SaveArgs::max_buftime</definition>
+        <argsstring></argsstring>
+        <name>max_buftime</name>
+        <qualifiedname>cuvis::SaveArgs::max_buftime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Any frame is forced to be written after this time, latest.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="418" column="31" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="418" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis_1_1SaveArgs_1ac1593549a0f42fb3d24dcfe513e3f234" prot="public" static="no" mutable="no">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">bool</ref></type>
+        <definition>bool cuvis::SaveArgs::full_export</definition>
+        <argsstring></argsstring>
+        <name>full_export</name>
+        <qualifiedname>cuvis::SaveArgs::full_export</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The frame is saved including all results from processing, e.g. the cube.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="424" column="10" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="424" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structcuvis_1_1SaveArgs_1ad5b8b618f8edac1dd0b561bb3dd5f0aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>cuvis::SaveArgs::SaveArgs</definition>
+        <argsstring>()</argsstring>
+        <name>SaveArgs</name>
+        <qualifiedname>cuvis::SaveArgs::SaveArgs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor to create default parameters </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="352" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structcuvis_1_1SaveArgs_1a547a401bb219b23360f9f767a91d4064" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>cuvis::SaveArgs::operator cuvis_save_args_t</definition>
+        <argsstring>() const</argsstring>
+        <name>operator cuvis_save_args_t</name>
+        <qualifiedname>cuvis::SaveArgs::operator cuvis_save_args_t</qualifiedname>
+        <briefdescription>
+<para>convert to C - SDK settings structure </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="358" column="5"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Options for saving cu3s/cu3 files. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Use with either <ref refid="classcuvis_1_1CubeExporter" kindref="compound">CubeExporter</ref> (recommended) or <ref refid="classcuvis_1_1Measurement_1a897566e5321036ab19e2084fd941cf02" kindref="member">Measurement::save</ref> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>cuvis::GeneralExportArgs</label>
+        <link refid="structcuvis_1_1GeneralExportArgs"/>
+      </node>
+      <node id="1">
+        <label>cuvis::SaveArgs</label>
+        <link refid="structcuvis_1_1SaveArgs"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>cuvis::GeneralExportArgs</label>
+        <link refid="structcuvis_1_1GeneralExportArgs"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>pansharpening_settings</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>cuvis::PanSharpeningArgs</label>
+        <link refid="structcuvis_1_1PanSharpeningArgs"/>
+      </node>
+      <node id="1">
+        <label>cuvis::SaveArgs</label>
+        <link refid="structcuvis_1_1SaveArgs"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="cuvis.cpp/interface/cuvis.hpp" line="349" column="3" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="350" bodyend="425"/>
+    <listofallmembers>
+      <member refid="structcuvis_1_1GeneralExportArgs_1a12e080de1e84e76735ba6f28e2020e21" prot="public" virt="non-virtual"><scope>cuvis::SaveArgs</scope><name>add_fullscale_pan</name></member>
+      <member refid="structcuvis_1_1SaveArgs_1afc20ec6b76d332108dcc3b8ce108c461" prot="public" virt="non-virtual"><scope>cuvis::SaveArgs</scope><name>allow_drop</name></member>
+      <member refid="structcuvis_1_1SaveArgs_1af29e65b6bd7a010cf539d2af88162e02" prot="public" virt="non-virtual"><scope>cuvis::SaveArgs</scope><name>allow_info_file</name></member>
+      <member refid="structcuvis_1_1SaveArgs_1ae9e4ee54647ce90b9957a64a16745ad8" prot="public" virt="non-virtual"><scope>cuvis::SaveArgs</scope><name>allow_overwrite</name></member>
+      <member refid="structcuvis_1_1SaveArgs_1afdef99ef2455a62024946a4f68527fa3" prot="public" virt="non-virtual"><scope>cuvis::SaveArgs</scope><name>allow_session_file</name></member>
+      <member refid="structcuvis_1_1GeneralExportArgs_1a5acc1863022ea3ba849393da0bcf130e" prot="public" virt="non-virtual"><scope>cuvis::SaveArgs</scope><name>export_dir</name></member>
+      <member refid="structcuvis_1_1SaveArgs_1a4fbe05dae140baaa99a9c27d7fc80bdb" prot="public" virt="non-virtual"><scope>cuvis::SaveArgs</scope><name>fps</name></member>
+      <member refid="structcuvis_1_1SaveArgs_1ac1593549a0f42fb3d24dcfe513e3f234" prot="public" virt="non-virtual"><scope>cuvis::SaveArgs</scope><name>full_export</name></member>
+      <member refid="structcuvis_1_1GeneralExportArgs_1a32987a1c252d57fd61b701f7d4fe3219" prot="public" virt="non-virtual"><scope>cuvis::SaveArgs</scope><name>GeneralExportArgs</name></member>
+      <member refid="structcuvis_1_1SaveArgs_1a040c7fe40ac9d22571c01c6fa367796f" prot="public" virt="non-virtual"><scope>cuvis::SaveArgs</scope><name>hard_limit</name></member>
+      <member refid="structcuvis_1_1SaveArgs_1a69085e7c69921250674924b610deaf8b" prot="public" virt="non-virtual"><scope>cuvis::SaveArgs</scope><name>max_buftime</name></member>
+      <member refid="structcuvis_1_1SaveArgs_1a5f9cacb3becfe0422cd6470563d6f9f9" prot="public" virt="non-virtual"><scope>cuvis::SaveArgs</scope><name>merge_mode</name></member>
+      <member refid="structcuvis_1_1SaveArgs_1af7a746c5a4e90c1a80b823fb09e3acb5" prot="public" virt="non-virtual"><scope>cuvis::SaveArgs</scope><name>operation_mode</name></member>
+      <member refid="structcuvis_1_1GeneralExportArgs_1af6e374abde05031fe4c7a1b774b68550" prot="public" virt="non-virtual"><scope>cuvis::SaveArgs</scope><name>operator cuvis_export_general_settings_t</name></member>
+      <member refid="structcuvis_1_1SaveArgs_1a547a401bb219b23360f9f767a91d4064" prot="public" virt="non-virtual"><scope>cuvis::SaveArgs</scope><name>operator cuvis_save_args_t</name></member>
+      <member refid="structcuvis_1_1GeneralExportArgs_1a95a7ef1d524cd6d5f65726e8f0ece950" prot="public" virt="non-virtual"><scope>cuvis::SaveArgs</scope><name>pansharpening_settings</name></member>
+      <member refid="structcuvis_1_1GeneralExportArgs_1a4fe867d309e3b36e690baf5f8013a723" prot="public" virt="non-virtual"><scope>cuvis::SaveArgs</scope><name>permissive</name></member>
+      <member refid="structcuvis_1_1SaveArgs_1ad5b8b618f8edac1dd0b561bb3dd5f0aa" prot="public" virt="non-virtual"><scope>cuvis::SaveArgs</scope><name>SaveArgs</name></member>
+      <member refid="structcuvis_1_1SaveArgs_1ae52831af6361c7537dc1a26189dea3ca" prot="public" virt="non-virtual"><scope>cuvis::SaveArgs</scope><name>soft_limit</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

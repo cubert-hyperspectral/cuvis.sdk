@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespacecuvis" kind="namespace" language="C++">
+    <compoundname>cuvis</compoundname>
+    <innerclass refid="classcuvis_1_1AcquisitionContext" prot="public">cuvis::AcquisitionContext</innerclass>
+    <innerclass refid="classcuvis_1_1Async" prot="public">cuvis::Async</innerclass>
+    <innerclass refid="classcuvis_1_1AsyncMesu" prot="public">cuvis::AsyncMesu</innerclass>
+    <innerclass refid="classcuvis_1_1Calibration" prot="public">cuvis::Calibration</innerclass>
+    <innerclass refid="structcuvis_1_1CalibrationInfo" prot="public">cuvis::CalibrationInfo</innerclass>
+    <innerclass refid="structcuvis_1_1common__image__t" prot="public">cuvis::common_image_t</innerclass>
+    <innerclass refid="classcuvis_1_1CubeExporter" prot="public">cuvis::CubeExporter</innerclass>
+    <innerclass refid="classcuvis_1_1cuvis__sdk__exception" prot="public">cuvis::cuvis_sdk_exception</innerclass>
+    <innerclass refid="structcuvis_1_1EnviArgs" prot="public">cuvis::EnviArgs</innerclass>
+    <innerclass refid="classcuvis_1_1EnviExporter" prot="public">cuvis::EnviExporter</innerclass>
+    <innerclass refid="classcuvis_1_1Exporter" prot="public">cuvis::Exporter</innerclass>
+    <innerclass refid="classcuvis_1_1General" prot="public">cuvis::General</innerclass>
+    <innerclass refid="structcuvis_1_1GeneralExportArgs" prot="public">cuvis::GeneralExportArgs</innerclass>
+    <innerclass refid="structcuvis_1_1image__t" prot="public">cuvis::image_t</innerclass>
+    <innerclass refid="classcuvis_1_1Measurement" prot="public">cuvis::Measurement</innerclass>
+    <innerclass refid="structcuvis_1_1MeasurementMetaData" prot="public">cuvis::MeasurementMetaData</innerclass>
+    <innerclass refid="structcuvis_1_1PanSharpeningArgs" prot="public">cuvis::PanSharpeningArgs</innerclass>
+    <innerclass refid="structcuvis_1_1ProcessingArgs" prot="public">cuvis::ProcessingArgs</innerclass>
+    <innerclass refid="classcuvis_1_1ProcessingContext" prot="public">cuvis::ProcessingContext</innerclass>
+    <innerclass refid="structcuvis_1_1SaveArgs" prot="public">cuvis::SaveArgs</innerclass>
+    <innerclass refid="structcuvis_1_1SensorInfoData" prot="public">cuvis::SensorInfoData</innerclass>
+    <innerclass refid="classcuvis_1_1SessionFile" prot="public">cuvis::SessionFile</innerclass>
+    <innerclass refid="structcuvis_1_1SessionInfo" prot="public">cuvis::SessionInfo</innerclass>
+    <innerclass refid="structcuvis_1_1TiffArgs" prot="public">cuvis::TiffArgs</innerclass>
+    <innerclass refid="classcuvis_1_1TiffExporter" prot="public">cuvis::TiffExporter</innerclass>
+    <innerclass refid="structcuvis_1_1view__t" prot="public">cuvis::view_t</innerclass>
+    <innerclass refid="structcuvis_1_1ViewArgs" prot="public">cuvis::ViewArgs</innerclass>
+    <innerclass refid="classcuvis_1_1Viewer" prot="public">cuvis::Viewer</innerclass>
+    <innerclass refid="classcuvis_1_1ViewExporter" prot="public">cuvis::ViewExporter</innerclass>
+    <innerclass refid="classcuvis_1_1Worker" prot="public">cuvis::Worker</innerclass>
+    <innerclass refid="structcuvis_1_1WorkerArgs" prot="public">cuvis::WorkerArgs</innerclass>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespacecuvis_1abdedd80e4918994b136e619dffca837d" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>async_result_t</name>
+        <qualifiedname>cuvis::async_result_t</qualifiedname>
+        <enumvalue id="namespacecuvis_1abdedd80e4918994b136e619dffca837da6b2ded51d81a4403d8a4bd25fa1e57ee" prot="public">
+          <name>done</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacecuvis_1abdedd80e4918994b136e619dffca837da90272dda245ae1fb3cf197e91a8689dc" prot="public">
+          <name>timeout</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacecuvis_1abdedd80e4918994b136e619dffca837da509ff4bfff30a77103aac34068ea46c7" prot="public">
+          <name>overwritten</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacecuvis_1abdedd80e4918994b136e619dffca837da43fff3df3fc0b3417c86dc3040fb2d86" prot="public">
+          <name>deferred</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1193" column="3" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1194" bodyend="1199"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="typedef">
+      <member refid="group__typedefs_1ga4717b13a9aa1a71a4f9603955158ee7e" kind="typedef"><name>int_t</name></member>
+      <member refid="group__typedefs_1gacf45408138bf8fbf3eff5e9e1edef553" kind="typedef"><name>event_t</name></member>
+      <member refid="group__typedefs_1gacbb18bf4ccc81a1897c626291cdaa051" kind="typedef"><name>loglevel_t</name></member>
+      <member refid="group__typedefs_1ga464fd3addc6132b4f60d1ffa09bb5711" kind="typedef"><name>operation_mode_t</name></member>
+      <member refid="group__typedefs_1ga7bde8318cc1e26c47b452ce83ab57cee" kind="typedef"><name>reference_type_t</name></member>
+      <member refid="group__typedefs_1ga5fdd6b2758a648c06256c0feac937f78" kind="typedef"><name>processing_mode_t</name></member>
+      <member refid="group__typedefs_1ga5777b90f5200cdd5551ab68334482114" kind="typedef"><name>pan_sharpening_interpolation_type_t</name></member>
+      <member refid="group__typedefs_1gad78b69704ad0f169889a37335cb66008" kind="typedef"><name>pan_sharpening_algorithm_t</name></member>
+      <member refid="group__typedefs_1ga4791c04d023d9c6567f78ec05f7483b3" kind="typedef"><name>tiff_compression_mode_t</name></member>
+      <member refid="group__typedefs_1ga2d21c31a12690cc84355a431aac8c43f" kind="typedef"><name>tiff_format_t</name></member>
+      <member refid="group__typedefs_1ga59b17f339763529944655fc6bee90c0a" kind="typedef"><name>session_info_t</name></member>
+      <member refid="group__typedefs_1ga91805f90bf20753ae37461a7c8966775" kind="typedef"><name>calibration_info_t</name></member>
+      <member refid="group__typedefs_1gaea1b4b443188169e0d445c26e80fccf9" kind="typedef"><name>mesu_metadata_t</name></member>
+      <member refid="group__typedefs_1ga87e6861816287f23b086f7c91441296c" kind="typedef"><name>sensor_info_t</name></member>
+      <member refid="group__typedefs_1ga583a3a7a8d7572c23216530a4b7e8c30" kind="typedef"><name>hardware_state_t</name></member>
+      <member refid="group__typedefs_1ga94e2b675e3334b41954e25612337d42d" kind="typedef"><name>capabilities_t</name></member>
+      <member refid="group__typedefs_1gafd130eab9120117cdbccc67510a3b2e5" kind="typedef"><name>session_merge_mode_t</name></member>
+      <memberdef kind="typedef" id="namespacecuvis_1a005e886fae9fca18f339038a136527a3" prot="public" static="no">
+        <type>std::chrono::time_point&lt; std::chrono::system_clock &gt;</type>
+        <definition>using cuvis::timestamp_t = typedef std::chrono::time_point&lt;std::chrono::system_clock&gt;</definition>
+        <argsstring></argsstring>
+        <name>timestamp_t</name>
+        <qualifiedname>cuvis::timestamp_t</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>as timesamp use STL system clock </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="115" column="3" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacecuvis_1af34bebc17ef416bfbbaf599137a866d2" prot="public" static="no">
+        <type>std::function&lt; <ref refid="structcuvis_1_1image__t" kindref="compound">void</ref>(<ref refid="group__typedefs_1gacf45408138bf8fbf3eff5e9e1edef553" kindref="member">event_t</ref>)&gt;</type>
+        <definition>using cuvis::cpp_event_callback_t = typedef std::function&lt;void(event_t)&gt;</definition>
+        <argsstring></argsstring>
+        <name>cpp_event_callback_t</name>
+        <qualifiedname>cuvis::cpp_event_callback_t</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The event call-back type must be of the format void fun(event_t) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="118" column="3" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="118" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="cuvis.cpp/interface/cuvis.hpp" line="31" column="1"/>
+  </compounddef>
+</doxygen>

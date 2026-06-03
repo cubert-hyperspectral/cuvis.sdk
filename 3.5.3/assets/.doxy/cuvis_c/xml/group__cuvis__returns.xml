@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="group__cuvis__returns" kind="group">
+    <compoundname>cuvis_returns</compoundname>
+    <title>Return Values of SDK Functions</title>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__cuvis__returns_1gaa06c62ba25240f4763da0e590ebf3b9d" prot="public" static="no" strong="no">
+        <type></type>
+        <name>cuvis_status_t</name>
+        <enumvalue id="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dad52787b0cfb0da2c053a68bcdc54bc6f" prot="public">
+          <name>status_ok</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>the function encountered no problems </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9da405da0d107497b3596a3818a48478c9f" prot="public">
+          <name>status_error</name>
+          <initializer>= -1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>the function failed for some reason. Call cuvis_get_last_error_msg for details </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9da6acc681a06a7b43d360c92098a2a8653" prot="public">
+          <name>status_deferred</name>
+          <initializer>= -10</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>a async function has not been started yet </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dab9c7d639068225756a5de56a3279fab5" prot="public">
+          <name>status_overwritten</name>
+          <initializer>= -11</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>the async call was overwritten by another async call to the same internal values </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9da19319d05fb8a35cc93f77e40e06b9617" prot="public">
+          <name>status_timeout</name>
+          <initializer>= -12</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>obtaining a async function result has timed out. Call again later </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9da032fa1a5c4c2acdfd16268b2d7fa6f21" prot="public">
+          <name>status_no_measurement</name>
+          <initializer>= -20</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>polling a measurement returned no result / frame was dropped </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9da7fdd3396ac111ad131ec95e3411928a7" prot="public">
+          <name>status_not_available</name>
+          <initializer>= -30</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>retrieving a value is (currently) not possible </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dae0686fea387338c9d8d180d4b9b39764" prot="public">
+          <name>status_not_processed</name>
+          <initializer>= -41</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>processing the measurement with the worker failed, raw data is available </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9da8b98c0d262183b9cc3bfb6e6f39f25cf" prot="public">
+          <name>status_not_stored</name>
+          <initializer>= -42</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>storing the measurement with the worker/exporter failed </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dadbe77d8180549567b5749e593bf33c91" prot="public">
+          <name>status_no_view</name>
+          <initializer>= -43</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>obtaining the measurement&apos;s view with the worker failed, raw data is available </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>return state of any SDK function </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="551" column="1" bodyfile="docs/_api_sources/cuvis.h" bodystart="552" bodyend="581"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="group__cuvis__returns_1ga3b39f3a4e8390f24066d28acb0e6bff2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> const <ref refid="cuvis_8h_1ad6fd13ac609b8cbfad5f49e5ff0e11d3" kindref="member">CUVIS_CHAR</ref> *<ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI const CUVIS_CHAR *SDK_CCALL cuvis_get_last_error_msg</definition>
+        <argsstring>(void)</argsstring>
+        <name>cuvis_get_last_error_msg</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Call this function for obtaining the last error message </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1672" column="37" declfile="docs/_api_sources/cuvis.h" declline="1672" declcolumn="37"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__returns_1ga1598b6d2bcb09f527a0e64e14417c1b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> const <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI const CUVIS_STATUS SDK_CCALL cuvis_set_last_error_locale</definition>
+        <argsstring>(CUVIS_CHAR const *i_locale_id)</argsstring>
+        <name>cuvis_set_last_error_locale</name>
+        <param>
+          <type><ref refid="cuvis_8h_1ad6fd13ac609b8cbfad5f49e5ff0e11d3" kindref="member">CUVIS_CHAR</ref> const *</type>
+          <declname>i_locale_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the locale for localized error messages</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_locale_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>set the locale id, e.g. &quot;de&quot; for german. See the &quot;locale&quot; directory for available translations. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1678" column="39" declfile="docs/_api_sources/cuvis.h" declline="1678" declcolumn="39"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__returns_1gac6eaf5887c69da8eaf6a22d109c4ee80" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> const <ref refid="cuvis_8h_1a583c197721b6bc0ea3620b6f6bc7d80a" kindref="member">CUVIS_WCHAR</ref> *<ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI const CUVIS_WCHAR *SDK_CCALL cuvis_get_last_error_msg_localized</definition>
+        <argsstring>(void)</argsstring>
+        <name>cuvis_get_last_error_msg_localized</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Call this function for obtaining the last localized error message</para>
+<para>remember to set locale with <ref refid="group__cuvis__returns_1ga1598b6d2bcb09f527a0e64e14417c1b4" kindref="member">cuvis_set_last_error_locale</ref> first. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1684" column="38" declfile="docs/_api_sources/cuvis.h" declline="1684" declcolumn="38"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>More Information on the Return Values of the SDK Functions.</para>
+<para>Most of the SDK functions return a <ref refid="group__cuvis__returns_1gaa06c62ba25240f4763da0e590ebf3b9d" kindref="member">cuvis_status_t</ref>. This value indicates if the function call was executed sucessfully or if a error occurred. If the value is <ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9da405da0d107497b3596a3818a48478c9f" kindref="member">status_error</ref> for example, this indicates that an error occurred. The specific error message can then be retrieved via <ref refid="group__cuvis__returns_1ga3b39f3a4e8390f24066d28acb0e6bff2" kindref="member">cuvis_get_last_error_msg</ref> to get more details. </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

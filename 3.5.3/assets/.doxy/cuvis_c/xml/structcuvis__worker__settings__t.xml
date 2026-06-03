@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structcuvis__worker__settings__t" kind="struct" language="C++" prot="public">
+    <compoundname>cuvis_worker_settings_t</compoundname>
+    <includes refid="cuvis_8h" local="no">cuvis.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structcuvis__worker__settings__t_1acf9948db52d54ff6d65aa9b02c08affc" prot="public" static="no" mutable="no">
+        <type><ref refid="cuvis_8h_1a7f1faedccb767d68d3c2d46d9d2904b6" kindref="member">CUVIS_SIZE</ref></type>
+        <definition>CUVIS_SIZE cuvis_worker_settings_t::input_queue_size</definition>
+        <argsstring></argsstring>
+        <name>input_queue_size</name>
+        <qualifiedname>cuvis_worker_settings_t::input_queue_size</qualifiedname>
+        <briefdescription>
+<para>Size of the input queue for measurements and session files. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The worker has an input queue that accepts measurements and entire session files. To limit the memory usage, the queue is bounded by this value </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1503" column="14" bodyfile="docs/_api_sources/cuvis.h" bodystart="1503" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__worker__settings__t_1a927ae99f107acf6ebf2c7344a15d5bf6" prot="public" static="no" mutable="no">
+        <type><ref refid="cuvis_8h_1a7f1faedccb767d68d3c2d46d9d2904b6" kindref="member">CUVIS_SIZE</ref></type>
+        <definition>CUVIS_SIZE cuvis_worker_settings_t::mandatory_queue_size</definition>
+        <argsstring></argsstring>
+        <name>mandatory_queue_size</name>
+        <qualifiedname>cuvis_worker_settings_t::mandatory_queue_size</qualifiedname>
+        <briefdescription>
+<para>Number of threads working on mandatory processing steps. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the number of processing slots / threads / queue size for mandatory processing steps in the worker Mandatory steps always include exporting the measurement, if an exporter is set in the worker. If the measurement needs to be processed before it can be exported, the processing is also a mandatory step. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1511" column="14" bodyfile="docs/_api_sources/cuvis.h" bodystart="1511" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__worker__settings__t_1a2b419b98166e0baa9846005b95fe39a0" prot="public" static="no" mutable="no">
+        <type><ref refid="cuvis_8h_1a7f1faedccb767d68d3c2d46d9d2904b6" kindref="member">CUVIS_SIZE</ref></type>
+        <definition>CUVIS_SIZE cuvis_worker_settings_t::supplementary_queue_size</definition>
+        <argsstring></argsstring>
+        <name>supplementary_queue_size</name>
+        <qualifiedname>cuvis_worker_settings_t::supplementary_queue_size</qualifiedname>
+        <briefdescription>
+<para>Number of threads working on supplementary processing steps. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the number of processing slots / threads / queue size for supplementary processing steps in the worker Supplementary steps always include generating a view of the measurement, if a viewer is set in the worker. If no exporter is set, all steps are supplementary. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1519" column="14" bodyfile="docs/_api_sources/cuvis.h" bodystart="1519" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__worker__settings__t_1ae2fac263c6d394b59014ba3efbd3e3a4" prot="public" static="no" mutable="no">
+        <type><ref refid="cuvis_8h_1a7f1faedccb767d68d3c2d46d9d2904b6" kindref="member">CUVIS_SIZE</ref></type>
+        <definition>CUVIS_SIZE cuvis_worker_settings_t::output_queue_size</definition>
+        <argsstring></argsstring>
+        <name>output_queue_size</name>
+        <qualifiedname>cuvis_worker_settings_t::output_queue_size</qualifiedname>
+        <briefdescription>
+<para>Size of the workers result queue. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Should be at least as big as &quot;mandatory_queue_size&quot; and &quot;supplementary_queue_size&quot; together </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1525" column="14" bodyfile="docs/_api_sources/cuvis.h" bodystart="1525" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__worker__settings__t_1a1cc57943fddd0ceaf4b85f9b1c4cfc09" prot="public" static="no" mutable="no">
+        <type><ref refid="cuvis_8h_1a411e2de5f4fe2d2210e985d8f323b144" kindref="member">CUVIS_INT</ref></type>
+        <definition>CUVIS_INT cuvis_worker_settings_t::can_skip_measurements</definition>
+        <argsstring></argsstring>
+        <name>can_skip_measurements</name>
+        <qualifiedname>cuvis_worker_settings_t::can_skip_measurements</qualifiedname>
+        <briefdescription>
+<para>Wether the worker is allowed to reject measurements from the acquisition context, if its queues are full. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If set to true (1), the worker will skip processing measurements it pulls from the acqusition context, when its mandatory queue is full. If set to false (0), the worker will wait until a processing slot in its mandatory queue is available, before pulling a new measurement from the acquisition context. This setting DOES NOT apply to measurements and session files given to the worker via the &quot;cuvis_worker_ingest_xyz&quot; functions. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1533" column="13" bodyfile="docs/_api_sources/cuvis.h" bodystart="1533" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__worker__settings__t_1a0690f3037573fde6e3c2c17a33b0ec49" prot="public" static="no" mutable="no">
+        <type><ref refid="cuvis_8h_1a411e2de5f4fe2d2210e985d8f323b144" kindref="member">CUVIS_INT</ref></type>
+        <definition>CUVIS_INT cuvis_worker_settings_t::can_skip_supplementary_steps</definition>
+        <argsstring></argsstring>
+        <name>can_skip_supplementary_steps</name>
+        <qualifiedname>cuvis_worker_settings_t::can_skip_supplementary_steps</qualifiedname>
+        <briefdescription>
+<para>Wether the worker is allowed to skip supplementary processing steps, if its queues are full. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If set to true (1), the worker will skip supplementary processing steps, when its supplementary queue is full. If set to false (0), the worker will wait until a processing slot in its supplementary queue is available, before starting processing on a new measurement. This setting DOES applies to measurements and session files given to the worker via the &quot;cuvis_worker_ingest_xyz&quot; functions. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1541" column="13" bodyfile="docs/_api_sources/cuvis.h" bodystart="1541" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__worker__settings__t_1aa0e586fb80777b480729b350007eae4a" prot="public" static="no" mutable="no">
+        <type><ref refid="cuvis_8h_1a411e2de5f4fe2d2210e985d8f323b144" kindref="member">CUVIS_INT</ref></type>
+        <definition>CUVIS_INT cuvis_worker_settings_t::can_drop_results</definition>
+        <argsstring></argsstring>
+        <name>can_drop_results</name>
+        <qualifiedname>cuvis_worker_settings_t::can_drop_results</qualifiedname>
+        <briefdescription>
+<para>Wether the worker is allowed to drop processing results if its output queue is full. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1544" column="13" bodyfile="docs/_api_sources/cuvis.h" bodystart="1544" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>settings for the worker </para>
+    </detaileddescription>
+    <location file="docs/_api_sources/cuvis.h" line="1496" column="1" bodyfile="docs/_api_sources/cuvis.h" bodystart="1497" bodyend="1545"/>
+    <listofallmembers>
+      <member refid="structcuvis__worker__settings__t_1aa0e586fb80777b480729b350007eae4a" prot="public" virt="non-virtual"><scope>cuvis_worker_settings_t</scope><name>can_drop_results</name></member>
+      <member refid="structcuvis__worker__settings__t_1a1cc57943fddd0ceaf4b85f9b1c4cfc09" prot="public" virt="non-virtual"><scope>cuvis_worker_settings_t</scope><name>can_skip_measurements</name></member>
+      <member refid="structcuvis__worker__settings__t_1a0690f3037573fde6e3c2c17a33b0ec49" prot="public" virt="non-virtual"><scope>cuvis_worker_settings_t</scope><name>can_skip_supplementary_steps</name></member>
+      <member refid="structcuvis__worker__settings__t_1acf9948db52d54ff6d65aa9b02c08affc" prot="public" virt="non-virtual"><scope>cuvis_worker_settings_t</scope><name>input_queue_size</name></member>
+      <member refid="structcuvis__worker__settings__t_1a927ae99f107acf6ebf2c7344a15d5bf6" prot="public" virt="non-virtual"><scope>cuvis_worker_settings_t</scope><name>mandatory_queue_size</name></member>
+      <member refid="structcuvis__worker__settings__t_1ae2fac263c6d394b59014ba3efbd3e3a4" prot="public" virt="non-virtual"><scope>cuvis_worker_settings_t</scope><name>output_queue_size</name></member>
+      <member refid="structcuvis__worker__settings__t_1a2b419b98166e0baa9846005b95fe39a0" prot="public" virt="non-virtual"><scope>cuvis_worker_settings_t</scope><name>supplementary_queue_size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structcuvis_1_1AcquisitionContext_1_1component__state__info__t" kind="struct" language="C++" prot="public">
+    <compoundname>cuvis::AcquisitionContext::component_state_info_t</compoundname>
+    <includes refid="cuvis_8hpp" local="no">cuvis.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structcuvis_1_1AcquisitionContext_1_1component__state__info__t_1a2e5f91fb60a2ad9477d0a6eb3623969a" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string cuvis::AcquisitionContext::component_state_info_t::display_name</definition>
+        <argsstring></argsstring>
+        <name>display_name</name>
+        <qualifiedname>cuvis::AcquisitionContext::component_state_info_t::display_name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1230" column="19" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1230" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis_1_1AcquisitionContext_1_1component__state__info__t_1a6c3cf27adaeab2524e7fe9328b291728" prot="public" static="no" mutable="no">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">bool</ref></type>
+        <definition>bool cuvis::AcquisitionContext::component_state_info_t::is_online</definition>
+        <argsstring></argsstring>
+        <name>is_online</name>
+        <qualifiedname>cuvis::AcquisitionContext::component_state_info_t::is_online</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1231" column="12" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1231" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="cuvis.cpp/interface/cuvis.hpp" line="1228" column="5" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1229" bodyend="1232"/>
+    <listofallmembers>
+      <member refid="structcuvis_1_1AcquisitionContext_1_1component__state__info__t_1a2e5f91fb60a2ad9477d0a6eb3623969a" prot="public" virt="non-virtual"><scope>cuvis::AcquisitionContext::component_state_info_t</scope><name>display_name</name></member>
+      <member refid="structcuvis_1_1AcquisitionContext_1_1component__state__info__t_1a6c3cf27adaeab2524e7fe9328b291728" prot="public" virt="non-virtual"><scope>cuvis::AcquisitionContext::component_state_info_t</scope><name>is_online</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

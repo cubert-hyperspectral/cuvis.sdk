@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structcuvis__imbuffer__t" kind="struct" language="C++" prot="public">
+    <compoundname>cuvis_imbuffer_t</compoundname>
+    <includes refid="cuvis_8h" local="no">cuvis.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structcuvis__imbuffer__t_1a7029f1f9bfb1af5043e40c6d5d479ec5" prot="public" static="no" mutable="no">
+        <type>uint8_t const  *</type>
+        <definition>uint8_t const* cuvis_imbuffer_t::raw</definition>
+        <argsstring></argsstring>
+        <name>raw</name>
+        <qualifiedname>cuvis_imbuffer_t::raw</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the memory reference of the cube. Valid as long as the parent element (e.g. measurement) is valid and unchanged. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="914" column="17" bodyfile="docs/_api_sources/cuvis.h" bodystart="914" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__imbuffer__t_1a0843679c2db5b86a22dc4d9314dc8465" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t cuvis_imbuffer_t::bytes</definition>
+        <argsstring></argsstring>
+        <name>bytes</name>
+        <qualifiedname>cuvis_imbuffer_t::bytes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>number of bytes per data element </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="916" column="12" bodyfile="docs/_api_sources/cuvis.h" bodystart="916" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__imbuffer__t_1a8f7fec3e94f38889be5e89f083a17435" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t cuvis_imbuffer_t::length</definition>
+        <argsstring></argsstring>
+        <name>length</name>
+        <qualifiedname>cuvis_imbuffer_t::length</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>total number of bytes in array </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="918" column="12" bodyfile="docs/_api_sources/cuvis.h" bodystart="918" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__imbuffer__t_1a107c6c6174136a21801d556e5ccc3556" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t cuvis_imbuffer_t::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>cuvis_imbuffer_t::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>width of buffer </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="920" column="12" bodyfile="docs/_api_sources/cuvis.h" bodystart="920" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__imbuffer__t_1a8131bc2208de609d617f4ba177dcc5e9" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t cuvis_imbuffer_t::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>cuvis_imbuffer_t::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>height of buffer </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="922" column="12" bodyfile="docs/_api_sources/cuvis.h" bodystart="922" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__imbuffer__t_1a2ae13fdba748fc598fc243496ba4501f" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t cuvis_imbuffer_t::channels</definition>
+        <argsstring></argsstring>
+        <name>channels</name>
+        <qualifiedname>cuvis_imbuffer_t::channels</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>number of channels </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="925" column="12" bodyfile="docs/_api_sources/cuvis.h" bodystart="925" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__imbuffer__t_1a3e2205d0f1790a24bb5782749067861f" prot="public" static="no" mutable="no">
+        <type><ref refid="cuvis_8h_1a533ed589211c0af15cd042dba625a775" kindref="member">CUVIS_IMBUFFER_FORMAT</ref></type>
+        <definition>CUVIS_IMBUFFER_FORMAT cuvis_imbuffer_t::format</definition>
+        <argsstring></argsstring>
+        <name>format</name>
+        <qualifiedname>cuvis_imbuffer_t::format</qualifiedname>
+        <briefdescription>
+<para>the buffer format </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The buffer format defines what the member <ref refid="structcuvis__imbuffer__t_1a7029f1f9bfb1af5043e40c6d5d479ec5" kindref="member">raw</ref> can be casted into. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="931" column="25" bodyfile="docs/_api_sources/cuvis.h" bodystart="931" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__imbuffer__t_1a0f06b1633fadcd6b498b4b73e2ee2260" prot="public" static="no" mutable="no">
+        <type>uint32_t const  *</type>
+        <definition>uint32_t const* cuvis_imbuffer_t::wavelength</definition>
+        <argsstring></argsstring>
+        <name>wavelength</name>
+        <qualifiedname>cuvis_imbuffer_t::wavelength</qualifiedname>
+        <briefdescription>
+<para>the wavelength vector </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If the <ref refid="structcuvis__imbuffer__t" kindref="compound">cuvis_imbuffer_t</ref> is not a hyperspectral cube, the value will be nullptr For cubes this is an array of length channels, the elements define the cube&apos;s wavelength in nanometers. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="939" column="18" bodyfile="docs/_api_sources/cuvis.h" bodystart="939" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>image buffer data structure with meta-data </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The image buffer data structure holds a anonymous raw data pointer, that can be interpreted to give a meaningful data array with the help of the other members: The <ref refid="structcuvis__imbuffer__t_1a3e2205d0f1790a24bb5782749067861f" kindref="member">format</ref> gives the information of the data type, the <ref refid="structcuvis__imbuffer__t_1a107c6c6174136a21801d556e5ccc3556" kindref="member">width</ref>, <ref refid="structcuvis__imbuffer__t_1a8f7fec3e94f38889be5e89f083a17435" kindref="member">length</ref>, and <ref refid="structcuvis__imbuffer__t_1a2ae13fdba748fc598fc243496ba4501f" kindref="member">channels</ref> give the number of elements in the array.</para>
+<para>The <ref refid="structcuvis__imbuffer__t_1a0f06b1633fadcd6b498b4b73e2ee2260" kindref="member">wavelength</ref> property is only set for hyperspectral cubes but not for normal images. If it exists, it is an array with the number of channels</para>
+<para>Example: <programlisting><codeline><highlight class="comment">//<sp/>format<sp/>=<sp/>CUVIS_IMBUFFER_FORMAT_UINT16</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>x<sp/>in<sp/>[0,<sp/>width)</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>y<sp/>in<sp/>[0,<sp/><sp/><sp/>height)</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>chn<sp/>in<sp/>[0,<sp/>channels)</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>index<sp/>=<sp/>(y<sp/>*<sp/><ref refid="structcuvis__imbuffer__t_1a107c6c6174136a21801d556e5ccc3556" kindref="member">width</ref><sp/>+<sp/>x)<sp/>*<sp/><ref refid="structcuvis__imbuffer__t_1a2ae13fdba748fc598fc243496ba4501f" kindref="member">channels</ref><sp/>+<sp/>chn;</highlight></codeline>
+<codeline><highlight class="normal">uint16_t<sp/>value<sp/>=<sp/>((uint16_t*)<sp/><ref refid="structcuvis__imbuffer__t_1a7029f1f9bfb1af5043e40c6d5d479ec5" kindref="member">raw</ref>)[index];</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>lambda<sp/>=<sp/>cube.wavelength[chn];</highlight></codeline>
+</programlisting></para>
+<para>see also: <ref refid="cuvis_8h_1a42486d373c806e296f4d01c4c869cd3d" kindref="member">IMBUFFER_GET</ref> </para>
+    </detaileddescription>
+    <location file="docs/_api_sources/cuvis.h" line="909" column="1" bodyfile="docs/_api_sources/cuvis.h" bodystart="910" bodyend="940"/>
+    <listofallmembers>
+      <member refid="structcuvis__imbuffer__t_1a0843679c2db5b86a22dc4d9314dc8465" prot="public" virt="non-virtual"><scope>cuvis_imbuffer_t</scope><name>bytes</name></member>
+      <member refid="structcuvis__imbuffer__t_1a2ae13fdba748fc598fc243496ba4501f" prot="public" virt="non-virtual"><scope>cuvis_imbuffer_t</scope><name>channels</name></member>
+      <member refid="structcuvis__imbuffer__t_1a3e2205d0f1790a24bb5782749067861f" prot="public" virt="non-virtual"><scope>cuvis_imbuffer_t</scope><name>format</name></member>
+      <member refid="structcuvis__imbuffer__t_1a8131bc2208de609d617f4ba177dcc5e9" prot="public" virt="non-virtual"><scope>cuvis_imbuffer_t</scope><name>height</name></member>
+      <member refid="structcuvis__imbuffer__t_1a8f7fec3e94f38889be5e89f083a17435" prot="public" virt="non-virtual"><scope>cuvis_imbuffer_t</scope><name>length</name></member>
+      <member refid="structcuvis__imbuffer__t_1a7029f1f9bfb1af5043e40c6d5d479ec5" prot="public" virt="non-virtual"><scope>cuvis_imbuffer_t</scope><name>raw</name></member>
+      <member refid="structcuvis__imbuffer__t_1a0f06b1633fadcd6b498b4b73e2ee2260" prot="public" virt="non-virtual"><scope>cuvis_imbuffer_t</scope><name>wavelength</name></member>
+      <member refid="structcuvis__imbuffer__t_1a107c6c6174136a21801d556e5ccc3556" prot="public" virt="non-virtual"><scope>cuvis_imbuffer_t</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

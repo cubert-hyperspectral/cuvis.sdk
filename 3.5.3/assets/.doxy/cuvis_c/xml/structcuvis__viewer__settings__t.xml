@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structcuvis__viewer__settings__t" kind="struct" language="C++" prot="public">
+    <compoundname>cuvis_viewer_settings_t</compoundname>
+    <includes refid="cuvis_8h" local="no">cuvis.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structcuvis__viewer__settings__t_1a3bfb911f977a3d7b9e0a6790e874f4f5" prot="public" static="no" mutable="no">
+        <type><ref refid="cuvis_8h_1ad6fd13ac609b8cbfad5f49e5ff0e11d3" kindref="member">CUVIS_CHAR</ref> const  *</type>
+        <definition>CUVIS_CHAR const* cuvis_viewer_settings_t::userplugin</definition>
+        <argsstring></argsstring>
+        <name>userplugin</name>
+        <qualifiedname>cuvis_viewer_settings_t::userplugin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The userplugin xml string. See userplugin manual. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1416" column="20" bodyfile="docs/_api_sources/cuvis.h" bodystart="1416" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__viewer__settings__t_1a69c07fa2ed83551ece1b7f4c12cc22c3" prot="public" static="no" mutable="no">
+        <type><ref refid="cuvis_8h_1a411e2de5f4fe2d2210e985d8f323b144" kindref="member">CUVIS_INT</ref></type>
+        <definition>CUVIS_INT cuvis_viewer_settings_t::complete</definition>
+        <argsstring></argsstring>
+        <name>complete</name>
+        <qualifiedname>cuvis_viewer_settings_t::complete</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>also include parts that were not marked as &quot;show&quot;. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1419" column="13" bodyfile="docs/_api_sources/cuvis.h" bodystart="1419" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__viewer__settings__t_1ac64b73c7e27542018582ebd2dbb15c53" prot="public" static="no" mutable="no">
+        <type><ref refid="cuvis_8h_1a411e2de5f4fe2d2210e985d8f323b144" kindref="member">CUVIS_INT</ref></type>
+        <definition>CUVIS_INT cuvis_viewer_settings_t::pan_failback</definition>
+        <argsstring></argsstring>
+        <name>pan_failback</name>
+        <qualifiedname>cuvis_viewer_settings_t::pan_failback</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>failback to pan image if cube is not available </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1422" column="13" bodyfile="docs/_api_sources/cuvis.h" bodystart="1422" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__viewer__settings__t_1abaab746f26e741ed40f9f48c54389cf8" prot="public" static="no" mutable="no">
+        <type><ref refid="cuvis_8h_1aa82a88e4acba276449ed65cf9108c2d4" kindref="member">CUVIS_PANSHARPENING_SETTINGS</ref></type>
+        <definition>CUVIS_PANSHARPENING_SETTINGS cuvis_viewer_settings_t::pansharpening_settings</definition>
+        <argsstring></argsstring>
+        <name>pansharpening_settings</name>
+        <qualifiedname>cuvis_viewer_settings_t::pansharpening_settings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Settings regarding pansharpening and channel selection </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1426" column="32" bodyfile="docs/_api_sources/cuvis.h" bodystart="1426" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>viewer settings </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="docs/_api_sources/cuvis.h" line="1413" column="1" bodyfile="docs/_api_sources/cuvis.h" bodystart="1414" bodyend="1427"/>
+    <listofallmembers>
+      <member refid="structcuvis__viewer__settings__t_1a69c07fa2ed83551ece1b7f4c12cc22c3" prot="public" virt="non-virtual"><scope>cuvis_viewer_settings_t</scope><name>complete</name></member>
+      <member refid="structcuvis__viewer__settings__t_1ac64b73c7e27542018582ebd2dbb15c53" prot="public" virt="non-virtual"><scope>cuvis_viewer_settings_t</scope><name>pan_failback</name></member>
+      <member refid="structcuvis__viewer__settings__t_1abaab746f26e741ed40f9f48c54389cf8" prot="public" virt="non-virtual"><scope>cuvis_viewer_settings_t</scope><name>pansharpening_settings</name></member>
+      <member refid="structcuvis__viewer__settings__t_1a3bfb911f977a3d7b9e0a6790e874f4f5" prot="public" virt="non-virtual"><scope>cuvis_viewer_settings_t</scope><name>userplugin</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
