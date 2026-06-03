@@ -16,7 +16,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     container:
-      image: cubertgmbh/cuvis_pyil:3.5.0-ubuntu24.04
+      image: cubertgmbh/cuvis_pyil:3.5.3-ubuntu24.04
     steps:
       - name: Install build dependencies
         run: apt-get update -y && apt-get install -y git doxygen graphviz
