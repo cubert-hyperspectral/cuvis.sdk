@@ -25,6 +25,9 @@ jobs:
           fetch-depth: 0
           submodules: recursive
 
+      - name: Mark workspace as safe for Git versioning
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
       - name: Stage cuvis.h for Doxygen
         run: |
           mkdir -p docs/_api_sources
