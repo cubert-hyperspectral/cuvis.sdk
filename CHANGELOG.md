@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- **CI/docs:** removed the nightly `deploy-docs.yml`, which published a `dev` mike version on every push to `main`. The docs site now updates only on `v*.*.*` release tags (`deploy-docs-versioned.yml`) — no `/dev/` channel. (The existing `dev` version was also deleted from `gh-pages`.)
 - **CI: fixed the docs deploy failing in-container.** Added `git config --global --add safe.directory "$GITHUB_WORKSPACE"` after checkout in both deploy workflows; without it git rejected the container-checked-out workspace (`fatal: not in a git directory`), so the `mike` deploy could never push to `gh-pages`.
 - **Documentation site migrated into this repo** (from `cuvis.doc`) and published to GitHub Pages. Versioned with `mike`: pushing a `v*.*.*` tag publishes that version aliased to `latest` (`deploy-docs-versioned.yml`), and pushes to `main` publish a `dev` build (`deploy-docs.yml`). C and C++ API reference generated from the headers via `mkdoxy` (Doxygen XML), Python API reference via `mkdocstrings`, example pages generated from the Python notebooks, and an `llms.txt` / `llms-full.txt` index via `mkdocs-llmstxt`.
 - Rebranded the mkdocs site to follow Cubert CI. Switched the Material `palette` to `primary/accent: custom` and let `docs/stylesheets/extra.css` drive the palette directly across both Material schemes. Headings use Rajdhani via a Google Fonts `@import`; body and code stay on Roboto / Roboto Mono via Material's font loader. Existing `.sdk-installer` widget styles are preserved on top of the brand palette.
