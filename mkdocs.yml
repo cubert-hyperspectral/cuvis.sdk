@@ -104,7 +104,10 @@ plugins:
             show_source: false
             show_bases: true
             show_root_heading: true
-            docstring_style: google
+            show_if_no_docstring: true
+            docstring_style: sphinx
+            extensions:
+              - tools/griffe_copydoc.py:CopydocExtension
 
 extra_javascript:
   - javascripts/sdk-installer.js
