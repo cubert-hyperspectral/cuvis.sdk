@@ -1,18 +1,18 @@
-name: Deploy docs to GitHub Pages (nightly)
+name: Docs build check
 
 on:
-  push:
+  pull_request:
     branches: [main]
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
-  group: docs-deploy
-  cancel-in-progress: false
+  group: docs-check-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     container:
       image: cubertgmbh/cuvis_pyil:3.5.0-ubuntu24.04
@@ -38,13 +38,5 @@ jobs:
       - name: Sync docs deps
         run: uv sync --extra docs
 
-      - name: Configure git for mike
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
-      - name: Build docs (strict)
+      - name: Build site (strict)
         run: uv run mkdocs build --strict
-
-      - name: Deploy dev (nightly) docs
-        run: uv run mike deploy --push dev

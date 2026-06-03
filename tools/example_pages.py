@@ -61,7 +61,7 @@ def _parse_notebook(nb_path: Path) -> list[tuple[str, str]]:
         elif ctype == "code":
             pending_code.append(src)
 
-    if pending_code:
+    if pending_prose or pending_code:
         sections.append(("\n\n".join(pending_prose), "\n\n".join(pending_code)))
 
     return sections

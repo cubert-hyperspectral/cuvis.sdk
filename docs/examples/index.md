@@ -1,10 +1,9 @@
 # Examples
 
 The following examples demonstrate the core workflows of the Cuvis SDK.
-Each example is available in Python (Jupyter notebook), C, and C++.
-
-Use the language tabs within each example to switch between implementations.
-Clicking a tab (e.g. **C++**) syncs all code blocks on the page to that language.
+The pages below show the **Python** implementation, generated from the runnable
+Jupyter notebooks. C and C++ implementations of the same examples live in the
+SDK's `examples/` directory (`cuvis.c.examples` and `cuvis.cpp.examples`).
 
 !!! note "Prerequisites"
     All examples require:
