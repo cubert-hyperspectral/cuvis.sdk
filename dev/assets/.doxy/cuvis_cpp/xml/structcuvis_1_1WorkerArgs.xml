@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structcuvis_1_1WorkerArgs" kind="struct" language="C++" prot="public">
+    <compoundname>cuvis::WorkerArgs</compoundname>
+    <includes refid="cuvis_8hpp" local="no">cuvis.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structcuvis_1_1WorkerArgs_1a83dfc0db1cba8ccdd64bf91e277d10b2" prot="public" static="no" mutable="no">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">size_t</ref></type>
+        <definition>size_t cuvis::WorkerArgs::input_queue_size</definition>
+        <argsstring></argsstring>
+        <name>input_queue_size</name>
+        <qualifiedname>cuvis::WorkerArgs::input_queue_size</qualifiedname>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+<para><linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="521" column="12" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="521" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis_1_1WorkerArgs_1af2a7cd7407007730bb5726e584259133" prot="public" static="no" mutable="no">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">size_t</ref></type>
+        <definition>size_t cuvis::WorkerArgs::mandatory_queue_size</definition>
+        <argsstring></argsstring>
+        <name>mandatory_queue_size</name>
+        <qualifiedname>cuvis::WorkerArgs::mandatory_queue_size</qualifiedname>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+<para><linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="524" column="12" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="524" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis_1_1WorkerArgs_1a194a3ac19093f414171f89e40ede8da4" prot="public" static="no" mutable="no">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">size_t</ref></type>
+        <definition>size_t cuvis::WorkerArgs::supplementary_queue_size</definition>
+        <argsstring></argsstring>
+        <name>supplementary_queue_size</name>
+        <qualifiedname>cuvis::WorkerArgs::supplementary_queue_size</qualifiedname>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+<para><linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="527" column="12" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="527" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis_1_1WorkerArgs_1a89c032a9f889a11cc6039e93d021706a" prot="public" static="no" mutable="no">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">size_t</ref></type>
+        <definition>size_t cuvis::WorkerArgs::output_queue_size</definition>
+        <argsstring></argsstring>
+        <name>output_queue_size</name>
+        <qualifiedname>cuvis::WorkerArgs::output_queue_size</qualifiedname>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+<para><linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="530" column="12" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="530" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis_1_1WorkerArgs_1a515318cd95a910cff36fd4e1269a1d2d" prot="public" static="no" mutable="no">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">bool</ref></type>
+        <definition>bool cuvis::WorkerArgs::can_skip_measurements</definition>
+        <argsstring></argsstring>
+        <name>can_skip_measurements</name>
+        <qualifiedname>cuvis::WorkerArgs::can_skip_measurements</qualifiedname>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+<para><linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="533" column="10" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="533" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis_1_1WorkerArgs_1a85b33e065e3e323789e10ab730c048c1" prot="public" static="no" mutable="no">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">bool</ref></type>
+        <definition>bool cuvis::WorkerArgs::can_skip_supplementary_steps</definition>
+        <argsstring></argsstring>
+        <name>can_skip_supplementary_steps</name>
+        <qualifiedname>cuvis::WorkerArgs::can_skip_supplementary_steps</qualifiedname>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+<para><linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="536" column="10" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="536" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis_1_1WorkerArgs_1a5962ae6021562cd1c7c3c1b317298265" prot="public" static="no" mutable="no">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">bool</ref></type>
+        <definition>bool cuvis::WorkerArgs::can_drop_results</definition>
+        <argsstring></argsstring>
+        <name>can_drop_results</name>
+        <qualifiedname>cuvis::WorkerArgs::can_drop_results</qualifiedname>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+<para><linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="539" column="10" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="539" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structcuvis_1_1WorkerArgs_1a477fd675e8925c452636dc63f078659a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>cuvis::WorkerArgs::WorkerArgs</definition>
+        <argsstring>()</argsstring>
+        <name>WorkerArgs</name>
+        <qualifiedname>cuvis::WorkerArgs::WorkerArgs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor to create default parameters </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="513" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structcuvis_1_1WorkerArgs_1a1c85d57e509fc6339be5d425fb5a33f3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>cuvis::WorkerArgs::operator cuvis_worker_settings_t</definition>
+        <argsstring>() const</argsstring>
+        <name>operator cuvis_worker_settings_t</name>
+        <qualifiedname>cuvis::WorkerArgs::operator cuvis_worker_settings_t</qualifiedname>
+        <briefdescription>
+<para>convert to C - SDK settings structure </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="518" column="5"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>settings for the worker </para>
+    </detaileddescription>
+    <location file="cuvis.cpp/interface/cuvis.hpp" line="510" column="3" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="511" bodyend="540"/>
+    <listofallmembers>
+      <member refid="structcuvis_1_1WorkerArgs_1a5962ae6021562cd1c7c3c1b317298265" prot="public" virt="non-virtual"><scope>cuvis::WorkerArgs</scope><name>can_drop_results</name></member>
+      <member refid="structcuvis_1_1WorkerArgs_1a515318cd95a910cff36fd4e1269a1d2d" prot="public" virt="non-virtual"><scope>cuvis::WorkerArgs</scope><name>can_skip_measurements</name></member>
+      <member refid="structcuvis_1_1WorkerArgs_1a85b33e065e3e323789e10ab730c048c1" prot="public" virt="non-virtual"><scope>cuvis::WorkerArgs</scope><name>can_skip_supplementary_steps</name></member>
+      <member refid="structcuvis_1_1WorkerArgs_1a83dfc0db1cba8ccdd64bf91e277d10b2" prot="public" virt="non-virtual"><scope>cuvis::WorkerArgs</scope><name>input_queue_size</name></member>
+      <member refid="structcuvis_1_1WorkerArgs_1af2a7cd7407007730bb5726e584259133" prot="public" virt="non-virtual"><scope>cuvis::WorkerArgs</scope><name>mandatory_queue_size</name></member>
+      <member refid="structcuvis_1_1WorkerArgs_1a1c85d57e509fc6339be5d425fb5a33f3" prot="public" virt="non-virtual"><scope>cuvis::WorkerArgs</scope><name>operator cuvis_worker_settings_t</name></member>
+      <member refid="structcuvis_1_1WorkerArgs_1a89c032a9f889a11cc6039e93d021706a" prot="public" virt="non-virtual"><scope>cuvis::WorkerArgs</scope><name>output_queue_size</name></member>
+      <member refid="structcuvis_1_1WorkerArgs_1a194a3ac19093f414171f89e40ede8da4" prot="public" virt="non-virtual"><scope>cuvis::WorkerArgs</scope><name>supplementary_queue_size</name></member>
+      <member refid="structcuvis_1_1WorkerArgs_1a477fd675e8925c452636dc63f078659a" prot="public" virt="non-virtual"><scope>cuvis::WorkerArgs</scope><name>WorkerArgs</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

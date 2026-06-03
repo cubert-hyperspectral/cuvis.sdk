@@ -1,0 +1,553 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classcuvis_1_1Worker" kind="class" language="C++" prot="public">
+    <compoundname>cuvis::Worker</compoundname>
+    <includes refid="cuvis_8hpp" local="no">cuvis.hpp</includes>
+    <innerclass refid="structcuvis_1_1Worker_1_1worker__return__t" prot="public">cuvis::Worker::worker_return_t</innerclass>
+    <innerclass refid="structcuvis_1_1Worker_1_1worker__state__t" prot="public">cuvis::Worker::worker_state_t</innerclass>
+    <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classcuvis_1_1Worker_1abe5b38a726ded5850125d0f5b180e231" prot="public" static="no">
+        <type>std::function&lt; <ref refid="structcuvis_1_1image__t" kindref="compound">void</ref>(<ref refid="structcuvis_1_1Worker_1_1worker__return__t" kindref="compound">worker_return_t</ref>)&gt;</type>
+        <definition>using cuvis::Worker::worker_callback_t =  std::function&lt;void(worker_return_t)&gt;</definition>
+        <argsstring></argsstring>
+        <name>worker_callback_t</name>
+        <qualifiedname>cuvis::Worker::worker_callback_t</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1487" column="5" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1487" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcuvis_1_1Worker_1a83a9c80b1a03af5dc7a2aaf15f463fda" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="structcuvis_1_1image__t" kindref="compound">CUVIS_WORKER</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;CUVIS_WORKER&gt; cuvis::Worker::_worker</definition>
+        <argsstring></argsstring>
+        <name>_worker</name>
+        <qualifiedname>cuvis::Worker::_worker</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1530" column="21" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1530" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcuvis_1_1Worker_1af7549ec29fa08ea781dcce07143e7558" prot="private" static="no" mutable="no">
+        <type>std::atomic_bool</type>
+        <definition>std::atomic_bool cuvis::Worker::_worker_poll_thread_run</definition>
+        <argsstring></argsstring>
+        <name>_worker_poll_thread_run</name>
+        <qualifiedname>cuvis::Worker::_worker_poll_thread_run</qualifiedname>
+        <initializer>= <ref refid="structcuvis_1_1image__t" kindref="compound">false</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1532" column="22" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1532" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcuvis_1_1Worker_1a92a0a495ce4bb2f462d5063ea8543318" prot="private" static="no" mutable="yes">
+        <type>std::mutex</type>
+        <definition>std::mutex cuvis::Worker::_worker_poll_thread_lock</definition>
+        <argsstring></argsstring>
+        <name>_worker_poll_thread_lock</name>
+        <qualifiedname>cuvis::Worker::_worker_poll_thread_lock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1533" column="24" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1533" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcuvis_1_1Worker_1adc5cf950af56a8888bc9f8cda63a8db4" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; std::thread &gt;</type>
+        <definition>std::shared_ptr&lt;std::thread&gt; cuvis::Worker::_worker_poll_thread</definition>
+        <argsstring></argsstring>
+        <name>_worker_poll_thread</name>
+        <qualifiedname>cuvis::Worker::_worker_poll_thread</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1534" column="21" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1534" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcuvis_1_1Worker_1a7ec87f1e45ff23f96b95f7c29fc178cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>cuvis::Worker::Worker</definition>
+        <argsstring>(WorkerArgs const &amp;args)</argsstring>
+        <name>Worker</name>
+        <qualifiedname>cuvis::Worker::Worker</qualifiedname>
+        <param>
+          <type><ref refid="structcuvis_1_1WorkerArgs" kindref="compound">WorkerArgs</ref> <ref refid="structcuvis_1_1image__t" kindref="compound">const</ref> &amp;</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1490" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1Worker_1a8ecd6aec147d885c94f791822f69ffab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">void</ref></type>
+        <definition>void cuvis::Worker::set_acq_cont</definition>
+        <argsstring>(AcquisitionContext const *acqCont)</argsstring>
+        <name>set_acq_cont</name>
+        <qualifiedname>cuvis::Worker::set_acq_cont</qualifiedname>
+        <param>
+          <type><ref refid="classcuvis_1_1AcquisitionContext" kindref="compound">AcquisitionContext</ref> <ref refid="structcuvis_1_1image__t" kindref="compound">const</ref> *</type>
+          <declname>acqCont</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1492" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1Worker_1a2fd7b00ef2f1fa1e84808ee94c54a10c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">void</ref></type>
+        <definition>void cuvis::Worker::set_proc_cont</definition>
+        <argsstring>(ProcessingContext const *procCont)</argsstring>
+        <name>set_proc_cont</name>
+        <qualifiedname>cuvis::Worker::set_proc_cont</qualifiedname>
+        <param>
+          <type><ref refid="classcuvis_1_1ProcessingContext" kindref="compound">ProcessingContext</ref> <ref refid="structcuvis_1_1image__t" kindref="compound">const</ref> *</type>
+          <declname>procCont</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1493" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1Worker_1a1d6b8adf938048a922da8ad80b3c0b12" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">void</ref></type>
+        <definition>void cuvis::Worker::set_exporter</definition>
+        <argsstring>(Exporter const *exporter)</argsstring>
+        <name>set_exporter</name>
+        <qualifiedname>cuvis::Worker::set_exporter</qualifiedname>
+        <param>
+          <type><ref refid="classcuvis_1_1Exporter" kindref="compound">Exporter</ref> <ref refid="structcuvis_1_1image__t" kindref="compound">const</ref> *</type>
+          <declname>exporter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1494" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1Worker_1aed503960a688d1c57fab495cf5fae9b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">void</ref></type>
+        <definition>void cuvis::Worker::set_viewer</definition>
+        <argsstring>(Viewer const *viewer)</argsstring>
+        <name>set_viewer</name>
+        <qualifiedname>cuvis::Worker::set_viewer</qualifiedname>
+        <param>
+          <type><ref refid="classcuvis_1_1Viewer" kindref="compound">Viewer</ref> <ref refid="structcuvis_1_1image__t" kindref="compound">const</ref> *</type>
+          <declname>viewer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1495" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1Worker_1adae1af59d30ee420284a5cc07b0f21f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">void</ref></type>
+        <definition>void cuvis::Worker::ingest_measurement</definition>
+        <argsstring>(Measurement const &amp;measurement)</argsstring>
+        <name>ingest_measurement</name>
+        <qualifiedname>cuvis::Worker::ingest_measurement</qualifiedname>
+        <param>
+          <type><ref refid="classcuvis_1_1Measurement" kindref="compound">Measurement</ref> <ref refid="structcuvis_1_1image__t" kindref="compound">const</ref> &amp;</type>
+          <declname>measurement</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1497" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1Worker_1a1f225cfe774b8cb99917158373449d85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">void</ref></type>
+        <definition>void cuvis::Worker::ingest_session_file</definition>
+        <argsstring>(SessionFile const &amp;session, std::string frame_selection)</argsstring>
+        <name>ingest_session_file</name>
+        <qualifiedname>cuvis::Worker::ingest_session_file</qualifiedname>
+        <param>
+          <type><ref refid="classcuvis_1_1SessionFile" kindref="compound">SessionFile</ref> <ref refid="structcuvis_1_1image__t" kindref="compound">const</ref> &amp;</type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>frame_selection</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1498" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1Worker_1aa897883ddbeda2a331edc0a4daae87ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">double</ref></type>
+        <definition>double cuvis::Worker::query_session_progress</definition>
+        <argsstring>()</argsstring>
+        <name>query_session_progress</name>
+        <qualifiedname>cuvis::Worker::query_session_progress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1499" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1Worker_1ae4714836013f6f25196fb94a9df4d1a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">bool</ref></type>
+        <definition>bool cuvis::Worker::get_can_drop_results</definition>
+        <argsstring>()</argsstring>
+        <name>get_can_drop_results</name>
+        <qualifiedname>cuvis::Worker::get_can_drop_results</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1501" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1Worker_1a074db546437add7812adaf1f5dd6b18b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">bool</ref></type>
+        <definition>bool cuvis::Worker::get_can_skip_measurements</definition>
+        <argsstring>()</argsstring>
+        <name>get_can_skip_measurements</name>
+        <qualifiedname>cuvis::Worker::get_can_skip_measurements</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1502" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1Worker_1ae54af77ae9344fd84e2e45cdf784658a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">bool</ref></type>
+        <definition>bool cuvis::Worker::get_can_skip_supplementary</definition>
+        <argsstring>()</argsstring>
+        <name>get_can_skip_supplementary</name>
+        <qualifiedname>cuvis::Worker::get_can_skip_supplementary</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1503" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1Worker_1aecad5ec79f62b9c8723684aad3e8155d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">bool</ref></type>
+        <definition>bool cuvis::Worker::has_next_result</definition>
+        <argsstring>() const</argsstring>
+        <name>has_next_result</name>
+        <qualifiedname>cuvis::Worker::has_next_result</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1505" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1Worker_1add0308b50066eb3adb2e6757293f7d88" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1Worker_1_1worker__return__t" kindref="compound">worker_return_t</ref></type>
+        <definition>worker_return_t cuvis::Worker::get_next_result</definition>
+        <argsstring>(std::chrono::milliseconds timeout) const</argsstring>
+        <name>get_next_result</name>
+        <qualifiedname>cuvis::Worker::get_next_result</qualifiedname>
+        <param>
+          <type>std::chrono::milliseconds</type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1506" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1Worker_1acf7baa8f85f04e9d96a44aeadfbceb3c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">size_t</ref></type>
+        <definition>size_t cuvis::Worker::get_queue_used</definition>
+        <argsstring>() const</argsstring>
+        <name>get_queue_used</name>
+        <qualifiedname>cuvis::Worker::get_queue_used</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1507" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1Worker_1a92f89f4ee2a2ab0b977fc95d9695b471" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">size_t</ref></type>
+        <definition>size_t cuvis::Worker::get_input_queue_limit</definition>
+        <argsstring>() const</argsstring>
+        <name>get_input_queue_limit</name>
+        <qualifiedname>cuvis::Worker::get_input_queue_limit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1509" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1Worker_1aec1121e355c87baf5fcba86cee7b949b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">size_t</ref></type>
+        <definition>size_t cuvis::Worker::get_mandatory_queue_limit</definition>
+        <argsstring>() const</argsstring>
+        <name>get_mandatory_queue_limit</name>
+        <qualifiedname>cuvis::Worker::get_mandatory_queue_limit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1510" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1Worker_1a824702543c00fee014529e2cac40a38d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">size_t</ref></type>
+        <definition>size_t cuvis::Worker::get_supplementary_queue_limit</definition>
+        <argsstring>() const</argsstring>
+        <name>get_supplementary_queue_limit</name>
+        <qualifiedname>cuvis::Worker::get_supplementary_queue_limit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1511" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1Worker_1a1db52abb2052335fe447bccd91ca76f8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">size_t</ref></type>
+        <definition>size_t cuvis::Worker::get_output_queue_limit</definition>
+        <argsstring>() const</argsstring>
+        <name>get_output_queue_limit</name>
+        <qualifiedname>cuvis::Worker::get_output_queue_limit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1512" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1Worker_1a57236094870bafb53e8828338ce45613" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">void</ref></type>
+        <definition>void cuvis::Worker::start_processing</definition>
+        <argsstring>()</argsstring>
+        <name>start_processing</name>
+        <qualifiedname>cuvis::Worker::start_processing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1514" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1Worker_1a176603a1f6fff4143733bc4c70f0e224" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">void</ref></type>
+        <definition>void cuvis::Worker::stop_processing</definition>
+        <argsstring>()</argsstring>
+        <name>stop_processing</name>
+        <qualifiedname>cuvis::Worker::stop_processing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1515" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1Worker_1a256ac3982d1a171eca28b1fa14656ef4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">void</ref></type>
+        <definition>void cuvis::Worker::drop_all_queued</definition>
+        <argsstring>()</argsstring>
+        <name>drop_all_queued</name>
+        <qualifiedname>cuvis::Worker::drop_all_queued</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1516" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1Worker_1a50870e6c25247955eb775f75bf11d4f7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">bool</ref></type>
+        <definition>bool cuvis::Worker::is_processing_mandatory</definition>
+        <argsstring>() const</argsstring>
+        <name>is_processing_mandatory</name>
+        <qualifiedname>cuvis::Worker::is_processing_mandatory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1518" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1Worker_1aca3709d8ba8f1b37810e50c8398168f1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">bool</ref></type>
+        <definition>bool cuvis::Worker::is_processing</definition>
+        <argsstring>() const</argsstring>
+        <name>is_processing</name>
+        <qualifiedname>cuvis::Worker::is_processing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1519" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1Worker_1aacad7b0a2d37880a4b6eed019072a2ae" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">int32_t</ref></type>
+        <definition>int32_t cuvis::Worker::get_threads_busy</definition>
+        <argsstring>() const</argsstring>
+        <name>get_threads_busy</name>
+        <qualifiedname>cuvis::Worker::get_threads_busy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1521" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1Worker_1ad76270ce4b02183423059bd2b0b797d8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1Worker_1_1worker__state__t" kindref="compound">worker_state_t</ref></type>
+        <definition>worker_state_t cuvis::Worker::get_state</definition>
+        <argsstring>() const</argsstring>
+        <name>get_state</name>
+        <qualifiedname>cuvis::Worker::get_state</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1523" column="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1Worker_1a1abaef81f75e654d4878e366c28a405c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">void</ref></type>
+        <definition>void cuvis::Worker::register_worker_callback</definition>
+        <argsstring>(worker_callback_t callback, unsigned concurrency=1, size_t measurement_timeout_ms=1000)</argsstring>
+        <name>register_worker_callback</name>
+        <qualifiedname>cuvis::Worker::register_worker_callback</qualifiedname>
+        <param>
+          <type><ref refid="classcuvis_1_1Worker_1abe5b38a726ded5850125d0f5b180e231" kindref="member">worker_callback_t</ref></type>
+          <declname>callback</declname>
+        </param>
+        <param>
+          <type><ref refid="structcuvis_1_1image__t" kindref="compound">unsigned</ref></type>
+          <declname>concurrency</declname>
+          <defval>1</defval>
+        </param>
+        <param>
+          <type><ref refid="structcuvis_1_1image__t" kindref="compound">size_t</ref></type>
+          <declname>measurement_timeout_ms</declname>
+          <defval>1000</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1525" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1Worker_1a4ffce86918e1355b236b9a54b43d1c6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">void</ref></type>
+        <definition>void cuvis::Worker::reset_worker_callback</definition>
+        <argsstring>()</argsstring>
+        <name>reset_worker_callback</name>
+        <qualifiedname>cuvis::Worker::reset_worker_callback</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1527" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="cuvis.cpp/interface/cuvis.hpp" line="1466" column="3" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1467" bodyend="1535"/>
+    <listofallmembers>
+      <member refid="classcuvis_1_1Worker_1a83a9c80b1a03af5dc7a2aaf15f463fda" prot="private" virt="non-virtual"><scope>cuvis::Worker</scope><name>_worker</name></member>
+      <member refid="classcuvis_1_1Worker_1adc5cf950af56a8888bc9f8cda63a8db4" prot="private" virt="non-virtual"><scope>cuvis::Worker</scope><name>_worker_poll_thread</name></member>
+      <member refid="classcuvis_1_1Worker_1a92a0a495ce4bb2f462d5063ea8543318" prot="private" virt="non-virtual"><scope>cuvis::Worker</scope><name>_worker_poll_thread_lock</name></member>
+      <member refid="classcuvis_1_1Worker_1af7549ec29fa08ea781dcce07143e7558" prot="private" virt="non-virtual"><scope>cuvis::Worker</scope><name>_worker_poll_thread_run</name></member>
+      <member refid="classcuvis_1_1Worker_1a256ac3982d1a171eca28b1fa14656ef4" prot="public" virt="non-virtual"><scope>cuvis::Worker</scope><name>drop_all_queued</name></member>
+      <member refid="classcuvis_1_1Worker_1ae4714836013f6f25196fb94a9df4d1a9" prot="public" virt="non-virtual"><scope>cuvis::Worker</scope><name>get_can_drop_results</name></member>
+      <member refid="classcuvis_1_1Worker_1a074db546437add7812adaf1f5dd6b18b" prot="public" virt="non-virtual"><scope>cuvis::Worker</scope><name>get_can_skip_measurements</name></member>
+      <member refid="classcuvis_1_1Worker_1ae54af77ae9344fd84e2e45cdf784658a" prot="public" virt="non-virtual"><scope>cuvis::Worker</scope><name>get_can_skip_supplementary</name></member>
+      <member refid="classcuvis_1_1Worker_1a92f89f4ee2a2ab0b977fc95d9695b471" prot="public" virt="non-virtual"><scope>cuvis::Worker</scope><name>get_input_queue_limit</name></member>
+      <member refid="classcuvis_1_1Worker_1aec1121e355c87baf5fcba86cee7b949b" prot="public" virt="non-virtual"><scope>cuvis::Worker</scope><name>get_mandatory_queue_limit</name></member>
+      <member refid="classcuvis_1_1Worker_1add0308b50066eb3adb2e6757293f7d88" prot="public" virt="non-virtual"><scope>cuvis::Worker</scope><name>get_next_result</name></member>
+      <member refid="classcuvis_1_1Worker_1a1db52abb2052335fe447bccd91ca76f8" prot="public" virt="non-virtual"><scope>cuvis::Worker</scope><name>get_output_queue_limit</name></member>
+      <member refid="classcuvis_1_1Worker_1acf7baa8f85f04e9d96a44aeadfbceb3c" prot="public" virt="non-virtual"><scope>cuvis::Worker</scope><name>get_queue_used</name></member>
+      <member refid="classcuvis_1_1Worker_1ad76270ce4b02183423059bd2b0b797d8" prot="public" virt="non-virtual"><scope>cuvis::Worker</scope><name>get_state</name></member>
+      <member refid="classcuvis_1_1Worker_1a824702543c00fee014529e2cac40a38d" prot="public" virt="non-virtual"><scope>cuvis::Worker</scope><name>get_supplementary_queue_limit</name></member>
+      <member refid="classcuvis_1_1Worker_1aacad7b0a2d37880a4b6eed019072a2ae" prot="public" virt="non-virtual"><scope>cuvis::Worker</scope><name>get_threads_busy</name></member>
+      <member refid="classcuvis_1_1Worker_1aecad5ec79f62b9c8723684aad3e8155d" prot="public" virt="non-virtual"><scope>cuvis::Worker</scope><name>has_next_result</name></member>
+      <member refid="classcuvis_1_1Worker_1adae1af59d30ee420284a5cc07b0f21f8" prot="public" virt="non-virtual"><scope>cuvis::Worker</scope><name>ingest_measurement</name></member>
+      <member refid="classcuvis_1_1Worker_1a1f225cfe774b8cb99917158373449d85" prot="public" virt="non-virtual"><scope>cuvis::Worker</scope><name>ingest_session_file</name></member>
+      <member refid="classcuvis_1_1Worker_1aca3709d8ba8f1b37810e50c8398168f1" prot="public" virt="non-virtual"><scope>cuvis::Worker</scope><name>is_processing</name></member>
+      <member refid="classcuvis_1_1Worker_1a50870e6c25247955eb775f75bf11d4f7" prot="public" virt="non-virtual"><scope>cuvis::Worker</scope><name>is_processing_mandatory</name></member>
+      <member refid="classcuvis_1_1Worker_1aa897883ddbeda2a331edc0a4daae87ab" prot="public" virt="non-virtual"><scope>cuvis::Worker</scope><name>query_session_progress</name></member>
+      <member refid="classcuvis_1_1Worker_1a1abaef81f75e654d4878e366c28a405c" prot="public" virt="non-virtual"><scope>cuvis::Worker</scope><name>register_worker_callback</name></member>
+      <member refid="classcuvis_1_1Worker_1a4ffce86918e1355b236b9a54b43d1c6d" prot="public" virt="non-virtual"><scope>cuvis::Worker</scope><name>reset_worker_callback</name></member>
+      <member refid="classcuvis_1_1Worker_1a8ecd6aec147d885c94f791822f69ffab" prot="public" virt="non-virtual"><scope>cuvis::Worker</scope><name>set_acq_cont</name></member>
+      <member refid="classcuvis_1_1Worker_1a1d6b8adf938048a922da8ad80b3c0b12" prot="public" virt="non-virtual"><scope>cuvis::Worker</scope><name>set_exporter</name></member>
+      <member refid="classcuvis_1_1Worker_1a2fd7b00ef2f1fa1e84808ee94c54a10c" prot="public" virt="non-virtual"><scope>cuvis::Worker</scope><name>set_proc_cont</name></member>
+      <member refid="classcuvis_1_1Worker_1aed503960a688d1c57fab495cf5fae9b5" prot="public" virt="non-virtual"><scope>cuvis::Worker</scope><name>set_viewer</name></member>
+      <member refid="classcuvis_1_1Worker_1a57236094870bafb53e8828338ce45613" prot="public" virt="non-virtual"><scope>cuvis::Worker</scope><name>start_processing</name></member>
+      <member refid="classcuvis_1_1Worker_1a176603a1f6fff4143733bc4c70f0e224" prot="public" virt="non-virtual"><scope>cuvis::Worker</scope><name>stop_processing</name></member>
+      <member refid="classcuvis_1_1Worker_1a7ec87f1e45ff23f96b95f7c29fc178cd" prot="public" virt="non-virtual"><scope>cuvis::Worker</scope><name>Worker</name></member>
+      <member refid="classcuvis_1_1Worker_1abe5b38a726ded5850125d0f5b180e231" prot="public" virt="non-virtual"><scope>cuvis::Worker</scope><name>worker_callback_t</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,478 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.8" xml:lang="en-US">
+  <compound refid="classcuvis_1_1AcquisitionContext" kind="class"><name>cuvis::AcquisitionContext</name>
+    <member refid="classcuvis_1_1AcquisitionContext_1abaef4f3df43131361d88bc33a1f3bed3" kind="typedef"><name>mesu_callback_t</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1af37a55cb0b7fed0748563e5d827b37ab" kind="typedef"><name>component_state_t</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1a272570ababeb02d2aaf2ae3d2e00c968" kind="typedef"><name>state_callback_t</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1a9de4a9533dff2ecc0919852d4c05a67b" kind="friend"><name>Worker</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1a277fcbe142609c001935e2601c287b7e" kind="variable"><name>_acqCont</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1ad9e08a45487463555e1ded8f0d4bc700" kind="variable"><name>_state_poll_thread_run</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1ab20348410d17f63dafa7c34a0fcd32a8" kind="variable"><name>_state_poll_thread</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1abc1f238711b9748690dd86e40b1da425" kind="function"><name>AcquisitionContext</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1a7d889b80feade301a3d934433c6a44de" kind="function"><name>AcquisitionContext</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1a495bb75bb4caf82fe10a4e8fde3d73b6" kind="function"><name>~AcquisitionContext</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1a7e07e719f140eb12c8a00574e7ed1001" kind="function"><name>capture</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1a3bffc203eb76c5aa659973de2e97e9e2" kind="function"><name>capture_queue</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1aa4ef233b5897d0f58fc4baf681c5e33e" kind="function"><name>get_state</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1a61ce290e11ddef966cb587fd6c4379d6" kind="function"><name>get_component_pixel_format</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1aff21f6c4323e3d3642ea1f88c14d989f" kind="function"><name>set_component_pixel_format</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1adaf73c1f9992f8d1c4c0483ff56f47a1" kind="function"><name>get_component_available_pixel_formats</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1a64c73cd58299648a8f09885fb919cfe7" kind="function"><name>get_next_measurement</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1a9bd782fa2014ceffc59fb2a190b4f450" kind="function"><name>get_session_info</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1af8b0b796fc546c4e7ad79d70b86ac2a5" kind="function"><name>get_component_count</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1a4c5626b988e10c201f7de85d9fc4faf5" kind="function"><name>get_component_info</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1a16da88d118c8e208d9c49707619b6bdf" kind="function"><name>set_session_info</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1a0cd40f55a65c5c5cb30c6b7dd482a6c5" kind="function"><name>set_queue_size</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1a1636fdabba4aae1283c298fb09ffb305" kind="function"><name>has_next_measurement</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1abd3355b45d76bf01d1389467938e6e2e" kind="function"><name>is_ready</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1ababf1f7b9ee7cc6763a0f80c5612468d" kind="function"><name>register_state_change_callback</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1ad3dba500e227b514b27ef81eafbd89d4" kind="function"><name>reset_state_change_callback</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1abdccac1ac86301a4f6b14fa3d4908e96" kind="function"><name>get_dead_pixel_correction_available</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1a383d06b732be0b6d6eba5a943bcdd6a7" kind="function"><name>get_dead_pixel_correction_enabled</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1a78707f9920e276d5f4e67af22fe680e7" kind="function"><name>set_dead_pixel_correction_enabled</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1adf36b872d0e50e06e2337aac97475cc7" kind="function"><name>ACQ_STUB_0a</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1a1c63173a5ebaeaa3dfb725cc6d9f70a5" kind="function"><name>ACQ_STUB_0a</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1ac20eae8f9347820e6fa615439f209d09" kind="function"><name>ACQ_STUB_0a</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1a45cf41bdd3a2dba3cdabe5b6a91e2737" kind="function"><name>ACQ_STUB_0a</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1a1e6cbb9efa741d60d0a913ce0d13357f" kind="function"><name>ACQ_STUB_0a</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1a7f2d9dba1855225ebf3712e096af5cec" kind="function"><name>ACQ_STUB_0a</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1a75af19420ba90a3fe651095742b67c65" kind="function"><name>ACQ_STUB_0a</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1ab5afb721adb54b5f2be9c996e5e682a9" kind="function"><name>ACQ_STUB_0a</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1a59a86c351832dad3d9b11f890a9d5431" kind="function"><name>ACQ_STUB_0a</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1afc5046a42d044ed293372bbd409e383f" kind="function"><name>ACQ_STUB_0b</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1a6e0709ddd3cf9ad836273af4894d8496" kind="function"><name>ACQ_STUB_0b</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1a41e5304e3bb4701a337d7a4f505d402a" kind="function"><name>ACQ_STUB_0b</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1a2f99b8616abf4fd2a15020ab6b8bece4" kind="function"><name>ACQ_STUB_0b</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1aed5893acaf901e52d1a7f76a0af45e15" kind="function"><name>ACQ_STUB_0b</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1a48907d28c353796a721d79f3b3cda69f" kind="function"><name>ACQ_STUB_0b</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1ad3b757780873dbd7760c291942ae3c49" kind="function"><name>ACQ_STUB_0b</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1a4cc2e017ec51c333ef22aec4f94c6682" kind="function"><name>ACQ_STUB_1a</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1af32961fc05be27ea50eb3ffb4cb22704" kind="function"><name>ACQ_STUB_1a</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1a659a6d058e173b730c8ce92c4d717501" kind="function"><name>ACQ_STUB_1a</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1ad34dae0e492bafe7729042c2ea29830d" kind="function"><name>ACQ_STUB_1a</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1af3eedb1aec247f6e88fe083bda53e85f" kind="function"><name>ACQ_STUB_1a</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1a7ce9b9f6054fa06ca149051c88d252ed" kind="function"><name>ACQ_STUB_1a</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1a4f798739b1c7e3138ef68ec6a7ac1ce4" kind="function"><name>ACQ_STUB_1a</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1aafd2e1f69291ba1baf9cae973f285df0" kind="function"><name>ACQ_STUB_1a</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1a023831ba3390ad190baeb39deafccb51" kind="function"><name>ACQ_STUB_1a</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1af2aecc927553955bd304abc4c1cdc6de" kind="function"><name>ACQ_STUB_1b</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1a24b70b766fdbe3ce79a60ca563e63c97" kind="function"><name>ACQ_STUB_1b</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1a99c76b2e60afc4bee650eaa135763a6d" kind="function"><name>get_handle</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1ac1b3a3a170531da3fad58417c4104b7f" kind="function"><name>get_handle_copy</name></member>
+    <member refid="classcuvis_1_1AcquisitionContext_1a89cafc53ca17035721a077d9e0baa674" kind="function"><name>AcquisitionContext</name></member>
+  </compound>
+  <compound refid="classcuvis_1_1Async" kind="class"><name>cuvis::Async</name>
+    <member refid="classcuvis_1_1Async_1a339e205651170075089499d938fb563c" kind="friend"><name>AcquisitionContext</name></member>
+    <member refid="classcuvis_1_1Async_1a9da77e4c3dc9be3912232b8a2f38f40f" kind="variable"><name>_async</name></member>
+    <member refid="classcuvis_1_1Async_1ab98d21691cee61d969bf0630abd66aa0" kind="function"><name>get</name></member>
+  </compound>
+  <compound refid="classcuvis_1_1AsyncMesu" kind="class"><name>cuvis::AsyncMesu</name>
+    <member refid="classcuvis_1_1AsyncMesu_1a339e205651170075089499d938fb563c" kind="friend"><name>AcquisitionContext</name></member>
+    <member refid="classcuvis_1_1AsyncMesu_1a863d59918a98db52ff92cb9998d23229" kind="variable"><name>_async</name></member>
+    <member refid="classcuvis_1_1AsyncMesu_1a0f72e7b7791c57cae62d144715157257" kind="function"><name>get</name></member>
+  </compound>
+  <compound refid="classcuvis_1_1Calibration" kind="class"><name>cuvis::Calibration</name>
+    <member refid="classcuvis_1_1Calibration_1a1e87b5b9234f65010031eef993c1f742" kind="friend"><name>ProcessingContext</name></member>
+    <member refid="classcuvis_1_1Calibration_1a339e205651170075089499d938fb563c" kind="friend"><name>AcquisitionContext</name></member>
+    <member refid="classcuvis_1_1Calibration_1a02c797bf734895c11d5e80ae0f267e19" kind="variable"><name>_calib</name></member>
+    <member refid="classcuvis_1_1Calibration_1a4c759f54c8c9bfdc0444c71e42555334" kind="function"><name>Calibration</name></member>
+    <member refid="classcuvis_1_1Calibration_1a6c302854492d0b6caa3f3249509d49e4" kind="function"><name>Calibration</name></member>
+    <member refid="classcuvis_1_1Calibration_1a35e9c7cff88392908ecda3dd659be8b0" kind="function"><name>get_capabilities</name></member>
+    <member refid="classcuvis_1_1Calibration_1a596161aae4dc94b9695361f5a9e658cb" kind="function"><name>get_info</name></member>
+    <member refid="classcuvis_1_1Calibration_1a71eb7ebb931402d7fcbf7a31336ad32e" kind="function"><name>get_id</name></member>
+    <member refid="classcuvis_1_1Calibration_1afe46d4375b60c21abc92d377d48f3011" kind="function"><name>get_component_count</name></member>
+    <member refid="classcuvis_1_1Calibration_1a35e36c1acf8993700b0e9a57c1c5f355" kind="function"><name>get_component_info</name></member>
+    <member refid="classcuvis_1_1Calibration_1ac509ccc09725037e79d80939dcca6181" kind="function"><name>get_handle</name></member>
+    <member refid="classcuvis_1_1Calibration_1a5d5e688688b8cfb512fa82ef0717391f" kind="function"><name>get_handle_copy</name></member>
+    <member refid="classcuvis_1_1Calibration_1a95ec20623fa53f84d709063b2ed7169b" kind="function"><name>Calibration</name></member>
+  </compound>
+  <compound refid="structcuvis_1_1CalibrationInfo" kind="struct"><name>cuvis::CalibrationInfo</name>
+    <member refid="structcuvis_1_1CalibrationInfo_1a0c1420c53bb5a73e2a5bf96928544754" kind="variable"><name>model_name</name></member>
+    <member refid="structcuvis_1_1CalibrationInfo_1a8d5f3675e299ef5fdc8c32a13a9d6bf3" kind="variable"><name>serial_no</name></member>
+    <member refid="structcuvis_1_1CalibrationInfo_1a86933477a36fe9e95a9641abbe4a32af" kind="variable"><name>calibration_date</name></member>
+    <member refid="structcuvis_1_1CalibrationInfo_1ad503a8502f62a297bdbeafbc7063be19" kind="variable"><name>annotation_name</name></member>
+    <member refid="structcuvis_1_1CalibrationInfo_1a4d9f80c863d46a50f02cb13262726d02" kind="variable"><name>unique_id</name></member>
+    <member refid="structcuvis_1_1CalibrationInfo_1a09067d7baa6d7489749326686a9a4747" kind="variable"><name>file_path</name></member>
+    <member refid="structcuvis_1_1CalibrationInfo_1a38a273fa39ba9ab367497ea1725594a6" kind="variable"><name>cube_width</name></member>
+    <member refid="structcuvis_1_1CalibrationInfo_1a7e66fd64eee2288d425d991a7b36641a" kind="variable"><name>cube_height</name></member>
+    <member refid="structcuvis_1_1CalibrationInfo_1a34baffa5c7813449c0721e4299c673f7" kind="variable"><name>cube_channels</name></member>
+    <member refid="structcuvis_1_1CalibrationInfo_1a4e1f04228ceee09e05c6c35a7549621f" kind="variable"><name>cube_wavelengths</name></member>
+    <member refid="structcuvis_1_1CalibrationInfo_1ac6a3fc710bd401208ab7a536ef9ca021" kind="function"><name>CalibrationInfo</name></member>
+    <member refid="structcuvis_1_1CalibrationInfo_1acdcccb2645c3df2d54dc1b102863fb02" kind="function"><name>CalibrationInfo</name></member>
+    <member refid="structcuvis_1_1CalibrationInfo_1a106225a579d9de48ad9b8f4127a4008b" kind="function"><name>operator calibration_info_t</name></member>
+  </compound>
+  <compound refid="structcuvis_1_1common__image__t" kind="struct"><name>cuvis::common_image_t</name>
+    <member refid="structcuvis_1_1common__image__t_1a3fd88e6152b611f7daa5595fb36e916d" kind="variable"><name>_width</name></member>
+    <member refid="structcuvis_1_1common__image__t_1a5ca126ab8245d178b1d4fb58298af381" kind="variable"><name>_height</name></member>
+    <member refid="structcuvis_1_1common__image__t_1a364838d37ee9349a0014c084e1ba0938" kind="variable"><name>_channels</name></member>
+    <member refid="structcuvis_1_1common__image__t_1a83140ec4bb98648cd01e07ed579d3a30" kind="variable"><name>_data</name></member>
+    <member refid="structcuvis_1_1common__image__t_1a0352ec69ffed476b37237442cdff3e8c" kind="function"><name>get</name></member>
+  </compound>
+  <compound refid="structcuvis_1_1AcquisitionContext_1_1component__state__info__t" kind="struct"><name>cuvis::AcquisitionContext::component_state_info_t</name>
+    <member refid="structcuvis_1_1AcquisitionContext_1_1component__state__info__t_1a2e5f91fb60a2ad9477d0a6eb3623969a" kind="variable"><name>display_name</name></member>
+    <member refid="structcuvis_1_1AcquisitionContext_1_1component__state__info__t_1a6c3cf27adaeab2524e7fe9328b291728" kind="variable"><name>is_online</name></member>
+  </compound>
+  <compound refid="classcuvis_1_1CubeExporter" kind="class"><name>cuvis::CubeExporter</name>
+    <member refid="classcuvis_1_1CubeExporter_1aa000afcf8223768467d358481f5eced5" kind="typedef"><name>format_settings_t</name></member>
+    <member refid="classcuvis_1_1CubeExporter_1a1da3de6600077365c300c4389e85bb14" kind="function"><name>CubeExporter</name></member>
+  </compound>
+  <compound refid="classcuvis_1_1cuvis__sdk__exception" kind="class"><name>cuvis::cuvis_sdk_exception</name>
+    <member refid="classcuvis_1_1cuvis__sdk__exception_1a43ccb4339cc03baea25ae86638876e85" kind="variable"><name>_msg</name></member>
+    <member refid="classcuvis_1_1cuvis__sdk__exception_1a51c4e718741c9486a5c345c57780f2fb" kind="variable"><name>_wmsg</name></member>
+    <member refid="classcuvis_1_1cuvis__sdk__exception_1a56e18e1f896d9bed7e721014dcd8af4d" kind="function"><name>cuvis_sdk_exception</name></member>
+    <member refid="classcuvis_1_1cuvis__sdk__exception_1a074099badd6abd96e7d8290a8e340095" kind="function"><name>what</name></member>
+    <member refid="classcuvis_1_1cuvis__sdk__exception_1a3b8d23e2cf5a1deaeba3947b879fbdd2" kind="function"><name>what_wstr</name></member>
+  </compound>
+  <compound refid="structcuvis_1_1EnviArgs" kind="struct"><name>cuvis::EnviArgs</name>
+    <member refid="structcuvis_1_1EnviArgs_1a7fa1b3cc523cde28270eb7104564d426" kind="function"><name>EnviArgs</name></member>
+  </compound>
+  <compound refid="classcuvis_1_1EnviExporter" kind="class"><name>cuvis::EnviExporter</name>
+    <member refid="classcuvis_1_1EnviExporter_1a06844604dd45823dc7f48b6a9ee610fc" kind="function"><name>EnviExporter</name></member>
+  </compound>
+  <compound refid="classcuvis_1_1Exporter" kind="class"><name>cuvis::Exporter</name>
+    <member refid="classcuvis_1_1Exporter_1a2e1514c5552b5c103398c5e75c1b2ee0" kind="typedef"><name>general_export_settings_t</name></member>
+    <member refid="classcuvis_1_1Exporter_1a9de4a9533dff2ecc0919852d4c05a67b" kind="friend"><name>Worker</name></member>
+    <member refid="classcuvis_1_1Exporter_1adf05cd98683bbd4bf36228df36e149f5" kind="variable"><name>_exporter</name></member>
+    <member refid="classcuvis_1_1Exporter_1a3327848b6a169b51219f3ef67661f082" kind="function"><name>apply</name></member>
+    <member refid="classcuvis_1_1Exporter_1a95aeeebc74852b54a6c94d53b286c415" kind="function"><name>get_queue_used</name></member>
+    <member refid="classcuvis_1_1Exporter_1ae0fc4c96e16ead1a01621615fd44e7bd" kind="function"><name>flush</name></member>
+    <member refid="classcuvis_1_1Exporter_1aa370c462cc82b4fb1c939e24baebc468" kind="function"><name>Exporter</name></member>
+    <member refid="classcuvis_1_1Exporter_1a9998095c46d4c8a2564a16f5c57aa951" kind="function"><name>setHandle</name></member>
+  </compound>
+  <compound refid="classcuvis_1_1General" kind="class"><name>cuvis::General</name>
+    <member refid="classcuvis_1_1General_1ae42212dc87847ff617ac9f661253dac4" kind="function"><name>set_log_level</name></member>
+    <member refid="classcuvis_1_1General_1a2e733659c17d1490232d0e0595d61000" kind="function"><name>set_exception_locale</name></member>
+    <member refid="classcuvis_1_1General_1aab68aa3b5f02f8528bc97fa8a3f02d3f" kind="function"><name>register_log_callback</name></member>
+    <member refid="classcuvis_1_1General_1ab918c31153731d5982ca73c26e699ab6" kind="function"><name>reset_log_callback</name></member>
+    <member refid="classcuvis_1_1General_1ae9bd52094c3cca5b0d6355b0f810ce69" kind="function"><name>register_log_callback_localized</name></member>
+    <member refid="classcuvis_1_1General_1a368f396ea9ee22d5372bf16b19df24c2" kind="function"><name>reset_log_callback_localized</name></member>
+    <member refid="classcuvis_1_1General_1a9a3a332ece19ac13d82aaf554f95ce39" kind="function"><name>version</name></member>
+    <member refid="classcuvis_1_1General_1ac7dc567169f37cc6d985bfc3abc8f097" kind="function"><name>init</name></member>
+    <member refid="classcuvis_1_1General_1a7381faf40d8b3a86449b3f5f11168b0b" kind="function"><name>shutdown</name></member>
+    <member refid="classcuvis_1_1General_1a98cf8ead318de48b405cfb1072f1f635" kind="function"><name>register_event_callback</name></member>
+    <member refid="classcuvis_1_1General_1a2b61643a0b915c82987c8709081f64a6" kind="function"><name>unregister_event_callback</name></member>
+  </compound>
+  <compound refid="structcuvis_1_1GeneralExportArgs" kind="struct"><name>cuvis::GeneralExportArgs</name>
+    <member refid="structcuvis_1_1GeneralExportArgs_1a5acc1863022ea3ba849393da0bcf130e" kind="variable"><name>export_dir</name></member>
+    <member refid="structcuvis_1_1GeneralExportArgs_1a12e080de1e84e76735ba6f28e2020e21" kind="variable"><name>add_fullscale_pan</name></member>
+    <member refid="structcuvis_1_1GeneralExportArgs_1a4fe867d309e3b36e690baf5f8013a723" kind="variable"><name>permissive</name></member>
+    <member refid="structcuvis_1_1GeneralExportArgs_1a95a7ef1d524cd6d5f65726e8f0ece950" kind="variable"><name>pansharpening_settings</name></member>
+    <member refid="structcuvis_1_1GeneralExportArgs_1a32987a1c252d57fd61b701f7d4fe3219" kind="function"><name>GeneralExportArgs</name></member>
+    <member refid="structcuvis_1_1GeneralExportArgs_1af6e374abde05031fe4c7a1b774b68550" kind="function"><name>operator cuvis_export_general_settings_t</name></member>
+  </compound>
+  <compound refid="structcuvis_1_1image__t" kind="struct"><name>cuvis::image_t</name>
+    <member refid="structcuvis_1_1image__t_1abcda2127a6a2b28c8ff5077d33d14bca" kind="friend"><name>Measurement</name></member>
+    <member refid="structcuvis_1_1image__t_1a8d1f62258b0d11e43cd20938f011fc2f" kind="friend"><name>Viewer</name></member>
+    <member refid="structcuvis_1_1image__t_1ac407bec318ae06663d61b3b31a1fafab" kind="variable"><name>_wavelength</name></member>
+    <member refid="structcuvis_1_1image__t_1a41345481e1fb3c073278ddc9bd1cdc9f" kind="variable"><name>_ref</name></member>
+  </compound>
+  <compound refid="classcuvis_1_1Measurement" kind="class"><name>cuvis::Measurement</name>
+    <member refid="classcuvis_1_1Measurement_1a8f5bcf7edd7be5a32f23262de2cc634a" kind="typedef"><name>image_variant_t</name></member>
+    <member refid="classcuvis_1_1Measurement_1a955dc70dd6c6a96824a1c791c7ca87ed" kind="typedef"><name>gps_data_t</name></member>
+    <member refid="classcuvis_1_1Measurement_1a3a17ea84a3e5f2aa31a5c5665203076f" kind="typedef"><name>string_data_t</name></member>
+    <member refid="classcuvis_1_1Measurement_1af0a42b585d257b7a20f4c056e77dcb73" kind="typedef"><name>image_data_t</name></member>
+    <member refid="classcuvis_1_1Measurement_1a7508c29cf57c75ddf6c97dbc03dc56c6" kind="typedef"><name>sensor_info_data_t</name></member>
+    <member refid="classcuvis_1_1Measurement_1a1e87b5b9234f65010031eef993c1f742" kind="friend"><name>ProcessingContext</name></member>
+    <member refid="classcuvis_1_1Measurement_1a2f641968ee4a70e8f584a437b28b8f5a" kind="friend"><name>Exporter</name></member>
+    <member refid="classcuvis_1_1Measurement_1a25c27c759709c86fd616f6b02c4871df" kind="friend"><name>AsyncMesu</name></member>
+    <member refid="classcuvis_1_1Measurement_1a8d1f62258b0d11e43cd20938f011fc2f" kind="friend"><name>Viewer</name></member>
+    <member refid="classcuvis_1_1Measurement_1a01b647de3d44e1a4d20d9764bdd34ad6" kind="friend"><name>SessionFile</name></member>
+    <member refid="classcuvis_1_1Measurement_1a339e205651170075089499d938fb563c" kind="friend"><name>AcquisitionContext</name></member>
+    <member refid="classcuvis_1_1Measurement_1a9de4a9533dff2ecc0919852d4c05a67b" kind="friend"><name>Worker</name></member>
+    <member refid="classcuvis_1_1Measurement_1ad1391b893cda6cdd0eeedfb18b0e8c45" kind="variable"><name>_mesu</name></member>
+    <member refid="classcuvis_1_1Measurement_1a10bd08af26a948dfce92555e42a7707f" kind="variable"><name>_meta</name></member>
+    <member refid="classcuvis_1_1Measurement_1af579aefc1e334770c42fe2d9cc9c58d6" kind="variable"><name>_sensor_info</name></member>
+    <member refid="classcuvis_1_1Measurement_1a7af0a3d079d7da68f7cc3c0d812b9415" kind="variable"><name>_gps_data</name></member>
+    <member refid="classcuvis_1_1Measurement_1ad088bdf94f802aef6912f81a86e992fa" kind="variable"><name>_string_data</name></member>
+    <member refid="classcuvis_1_1Measurement_1a70358ab3856ab9dd5fa35f9049948011" kind="variable"><name>_image_data</name></member>
+    <member refid="classcuvis_1_1Measurement_1a351c71d2f0dcf596edc078c7c1a95fbc" kind="variable"><name>_preview_image</name></member>
+    <member refid="classcuvis_1_1Measurement_1acaf30c59638fd63fdbd5f5c045216b71" kind="function"><name>operator=</name></member>
+    <member refid="classcuvis_1_1Measurement_1a93d3285bb7920fc9795a73f45ee5ec68" kind="function"><name>Measurement</name></member>
+    <member refid="classcuvis_1_1Measurement_1a33ff5a5e5659336d06f237c73222682f" kind="function"><name>Measurement</name></member>
+    <member refid="classcuvis_1_1Measurement_1a2c9d5768afc2aa9c1d1527f191e3d8ca" kind="function"><name>Measurement</name></member>
+    <member refid="classcuvis_1_1Measurement_1ab0d9fd6f44816e62d25d70415cd96862" kind="function"><name>get_capabilities</name></member>
+    <member refid="classcuvis_1_1Measurement_1acdf6bffc2d86e5f51226ee31d9c2d4e2" kind="function"><name>get_meta</name></member>
+    <member refid="classcuvis_1_1Measurement_1a01fce91db570ccb41c8db4a1ceffe27f" kind="function"><name>get_sensor_info</name></member>
+    <member refid="classcuvis_1_1Measurement_1ad687c018d4336cfbbca5dbc60ddfc50f" kind="function"><name>get_gps</name></member>
+    <member refid="classcuvis_1_1Measurement_1ad5029e3a1f33667eb52c700cd6e73ada" kind="function"><name>get_imdata</name></member>
+    <member refid="classcuvis_1_1Measurement_1adfbdf5591e615954c9976b953fa2c03d" kind="function"><name>get_strdata</name></member>
+    <member refid="classcuvis_1_1Measurement_1aa627e754101174ac072c0a82dab5e649" kind="function"><name>get_thumbnail</name></member>
+    <member refid="classcuvis_1_1Measurement_1ab294c07a57501474c1466b555189f482" kind="function"><name>get_calib_id</name></member>
+    <member refid="classcuvis_1_1Measurement_1a897566e5321036ab19e2084fd941cf02" kind="function"><name>save</name></member>
+    <member refid="classcuvis_1_1Measurement_1aa11f002f0a97a00261928fe4d4a8dea1" kind="function"><name>set_name</name></member>
+    <member refid="classcuvis_1_1Measurement_1a89753ca71b43c2f53dfcd6d0b772d8ef" kind="function"><name>set_comment</name></member>
+    <member refid="classcuvis_1_1Measurement_1ad8689bf8c3d0749f106ee0460cf1b850" kind="function"><name>clear_cube</name></member>
+    <member refid="classcuvis_1_1Measurement_1a1a3d778975eafb1b921302316f0bd0f7" kind="function"><name>clear_implicit_reference</name></member>
+    <member refid="classcuvis_1_1Measurement_1aace81921433c84e223eac45a3d3db3ee" kind="function"><name>refresh</name></member>
+    <member refid="classcuvis_1_1Measurement_1aa21f959022b9cf4df9479c10ca7082cb" kind="function"><name>get_handle</name></member>
+    <member refid="classcuvis_1_1Measurement_1a47d44c7b273ab68577e3bb4bf1226b3d" kind="function"><name>get_handle_copy</name></member>
+    <member refid="classcuvis_1_1Measurement_1ad2ea37baf86648e0589e555d683e7534" kind="function"><name>Measurement</name></member>
+  </compound>
+  <compound refid="structcuvis_1_1MeasurementMetaData" kind="struct"><name>cuvis::MeasurementMetaData</name>
+    <member refid="structcuvis_1_1MeasurementMetaData_1ae2160eeac9f94a3c63431f0c76f59ab7" kind="variable"><name>name</name></member>
+    <member refid="structcuvis_1_1MeasurementMetaData_1a89488ecbbc50704ce5f1a5162b04a63b" kind="variable"><name>path</name></member>
+    <member refid="structcuvis_1_1MeasurementMetaData_1af977b5d48729efa8aeb2b8de113a39df" kind="variable"><name>comment</name></member>
+    <member refid="structcuvis_1_1MeasurementMetaData_1ad4ff7d9979081154fa392afcc0d7817c" kind="variable"><name>capture_time</name></member>
+    <member refid="structcuvis_1_1MeasurementMetaData_1ab2eeca1267410e8ea2b92129ff924bc6" kind="variable"><name>factory_calibration</name></member>
+    <member refid="structcuvis_1_1MeasurementMetaData_1ac3f958d99f819b755276cc3902b709f1" kind="variable"><name>product_name</name></member>
+    <member refid="structcuvis_1_1MeasurementMetaData_1a0af57ae353eabdb68b53317d22942a05" kind="variable"><name>serial_number</name></member>
+    <member refid="structcuvis_1_1MeasurementMetaData_1a6bf104dc4a9c76b16ee62bdad1e1dc27" kind="variable"><name>assembly</name></member>
+    <member refid="structcuvis_1_1MeasurementMetaData_1a194747c2b96a96580b94c172d637c490" kind="variable"><name>integration_time</name></member>
+    <member refid="structcuvis_1_1MeasurementMetaData_1ae6f71dcdb7d50ec98d26b5f6d7aa4e0e" kind="variable"><name>averages</name></member>
+    <member refid="structcuvis_1_1MeasurementMetaData_1a668bcc2ed89ee26363e5192fca8e91ab" kind="variable"><name>distance</name></member>
+    <member refid="structcuvis_1_1MeasurementMetaData_1ae588c1f0ed3c000e2ce6580d2e308c14" kind="variable"><name>session_info</name></member>
+    <member refid="structcuvis_1_1MeasurementMetaData_1a8c9339f68a0af4acd770e38ccd5f717d" kind="variable"><name>frame_id</name></member>
+    <member refid="structcuvis_1_1MeasurementMetaData_1ac7faabfe6c2afeb8267794d488d4fb6e" kind="variable"><name>processing_mode</name></member>
+    <member refid="structcuvis_1_1MeasurementMetaData_1a0ed1bd505ef5bdfae5b3d4f51dc1f655" kind="variable"><name>measurement_flags</name></member>
+    <member refid="structcuvis_1_1MeasurementMetaData_1a229d434ef9ca68da2544dfd53a94a454" kind="function"><name>MeasurementMetaData</name></member>
+  </compound>
+  <compound refid="structcuvis_1_1PanSharpeningArgs" kind="struct"><name>cuvis::PanSharpeningArgs</name>
+    <member refid="structcuvis_1_1PanSharpeningArgs_1af83c3d130135578e688f3a1637251ef5" kind="variable"><name>channel_selection</name></member>
+    <member refid="structcuvis_1_1PanSharpeningArgs_1a75cd9e66d2002d0e903033da1c72d786" kind="variable"><name>spectra_multiplier</name></member>
+    <member refid="structcuvis_1_1PanSharpeningArgs_1a288c0f6eef3b02a92b60c00e395f23bf" kind="variable"><name>pan_scale</name></member>
+    <member refid="structcuvis_1_1PanSharpeningArgs_1aa34c5c9101cc4e25ac62eb2c72a9bcb6" kind="variable"><name>pan_interpolation_type</name></member>
+    <member refid="structcuvis_1_1PanSharpeningArgs_1aecef5f921258b53a88bfc271fc2618d1" kind="variable"><name>pan_algorithm</name></member>
+    <member refid="structcuvis_1_1PanSharpeningArgs_1a41a94063331a0daef92d2f93876e5629" kind="variable"><name>pre_pan_sharpen_cube</name></member>
+    <member refid="structcuvis_1_1PanSharpeningArgs_1a7cc5355625c1054afa34cd707628e702" kind="variable"><name>add_pan</name></member>
+    <member refid="structcuvis_1_1PanSharpeningArgs_1aead170930d5e1c288a82fcc21e3d16de" kind="function"><name>PanSharpeningArgs</name></member>
+    <member refid="structcuvis_1_1PanSharpeningArgs_1af3597f84afa2ee75f1c207b034c5c993" kind="function"><name>operator cuvis_pansharpening_settings_t</name></member>
+  </compound>
+  <compound refid="structcuvis_1_1ProcessingArgs" kind="struct"><name>cuvis::ProcessingArgs</name>
+    <member refid="structcuvis_1_1ProcessingArgs_1a23ca65b4fa57b94680e5cef0c314c256" kind="variable"><name>processing_mode</name></member>
+    <member refid="structcuvis_1_1ProcessingArgs_1a3487d91e08d46b24aeb87f35bc2b41a8" kind="variable"><name>allow_recalib</name></member>
+    <member refid="structcuvis_1_1ProcessingArgs_1a271d81f8b73a9983f1fcda42d9cca030" kind="function"><name>ProcessingArgs</name></member>
+    <member refid="structcuvis_1_1ProcessingArgs_1aca4df46696014d1cb12bc8cd6f34af38" kind="function"><name>operator cuvis_proc_args_t</name></member>
+  </compound>
+  <compound refid="classcuvis_1_1ProcessingContext" kind="class"><name>cuvis::ProcessingContext</name>
+    <member refid="classcuvis_1_1ProcessingContext_1a9de4a9533dff2ecc0919852d4c05a67b" kind="friend"><name>Worker</name></member>
+    <member refid="classcuvis_1_1ProcessingContext_1aa9ede7c44581ecdf71692a13dc9b8b09" kind="variable"><name>_procCont</name></member>
+    <member refid="classcuvis_1_1ProcessingContext_1a65396956b396ee3b72b203f9247e864c" kind="variable"><name>_procArgs</name></member>
+    <member refid="classcuvis_1_1ProcessingContext_1a657b11d3dd9827f89628d88befa2200a" kind="function"><name>ProcessingContext</name></member>
+    <member refid="classcuvis_1_1ProcessingContext_1ab10103105a1cdd471fd2ca74ac373168" kind="function"><name>ProcessingContext</name></member>
+    <member refid="classcuvis_1_1ProcessingContext_1a9c02c940675b60c192899361209ccfa1" kind="function"><name>ProcessingContext</name></member>
+    <member refid="classcuvis_1_1ProcessingContext_1ab918cc37614cdab2d4dbbee135716a49" kind="function"><name>apply</name></member>
+    <member refid="classcuvis_1_1ProcessingContext_1aa9526cd487b20012a529c35ca6d872a2" kind="function"><name>calc_distance</name></member>
+    <member refid="classcuvis_1_1ProcessingContext_1ab526692298cd72bae778a1308356032a" kind="function"><name>set_reference</name></member>
+    <member refid="classcuvis_1_1ProcessingContext_1a05c9a116630e7a5117c096a21786cf6e" kind="function"><name>clear_reference</name></member>
+    <member refid="classcuvis_1_1ProcessingContext_1a0efdf9bb244d5eb0e53c0f0d8fabad57" kind="function"><name>set_processingArgs</name></member>
+    <member refid="classcuvis_1_1ProcessingContext_1a59d2b1bb5c09d2f79bece0a94c0d5180" kind="function"><name>get_reference</name></member>
+    <member refid="classcuvis_1_1ProcessingContext_1aecc5c4aace98b2159e1adf5862fac6a2" kind="function"><name>get_processingArgs</name></member>
+    <member refid="classcuvis_1_1ProcessingContext_1ab5ad6291bc9634c85055303a98c93180" kind="function"><name>is_capable</name></member>
+    <member refid="classcuvis_1_1ProcessingContext_1a190f3dabab461b49b94970bdeaf94ea5" kind="function"><name>has_reference</name></member>
+    <member refid="classcuvis_1_1ProcessingContext_1addec3bf1cad154dc181e8eea69aec9a6" kind="function"><name>get_calib_id</name></member>
+    <member refid="classcuvis_1_1ProcessingContext_1a8a46efe5058fd920a5523401508166d7" kind="function"><name>get_handle</name></member>
+    <member refid="classcuvis_1_1ProcessingContext_1a1a1a2b2d0ced05d2e52e8b23c84f168b" kind="function"><name>get_handle_copy</name></member>
+    <member refid="classcuvis_1_1ProcessingContext_1a90eff03da4ceef1e4a1051573a765894" kind="function"><name>ProcessingContext</name></member>
+  </compound>
+  <compound refid="structcuvis_1_1SaveArgs" kind="struct"><name>cuvis::SaveArgs</name>
+    <member refid="structcuvis_1_1SaveArgs_1a5f9cacb3becfe0422cd6470563d6f9f9" kind="variable"><name>merge_mode</name></member>
+    <member refid="structcuvis_1_1SaveArgs_1ae9e4ee54647ce90b9957a64a16745ad8" kind="variable"><name>allow_overwrite</name></member>
+    <member refid="structcuvis_1_1SaveArgs_1afc20ec6b76d332108dcc3b8ce108c461" kind="variable"><name>allow_drop</name></member>
+    <member refid="structcuvis_1_1SaveArgs_1afdef99ef2455a62024946a4f68527fa3" kind="variable"><name>allow_session_file</name></member>
+    <member refid="structcuvis_1_1SaveArgs_1af29e65b6bd7a010cf539d2af88162e02" kind="variable"><name>allow_info_file</name></member>
+    <member refid="structcuvis_1_1SaveArgs_1af7a746c5a4e90c1a80b823fb09e3acb5" kind="variable"><name>operation_mode</name></member>
+    <member refid="structcuvis_1_1SaveArgs_1a4fbe05dae140baaa99a9c27d7fc80bdb" kind="variable"><name>fps</name></member>
+    <member refid="structcuvis_1_1SaveArgs_1ae52831af6361c7537dc1a26189dea3ca" kind="variable"><name>soft_limit</name></member>
+    <member refid="structcuvis_1_1SaveArgs_1a040c7fe40ac9d22571c01c6fa367796f" kind="variable"><name>hard_limit</name></member>
+    <member refid="structcuvis_1_1SaveArgs_1a69085e7c69921250674924b610deaf8b" kind="variable"><name>max_buftime</name></member>
+    <member refid="structcuvis_1_1SaveArgs_1ac1593549a0f42fb3d24dcfe513e3f234" kind="variable"><name>full_export</name></member>
+    <member refid="structcuvis_1_1SaveArgs_1ad5b8b618f8edac1dd0b561bb3dd5f0aa" kind="function"><name>SaveArgs</name></member>
+    <member refid="structcuvis_1_1SaveArgs_1a547a401bb219b23360f9f767a91d4064" kind="function"><name>operator cuvis_save_args_t</name></member>
+  </compound>
+  <compound refid="structcuvis_1_1SensorInfoData" kind="struct"><name>cuvis::SensorInfoData</name>
+    <member refid="structcuvis_1_1SensorInfoData_1a6782045a549d26976a0ed2b7cdbf4806" kind="variable"><name>averages</name></member>
+    <member refid="structcuvis_1_1SensorInfoData_1a6e26bf7144590b86140d4a7a2a9c1ac1" kind="variable"><name>temperature</name></member>
+    <member refid="structcuvis_1_1SensorInfoData_1a73f30c7856e65caa9f77a2ecfdaaefbb" kind="variable"><name>gain</name></member>
+    <member refid="structcuvis_1_1SensorInfoData_1a3469652ac2fe6c3faf9ccfc87607c2ce" kind="variable"><name>readout_time</name></member>
+    <member refid="structcuvis_1_1SensorInfoData_1ac3f86b54f4b9923a0f9056c0cda139f9" kind="variable"><name>width</name></member>
+    <member refid="structcuvis_1_1SensorInfoData_1a8b40be94d2b8c630b005a7315c02c966" kind="variable"><name>height</name></member>
+    <member refid="structcuvis_1_1SensorInfoData_1ae64cd6644b395f8084a123af39bb081a" kind="variable"><name>raw_frame_id</name></member>
+    <member refid="structcuvis_1_1SensorInfoData_1a332abcc37205f11976d980ce1d0d04e0" kind="variable"><name>pixel_format</name></member>
+    <member refid="structcuvis_1_1SensorInfoData_1aa34e812f2a07742c577be709a5492d25" kind="variable"><name>integration_time</name></member>
+    <member refid="structcuvis_1_1SensorInfoData_1a9b70c3f127cbd03d8da16b99b0090c45" kind="function"><name>SensorInfoData</name></member>
+  </compound>
+  <compound refid="classcuvis_1_1SessionFile" kind="class"><name>cuvis::SessionFile</name>
+    <member refid="classcuvis_1_1SessionFile_1accd04959b6e0c466ae7023839b342b00" kind="friend"><name>Calibration</name></member>
+    <member refid="classcuvis_1_1SessionFile_1a1e87b5b9234f65010031eef993c1f742" kind="friend"><name>ProcessingContext</name></member>
+    <member refid="classcuvis_1_1SessionFile_1a339e205651170075089499d938fb563c" kind="friend"><name>AcquisitionContext</name></member>
+    <member refid="classcuvis_1_1SessionFile_1a9de4a9533dff2ecc0919852d4c05a67b" kind="friend"><name>Worker</name></member>
+    <member refid="classcuvis_1_1SessionFile_1a65ce7245dcf286b617191b2fef0610ce" kind="variable"><name>_session</name></member>
+    <member refid="classcuvis_1_1SessionFile_1a34f6cfbdb9e613fe699b3ce2a96add86" kind="function"><name>SessionFile</name></member>
+    <member refid="classcuvis_1_1SessionFile_1acbae3efca819e80f9ba6f6520740f089" kind="function"><name>get_mesu</name></member>
+    <member refid="classcuvis_1_1SessionFile_1afd1e9aae407e411c86f6f8c481b2eaed" kind="function"><name>get_ref</name></member>
+    <member refid="classcuvis_1_1SessionFile_1ac8acf2e799d8d7e7e6713774f326441d" kind="function"><name>get_thumbnail</name></member>
+    <member refid="classcuvis_1_1SessionFile_1a7609e1d4d89628d3f20d69c0e297b833" kind="function"><name>get_size</name></member>
+    <member refid="classcuvis_1_1SessionFile_1a6d8886afb15edc0bc88a5e2767e72c7a" kind="function"><name>get_fps</name></member>
+    <member refid="classcuvis_1_1SessionFile_1a726405baa5304b8d06b25d3e9188fa41" kind="function"><name>get_hash</name></member>
+    <member refid="classcuvis_1_1SessionFile_1aa04afe183e0dba82bb94517374a3d88b" kind="function"><name>get_operation_mode</name></member>
+    <member refid="classcuvis_1_1SessionFile_1aab58542db25f126e8297cb8f8ae22d00" kind="function"><name>get_handle</name></member>
+    <member refid="classcuvis_1_1SessionFile_1a491d52073f5c6fdcd656e1171712f143" kind="function"><name>get_handle_copy</name></member>
+    <member refid="classcuvis_1_1SessionFile_1ae31f7af0e30cb771be719e3f802952e0" kind="function"><name>SessionFile</name></member>
+  </compound>
+  <compound refid="structcuvis_1_1SessionInfo" kind="struct"><name>cuvis::SessionInfo</name>
+    <member refid="structcuvis_1_1SessionInfo_1a5fbcdd6601f0feffac100ca91c9b98ad" kind="variable"><name>name</name></member>
+    <member refid="structcuvis_1_1SessionInfo_1a6c7a6fc19696e7182f120084b3feb832" kind="variable"><name>session_no</name></member>
+    <member refid="structcuvis_1_1SessionInfo_1a07d35bb40928dbacef730a3ec2dd530b" kind="variable"><name>sequence_no</name></member>
+    <member refid="structcuvis_1_1SessionInfo_1aaa1964a73d992023cbd79e629db0ef5f" kind="function"><name>SessionInfo</name></member>
+    <member refid="structcuvis_1_1SessionInfo_1a45d78bb63871d77993dc285f5890cc42" kind="function"><name>SessionInfo</name></member>
+    <member refid="structcuvis_1_1SessionInfo_1a619dbafd7a0fd5d1e1f703c9920e5244" kind="function"><name>operator session_info_t</name></member>
+  </compound>
+  <compound refid="structcuvis_1_1TiffArgs" kind="struct"><name>cuvis::TiffArgs</name>
+    <member refid="structcuvis_1_1TiffArgs_1a09897803da3d06e7aa9b700ff06aa835" kind="variable"><name>compression_mode</name></member>
+    <member refid="structcuvis_1_1TiffArgs_1a270f4382bebd194e0c915e66c73cadb1" kind="variable"><name>format</name></member>
+    <member refid="structcuvis_1_1TiffArgs_1a02d5d59181b1f01e9f68c53b4ea627c2" kind="function"><name>TiffArgs</name></member>
+    <member refid="structcuvis_1_1TiffArgs_1a28d7a85c357e52f7e658a2472efd2026" kind="function"><name>operator cuvis_export_tiff_settings_t</name></member>
+  </compound>
+  <compound refid="classcuvis_1_1TiffExporter" kind="class"><name>cuvis::TiffExporter</name>
+    <member refid="classcuvis_1_1TiffExporter_1a3d294e565b4ed17f5e5f591b3baeacb6" kind="typedef"><name>format_settings_t</name></member>
+    <member refid="classcuvis_1_1TiffExporter_1af4105ec5b9961484312a50a77e60f0b6" kind="function"><name>TiffExporter</name></member>
+  </compound>
+  <compound refid="structcuvis_1_1view__t" kind="struct"><name>cuvis::view_t</name>
+    <member refid="structcuvis_1_1view__t_1a8d1f62258b0d11e43cd20938f011fc2f" kind="friend"><name>Viewer</name></member>
+    <member refid="structcuvis_1_1view__t_1a24a0d9ef040ad1007b400943495de9c3" kind="variable"><name>_category</name></member>
+    <member refid="structcuvis_1_1view__t_1a05c0bea8e7473be929bd9ad993181414" kind="variable"><name>_show</name></member>
+    <member refid="structcuvis_1_1view__t_1a40bb9e88ccc9763f50dcce9717faa4f3" kind="variable"><name>_id</name></member>
+    <member refid="structcuvis_1_1view__t_1a8521b1b212777d12a904f9ce6dfd1542" kind="variable"><name>_ref</name></member>
+  </compound>
+  <compound refid="structcuvis_1_1ViewArgs" kind="struct"><name>cuvis::ViewArgs</name>
+    <member refid="structcuvis_1_1ViewArgs_1a0078eaaac5f5e73e2882f9b276e85f18" kind="variable"><name>userplugin</name></member>
+    <member refid="structcuvis_1_1ViewArgs_1ae5fa35a4776b03692a5778ab7787d7df" kind="variable"><name>complete</name></member>
+    <member refid="structcuvis_1_1ViewArgs_1a8f0a347283e5f78a4e13287357ea1ecb" kind="variable"><name>pan_failback</name></member>
+    <member refid="structcuvis_1_1ViewArgs_1a8ef17a26de914eec261484c56655cddd" kind="function"><name>ViewArgs</name></member>
+    <member refid="structcuvis_1_1ViewArgs_1acae3970354593adebeb1fa677215023b" kind="function"><name>operator cuvis_viewer_settings_t</name></member>
+    <member refid="structcuvis_1_1ViewArgs_1ad779dd5502a6d0ed4c6d043fe792ac76" kind="function"><name>operator cuvis_export_view_settings_t</name></member>
+  </compound>
+  <compound refid="classcuvis_1_1Viewer" kind="class"><name>cuvis::Viewer</name>
+    <member refid="classcuvis_1_1Viewer_1a1ed06f2993f782df39d7bf03d11211f1" kind="typedef"><name>viewer_settings_t</name></member>
+    <member refid="classcuvis_1_1Viewer_1aecc88715dabe19c6d77bfa4ab411a9ce" kind="typedef"><name>view_variant_t</name></member>
+    <member refid="classcuvis_1_1Viewer_1aa5ca927a4e8588bcd0d2e1e0ec2554f6" kind="typedef"><name>view_data_t</name></member>
+    <member refid="classcuvis_1_1Viewer_1a9de4a9533dff2ecc0919852d4c05a67b" kind="friend"><name>Worker</name></member>
+    <member refid="classcuvis_1_1Viewer_1a2198758a03ec465352d7f47577f20d09" kind="variable"><name>_viewer</name></member>
+    <member refid="classcuvis_1_1Viewer_1a17c14e315d52423972cbf30fe7cc5a7c" kind="function"><name>Viewer</name></member>
+    <member refid="classcuvis_1_1Viewer_1a8d9b3925bd1341297d9ce5a784823638" kind="function"><name>apply</name></member>
+    <member refid="classcuvis_1_1Viewer_1ae958e013b99f2d044b5eb8978e516aeb" kind="function"><name>get_handle</name></member>
+    <member refid="classcuvis_1_1Viewer_1a8204c8b21487713fdf7521e0966b1ee0" kind="function"><name>get_handle_copy</name></member>
+    <member refid="classcuvis_1_1Viewer_1a10939156838e6a9c8f7008120d4f8eb3" kind="function"><name>Viewer</name></member>
+    <member refid="classcuvis_1_1Viewer_1af8571361fd6b231c3d8d2ac0fae0039a" kind="function"><name>create_view_data</name></member>
+  </compound>
+  <compound refid="classcuvis_1_1ViewExporter" kind="class"><name>cuvis::ViewExporter</name>
+    <member refid="classcuvis_1_1ViewExporter_1adf7e9560df04f888af5c9dd83baca9ce" kind="typedef"><name>format_settings_t</name></member>
+    <member refid="classcuvis_1_1ViewExporter_1a06f8751c8158a1b9b94ba3204c734e12" kind="function"><name>ViewExporter</name></member>
+  </compound>
+  <compound refid="classcuvis_1_1Worker" kind="class"><name>cuvis::Worker</name>
+    <member refid="classcuvis_1_1Worker_1abe5b38a726ded5850125d0f5b180e231" kind="typedef"><name>worker_callback_t</name></member>
+    <member refid="classcuvis_1_1Worker_1a83a9c80b1a03af5dc7a2aaf15f463fda" kind="variable"><name>_worker</name></member>
+    <member refid="classcuvis_1_1Worker_1af7549ec29fa08ea781dcce07143e7558" kind="variable"><name>_worker_poll_thread_run</name></member>
+    <member refid="classcuvis_1_1Worker_1a92a0a495ce4bb2f462d5063ea8543318" kind="variable"><name>_worker_poll_thread_lock</name></member>
+    <member refid="classcuvis_1_1Worker_1adc5cf950af56a8888bc9f8cda63a8db4" kind="variable"><name>_worker_poll_thread</name></member>
+    <member refid="classcuvis_1_1Worker_1a7ec87f1e45ff23f96b95f7c29fc178cd" kind="function"><name>Worker</name></member>
+    <member refid="classcuvis_1_1Worker_1a8ecd6aec147d885c94f791822f69ffab" kind="function"><name>set_acq_cont</name></member>
+    <member refid="classcuvis_1_1Worker_1a2fd7b00ef2f1fa1e84808ee94c54a10c" kind="function"><name>set_proc_cont</name></member>
+    <member refid="classcuvis_1_1Worker_1a1d6b8adf938048a922da8ad80b3c0b12" kind="function"><name>set_exporter</name></member>
+    <member refid="classcuvis_1_1Worker_1aed503960a688d1c57fab495cf5fae9b5" kind="function"><name>set_viewer</name></member>
+    <member refid="classcuvis_1_1Worker_1adae1af59d30ee420284a5cc07b0f21f8" kind="function"><name>ingest_measurement</name></member>
+    <member refid="classcuvis_1_1Worker_1a1f225cfe774b8cb99917158373449d85" kind="function"><name>ingest_session_file</name></member>
+    <member refid="classcuvis_1_1Worker_1aa897883ddbeda2a331edc0a4daae87ab" kind="function"><name>query_session_progress</name></member>
+    <member refid="classcuvis_1_1Worker_1ae4714836013f6f25196fb94a9df4d1a9" kind="function"><name>get_can_drop_results</name></member>
+    <member refid="classcuvis_1_1Worker_1a074db546437add7812adaf1f5dd6b18b" kind="function"><name>get_can_skip_measurements</name></member>
+    <member refid="classcuvis_1_1Worker_1ae54af77ae9344fd84e2e45cdf784658a" kind="function"><name>get_can_skip_supplementary</name></member>
+    <member refid="classcuvis_1_1Worker_1aecad5ec79f62b9c8723684aad3e8155d" kind="function"><name>has_next_result</name></member>
+    <member refid="classcuvis_1_1Worker_1add0308b50066eb3adb2e6757293f7d88" kind="function"><name>get_next_result</name></member>
+    <member refid="classcuvis_1_1Worker_1acf7baa8f85f04e9d96a44aeadfbceb3c" kind="function"><name>get_queue_used</name></member>
+    <member refid="classcuvis_1_1Worker_1a92f89f4ee2a2ab0b977fc95d9695b471" kind="function"><name>get_input_queue_limit</name></member>
+    <member refid="classcuvis_1_1Worker_1aec1121e355c87baf5fcba86cee7b949b" kind="function"><name>get_mandatory_queue_limit</name></member>
+    <member refid="classcuvis_1_1Worker_1a824702543c00fee014529e2cac40a38d" kind="function"><name>get_supplementary_queue_limit</name></member>
+    <member refid="classcuvis_1_1Worker_1a1db52abb2052335fe447bccd91ca76f8" kind="function"><name>get_output_queue_limit</name></member>
+    <member refid="classcuvis_1_1Worker_1a57236094870bafb53e8828338ce45613" kind="function"><name>start_processing</name></member>
+    <member refid="classcuvis_1_1Worker_1a176603a1f6fff4143733bc4c70f0e224" kind="function"><name>stop_processing</name></member>
+    <member refid="classcuvis_1_1Worker_1a256ac3982d1a171eca28b1fa14656ef4" kind="function"><name>drop_all_queued</name></member>
+    <member refid="classcuvis_1_1Worker_1a50870e6c25247955eb775f75bf11d4f7" kind="function"><name>is_processing_mandatory</name></member>
+    <member refid="classcuvis_1_1Worker_1aca3709d8ba8f1b37810e50c8398168f1" kind="function"><name>is_processing</name></member>
+    <member refid="classcuvis_1_1Worker_1aacad7b0a2d37880a4b6eed019072a2ae" kind="function"><name>get_threads_busy</name></member>
+    <member refid="classcuvis_1_1Worker_1ad76270ce4b02183423059bd2b0b797d8" kind="function"><name>get_state</name></member>
+    <member refid="classcuvis_1_1Worker_1a1abaef81f75e654d4878e366c28a405c" kind="function"><name>register_worker_callback</name></member>
+    <member refid="classcuvis_1_1Worker_1a4ffce86918e1355b236b9a54b43d1c6d" kind="function"><name>reset_worker_callback</name></member>
+  </compound>
+  <compound refid="structcuvis_1_1Worker_1_1worker__return__t" kind="struct"><name>cuvis::Worker::worker_return_t</name>
+    <member refid="structcuvis_1_1Worker_1_1worker__return__t_1a1e08967eb6a323b94be805dd4ec3ca04" kind="variable"><name>mesu</name></member>
+    <member refid="structcuvis_1_1Worker_1_1worker__return__t_1a07cbec00c1d36b912b3acaf7fa084751" kind="variable"><name>view</name></member>
+    <member refid="structcuvis_1_1Worker_1_1worker__return__t_1a469d32e77bfef5546251cd05987b635e" kind="variable"><name>exception</name></member>
+  </compound>
+  <compound refid="structcuvis_1_1Worker_1_1worker__state__t" kind="struct"><name>cuvis::Worker::worker_state_t</name>
+    <member refid="structcuvis_1_1Worker_1_1worker__state__t_1a664b01a099770585aec99698ec76d188" kind="variable"><name>measurementsInQueue</name></member>
+    <member refid="structcuvis_1_1Worker_1_1worker__state__t_1a1ba6cc9c6e79e4a53f4c4246f4efa37a" kind="variable"><name>sessionFilesInQueue</name></member>
+    <member refid="structcuvis_1_1Worker_1_1worker__state__t_1a29fcf98f71b92bfb167f367f4123cf08" kind="variable"><name>framesInQueue</name></member>
+    <member refid="structcuvis_1_1Worker_1_1worker__state__t_1a643027b4bbd6232b721162901226d64c" kind="variable"><name>measurementsBeingProcessed</name></member>
+    <member refid="structcuvis_1_1Worker_1_1worker__state__t_1a9987f89d088001d8579a776c1cdb2cde" kind="variable"><name>resultsInQueue</name></member>
+    <member refid="structcuvis_1_1Worker_1_1worker__state__t_1add13fb405d841fd2511da3b40299a163" kind="variable"><name>hasAcquisitionContext</name></member>
+    <member refid="structcuvis_1_1Worker_1_1worker__state__t_1ad57f9c65cc350724ba81c03c8962986b" kind="variable"><name>isProcessing</name></member>
+  </compound>
+  <compound refid="structcuvis_1_1WorkerArgs" kind="struct"><name>cuvis::WorkerArgs</name>
+    <member refid="structcuvis_1_1WorkerArgs_1a83dfc0db1cba8ccdd64bf91e277d10b2" kind="variable"><name>input_queue_size</name></member>
+    <member refid="structcuvis_1_1WorkerArgs_1af2a7cd7407007730bb5726e584259133" kind="variable"><name>mandatory_queue_size</name></member>
+    <member refid="structcuvis_1_1WorkerArgs_1a194a3ac19093f414171f89e40ede8da4" kind="variable"><name>supplementary_queue_size</name></member>
+    <member refid="structcuvis_1_1WorkerArgs_1a89c032a9f889a11cc6039e93d021706a" kind="variable"><name>output_queue_size</name></member>
+    <member refid="structcuvis_1_1WorkerArgs_1a515318cd95a910cff36fd4e1269a1d2d" kind="variable"><name>can_skip_measurements</name></member>
+    <member refid="structcuvis_1_1WorkerArgs_1a85b33e065e3e323789e10ab730c048c1" kind="variable"><name>can_skip_supplementary_steps</name></member>
+    <member refid="structcuvis_1_1WorkerArgs_1a5962ae6021562cd1c7c3c1b317298265" kind="variable"><name>can_drop_results</name></member>
+    <member refid="structcuvis_1_1WorkerArgs_1a477fd675e8925c452636dc63f078659a" kind="function"><name>WorkerArgs</name></member>
+    <member refid="structcuvis_1_1WorkerArgs_1a1c85d57e509fc6339be5d425fb5a33f3" kind="function"><name>operator cuvis_worker_settings_t</name></member>
+  </compound>
+  <compound refid="namespacecuvis" kind="namespace"><name>cuvis</name>
+    <member refid="namespacecuvis_1abdedd80e4918994b136e619dffca837d" kind="enum"><name>async_result_t</name></member>
+    <member refid="namespacecuvis_1abdedd80e4918994b136e619dffca837da6b2ded51d81a4403d8a4bd25fa1e57ee" kind="enumvalue"><name>done</name></member>
+    <member refid="namespacecuvis_1abdedd80e4918994b136e619dffca837da90272dda245ae1fb3cf197e91a8689dc" kind="enumvalue"><name>timeout</name></member>
+    <member refid="namespacecuvis_1abdedd80e4918994b136e619dffca837da509ff4bfff30a77103aac34068ea46c7" kind="enumvalue"><name>overwritten</name></member>
+    <member refid="namespacecuvis_1abdedd80e4918994b136e619dffca837da43fff3df3fc0b3417c86dc3040fb2d86" kind="enumvalue"><name>deferred</name></member>
+    <member refid="group__typedefs_1ga4717b13a9aa1a71a4f9603955158ee7e" kind="typedef"><name>int_t</name></member>
+    <member refid="group__typedefs_1gacf45408138bf8fbf3eff5e9e1edef553" kind="typedef"><name>event_t</name></member>
+    <member refid="group__typedefs_1gacbb18bf4ccc81a1897c626291cdaa051" kind="typedef"><name>loglevel_t</name></member>
+    <member refid="group__typedefs_1ga464fd3addc6132b4f60d1ffa09bb5711" kind="typedef"><name>operation_mode_t</name></member>
+    <member refid="group__typedefs_1ga7bde8318cc1e26c47b452ce83ab57cee" kind="typedef"><name>reference_type_t</name></member>
+    <member refid="group__typedefs_1ga5fdd6b2758a648c06256c0feac937f78" kind="typedef"><name>processing_mode_t</name></member>
+    <member refid="group__typedefs_1ga5777b90f5200cdd5551ab68334482114" kind="typedef"><name>pan_sharpening_interpolation_type_t</name></member>
+    <member refid="group__typedefs_1gad78b69704ad0f169889a37335cb66008" kind="typedef"><name>pan_sharpening_algorithm_t</name></member>
+    <member refid="group__typedefs_1ga4791c04d023d9c6567f78ec05f7483b3" kind="typedef"><name>tiff_compression_mode_t</name></member>
+    <member refid="group__typedefs_1ga2d21c31a12690cc84355a431aac8c43f" kind="typedef"><name>tiff_format_t</name></member>
+    <member refid="group__typedefs_1ga59b17f339763529944655fc6bee90c0a" kind="typedef"><name>session_info_t</name></member>
+    <member refid="group__typedefs_1ga91805f90bf20753ae37461a7c8966775" kind="typedef"><name>calibration_info_t</name></member>
+    <member refid="group__typedefs_1gaea1b4b443188169e0d445c26e80fccf9" kind="typedef"><name>mesu_metadata_t</name></member>
+    <member refid="group__typedefs_1ga87e6861816287f23b086f7c91441296c" kind="typedef"><name>sensor_info_t</name></member>
+    <member refid="group__typedefs_1ga583a3a7a8d7572c23216530a4b7e8c30" kind="typedef"><name>hardware_state_t</name></member>
+    <member refid="group__typedefs_1ga94e2b675e3334b41954e25612337d42d" kind="typedef"><name>capabilities_t</name></member>
+    <member refid="group__typedefs_1gafd130eab9120117cdbccc67510a3b2e5" kind="typedef"><name>session_merge_mode_t</name></member>
+    <member refid="namespacecuvis_1a005e886fae9fca18f339038a136527a3" kind="typedef"><name>timestamp_t</name></member>
+    <member refid="namespacecuvis_1af34bebc17ef416bfbbaf599137a866d2" kind="typedef"><name>cpp_event_callback_t</name></member>
+  </compound>
+  <compound refid="namespacestd" kind="namespace"><name>std</name>
+  </compound>
+  <compound refid="cuvis_8hpp" kind="file"><name>cuvis.hpp</name>
+    <member refid="cuvis_8hpp_1a7337b0ecf3dbad6ad5cb5c2e554ea70a" kind="define"><name>ACQ_STUB_0a</name></member>
+    <member refid="cuvis_8hpp_1aa72126882c06c846bf20fe5e3c52cbcb" kind="define"><name>ACQ_STUB_0b</name></member>
+    <member refid="cuvis_8hpp_1a1193489ddd0e44020632f7c142a997f8" kind="define"><name>ACQ_STUB_1a</name></member>
+    <member refid="cuvis_8hpp_1a25273a8384e987935ed5e7a34777eb76" kind="define"><name>ACQ_STUB_1b</name></member>
+  </compound>
+  <compound refid="group__typedefs" kind="group"><name>typedefs</name>
+    <member refid="group__typedefs_1ga4717b13a9aa1a71a4f9603955158ee7e" kind="typedef"><name>int_t</name></member>
+    <member refid="group__typedefs_1gacf45408138bf8fbf3eff5e9e1edef553" kind="typedef"><name>event_t</name></member>
+    <member refid="group__typedefs_1gacbb18bf4ccc81a1897c626291cdaa051" kind="typedef"><name>loglevel_t</name></member>
+    <member refid="group__typedefs_1ga464fd3addc6132b4f60d1ffa09bb5711" kind="typedef"><name>operation_mode_t</name></member>
+    <member refid="group__typedefs_1ga7bde8318cc1e26c47b452ce83ab57cee" kind="typedef"><name>reference_type_t</name></member>
+    <member refid="group__typedefs_1ga5fdd6b2758a648c06256c0feac937f78" kind="typedef"><name>processing_mode_t</name></member>
+    <member refid="group__typedefs_1ga5777b90f5200cdd5551ab68334482114" kind="typedef"><name>pan_sharpening_interpolation_type_t</name></member>
+    <member refid="group__typedefs_1gad78b69704ad0f169889a37335cb66008" kind="typedef"><name>pan_sharpening_algorithm_t</name></member>
+    <member refid="group__typedefs_1ga4791c04d023d9c6567f78ec05f7483b3" kind="typedef"><name>tiff_compression_mode_t</name></member>
+    <member refid="group__typedefs_1ga2d21c31a12690cc84355a431aac8c43f" kind="typedef"><name>tiff_format_t</name></member>
+    <member refid="group__typedefs_1ga59b17f339763529944655fc6bee90c0a" kind="typedef"><name>session_info_t</name></member>
+    <member refid="group__typedefs_1ga91805f90bf20753ae37461a7c8966775" kind="typedef"><name>calibration_info_t</name></member>
+    <member refid="group__typedefs_1gaea1b4b443188169e0d445c26e80fccf9" kind="typedef"><name>mesu_metadata_t</name></member>
+    <member refid="group__typedefs_1ga87e6861816287f23b086f7c91441296c" kind="typedef"><name>sensor_info_t</name></member>
+    <member refid="group__typedefs_1ga583a3a7a8d7572c23216530a4b7e8c30" kind="typedef"><name>hardware_state_t</name></member>
+    <member refid="group__typedefs_1ga94e2b675e3334b41954e25612337d42d" kind="typedef"><name>capabilities_t</name></member>
+    <member refid="group__typedefs_1gafd130eab9120117cdbccc67510a3b2e5" kind="typedef"><name>session_merge_mode_t</name></member>
+  </compound>
+  <compound refid="dir_b7b6b3b8c7c1af37deb2edd57e45d625" kind="dir"><name>cuvis.cpp</name>
+  </compound>
+  <compound refid="dir_54d883fdc8557ce650ece9447ae50278" kind="dir"><name>cuvis.cpp/interface</name>
+  </compound>
+</doxygenindex>

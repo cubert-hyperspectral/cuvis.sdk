@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classcuvis_1_1AsyncMesu" kind="class" language="C++" prot="public">
+    <compoundname>cuvis::AsyncMesu</compoundname>
+    <includes refid="cuvis_8hpp" local="no">cuvis.hpp</includes>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="classcuvis_1_1AsyncMesu_1a339e205651170075089499d938fb563c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">class</ref></type>
+        <definition>friend class AcquisitionContext</definition>
+        <argsstring></argsstring>
+        <name>AcquisitionContext</name>
+        <qualifiedname>cuvis::AsyncMesu::AcquisitionContext</qualifiedname>
+        <param>
+          <type><ref refid="classcuvis_1_1AcquisitionContext" kindref="compound">AcquisitionContext</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1214" column="18" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1214" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcuvis_1_1AsyncMesu_1a863d59918a98db52ff92cb9998d23229" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="structcuvis_1_1image__t" kindref="compound">CUVIS_ASYNC_CAPTURE_RESULT</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;CUVIS_ASYNC_CAPTURE_RESULT&gt; cuvis::AsyncMesu::_async</definition>
+        <argsstring></argsstring>
+        <name>_async</name>
+        <qualifiedname>cuvis::AsyncMesu::_async</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1220" column="21" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1220" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcuvis_1_1AsyncMesu_1a0f72e7b7791c57cae62d144715157257" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::pair&lt; <ref refid="namespacecuvis_1abdedd80e4918994b136e619dffca837d" kindref="member">async_result_t</ref>, std::optional&lt; <ref refid="classcuvis_1_1Measurement" kindref="compound">Measurement</ref> &gt; &gt;</type>
+        <definition>std::pair&lt; async_result_t, std::optional&lt; Measurement &gt; &gt; cuvis::AsyncMesu::get</definition>
+        <argsstring>(std::chrono::milliseconds waittime=std::chrono::milliseconds(0))</argsstring>
+        <name>get</name>
+        <qualifiedname>cuvis::AsyncMesu::get</qualifiedname>
+        <param>
+          <type>std::chrono::milliseconds</type>
+          <declname>waittime</declname>
+          <defval>std::chrono::milliseconds(0)</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1217" column="15"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="cuvis.cpp/interface/cuvis.hpp" line="1212" column="3" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1213" bodyend="1221"/>
+    <listofallmembers>
+      <member refid="classcuvis_1_1AsyncMesu_1a863d59918a98db52ff92cb9998d23229" prot="private" virt="non-virtual"><scope>cuvis::AsyncMesu</scope><name>_async</name></member>
+      <member refid="classcuvis_1_1AsyncMesu_1a339e205651170075089499d938fb563c" prot="private" virt="non-virtual"><scope>cuvis::AsyncMesu</scope><name>AcquisitionContext</name></member>
+      <member refid="classcuvis_1_1AsyncMesu_1a0f72e7b7791c57cae62d144715157257" prot="public" virt="non-virtual"><scope>cuvis::AsyncMesu</scope><name>get</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structcuvis_1_1GeneralExportArgs" kind="struct" language="C++" prot="public">
+    <compoundname>cuvis::GeneralExportArgs</compoundname>
+    <derivedcompoundref refid="structcuvis_1_1EnviArgs" prot="public" virt="non-virtual">cuvis::EnviArgs</derivedcompoundref>
+    <derivedcompoundref refid="structcuvis_1_1SaveArgs" prot="public" virt="non-virtual">cuvis::SaveArgs</derivedcompoundref>
+    <derivedcompoundref refid="structcuvis_1_1TiffArgs" prot="public" virt="non-virtual">cuvis::TiffArgs</derivedcompoundref>
+    <derivedcompoundref refid="structcuvis_1_1ViewArgs" prot="public" virt="non-virtual">cuvis::ViewArgs</derivedcompoundref>
+    <includes refid="cuvis_8hpp" local="no">cuvis.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structcuvis_1_1GeneralExportArgs_1a5acc1863022ea3ba849393da0bcf130e" prot="public" static="no" mutable="no">
+        <type>std::filesystem::path</type>
+        <definition>std::filesystem::path cuvis::GeneralExportArgs::export_dir</definition>
+        <argsstring></argsstring>
+        <name>export_dir</name>
+        <qualifiedname>cuvis::GeneralExportArgs::export_dir</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The directory where the files should be exported to (default: &quot;.&quot;) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="327" column="27" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="327" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis_1_1GeneralExportArgs_1a12e080de1e84e76735ba6f28e2020e21" prot="public" static="no" mutable="no">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">bool</ref></type>
+        <definition>bool cuvis::GeneralExportArgs::add_fullscale_pan</definition>
+        <argsstring></argsstring>
+        <name>add_fullscale_pan</name>
+        <qualifiedname>cuvis::GeneralExportArgs::add_fullscale_pan</qualifiedname>
+        <briefdescription>
+<para>Add a full-resolution pan image to the export (default: false) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="333" column="10" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="333" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis_1_1GeneralExportArgs_1a4fe867d309e3b36e690baf5f8013a723" prot="public" static="no" mutable="no">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">bool</ref></type>
+        <definition>bool cuvis::GeneralExportArgs::permissive</definition>
+        <argsstring></argsstring>
+        <name>permissive</name>
+        <qualifiedname>cuvis::GeneralExportArgs::permissive</qualifiedname>
+        <briefdescription>
+<para>Set <ref refid="classcuvis_1_1Exporter" kindref="compound">Exporter</ref> to permisive mode (default: false) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="339" column="10" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="339" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis_1_1GeneralExportArgs_1a95a7ef1d524cd6d5f65726e8f0ece950" prot="public" static="no" mutable="no">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">struct</ref> <ref refid="structcuvis_1_1PanSharpeningArgs" kindref="compound">PanSharpeningArgs</ref></type>
+        <definition>struct PanSharpeningArgs cuvis::GeneralExportArgs::pansharpening_settings</definition>
+        <argsstring></argsstring>
+        <name>pansharpening_settings</name>
+        <qualifiedname>cuvis::GeneralExportArgs::pansharpening_settings</qualifiedname>
+        <briefdescription>
+<para>Settings to define Pansharpening and channel selection. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="342" column="28" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="342" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structcuvis_1_1GeneralExportArgs_1a32987a1c252d57fd61b701f7d4fe3219" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>cuvis::GeneralExportArgs::GeneralExportArgs</definition>
+        <argsstring>()</argsstring>
+        <name>GeneralExportArgs</name>
+        <qualifiedname>cuvis::GeneralExportArgs::GeneralExportArgs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor to create default parameters </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="321" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structcuvis_1_1GeneralExportArgs_1af6e374abde05031fe4c7a1b774b68550" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>cuvis::GeneralExportArgs::operator cuvis_export_general_settings_t</definition>
+        <argsstring>() const</argsstring>
+        <name>operator cuvis_export_general_settings_t</name>
+        <qualifiedname>cuvis::GeneralExportArgs::operator cuvis_export_general_settings_t</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>convert to C - SDK settings structure </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="324" column="5"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Export Settings common to all exporters. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The options of this structure can be set for any <ref refid="classcuvis_1_1Exporter" kindref="compound">Exporter</ref>. However, not all options are respected by the <ref refid="classcuvis_1_1Exporter" kindref="compound">Exporter</ref>. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>cuvis::EnviArgs</label>
+        <link refid="structcuvis_1_1EnviArgs"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>cuvis::GeneralExportArgs</label>
+        <link refid="structcuvis_1_1GeneralExportArgs"/>
+      </node>
+      <node id="3">
+        <label>cuvis::SaveArgs</label>
+        <link refid="structcuvis_1_1SaveArgs"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>cuvis::TiffArgs</label>
+        <link refid="structcuvis_1_1TiffArgs"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>cuvis::ViewArgs</label>
+        <link refid="structcuvis_1_1ViewArgs"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>cuvis::GeneralExportArgs</label>
+        <link refid="structcuvis_1_1GeneralExportArgs"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>pansharpening_settings</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>cuvis::PanSharpeningArgs</label>
+        <link refid="structcuvis_1_1PanSharpeningArgs"/>
+      </node>
+    </collaborationgraph>
+    <location file="cuvis.cpp/interface/cuvis.hpp" line="318" column="3" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="319" bodyend="343"/>
+    <listofallmembers>
+      <member refid="structcuvis_1_1GeneralExportArgs_1a12e080de1e84e76735ba6f28e2020e21" prot="public" virt="non-virtual"><scope>cuvis::GeneralExportArgs</scope><name>add_fullscale_pan</name></member>
+      <member refid="structcuvis_1_1GeneralExportArgs_1a5acc1863022ea3ba849393da0bcf130e" prot="public" virt="non-virtual"><scope>cuvis::GeneralExportArgs</scope><name>export_dir</name></member>
+      <member refid="structcuvis_1_1GeneralExportArgs_1a32987a1c252d57fd61b701f7d4fe3219" prot="public" virt="non-virtual"><scope>cuvis::GeneralExportArgs</scope><name>GeneralExportArgs</name></member>
+      <member refid="structcuvis_1_1GeneralExportArgs_1af6e374abde05031fe4c7a1b774b68550" prot="public" virt="non-virtual"><scope>cuvis::GeneralExportArgs</scope><name>operator cuvis_export_general_settings_t</name></member>
+      <member refid="structcuvis_1_1GeneralExportArgs_1a95a7ef1d524cd6d5f65726e8f0ece950" prot="public" virt="non-virtual"><scope>cuvis::GeneralExportArgs</scope><name>pansharpening_settings</name></member>
+      <member refid="structcuvis_1_1GeneralExportArgs_1a4fe867d309e3b36e690baf5f8013a723" prot="public" virt="non-virtual"><scope>cuvis::GeneralExportArgs</scope><name>permissive</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

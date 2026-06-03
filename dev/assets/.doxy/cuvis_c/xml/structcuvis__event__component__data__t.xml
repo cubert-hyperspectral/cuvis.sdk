@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structcuvis__event__component__data__t" kind="struct" language="C++" prot="public">
+    <compoundname>cuvis_event_component_data_t</compoundname>
+    <includes refid="cuvis_8h" local="no">cuvis.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structcuvis__event__component__data__t_1a553e34e5dae1930c342b94eba59a5267" prot="public" static="no" mutable="no">
+        <type><ref refid="cuvis_8h_1adaa003c7b896017aa5f34c3aa446f650" kindref="member">CUVIS_HANDLE</ref></type>
+        <definition>CUVIS_HANDLE cuvis_event_component_data_t::compent_id</definition>
+        <argsstring></argsstring>
+        <name>compent_id</name>
+        <qualifiedname>cuvis_event_component_data_t::compent_id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1492" column="16" bodyfile="docs/_api_sources/cuvis.h" bodystart="1492" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="docs/_api_sources/cuvis.h" line="1490" column="1" bodyfile="docs/_api_sources/cuvis.h" bodystart="1491" bodyend="1493"/>
+    <listofallmembers>
+      <member refid="structcuvis__event__component__data__t_1a553e34e5dae1930c342b94eba59a5267" prot="public" virt="non-virtual"><scope>cuvis_event_component_data_t</scope><name>compent_id</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

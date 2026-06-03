@@ -1,0 +1,140 @@
+
+# Macros
+
+
+
+## a
+
+* **ACQ\_GET\_SINGLE\_VALUE** ([**cuvis.h**](cuvis_8h.md))
+* **ACQ\_SET\_SINGLE\_VALUE** ([**cuvis.h**](cuvis_8h.md))
+* **ALLOCATE\_AND\_FREE** ([**cuvis.h**](cuvis_8h.md))
+
+
+## c
+
+* **COMP\_GET\_SINGLE\_VALUE** ([**cuvis.h**](cuvis_8h.md))
+* **COMP\_SET\_SINGLE\_VALUE** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_ACQ\_CONT** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_ASYNC\_CALL\_RESULT** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_ASYNC\_CAPTURE\_RESULT** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_CALIB** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_CALIBRATION\_INFO** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_CHAR** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_CHECK** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_COMPONENT\_INFO** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_COMPONENT\_TYPE** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_DATA\_TYPE** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_EVENT** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_EVENT\_ACQUISITION\_DATA** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_EVENT\_ACQUISTION** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_EVENT\_BASE\_DATA** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_EVENT\_COMPONENT** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_EVENT\_COMPONENT\_DATA** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_EVENT\_PROCESSING** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_EVENT\_PROCESSING\_DATA** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_EVENT\_QUALITY\_DATA** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_EVENT\_TRIGGER\_SKIPPED** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_EXPORTER** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_EXPORT\_CUBE\_SETTINGS** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_EXPORT\_GENERAL\_SETTINGS** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_EXPORT\_TIFF\_SETTINGS** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_EXPORT\_VIEW\_SETTINGS** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_FLAGS** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_GPS** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_HANDLE** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_HANDLE\_NULL** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_HARDWARE\_STATE** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_IMBUFFER** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_IMBUFFER\_FORMAT** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_INT** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_LOGLEVEL** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MAXBUF** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MESU** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MESU\_FLAG\_DARK\_INTTIME** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MESU\_FLAG\_DARK\_TEMP** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MESU\_FLAG\_OVERILLUMINATED** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MESU\_FLAG\_PAN\_OVERILLUMINATED** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MESU\_FLAG\_POOR\_REFERENCE** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MESU\_FLAG\_POOR\_WHITE\_BALANCING** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MESU\_FLAG\_WHITEDARK\_INTTIME** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MESU\_FLAG\_WHITEDARK\_TEMP** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MESU\_FLAG\_WHITE\_INTTIME** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MESU\_FLAG\_WHITE\_TEMP** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MESU\_METADATA** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MISC\_PTR** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MODE\_CAPABILITIES** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MODE\_CAPABILITY\_ACQUISITION\_AVERAGING** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MODE\_CAPABILITY\_ACQUISITION\_CAPTURE** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MODE\_CAPABILITY\_ACQUISITION\_CONTINUOUS** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MODE\_CAPABILITY\_ACQUISITION\_SETGAIN** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MODE\_CAPABILITY\_ACQUISITION\_SETINTEGRATIONTIME** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MODE\_CAPABILITY\_ACQUISITION\_SNAPSHOT** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MODE\_CAPABILITY\_ACQUISITION\_TIMELAPSE** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MODE\_CAPABILITY\_PROCESSING\_AUTOEXPOSURE** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MODE\_CAPABILITY\_PROCESSING\_CALC\_LIVE** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MODE\_CAPABILITY\_PROCESSING\_CLEAR\_RAW** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MODE\_CAPABILITY\_PROCESSING\_CUBE\_DARKSUBTRACT** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MODE\_CAPABILITY\_PROCESSING\_CUBE\_FLATFIELDING** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MODE\_CAPABILITY\_PROCESSING\_CUBE\_RAW** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MODE\_CAPABILITY\_PROCESSING\_CUBE\_REF** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MODE\_CAPABILITY\_PROCESSING\_CUBE\_SPECTRALRADIANCE** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MODE\_CAPABILITY\_PROCESSING\_ORIENTATION** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MODE\_CAPABILITY\_PROCESSING\_REQUIRE\_WHITEDARK\_REFLECTANCE** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MODE\_CAPABILITY\_PROCESSING\_SAVE\_FILE** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MODE\_CAPABILITY\_PROCESSING\_SENSOR\_RAW** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MODE\_CAPABILITY\_PROCESSING\_SET\_DARK** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MODE\_CAPABILITY\_PROCESSING\_SET\_DISTANCECALIB** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MODE\_CAPABILITY\_PROCESSING\_SET\_DISTANCE\_VALUE** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MODE\_CAPABILITY\_PROCESSING\_SET\_SPRADCALIB** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MODE\_CAPABILITY\_PROCESSING\_SET\_WHITE** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MODE\_CAPABILITY\_PROCESSING\_USE\_DARK\_SPRADCALIB** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_MODE\_CAPABILITY\_PROCESSING\_USE\_WHITE\_SPRADCALIB** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_OPERATION\_MODE** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_PANSHARPENING\_SETTINGS** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_PAN\_SHAPRENING\_ALGORITHM\_TYPE** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_PAN\_SHAPRENING\_INTERPOLATION\_TYPE** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_PROCESSING\_MODE** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_PROC\_ARGS** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_PROC\_CONT** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_REFERENCE\_TYPE** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_SAVE\_ARGS** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_SENSOR\_INFO** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_SESSION\_FILE** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_SESSION\_INFO** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_SESSION\_ITEM\_TYPE** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_SESSION\_MERGE\_MODE** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_SIZE** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_STATUS** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_STRING** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_TIFF\_COMPRESSION\_MODE** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_TIFF\_FORMAT** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_TIMESTAMP** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_VIEW** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_VIEWER** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_VIEWER\_SETTINGS** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_VIEW\_CATEGORY** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_VIEW\_DATA** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_WCHAR** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_WORKER** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_WORKER\_SETTINGS** ([**cuvis.h**](cuvis_8h.md))
+* **CUVIS\_WORKER\_STATE** ([**cuvis.h**](cuvis_8h.md))
+
+
+## i
+
+* **IMBUFFER\_GET** ([**cuvis.h**](cuvis_8h.md))
+
+
+## s
+
+* **SDK\_CAPI** ([**cuvis.h**](cuvis_8h.md))
+* **SDK\_CCALL** ([**cuvis.h**](cuvis_8h.md))
+
+
+## _
+
+* **\_CRT\_SECURE\_NO\_WARNINGS** ([**cuvis.h**](cuvis_8h.md))
+
+
+
+

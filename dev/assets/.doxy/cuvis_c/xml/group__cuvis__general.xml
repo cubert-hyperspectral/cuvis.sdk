@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="group__cuvis__general" kind="group">
+    <compoundname>cuvis_general</compoundname>
+    <title>General</title>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="group__cuvis__general_1ga7d159bd0485ed3d65ecbb1bf73744081" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_init</definition>
+        <argsstring>(CUVIS_CHAR const *i_settings_path, CUVIS_INT i_global_loglevel, CUVIS_CHAR const *i_logfile_name)</argsstring>
+        <name>cuvis_init</name>
+        <param>
+          <type><ref refid="cuvis_8h_1ad6fd13ac609b8cbfad5f49e5ff0e11d3" kindref="member">CUVIS_CHAR</ref> const *</type>
+          <declname>i_settings_path</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1a411e2de5f4fe2d2210e985d8f323b144" kindref="member">CUVIS_INT</ref></type>
+          <declname>i_global_loglevel</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1ad6fd13ac609b8cbfad5f49e5ff0e11d3" kindref="member">CUVIS_CHAR</ref> const *</type>
+          <declname>i_logfile_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The init function set the settings path.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_settings_path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path to the settings directory. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">i_global_loglevel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The log level that will be used for the backend logging system </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">i_logfile_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the logfile that is going to be written </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1784" column="33" declfile="docs/_api_sources/cuvis.h" declline="1784" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__general_1gab1bf93611ba8b456d8989911e3ddfb2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_shutdown</definition>
+        <argsstring>()</argsstring>
+        <name>cuvis_shutdown</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Function for shutting down Cuvis safely. Gently stops all threads. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1787" column="33" declfile="docs/_api_sources/cuvis.h" declline="1787" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__general_1gafa20626aa45747c278a789d5a686c7ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_version</definition>
+        <argsstring>(CUVIS_CHAR *o_pVersion)</argsstring>
+        <name>cuvis_version</name>
+        <param>
+          <type><ref refid="cuvis_8h_1ad6fd13ac609b8cbfad5f49e5ff0e11d3" kindref="member">CUVIS_CHAR</ref> *</type>
+          <declname>o_pVersion</declname>
+        </param>
+        <briefdescription>
+<para>Get the SDK version. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pVersion</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The output version string. The provided array must have the length of <ref refid="cuvis_8h_1ad1666b5ec324ee74c77d9213106a02b2" kindref="member">CUVIS_MAXBUF</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1794" column="33" declfile="docs/_api_sources/cuvis.h" declline="1794" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__general_1ga067d00704924f343dd15aaf49fd562fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_get_userplugin_engine_version</definition>
+        <argsstring>(CUVIS_CHAR *o_pVersion)</argsstring>
+        <name>cuvis_get_userplugin_engine_version</name>
+        <param>
+          <type><ref refid="cuvis_8h_1ad6fd13ac609b8cbfad5f49e5ff0e11d3" kindref="member">CUVIS_CHAR</ref> *</type>
+          <declname>o_pVersion</declname>
+        </param>
+        <briefdescription>
+<para>Get the Userplugin processing engine version number. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pVersion</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The output version string. The provided array must have the length of <ref refid="cuvis_8h_1ad1666b5ec324ee74c77d9213106a02b2" kindref="member">CUVIS_MAXBUF</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1801" column="33" declfile="docs/_api_sources/cuvis.h" declline="1801" declcolumn="33"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>General Configuration Options of the SDK. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The <ref refid="group__cuvis__general_1ga7d159bd0485ed3d65ecbb1bf73744081" kindref="member">cuvis_init</ref> function set the reference to a settings directory. It should be the first call in a program that uses the cuvis SDK, and is only possible once. In the settings directory there can be multiple settings file present. Settings files are identified by a .settings extension. Each Settings file is a xml file that contains a collection of property nodes. All the settings files get merged into one collection of property nodes. Therefore no property nodes is allowed to be present multiple times. </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

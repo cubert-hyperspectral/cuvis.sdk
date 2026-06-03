@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structcuvis__component__info__t" kind="struct" language="C++" prot="public">
+    <compoundname>cuvis_component_info_t</compoundname>
+    <includes refid="cuvis_8h" local="no">cuvis.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structcuvis__component__info__t_1a7f5ef0169fde5fa2e3b55fa2b62fea09" prot="public" static="no" mutable="no">
+        <type><ref refid="cuvis_8h_1a65eaf46c8535d6008475d54e84f9b887" kindref="member">CUVIS_COMPONENT_TYPE</ref></type>
+        <definition>CUVIS_COMPONENT_TYPE cuvis_component_info_t::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>cuvis_component_info_t::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>type of the component </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1449" column="24" bodyfile="docs/_api_sources/cuvis.h" bodystart="1449" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__component__info__t_1a58b0c9394858bf22127fc581d53b7e84" prot="public" static="no" mutable="no">
+        <type><ref refid="cuvis_8h_1ad6fd13ac609b8cbfad5f49e5ff0e11d3" kindref="member">CUVIS_CHAR</ref></type>
+        <definition>CUVIS_CHAR cuvis_component_info_t::displayname[CUVIS_MAXBUF]</definition>
+        <argsstring>[CUVIS_MAXBUF]</argsstring>
+        <name>displayname</name>
+        <qualifiedname>cuvis_component_info_t::displayname</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the name that can be displayed human-readable </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1452" column="14" bodyfile="docs/_api_sources/cuvis.h" bodystart="1452" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__component__info__t_1aa223fd7178cdf8f67cf9ba44e3d7229c" prot="public" static="no" mutable="no">
+        <type><ref refid="cuvis_8h_1ad6fd13ac609b8cbfad5f49e5ff0e11d3" kindref="member">CUVIS_CHAR</ref></type>
+        <definition>CUVIS_CHAR cuvis_component_info_t::sensorinfo[CUVIS_MAXBUF]</definition>
+        <argsstring>[CUVIS_MAXBUF]</argsstring>
+        <name>sensorinfo</name>
+        <qualifiedname>cuvis_component_info_t::sensorinfo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the sensor&apos;s meta-informaiton </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1455" column="14" bodyfile="docs/_api_sources/cuvis.h" bodystart="1455" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__component__info__t_1a50491194a59992916b6cf7e27a2e8e43" prot="public" static="no" mutable="no">
+        <type><ref refid="cuvis_8h_1ad6fd13ac609b8cbfad5f49e5ff0e11d3" kindref="member">CUVIS_CHAR</ref></type>
+        <definition>CUVIS_CHAR cuvis_component_info_t::userfield[CUVIS_MAXBUF]</definition>
+        <argsstring>[CUVIS_MAXBUF]</argsstring>
+        <name>userfield</name>
+        <qualifiedname>cuvis_component_info_t::userfield</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>additional sensor informaiton </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1458" column="14" bodyfile="docs/_api_sources/cuvis.h" bodystart="1458" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__component__info__t_1ad51f187ed8719fc46708f8891259ae21" prot="public" static="no" mutable="no">
+        <type><ref refid="cuvis_8h_1ad6fd13ac609b8cbfad5f49e5ff0e11d3" kindref="member">CUVIS_CHAR</ref></type>
+        <definition>CUVIS_CHAR cuvis_component_info_t::pixelformat[CUVIS_MAXBUF]</definition>
+        <argsstring>[CUVIS_MAXBUF]</argsstring>
+        <name>pixelformat</name>
+        <qualifiedname>cuvis_component_info_t::pixelformat</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>additional sensor informaiton </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1461" column="14" bodyfile="docs/_api_sources/cuvis.h" bodystart="1461" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Information about components </para>
+    </detaileddescription>
+    <location file="docs/_api_sources/cuvis.h" line="1446" column="1" bodyfile="docs/_api_sources/cuvis.h" bodystart="1447" bodyend="1462"/>
+    <listofallmembers>
+      <member refid="structcuvis__component__info__t_1a58b0c9394858bf22127fc581d53b7e84" prot="public" virt="non-virtual"><scope>cuvis_component_info_t</scope><name>displayname</name></member>
+      <member refid="structcuvis__component__info__t_1ad51f187ed8719fc46708f8891259ae21" prot="public" virt="non-virtual"><scope>cuvis_component_info_t</scope><name>pixelformat</name></member>
+      <member refid="structcuvis__component__info__t_1aa223fd7178cdf8f67cf9ba44e3d7229c" prot="public" virt="non-virtual"><scope>cuvis_component_info_t</scope><name>sensorinfo</name></member>
+      <member refid="structcuvis__component__info__t_1a7f5ef0169fde5fa2e3b55fa2b62fea09" prot="public" virt="non-virtual"><scope>cuvis_component_info_t</scope><name>type</name></member>
+      <member refid="structcuvis__component__info__t_1a50491194a59992916b6cf7e27a2e8e43" prot="public" virt="non-virtual"><scope>cuvis_component_info_t</scope><name>userfield</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

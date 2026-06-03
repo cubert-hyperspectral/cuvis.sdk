@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classcuvis_1_1ViewExporter" kind="class" language="C++" prot="public">
+    <compoundname>cuvis::ViewExporter</compoundname>
+    <basecompoundref refid="classcuvis_1_1Exporter" prot="public" virt="non-virtual">cuvis::Exporter</basecompoundref>
+    <includes refid="cuvis_8hpp" local="no">cuvis.hpp</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classcuvis_1_1ViewExporter_1adf7e9560df04f888af5c9dd83baca9ce" prot="public" static="no">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">cuvis_export_view_settings_t</ref></type>
+        <definition>using cuvis::ViewExporter::format_settings_t =  cuvis_export_view_settings_t</definition>
+        <argsstring></argsstring>
+        <name>format_settings_t</name>
+        <qualifiedname>cuvis::ViewExporter::format_settings_t</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1460" column="5" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1460" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcuvis_1_1ViewExporter_1a06f8751c8158a1b9b94ba3204c734e12" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>cuvis::ViewExporter::ViewExporter</definition>
+        <argsstring>(ViewArgs const &amp;args)</argsstring>
+        <name>ViewExporter</name>
+        <qualifiedname>cuvis::ViewExporter::ViewExporter</qualifiedname>
+        <param>
+          <type><ref refid="structcuvis_1_1ViewArgs" kindref="compound">ViewArgs</ref> <ref refid="structcuvis_1_1image__t" kindref="compound">const</ref> &amp;</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1463" column="5"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>cuvis::Exporter</label>
+        <link refid="classcuvis_1_1Exporter"/>
+      </node>
+      <node id="1">
+        <label>cuvis::ViewExporter</label>
+        <link refid="classcuvis_1_1ViewExporter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>cuvis::Exporter</label>
+        <link refid="classcuvis_1_1Exporter"/>
+      </node>
+      <node id="1">
+        <label>cuvis::ViewExporter</label>
+        <link refid="classcuvis_1_1ViewExporter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="cuvis.cpp/interface/cuvis.hpp" line="1457" column="3" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1458" bodyend="1464"/>
+    <listofallmembers>
+      <member refid="classcuvis_1_1Exporter_1a3327848b6a169b51219f3ef67661f082" prot="public" virt="non-virtual"><scope>cuvis::ViewExporter</scope><name>apply</name></member>
+      <member refid="classcuvis_1_1Exporter_1aa370c462cc82b4fb1c939e24baebc468" prot="protected" virt="non-virtual"><scope>cuvis::ViewExporter</scope><name>Exporter</name></member>
+      <member refid="classcuvis_1_1Exporter_1ae0fc4c96e16ead1a01621615fd44e7bd" prot="public" virt="non-virtual"><scope>cuvis::ViewExporter</scope><name>flush</name></member>
+      <member refid="classcuvis_1_1ViewExporter_1adf7e9560df04f888af5c9dd83baca9ce" prot="public" virt="non-virtual"><scope>cuvis::ViewExporter</scope><name>format_settings_t</name></member>
+      <member refid="classcuvis_1_1Exporter_1a2e1514c5552b5c103398c5e75c1b2ee0" prot="public" virt="non-virtual"><scope>cuvis::ViewExporter</scope><name>general_export_settings_t</name></member>
+      <member refid="classcuvis_1_1Exporter_1a95aeeebc74852b54a6c94d53b286c415" prot="public" virt="non-virtual"><scope>cuvis::ViewExporter</scope><name>get_queue_used</name></member>
+      <member refid="classcuvis_1_1Exporter_1a9998095c46d4c8a2564a16f5c57aa951" prot="protected" virt="non-virtual"><scope>cuvis::ViewExporter</scope><name>setHandle</name></member>
+      <member refid="classcuvis_1_1ViewExporter_1a06f8751c8158a1b9b94ba3204c734e12" prot="public" virt="non-virtual"><scope>cuvis::ViewExporter</scope><name>ViewExporter</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

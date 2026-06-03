@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structcuvis_1_1ProcessingArgs" kind="struct" language="C++" prot="public">
+    <compoundname>cuvis::ProcessingArgs</compoundname>
+    <includes refid="cuvis_8hpp" local="no">cuvis.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structcuvis_1_1ProcessingArgs_1a23ca65b4fa57b94680e5cef0c314c256" prot="public" static="no" mutable="no">
+        <type><ref refid="group__typedefs_1ga5fdd6b2758a648c06256c0feac937f78" kindref="member">processing_mode_t</ref></type>
+        <definition>processing_mode_t cuvis::ProcessingArgs::processing_mode</definition>
+        <argsstring></argsstring>
+        <name>processing_mode</name>
+        <qualifiedname>cuvis::ProcessingArgs::processing_mode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="501" column="23" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="501" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis_1_1ProcessingArgs_1a3487d91e08d46b24aeb87f35bc2b41a8" prot="public" static="no" mutable="no">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">bool</ref></type>
+        <definition>bool cuvis::ProcessingArgs::allow_recalib</definition>
+        <argsstring></argsstring>
+        <name>allow_recalib</name>
+        <qualifiedname>cuvis::ProcessingArgs::allow_recalib</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="506" column="10" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="506" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structcuvis_1_1ProcessingArgs_1a271d81f8b73a9983f1fcda42d9cca030" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>cuvis::ProcessingArgs::ProcessingArgs</definition>
+        <argsstring>()</argsstring>
+        <name>ProcessingArgs</name>
+        <qualifiedname>cuvis::ProcessingArgs::ProcessingArgs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor to create default parameters </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="491" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structcuvis_1_1ProcessingArgs_1aca4df46696014d1cb12bc8cd6f34af38" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>cuvis::ProcessingArgs::operator cuvis_proc_args_t</definition>
+        <argsstring>() const</argsstring>
+        <name>operator cuvis_proc_args_t</name>
+        <qualifiedname>cuvis::ProcessingArgs::operator cuvis_proc_args_t</qualifiedname>
+        <briefdescription>
+<para>convert to C - SDK settings structure </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="496" column="5"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>processing arguments </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="cuvis.cpp/interface/cuvis.hpp" line="488" column="3" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="489" bodyend="507"/>
+    <listofallmembers>
+      <member refid="structcuvis_1_1ProcessingArgs_1a3487d91e08d46b24aeb87f35bc2b41a8" prot="public" virt="non-virtual"><scope>cuvis::ProcessingArgs</scope><name>allow_recalib</name></member>
+      <member refid="structcuvis_1_1ProcessingArgs_1aca4df46696014d1cb12bc8cd6f34af38" prot="public" virt="non-virtual"><scope>cuvis::ProcessingArgs</scope><name>operator cuvis_proc_args_t</name></member>
+      <member refid="structcuvis_1_1ProcessingArgs_1a23ca65b4fa57b94680e5cef0c314c256" prot="public" virt="non-virtual"><scope>cuvis::ProcessingArgs</scope><name>processing_mode</name></member>
+      <member refid="structcuvis_1_1ProcessingArgs_1a271d81f8b73a9983f1fcda42d9cca030" prot="public" virt="non-virtual"><scope>cuvis::ProcessingArgs</scope><name>ProcessingArgs</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

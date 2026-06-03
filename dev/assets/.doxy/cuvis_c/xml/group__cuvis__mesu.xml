@@ -1,0 +1,834 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="group__cuvis__mesu" kind="group">
+    <compoundname>cuvis_mesu</compoundname>
+    <title>Measurement</title>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="group__cuvis__mesu_1gaabd0d6b252996e7bb4fd0f7013ffd0f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_measurement_copy_handle</definition>
+        <argsstring>(CUVIS_MESU i_mesu, CUVIS_MESU *o_pMesu)</argsstring>
+        <name>cuvis_measurement_copy_handle</name>
+        <param>
+          <type><ref refid="cuvis_8h_1a79fa4e0f6faf8ddaabf6ee66dfa00d3e" kindref="member">CUVIS_MESU</ref></type>
+          <declname>i_mesu</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1a79fa4e0f6faf8ddaabf6ee66dfa00d3e" kindref="member">CUVIS_MESU</ref> *</type>
+          <declname>o_pMesu</declname>
+        </param>
+        <briefdescription>
+<para>Creates an additional measurement handle. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates an additional handle that points to the same instance as the supplied handle</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_mesu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handle of the measurement to copy </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pMesu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new handle of the measurement. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dad52787b0cfb0da2c053a68bcdc54bc6f" kindref="member">status_ok</ref> if the measurement handle could be doubled </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1930" column="33" declfile="docs/_api_sources/cuvis.h" declline="1930" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__mesu_1ga1750ee4b61354f7d28d57b612ed24327" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_measurement_load</definition>
+        <argsstring>(const CUVIS_CHAR *i_path, CUVIS_MESU *o_pMesu)</argsstring>
+        <name>cuvis_measurement_load</name>
+        <param>
+          <type>const <ref refid="cuvis_8h_1ad6fd13ac609b8cbfad5f49e5ff0e11d3" kindref="member">CUVIS_CHAR</ref> *</type>
+          <declname>i_path</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1a79fa4e0f6faf8ddaabf6ee66dfa00d3e" kindref="member">CUVIS_MESU</ref> *</type>
+          <declname>o_pMesu</declname>
+        </param>
+        <briefdescription>
+<para>Load a measurement from disk. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The measurement is a cu3 file - and if fragmented some additional tiff files with a postfix, e.g. _cube.tiff To load the file, all fragmented parts must be in the same directory. Fragmented files must not be renamed.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the file path of the measurement </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pMesu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the handle of the measurement. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dad52787b0cfb0da2c053a68bcdc54bc6f" kindref="member">status_ok</ref>, if the measurement could be loaded. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1942" column="33" declfile="docs/_api_sources/cuvis.h" declline="1942" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__mesu_1gab79d056a9e8aa7afc53ff64bf45ec3aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_measurement_deep_copy</definition>
+        <argsstring>(CUVIS_MESU i_mesu, CUVIS_MESU *o_pMesu)</argsstring>
+        <name>cuvis_measurement_deep_copy</name>
+        <param>
+          <type><ref refid="cuvis_8h_1a79fa4e0f6faf8ddaabf6ee66dfa00d3e" kindref="member">CUVIS_MESU</ref></type>
+          <declname>i_mesu</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1a79fa4e0f6faf8ddaabf6ee66dfa00d3e" kindref="member">CUVIS_MESU</ref> *</type>
+          <declname>o_pMesu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>create a deep copy of a measurement</para>
+<para>All operations on a measurement are performed on the same object. If different processing needs to be perfomed on a measurement It should be deep-copied. The copied meausrement&apos;s name will be changed to end with &quot;_copy&quot;</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_mesu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The measurement copy source. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pMesu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The copy will be linked to the handle given. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1952" column="33" declfile="docs/_api_sources/cuvis.h" declline="1952" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__mesu_1ga16a894649efc60f40a1b95e9028ed5b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_measurement_clear_cube</definition>
+        <argsstring>(CUVIS_PROC_CONT i_mesu)</argsstring>
+        <name>cuvis_measurement_clear_cube</name>
+        <param>
+          <type><ref refid="cuvis_8h_1a53f231856522945c06cddf2c0fcdcf84" kindref="member">CUVIS_PROC_CONT</ref></type>
+          <declname>i_mesu</declname>
+        </param>
+        <briefdescription>
+<para>Clears the cube from a measurement. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Clears the proceessing result, i. e. the cube, from the measurement. This returns the measurement the state before applying the processing. This can be usefull for reduced data usage.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_mesu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The measurement </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1961" column="33" declfile="docs/_api_sources/cuvis.h" declline="1961" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__mesu_1ga2b8ad4f430a93c5e83047e7a7be7774a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_measurement_clear_implicit_reference</definition>
+        <argsstring>(CUVIS_PROC_CONT i_mesu, CUVIS_REFERENCE_TYPE i_type)</argsstring>
+        <name>cuvis_measurement_clear_implicit_reference</name>
+        <param>
+          <type><ref refid="cuvis_8h_1a53f231856522945c06cddf2c0fcdcf84" kindref="member">CUVIS_PROC_CONT</ref></type>
+          <declname>i_mesu</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1af7e5c2da78987108b31247352bb0f6d9" kindref="member">CUVIS_REFERENCE_TYPE</ref></type>
+          <declname>i_type</declname>
+        </param>
+        <briefdescription>
+<para>Clears an implicit reference measurement. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Implict measurements are created, when a measurement is processed with a processing context, where explicit references are set. Then, these references are remebemred by the measurement. When changing the processing context, the references are implicitly available, still. Clearing them may be interesing if the references set are wrong/invalid or if disk space is a concearn.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_mesu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The measurement </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">i_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of the reference to be cleard </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1973" column="33" declfile="docs/_api_sources/cuvis.h" declline="1973" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__mesu_1gadeabc09697e1bbd9b0af5cf02180500b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_measurement_save</definition>
+        <argsstring>(CUVIS_MESU const i_mesu, const CUVIS_CHAR *i_path, CUVIS_SAVE_ARGS args)</argsstring>
+        <name>cuvis_measurement_save</name>
+        <param>
+          <type><ref refid="cuvis_8h_1a79fa4e0f6faf8ddaabf6ee66dfa00d3e" kindref="member">CUVIS_MESU</ref> const</type>
+          <declname>i_mesu</declname>
+        </param>
+        <param>
+          <type>const <ref refid="cuvis_8h_1ad6fd13ac609b8cbfad5f49e5ff0e11d3" kindref="member">CUVIS_CHAR</ref> *</type>
+          <declname>i_path</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1aa9536d15c653d891731295298f2146bf" kindref="member">CUVIS_SAVE_ARGS</ref></type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Save a measurement to disk. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Saves a single measurement to the disk in cu3 format. The file name is given by the measurement&apos;s name (see <ref refid="group__cuvis__mesu_1ga0082b7bd0bdf5174a6a74dd14e13b3b1" kindref="member">cuvis_measurement_set_name</ref>)</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The file directory </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">i_mesu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handle of the measurement to be saved </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The saving options </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dad52787b0cfb0da2c053a68bcdc54bc6f" kindref="member">status_ok</ref>, if the measurement was save successfully. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="2146" column="33" declfile="docs/_api_sources/cuvis.h" declline="2146" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__mesu_1ga0082b7bd0bdf5174a6a74dd14e13b3b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_measurement_set_name</definition>
+        <argsstring>(CUVIS_MESU const i_mesu, const CUVIS_CHAR *i_name)</argsstring>
+        <name>cuvis_measurement_set_name</name>
+        <param>
+          <type><ref refid="cuvis_8h_1a79fa4e0f6faf8ddaabf6ee66dfa00d3e" kindref="member">CUVIS_MESU</ref> const</type>
+          <declname>i_mesu</declname>
+        </param>
+        <param>
+          <type>const <ref refid="cuvis_8h_1ad6fd13ac609b8cbfad5f49e5ff0e11d3" kindref="member">CUVIS_CHAR</ref> *</type>
+          <declname>i_name</declname>
+        </param>
+        <briefdescription>
+<para>Set the name of the measurement in memory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>By default, a newly aquired measurement has the name &lt;SESSIONNAME&gt;_&lt;session_no&gt;_&lt;sequence_no&gt; (see <ref refid="cuvis_8h_1a37b4a4195807325caa76d7d24f0d3ccb" kindref="member">CUVIS_SESSION_INFO</ref>). This will also be the name of the file while saving it. This can be changed by this function.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_mesu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The measurements to be changed </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">i_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new measurement&apos;s name </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dad52787b0cfb0da2c053a68bcdc54bc6f" kindref="member">status_ok</ref>, if the measurement&apos;s name was set successfully. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="2157" column="33" declfile="docs/_api_sources/cuvis.h" declline="2157" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__mesu_1ga3b49a156d443b36a56ca7a1e407a76a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_measurement_set_comment</definition>
+        <argsstring>(CUVIS_MESU const i_mesu, const CUVIS_CHAR *i_comment)</argsstring>
+        <name>cuvis_measurement_set_comment</name>
+        <param>
+          <type><ref refid="cuvis_8h_1a79fa4e0f6faf8ddaabf6ee66dfa00d3e" kindref="member">CUVIS_MESU</ref> const</type>
+          <declname>i_mesu</declname>
+        </param>
+        <param>
+          <type>const <ref refid="cuvis_8h_1ad6fd13ac609b8cbfad5f49e5ff0e11d3" kindref="member">CUVIS_CHAR</ref> *</type>
+          <declname>i_comment</declname>
+        </param>
+        <briefdescription>
+<para>Set the comment of the measurement in memory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_mesu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The measurements to be changed </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">i_comment</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new measurement&apos;s comment </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dad52787b0cfb0da2c053a68bcdc54bc6f" kindref="member">status_ok</ref>, if the measurement&apos;s name was set successfully. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="2165" column="33" declfile="docs/_api_sources/cuvis.h" declline="2165" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__mesu_1gab511bd8d553573fc68e9408909722605" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_measurement_free</definition>
+        <argsstring>(CUVIS_MESU *io_pMesu)</argsstring>
+        <name>cuvis_measurement_free</name>
+        <param>
+          <type><ref refid="cuvis_8h_1a79fa4e0f6faf8ddaabf6ee66dfa00d3e" kindref="member">CUVIS_MESU</ref> *</type>
+          <declname>io_pMesu</declname>
+        </param>
+        <briefdescription>
+<para>Release a measurement handle. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Release a measurement by it&apos;s handle. The handle will be overwritten to <ref refid="cuvis_8h_1a3bd1442bbbbac3d65f28f5738b2743ed" kindref="member">CUVIS_HANDLE_NULL</ref> This will not affect any measurements on disk.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">io_pMesu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handle to the measurement to be deleted </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dad52787b0cfb0da2c053a68bcdc54bc6f" kindref="member">status_ok</ref> if the measurement was released. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="2175" column="33" declfile="docs/_api_sources/cuvis.h" declline="2175" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__mesu_1ga91004bacff0de1b113d62da08f5d9c96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_measurement_get_metadata</definition>
+        <argsstring>(CUVIS_MESU i_mesu, CUVIS_MESU_METADATA *o_pMetaData)</argsstring>
+        <name>cuvis_measurement_get_metadata</name>
+        <param>
+          <type><ref refid="cuvis_8h_1a79fa4e0f6faf8ddaabf6ee66dfa00d3e" kindref="member">CUVIS_MESU</ref></type>
+          <declname>i_mesu</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1a89d7485f592d73af53df4c52ec31736a" kindref="member">CUVIS_MESU_METADATA</ref> *</type>
+          <declname>o_pMetaData</declname>
+        </param>
+        <briefdescription>
+<para>Obtain metadata from measurement. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The meta-data from the measurement contains information about the measurement when it was recorded: when and how. Meta-Data do not contain the actual recorded data.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_mesu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The measurement&apos;s handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pMetaData</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The meta structure to be filled </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dad52787b0cfb0da2c053a68bcdc54bc6f" kindref="member">status_ok</ref>, if the meta-data could be loaded without errors </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="2187" column="33" declfile="docs/_api_sources/cuvis.h" declline="2187" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__mesu_1ga49ad169236b3ec059bdf9f3b1c7edf48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_measurement_get_data_image</definition>
+        <argsstring>(CUVIS_MESU i_mesu, const CUVIS_CHAR *i_key, CUVIS_IMBUFFER *o_pBuf)</argsstring>
+        <name>cuvis_measurement_get_data_image</name>
+        <param>
+          <type><ref refid="cuvis_8h_1a79fa4e0f6faf8ddaabf6ee66dfa00d3e" kindref="member">CUVIS_MESU</ref></type>
+          <declname>i_mesu</declname>
+        </param>
+        <param>
+          <type>const <ref refid="cuvis_8h_1ad6fd13ac609b8cbfad5f49e5ff0e11d3" kindref="member">CUVIS_CHAR</ref> *</type>
+          <declname>i_key</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1aa71eed068a38e8badf1512676c20174f" kindref="member">CUVIS_IMBUFFER</ref> *</type>
+          <declname>o_pBuf</declname>
+        </param>
+        <briefdescription>
+<para>Get image data from measurement. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Return image data from a measurement. The image data is valid as long as the measurement handle is not released and the measurement is not re-processed.</para>
+<para>This function can only be called, if he data type is <ref refid="cuvis_8h_1a2e7e9f8726f82dd959138a5bb6facb38aeb1684b8cc31ed40a89335f2efb1ab75" kindref="member">data_type_image</ref>. This can be checked by the function <ref refid="group__cuvis__mesu_1gae3dd6455020bbe6f3fd23a0d4f765797" kindref="member">cuvis_measurement_get_data_info</ref>.</para>
+<para>see also: <ref refid="group__cuvis__reserved__keys" kindref="compound">Reserved Keys</ref></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_mesu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The measurement handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">i_key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data frame identification key (see <ref refid="group__cuvis__mesu_1gae3dd6455020bbe6f3fd23a0d4f765797" kindref="member">cuvis_measurement_get_data_info</ref> or <ref refid="group__cuvis__reserved__keys" kindref="compound">Reserved Keys</ref>) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pBuf</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The image buffer to be filled </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dad52787b0cfb0da2c053a68bcdc54bc6f" kindref="member">status_ok</ref> if the buffer could be filled with the image element. <ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9da7fdd3396ac111ad131ec95e3411928a7" kindref="member">status_not_available</ref> if the requested data was empty, or the key could not be found </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="2206" column="33" declfile="docs/_api_sources/cuvis.h" declline="2206" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__mesu_1ga69c95ccd6171283e1c907d256c82ac2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_measurement_get_data_string</definition>
+        <argsstring>(CUVIS_MESU i_mesu, const CUVIS_CHAR *i_key, CUVIS_SIZE i_outBufferlength, CUVIS_CHAR *o_pValue)</argsstring>
+        <name>cuvis_measurement_get_data_string</name>
+        <param>
+          <type><ref refid="cuvis_8h_1a79fa4e0f6faf8ddaabf6ee66dfa00d3e" kindref="member">CUVIS_MESU</ref></type>
+          <declname>i_mesu</declname>
+        </param>
+        <param>
+          <type>const <ref refid="cuvis_8h_1ad6fd13ac609b8cbfad5f49e5ff0e11d3" kindref="member">CUVIS_CHAR</ref> *</type>
+          <declname>i_key</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1a7f1faedccb767d68d3c2d46d9d2904b6" kindref="member">CUVIS_SIZE</ref></type>
+          <declname>i_outBufferlength</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1ad6fd13ac609b8cbfad5f49e5ff0e11d3" kindref="member">CUVIS_CHAR</ref> *</type>
+          <declname>o_pValue</declname>
+        </param>
+        <briefdescription>
+<para>Get string data from measurement. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Return string data from a measurement.</para>
+<para>This function can only be called, if he data type is <ref refid="cuvis_8h_1a2e7e9f8726f82dd959138a5bb6facb38a672eed2f9ed1c3d6fb48feb0ef51e6b5" kindref="member">data_type_string</ref>. This can be checked by the function <ref refid="group__cuvis__mesu_1gae3dd6455020bbe6f3fd23a0d4f765797" kindref="member">cuvis_measurement_get_data_info</ref>.</para>
+<para>see also: <ref refid="group__cuvis__reserved__keys" kindref="compound">Reserved Keys</ref></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_mesu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The measurement handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">i_key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the data frame identification key (see <ref refid="group__cuvis__mesu_1gae3dd6455020bbe6f3fd23a0d4f765797" kindref="member">cuvis_measurement_get_data_info</ref> or <ref refid="group__cuvis__reserved__keys" kindref="compound">Reserved Keys</ref>) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">i_outBufferlength</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the maximal possible length of the string that is going to be copied (see <ref refid="group__cuvis__mesu_1gae3dd6455020bbe6f3fd23a0d4f765797" kindref="member">cuvis_measurement_get_data_info</ref> or <ref refid="group__cuvis__reserved__keys" kindref="compound">Reserved Keys</ref>) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The string buffer to be filled. The provided array must have the length of <computeroutput>i_length</computeroutput> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dad52787b0cfb0da2c053a68bcdc54bc6f" kindref="member">status_ok</ref> if the buffer could be filled with the string. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="2224" column="5" declfile="docs/_api_sources/cuvis.h" declline="2224" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__mesu_1ga37bdb9d0d42b73c89e1f17c3780b09a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_measurement_get_data_string_length</definition>
+        <argsstring>(CUVIS_MESU i_mesu, const CUVIS_CHAR *i_key, CUVIS_SIZE *o_pLength)</argsstring>
+        <name>cuvis_measurement_get_data_string_length</name>
+        <param>
+          <type><ref refid="cuvis_8h_1a79fa4e0f6faf8ddaabf6ee66dfa00d3e" kindref="member">CUVIS_MESU</ref></type>
+          <declname>i_mesu</declname>
+        </param>
+        <param>
+          <type>const <ref refid="cuvis_8h_1ad6fd13ac609b8cbfad5f49e5ff0e11d3" kindref="member">CUVIS_CHAR</ref> *</type>
+          <declname>i_key</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1a7f1faedccb767d68d3c2d46d9d2904b6" kindref="member">CUVIS_SIZE</ref> *</type>
+          <declname>o_pLength</declname>
+        </param>
+        <briefdescription>
+<para>Get the length of string data from measurement. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the length of a string data from a measurement.</para>
+<para>This function can only be called, if he data type is <ref refid="cuvis_8h_1a2e7e9f8726f82dd959138a5bb6facb38a672eed2f9ed1c3d6fb48feb0ef51e6b5" kindref="member">data_type_string</ref>. This can be checked by the function <ref refid="group__cuvis__mesu_1gae3dd6455020bbe6f3fd23a0d4f765797" kindref="member">cuvis_measurement_get_data_info</ref>.</para>
+<para>see also: <ref refid="group__cuvis__reserved__keys" kindref="compound">Reserved Keys</ref></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_mesu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The measurement handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">i_key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the data frame identification key (see <ref refid="group__cuvis__mesu_1gae3dd6455020bbe6f3fd23a0d4f765797" kindref="member">cuvis_measurement_get_data_info</ref> or <ref refid="group__cuvis__reserved__keys" kindref="compound">Reserved Keys</ref>) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pLength</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The length of the string data </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dad52787b0cfb0da2c053a68bcdc54bc6f" kindref="member">status_ok</ref> if the length could be returned </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="2240" column="33" declfile="docs/_api_sources/cuvis.h" declline="2240" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__mesu_1gafc1564c9f80ad31609d0bba2dc0ef43a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_measurement_get_data_sensor_info</definition>
+        <argsstring>(CUVIS_MESU i_mesu, const CUVIS_CHAR *i_key, CUVIS_SENSOR_INFO *o_pValue)</argsstring>
+        <name>cuvis_measurement_get_data_sensor_info</name>
+        <param>
+          <type><ref refid="cuvis_8h_1a79fa4e0f6faf8ddaabf6ee66dfa00d3e" kindref="member">CUVIS_MESU</ref></type>
+          <declname>i_mesu</declname>
+        </param>
+        <param>
+          <type>const <ref refid="cuvis_8h_1ad6fd13ac609b8cbfad5f49e5ff0e11d3" kindref="member">CUVIS_CHAR</ref> *</type>
+          <declname>i_key</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1a931e89f92b30a44cdf3543d47f2647ab" kindref="member">CUVIS_SENSOR_INFO</ref> *</type>
+          <declname>o_pValue</declname>
+        </param>
+        <briefdescription>
+<para>Get image info data from measurement. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Return image data from a measurement. Tis</para>
+<para>This function can only be called, if he data type is <ref refid="cuvis_8h_1a2e7e9f8726f82dd959138a5bb6facb38a672eed2f9ed1c3d6fb48feb0ef51e6b5" kindref="member">data_type_string</ref>. This can be checked by the function <ref refid="group__cuvis__mesu_1gae3dd6455020bbe6f3fd23a0d4f765797" kindref="member">cuvis_measurement_get_data_info</ref>.</para>
+<para>see also: <ref refid="group__cuvis__reserved__keys" kindref="compound">Reserved Keys</ref></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_mesu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The measurement handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">i_key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the data frame identification key (see <ref refid="group__cuvis__mesu_1gae3dd6455020bbe6f3fd23a0d4f765797" kindref="member">cuvis_measurement_get_data_info</ref> or <ref refid="group__cuvis__reserved__keys" kindref="compound">Reserved Keys</ref>) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The string buffer to be filled. The provided array must have the length of <ref refid="cuvis_8h_1ad1666b5ec324ee74c77d9213106a02b2" kindref="member">CUVIS_MAXBUF</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dad52787b0cfb0da2c053a68bcdc54bc6f" kindref="member">status_ok</ref> if the buffer could be filled with the string. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="2257" column="33" declfile="docs/_api_sources/cuvis.h" declline="2257" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__mesu_1ga7f6dd9ceec343281e151282e537f1790" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_measurement_get_data_gps</definition>
+        <argsstring>(CUVIS_MESU i_mesu, const CUVIS_CHAR *i_key, CUVIS_GPS *o_pGps)</argsstring>
+        <name>cuvis_measurement_get_data_gps</name>
+        <param>
+          <type><ref refid="cuvis_8h_1a79fa4e0f6faf8ddaabf6ee66dfa00d3e" kindref="member">CUVIS_MESU</ref></type>
+          <declname>i_mesu</declname>
+        </param>
+        <param>
+          <type>const <ref refid="cuvis_8h_1ad6fd13ac609b8cbfad5f49e5ff0e11d3" kindref="member">CUVIS_CHAR</ref> *</type>
+          <declname>i_key</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1a185a87b4498b8f51eee9479bea77fe77" kindref="member">CUVIS_GPS</ref> *</type>
+          <declname>o_pGps</declname>
+        </param>
+        <briefdescription>
+<para>Get GPS data from measurement. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Return gps data from a measurement.</para>
+<para>This function can only be called, if he data type is <ref refid="cuvis_8h_1a2e7e9f8726f82dd959138a5bb6facb38a44cda61223b9fc1be39a58038b7a275c" kindref="member">data_type_gps</ref>. This can be checked by the function <ref refid="group__cuvis__mesu_1gae3dd6455020bbe6f3fd23a0d4f765797" kindref="member">cuvis_measurement_get_data_info</ref>.</para>
+<para>see also: <ref refid="group__cuvis__reserved__keys" kindref="compound">Reserved Keys</ref></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_mesu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The measurement handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">i_key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the data frame identification key (see <ref refid="group__cuvis__mesu_1gae3dd6455020bbe6f3fd23a0d4f765797" kindref="member">cuvis_measurement_get_data_info</ref> or <ref refid="group__cuvis__reserved__keys" kindref="compound">Reserved Keys</ref>) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pGps</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The gps buffer to be filled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dad52787b0cfb0da2c053a68bcdc54bc6f" kindref="member">status_ok</ref> if the buffer could be filled with the gps data set. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="2273" column="33" declfile="docs/_api_sources/cuvis.h" declline="2273" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__mesu_1gae3dd6455020bbe6f3fd23a0d4f765797" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_measurement_get_data_info</definition>
+        <argsstring>(CUVIS_MESU i_mesu, CUVIS_CHAR *o_pKey, CUVIS_DATA_TYPE *o_pType, CUVIS_INT i_id)</argsstring>
+        <name>cuvis_measurement_get_data_info</name>
+        <param>
+          <type><ref refid="cuvis_8h_1a79fa4e0f6faf8ddaabf6ee66dfa00d3e" kindref="member">CUVIS_MESU</ref></type>
+          <declname>i_mesu</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1ad6fd13ac609b8cbfad5f49e5ff0e11d3" kindref="member">CUVIS_CHAR</ref> *</type>
+          <declname>o_pKey</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1a2720a661b68e017d58464f9046cec0fc" kindref="member">CUVIS_DATA_TYPE</ref> *</type>
+          <declname>o_pType</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1a411e2de5f4fe2d2210e985d8f323b144" kindref="member">CUVIS_INT</ref></type>
+          <declname>i_id</declname>
+        </param>
+        <briefdescription>
+<para>get meta-information of a data element </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Retrieve the meta-informations of a data element identified by it&apos;s positional number. A measurement has N data elements (obtain N with the functions <ref refid="group__cuvis__mesu_1ga649438e6e0c1eefb3765cac12bd36ce8" kindref="member">cuvis_measurement_get_data_count</ref>) Thus, the meta-data of element 0 to N-1 can be obtained. The <computeroutput>o_pType</computeroutput> defined the data type: If it is <ref refid="cuvis_8h_1a2e7e9f8726f82dd959138a5bb6facb38aeb1684b8cc31ed40a89335f2efb1ab75" kindref="member">data_type_image</ref>, retrieve it with <ref refid="group__cuvis__mesu_1ga49ad169236b3ec059bdf9f3b1c7edf48" kindref="member">cuvis_measurement_get_data_image</ref>.</para>
+<para>If it is data type is <ref refid="cuvis_8h_1a2e7e9f8726f82dd959138a5bb6facb38a44cda61223b9fc1be39a58038b7a275c" kindref="member">data_type_gps</ref>, retrieve it with <ref refid="group__cuvis__mesu_1ga7f6dd9ceec343281e151282e537f1790" kindref="member">cuvis_measurement_get_data_gps</ref>. If it is <ref refid="cuvis_8h_1a2e7e9f8726f82dd959138a5bb6facb38a672eed2f9ed1c3d6fb48feb0ef51e6b5" kindref="member">data_type_string</ref>, retrieve with <ref refid="group__cuvis__mesu_1ga69c95ccd6171283e1c907d256c82ac2b" kindref="member">cuvis_measurement_get_data_string</ref> If it is <ref refid="cuvis_8h_1a2e7e9f8726f82dd959138a5bb6facb38acec48add5718d7a8e4c0f536dce74730" kindref="member">data_type_unsupported</ref>, the data cannot be retrieved.</para>
+<para>To retrieve the data, you will require the <computeroutput>o_pKey</computeroutput> wich you can obtain by using this function. The key is the name of the data channel.</para>
+<para>Some keys are reserved, see <ref refid="group__cuvis__reserved__keys" kindref="compound">Reserved Keys</ref></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_mesu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The measurement handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pKey</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output the data key </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data type </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">i_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of the data element </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dad52787b0cfb0da2c053a68bcdc54bc6f" kindref="member">status_ok</ref> if the data information could be obtained </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="2298" column="33" declfile="docs/_api_sources/cuvis.h" declline="2298" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__mesu_1ga649438e6e0c1eefb3765cac12bd36ce8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_measurement_get_data_count</definition>
+        <argsstring>(CUVIS_MESU i_mesu, CUVIS_INT *o_pCount)</argsstring>
+        <name>cuvis_measurement_get_data_count</name>
+        <param>
+          <type><ref refid="cuvis_8h_1a79fa4e0f6faf8ddaabf6ee66dfa00d3e" kindref="member">CUVIS_MESU</ref></type>
+          <declname>i_mesu</declname>
+        </param>
+        <param>
+          <type><ref refid="cuvis_8h_1a411e2de5f4fe2d2210e985d8f323b144" kindref="member">CUVIS_INT</ref> *</type>
+          <declname>o_pCount</declname>
+        </param>
+        <briefdescription>
+<para>Retrieve the number of data elements. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_mesu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The measurement handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pCount</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of data elements </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__cuvis__returns_1ggaa06c62ba25240f4763da0e590ebf3b9dad52787b0cfb0da2c053a68bcdc54bc6f" kindref="member">status_ok</ref> if the data element count could be retrieved </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="2306" column="33" declfile="docs/_api_sources/cuvis.h" declline="2306" declcolumn="33"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>How to interact with the Measurements taken by the SDK. </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

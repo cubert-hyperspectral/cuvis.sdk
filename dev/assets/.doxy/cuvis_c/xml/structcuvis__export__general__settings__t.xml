@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structcuvis__export__general__settings__t" kind="struct" language="C++" prot="public">
+    <compoundname>cuvis_export_general_settings_t</compoundname>
+    <includes refid="cuvis_8h" local="no">cuvis.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structcuvis__export__general__settings__t_1acee1c74fbc8c4296c229847dca4dac85" prot="public" static="no" mutable="no">
+        <type><ref refid="cuvis_8h_1ad6fd13ac609b8cbfad5f49e5ff0e11d3" kindref="member">CUVIS_CHAR</ref></type>
+        <definition>CUVIS_CHAR cuvis_export_general_settings_t::export_dir[CUVIS_MAXBUF]</definition>
+        <argsstring>[CUVIS_MAXBUF]</argsstring>
+        <name>export_dir</name>
+        <qualifiedname>cuvis_export_general_settings_t::export_dir</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The export directory </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1363" column="14" bodyfile="docs/_api_sources/cuvis.h" bodystart="1363" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__export__general__settings__t_1a2717f5964d7261c8d35b268d4590ee76" prot="public" static="no" mutable="no">
+        <type><ref refid="cuvis_8h_1a411e2de5f4fe2d2210e985d8f323b144" kindref="member">CUVIS_INT</ref></type>
+        <definition>CUVIS_INT cuvis_export_general_settings_t::add_fullscale_pan</definition>
+        <argsstring></argsstring>
+        <name>add_fullscale_pan</name>
+        <qualifiedname>cuvis_export_general_settings_t::add_fullscale_pan</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>add full-resolution pan to the export. The pan image is exported seperately </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1368" column="13" bodyfile="docs/_api_sources/cuvis.h" bodystart="1368" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__export__general__settings__t_1a64da83fbbe34b7658e04dc9a7f9be6ac" prot="public" static="no" mutable="no">
+        <type><ref refid="cuvis_8h_1a411e2de5f4fe2d2210e985d8f323b144" kindref="member">CUVIS_INT</ref></type>
+        <definition>CUVIS_INT cuvis_export_general_settings_t::permissive</definition>
+        <argsstring></argsstring>
+        <name>permissive</name>
+        <qualifiedname>cuvis_export_general_settings_t::permissive</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set exporter to &quot;permisive mode&quot;</para>
+<para>If set, errors will be skipped and alternative values assumed, wherever possible.</para>
+<para>E.g., if add_pan is selected but there is no panchromatic image avaialbe, the export is not possible. In permissive mode, however, the add_pan option is de-activated and an exprot without pan image is conducted instead.</para>
+<para><simplesect kind="note"><para>This mode may lead to unexpected behaviour and should be used with caution. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1380" column="13" bodyfile="docs/_api_sources/cuvis.h" bodystart="1380" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__export__general__settings__t_1a3d01336ce34e8eaa87e7b8d8d1982b9b" prot="public" static="no" mutable="no">
+        <type><ref refid="cuvis_8h_1aa82a88e4acba276449ed65cf9108c2d4" kindref="member">CUVIS_PANSHARPENING_SETTINGS</ref></type>
+        <definition>CUVIS_PANSHARPENING_SETTINGS cuvis_export_general_settings_t::pansharpening_settings</definition>
+        <argsstring></argsstring>
+        <name>pansharpening_settings</name>
+        <qualifiedname>cuvis_export_general_settings_t::pansharpening_settings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Settings regarding pansharpening and channel selection </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1384" column="32" bodyfile="docs/_api_sources/cuvis.h" bodystart="1384" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>general export settings </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="docs/_api_sources/cuvis.h" line="1360" column="1" bodyfile="docs/_api_sources/cuvis.h" bodystart="1361" bodyend="1385"/>
+    <listofallmembers>
+      <member refid="structcuvis__export__general__settings__t_1a2717f5964d7261c8d35b268d4590ee76" prot="public" virt="non-virtual"><scope>cuvis_export_general_settings_t</scope><name>add_fullscale_pan</name></member>
+      <member refid="structcuvis__export__general__settings__t_1acee1c74fbc8c4296c229847dca4dac85" prot="public" virt="non-virtual"><scope>cuvis_export_general_settings_t</scope><name>export_dir</name></member>
+      <member refid="structcuvis__export__general__settings__t_1a3d01336ce34e8eaa87e7b8d8d1982b9b" prot="public" virt="non-virtual"><scope>cuvis_export_general_settings_t</scope><name>pansharpening_settings</name></member>
+      <member refid="structcuvis__export__general__settings__t_1a64da83fbbe34b7658e04dc9a7f9be6ac" prot="public" virt="non-virtual"><scope>cuvis_export_general_settings_t</scope><name>permissive</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
