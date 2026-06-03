@@ -44,3 +44,11 @@ _assets/
 # uv-managed virtual envs and mkdocs build output.
 .venv/
 site/
+
+# mkdoxy-generated API reference pages (regenerated at each mkdocs build)
+docs/cuvis_c/
+docs/cuvis_cpp/
+
+# cuvis.h is sourced from the installed SDK at build time, not version-controlled.
+# Use scripts/fetch-cuvis-header.sh locally or the CI "Extract cuvis.h" step.
+docs/_api_sources/

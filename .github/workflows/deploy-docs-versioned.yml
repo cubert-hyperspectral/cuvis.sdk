@@ -1,9 +1,10 @@
-name: Deploy docs to GitHub Pages (nightly)
+name: Deploy versioned docs (mike)
 
 on:
   push:
-    branches: [main]
-
+    tags:
+      - "v*.*.*"
+      
 permissions:
   contents: write
 
@@ -46,5 +47,14 @@ jobs:
       - name: Build docs (strict)
         run: uv run mkdocs build --strict
 
-      - name: Deploy dev (nightly) docs
-        run: uv run mike deploy --push dev
+      - name: Get version from tag
+        id: get_version
+        run: |
+          VERSION="${{ github.ref_name }}"
+          VERSION="${VERSION#v}"
+          echo "VERSION=${VERSION}" >> "$GITHUB_OUTPUT"
+
+      - name: Deploy docs with mike
+        run: |
+          uv run mike deploy --push --update-aliases ${{ steps.get_version.outputs.VERSION }} latest
+          uv run mike set-default --push latest
