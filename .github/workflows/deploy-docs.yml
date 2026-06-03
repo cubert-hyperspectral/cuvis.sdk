@@ -2,7 +2,8 @@ name: Deploy docs to GitHub Pages (nightly)
 
 on:
   push:
-    branches: [main]
+    branches: [main, hotfix/fix_gh_pages_deploy]
+
 
 permissions:
   contents: write
