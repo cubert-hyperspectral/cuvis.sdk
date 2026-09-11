@@ -2,91 +2,81 @@
 
 How to publish a new Cuvis C SDK version on GitHub Releases.
 
+A release is a `v<version>` tag on `main`. Everything after that is `.github/workflows/release.yml`.
+Nothing runs on a developer machine, and no PowerShell or Nextcloud credential is involved.
+
 ## Prerequisites
 
-- Installers downloaded into `_assets/Cuvis <ver>/...` (use `scripts/fetch-installers.ps1`).
-- `gh` CLI authenticated against `cubert-hyperspectral/cuvis.sdk` with `repo` scope.
-- PowerShell 7+ (`pwsh`).
+- The SDK share for the version is published on `cloud.cubert-gmbh.de`, and its share token is named
+  `cuvis_sdk_release_ver_<version without dots>`. For 3.6.0 that is `cuvis_sdk_release_ver_360`.
+  The workflow builds that URL from the tag; a share under any other name fails the run at its first step.
+  cuvis.docker and cuvis.pyil read the same share, so it is usually already correct by the time this repository releases.
+- The submodules on `main` point at the wrapper releases for this SDK.
+- `CHANGELOG.md` has a `## [<version>] - <date>` section and an empty `## [Unreleased]` above it.
 
-## Publish a new version (e.g. v3.5.3)
+## Publish a new version
 
-```powershell
-git tag v3.5.3
-git push origin v3.5.3
-gh release create v3.5.3 --draft --notes-file release-notes/v3.5.3.md
-pwsh scripts/stage-release-assets.ps1 -Version 3.5.3 -Upload
-gh release edit v3.5.3 --draft=false
+```bash
+git checkout main && git pull
+git tag -a v3.6.0 -m "Cuvis SDK 3.6.0"
+git push origin v3.6.0
 ```
 
-## Add assets to an existing empty release (e.g. v3.4.1)
+The workflow then validates the tag against `CHANGELOG.md` and confirms it is on `main`, downloads the
+share zip for that version, stages the installers into the flat asset names, lints them, and opens a
+**draft** Release whose body is the changelog section.
 
-If the tag/release already exists but has no assets attached, skip the tag/create
-steps and only stage + upload:
+Check the asset list, then publish the Release. `release-asset-lint.yml` lints it again on publish.
 
-```powershell
-pwsh scripts/stage-release-assets.ps1 -Version 3.4.1 -Upload
+## Dry-running a share
+
+A pre-release tag stages and lints without creating a Release, which is the cheapest way to check a share
+that was just uploaded:
+
+```bash
+git tag -a v3.6.0rc1 -m "dry run" && git push origin v3.6.0rc1
 ```
 
-The release stays published; only its asset list changes.
+A final release also fails when a variant folder holds no package, which is how a build job that produced
+nothing stops being a silently missing platform. A pre-release only warns.
 
-## What `stage-release-assets.ps1` does
+To check a local tree instead:
 
-1. Reads `_assets/Cuvis <ver>/` (downloaded by `fetch-installers.ps1`).
-2. Parses each parent directory like
-   `Ubuntu 22.04-arm64-cuda13.0-jetson-experimental` into `(os, arch, cuda)`
-   tokens.
-3. Renames binaries to the canonical flat scheme:
-   `<pkg>_<pkgver>_<os>_<arch>_<cuda>.<ext>`.
-4. Renames PDFs:
-   - `Release Notes.pdf` → `RELEASE-NOTES_v<ver>.pdf`
-   - `Application_Notes_Cuvis_SDK_<topic>.pdf` →
-     `Application-Notes_Cuvis-SDK_<topic>.pdf`
-5. Computes SHA-256 for every binary and PDF and writes an aggregate
-   `SHA256SUMS.txt`. (No per-file `.sha256` sidecars — they doubled the
-   asset count for no real benefit; users can `grep <name> SHA256SUMS.txt`
-   or read the GitHub API's per-asset `digest` field.)
-6. Runs `scripts/lint-release-assets.ps1` against the staged file set; aborts
-   on the first mismatch.
-7. With `-Upload`: uploads everything to the matching `v<ver>` release via
-   `gh release upload --clobber`.
+```bash
+python scripts/release_assets.py stage --version 3.6.0 --source _assets
+python scripts/release_assets.py lint --path _assets/.staging/v3.6.0
+```
 
-Staging happens under `_assets/.staging/v<ver>/` (gitignored).
+## What the staging does
 
-## CI guard
-
-`.github/workflows/release-asset-lint.yml` runs the same lint script on every
-`release: published` and `release: edited` event, plus on-demand via
-`workflow_dispatch` (with a `tag` input). Every uploaded asset must match
-either:
-
-- **Pattern A** (installers/packages): `<pkg>_<pkgver>_<os>_<arch>_<cuda>.<ext>`
-- **Pattern B** (release metadata): `SHA256SUMS.txt`, `<asset>.sha256`,
-  `RELEASE-NOTES*.pdf`, `Application-Notes_Cuvis-SDK*.pdf`, etc.
-
-See `scripts/lint-release-assets.ps1` for the canonical regexes — the same
-patterns are also exported by `python/cuvis_sdk_url.py` and used by the
-in-repo docs site selector (`docs/javascripts/sdk-installer.js`).
+1. Reads `_assets/Cuvis <version>/`, one directory per variant.
+2. Parses each directory name into `(os, osver, arch, cuda, variant)`.
+3. Renames the packages to `<pkg>_<pkgver>_<os>[-<variant>]_<arch>_<cuda>.<ext>`.
+4. Renames the documents: `Release Notes.pdf` to `RELEASE-NOTES_v<version>.pdf`, and
+   `Application_Notes_Cuvis_SDK_<topic>.pdf` to `Application-Notes_Cuvis-SDK_<topic>.pdf`.
+5. Writes one aggregate `SHA256SUMS.txt`. There are no per-file `.sha256` sidecars; they doubled the asset
+   count for no benefit, and the GitHub API exposes a per-asset `digest` anyway.
+6. Lints the staged names and fails before anything is uploaded.
 
 ## Token grammar
 
 | Token | Examples | Notes |
 | --- | --- | --- |
-| `<pkg>` | `Cuvis_C_SDK_Installer`, `libcuvis`, `cuviscommon` | Selector treats `libcuvis` + `cuviscommon` as a Linux pair on Ubuntu. |
-| `<pkgver>` | `3.5.3`, `3.5.3-0`, `3.4.1-1` | Carries the upstream installer's debian-revision verbatim. Selector groups by **release tag**, not `<pkgver>`. |
-| `<os>` | `Windows`, `Ubuntu24.04`, `Ubuntu22.04-jetson`, `Ubuntu22.04-jetson-experimental` | Jetson is an OS flavor. Promote `*-jetson-experimental` → `*-jetson` when stable. |
-| `<arch>` | `amd64`, `arm64` | Clean ISA enum. Jetson lives in `<os>`, not here. |
-| `<cuda>` | `nocuda`, `cuda11.8`, `cuda12.2`, `cuda12.3`, `cuda12.6`, `cuda13.0` | Extend as needed; the lint regex permits any `cuda<digits>.<digits>`. |
+| `<pkg>` | `Cuvis_C_SDK_Installer`, `libcuvis`, `cuviscommon` | The selector treats `libcuvis` and `cuviscommon` as a Linux pair on Ubuntu. |
+| `<pkgver>` | `3.6.0`, `3.6.0-0` | Carries the upstream installer's debian revision verbatim. The selector groups by release tag, not by `<pkgver>`. |
+| `<os>` | `Windows`, `Ubuntu24.04`, `Ubuntu24.04-jetson` | Jetson is an OS flavour, not an architecture. The suffix is whatever the share folder carries, so `-jetson-experimental` still works. |
+| `<arch>` | `amd64`, `arm64` | |
+| `<cuda>` | `nocuda`, `cuda12.2`, `cuda12.9`, `cuda13.3` | The share spells the CUDA-less build `cudano` since 3.6.0. Both spellings parse; published names keep `nocuda` so one selector resolves every release back to v3.2. |
 | `<ext>` | `exe`, `deb`, `msi`, `dmg`, `pkg`, `tar.gz` | |
 
-## Why one regex, three places?
+The os, arch, cuda and variant tokens are open patterns rather than fixed lists.
+The SDK renames them between releases, and a closed list turns every rename into a failed release, which is
+exactly what `cudano` did in 3.6.0.
 
-- **Lint script** (this directory) — the source of truth; every release CI run
-  shells out to it.
-- **`scripts/cuvis_sdk_url.py`** — `REGEX_INSTALLER` / `REGEX_METADATA`;
-  consumed at build time by the docs macros (via a `sys.path` injection in
-  `tools/docs_macros.py`) and as a CLI for shell-side URL resolution
-  (`uv run scripts/cuvis_sdk_url.py …`).
-- **`docs/javascripts/sdk-installer.js`** — same Pattern A / B for client-side
-  parsing of the GitHub Releases API.
+## Where the grammar lives
 
-If you change one, update the other two and bump the docs site cache key.
+- **`scripts/asset_names.py`** is the source of truth. `scripts/release_assets.py` and
+  `scripts/cuvis_sdk_url.py` both import it, so staging, linting, the CLI and the docs macros cannot disagree.
+- **`docs/javascripts/sdk-installer.js`** keeps its own copy, because it parses the GitHub Releases API in the
+  browser. `scripts/tests/test_asset_names.py` asserts that copy still accepts every name the stager produces,
+  so it cannot drift silently. If you change it, bump the docs site cache key.

@@ -18,9 +18,10 @@ Two consumption modes (pure stdlib — urllib.request, json, re, time, argparse)
   as the noscript fallback on the selector page. tools/docs_macros.py adds
   this directory to `sys.path` before the import.
 
-Exported regexes: REGEX_INSTALLER (Pattern A), REGEX_METADATA (Pattern B) —
-identical to the patterns in scripts/lint-release-assets.ps1 and the JS
-selector. If you change one, update the other two.
+The naming grammar lives in scripts/asset_names.py and is re-exported here as
+REGEX_INSTALLER (Pattern A) and REGEX_METADATA (Pattern B). The selector in
+docs/javascripts/sdk-installer.js carries its own copy; scripts/tests guards it
+against drift by checking it accepts every name the stager produces.
 """
 
 from __future__ import annotations
@@ -33,26 +34,15 @@ import time
 import urllib.request
 from typing import Any
 
+from asset_names import ASSET, METADATA
+
 REPO = "cubert-hyperspectral/cuvis.sdk"
 RELEASES_URL = f"https://api.github.com/repos/{REPO}/releases?per_page=100"
 
-# Pattern A — installers/packages (drives the selector dropdowns).
-REGEX_INSTALLER = re.compile(
-    r"^(?P<pkg>Cuvis_C_SDK_Installer|libcuvis|cuviscommon)"
-    r"_(?P<pkgver>[0-9.]+(?:-[0-9]+)?)"
-    r"_(?P<os>Windows|macOS|Ubuntu[0-9.]+(?:-jetson(?:-experimental)?)?)"
-    r"_(?P<arch>amd64|arm64)"
-    r"_(?P<cuda>nocuda|cuda[0-9.]+)"
-    r"\.(?P<ext>exe|deb|msi|dmg|pkg|tar\.gz)$"
-)
-
-# Pattern B — release metadata (allowed in the release, not in the dropdowns).
-REGEX_METADATA = re.compile(
-    r"^(SHA256SUMS\.txt|.+\.sha256|"
-    r"RELEASE-NOTES(?:_v[0-9.]+)?\.pdf|"
-    r"Application-Notes_Cuvis-SDK(?:_[A-Za-z0-9-]+)?\.pdf|"
-    r".+\.pdf|README\.md|RELEASE-NOTES\.md)$"
-)
+# Pattern A (installers/packages, drives the selector dropdowns) and Pattern B
+# (release metadata), both from the shared grammar.
+REGEX_INSTALLER = ASSET
+REGEX_METADATA = METADATA
 
 _PKG_ROLE = {
     "Cuvis_C_SDK_Installer": "installer",
@@ -115,7 +105,7 @@ def _matching_pattern_a(
     out: dict[str, dict[str, str]] = {}
     for asset in release.get("assets", []):
         name = asset.get("name", "")
-        m = REGEX_INSTALLER.match(name)
+        m = REGEX_INSTALLER.fullmatch(name)
         if not m:
             continue
         if (
@@ -124,7 +114,9 @@ def _matching_pattern_a(
             or m.group("cuda") != cuda
         ):
             continue
-        role = _PKG_ROLE[m.group("pkg")]
+        role = _PKG_ROLE.get(m.group("pkg"))
+        if role is None:
+            continue
         out[role] = {
             "name": name,
             "url": asset.get("browser_download_url", ""),
@@ -270,7 +262,7 @@ def list_release_metadata(
     out: dict[str, str] = {}
     for asset in release.get("assets", []):
         name = asset.get("name", "")
-        if REGEX_METADATA.match(name) and not REGEX_INSTALLER.match(name):
+        if REGEX_METADATA.fullmatch(name) and not REGEX_INSTALLER.fullmatch(name):
             out[name] = asset.get("browser_download_url", "")
     return out
 

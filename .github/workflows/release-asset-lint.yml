@@ -30,8 +30,7 @@ jobs:
           fi
 
       - name: Lint release assets
-        shell: pwsh
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          ./scripts/lint-release-assets.ps1 -Tag "${{ steps.tag.outputs.value }}" -Repo "${{ github.repository }}"
+          python3 scripts/release_assets.py lint --tag "${{ steps.tag.outputs.value }}" --repo "${{ github.repository }}"
