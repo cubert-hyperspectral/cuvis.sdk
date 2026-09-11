@@ -84,7 +84,7 @@ def _full_release(tag="v3.5.3", prerelease=False):
 
 class TestRegexes:
     def test_pattern_a_windows(self):
-        m = REGEX_INSTALLER.match(WIN_ASSET)
+        m = REGEX_INSTALLER.fullmatch(WIN_ASSET)
         assert m
         assert m.group("pkg") == "Cuvis_C_SDK_Installer"
         assert m.group("pkgver") == "3.5.3"
@@ -94,38 +94,38 @@ class TestRegexes:
         assert m.group("ext") == "exe"
 
     def test_pattern_a_ubuntu(self):
-        assert REGEX_INSTALLER.match(LIB_ASSET)
-        assert REGEX_INSTALLER.match(COM_ASSET)
+        assert REGEX_INSTALLER.fullmatch(LIB_ASSET)
+        assert REGEX_INSTALLER.fullmatch(COM_ASSET)
 
     def test_pattern_a_jetson_experimental(self):
-        m = REGEX_INSTALLER.match(JET_LIB)
+        m = REGEX_INSTALLER.fullmatch(JET_LIB)
         assert m
         assert m.group("os") == "Ubuntu22.04-jetson-experimental"
         assert m.group("arch") == "arm64"
         assert m.group("cuda") == "cuda13.0"
 
     def test_pkgver_carries_debian_revision(self):
-        assert REGEX_INSTALLER.match(LIB_ASSET).group("pkgver") == "3.5.3-0"
+        assert REGEX_INSTALLER.fullmatch(LIB_ASSET).group("pkgver") == "3.5.3-0"
 
     def test_pkgver_without_debian_revision(self):
-        assert REGEX_INSTALLER.match(WIN_ASSET).group("pkgver") == "3.5.3"
+        assert REGEX_INSTALLER.fullmatch(WIN_ASSET).group("pkgver") == "3.5.3"
 
     def test_pattern_b_pdf(self):
-        assert REGEX_METADATA.match(PDF)
-        assert REGEX_METADATA.match(APP_PDF)
+        assert REGEX_METADATA.fullmatch(PDF)
+        assert REGEX_METADATA.fullmatch(APP_PDF)
 
     def test_pattern_b_sums(self):
-        assert REGEX_METADATA.match(SUMS)
+        assert REGEX_METADATA.fullmatch(SUMS)
 
     def test_pattern_b_sha256_sidecar(self):
-        assert REGEX_METADATA.match(SHA_SIDECAR)
+        assert REGEX_METADATA.fullmatch(SHA_SIDECAR)
         # Sidecars must NOT also match Pattern A.
-        assert not REGEX_INSTALLER.match(SHA_SIDECAR)
+        assert not REGEX_INSTALLER.fullmatch(SHA_SIDECAR)
 
     def test_unmatched_name_fails_both(self):
         bad = "notes.txt"
-        assert not REGEX_INSTALLER.match(bad)
-        assert not REGEX_METADATA.match(bad)
+        assert not REGEX_INSTALLER.fullmatch(bad)
+        assert not REGEX_METADATA.fullmatch(bad)
 
 
 # --- sdk_urls -------------------------------------------------------------

@@ -1,0 +1,78 @@
+name: Release
+
+# Pushing a vX.Y.Z tag on main publishes the SDK installers for that version as GitHub
+# Release assets, taken from the public share for the same version. The Release is left
+# as a draft so the asset list gets an eyeball before it goes public.
+# A pre-release tag (vX.Y.Zrc1) stages and lints without creating a Release, which makes
+# it the dry run for a share that was just uploaded.
+on:
+  push:
+    tags: ['v*']
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    name: Publish release assets
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - id: meta
+        uses: cubert-hyperspectral/cuvis.docker/.github/actions/release-meta@main
+        with:
+          version: ${{ github.ref_name }}
+
+      - uses: cubert-hyperspectral/cuvis.docker/.github/actions/tag-on-main@main
+
+      - uses: cubert-hyperspectral/cuvis.docker/.github/actions/changelog@main
+        with:
+          version: ${{ steps.meta.outputs.sdk }}
+          prerelease: ${{ steps.meta.outputs.prerelease }}
+
+      - name: Download the SDK release
+        env:
+          SDK: ${{ steps.meta.outputs.sdk }}
+        run: |
+          url="https://cloud.cubert-gmbh.de/s/cuvis_sdk_release_ver_${SDK//./}/download"
+          if ! curl -fsSL -o "$RUNNER_TEMP/sdk.zip" "$url"; then
+            echo "::error::cuvis SDK ${SDK} is not available at ${url}. Publish the share and name its token cuvis_sdk_release_ver_${SDK//./}."
+            exit 1
+          fi
+          unzip -q "$RUNNER_TEMP/sdk.zip" -d _assets
+
+      # A pre-release share may still be missing variants; those are a warning there and a
+      # failure on a final release, the same rule cuvis.docker and cuvis.pyil apply.
+      - name: Stage and lint the assets
+        env:
+          SDK: ${{ steps.meta.outputs.sdk }}
+          PRERELEASE: ${{ steps.meta.outputs.prerelease }}
+        run: |
+          STRICT=$([ "$PRERELEASE" = true ] || echo --strict)
+          python3 scripts/release_assets.py stage --version "$SDK" $STRICT
+
+      - id: notes
+        if: steps.meta.outputs.prerelease == 'false'
+        uses: cubert-hyperspectral/cuvis.docker/.github/actions/changelog@main
+        with:
+          mode: extract
+          version: ${{ steps.meta.outputs.sdk }}
+
+      - name: Create the draft release
+        if: steps.meta.outputs.prerelease == 'false'
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Cuvis SDK ${{ steps.meta.outputs.sdk }}
+          body: ${{ steps.notes.outputs.body }}
+          files: _assets/.staging/v${{ steps.meta.outputs.sdk }}/*
+          draft: true
+          prerelease: false

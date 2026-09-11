@@ -87,15 +87,15 @@ non-prerelease release.
 
 The values you pass to `--os`, `--arch`, `--cuda` must match the asset's
 filename tokens exactly. They're enforced by the
-[Pattern A regex](https://github.com/cubert-hyperspectral/cuvis.sdk/blob/main/scripts/lint-release-assets.ps1).
+[naming grammar](https://github.com/cubert-hyperspectral/cuvis.sdk/blob/main/scripts/asset_names.py).
 
 | Param | Allowed values |
 | --- | --- |
-| `--os` | `Windows`, `macOS`, `Ubuntu20.04`, `Ubuntu22.04`, `Ubuntu24.04`, `Ubuntu*-jetson-experimental` |
+| `--os` | `Windows`, `macOS`, `Ubuntu22.04`, `Ubuntu24.04`, `Ubuntu26.04`, `Ubuntu*-jetson` |
 | `--arch` | `amd64`, `arm64` |
-| `--cuda` | `nocuda`, `cuda11.8`, `cuda12.2`, `cuda12.3`, `cuda12.6`, `cuda13.0` |
+| `--cuda` | `nocuda`, `cuda12.2`, `cuda12.9`, `cuda13.2`, `cuda13.3` |
 | `--package` (only `url`) | `installer` (default), `libcuvis`, `cuviscommon` |
-| `--version` | `None` = latest non-prerelease, or a tag like `v3.5.3` |
+| `--version` | `None` = latest non-prerelease, or a tag like `v3.6.0` |
 
 If no asset matches the combination, the script exits 1 with a `LookupError`
 message on stderr.

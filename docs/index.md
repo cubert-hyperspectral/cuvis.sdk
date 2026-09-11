@@ -7,8 +7,8 @@ the SDK and finding the language binding that fits your project.
 ## Get started
 
 - **[Install the SDK](installation.md)** — pick your OS, CPU architecture, and
-  CUDA stack from the selector. Works for Windows, Ubuntu 20.04 / 22.04 /
-  24.04 (amd64 and Jetson arm64), and macOS.
+  CUDA stack from the selector. Works for Windows, Ubuntu 22.04 / 24.04 /
+  26.04 (amd64 and Jetson arm64), and macOS.
 - **All releases:** [github.com/cubert-hyperspectral/cuvis.sdk/releases](https://github.com/cubert-hyperspectral/cuvis.sdk/releases) — every
   installer, every version, every platform. The selector page is just a
   filter on top of these.
