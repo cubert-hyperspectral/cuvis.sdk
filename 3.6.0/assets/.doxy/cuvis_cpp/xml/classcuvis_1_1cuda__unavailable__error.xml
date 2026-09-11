@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classcuvis_1_1cuda__unavailable__error" kind="class" language="C++" prot="public">
+    <compoundname>cuvis::cuda_unavailable_error</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">std::runtime_error</basecompoundref>
+    <includes refid="cuvis_8hpp" local="no">cuvis.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcuvis_1_1cuda__unavailable__error_1aed272ae8a22a46c86bce27100441065d" prot="private" static="no" mutable="no">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">char</ref> <ref refid="structcuvis_1_1image__t" kindref="compound">const</ref>  *</type>
+        <definition>char const* cuvis::cuda_unavailable_error::_name</definition>
+        <argsstring></argsstring>
+        <name>_name</name>
+        <qualifiedname>cuvis::cuda_unavailable_error::_name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="881" column="16" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="881" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcuvis_1_1cuda__unavailable__error_1a937332aea3991c45e46fdea41e40a512" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>cuvis::cuda_unavailable_error::cuda_unavailable_error</definition>
+        <argsstring>(char const *name)</argsstring>
+        <name>cuda_unavailable_error</name>
+        <qualifiedname>cuvis::cuda_unavailable_error::cuda_unavailable_error</qualifiedname>
+        <param>
+          <type><ref refid="structcuvis_1_1image__t" kindref="compound">char</ref> <ref refid="structcuvis_1_1image__t" kindref="compound">const</ref> *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="872" column="14" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="872" bodyend="876"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1cuda__unavailable__error_1a09f873600ef5164270599131bd8fb1ab" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">char</ref> <ref refid="structcuvis_1_1image__t" kindref="compound">const</ref> *</type>
+        <definition>char const  * cuvis::cuda_unavailable_error::name</definition>
+        <argsstring>() const</argsstring>
+        <name>name</name>
+        <qualifiedname>cuvis::cuda_unavailable_error::name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="878" column="16" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="878" bodyend="878"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>The loaded cuvis library does not provide a CUDA function that was called. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>cuvis::cuda_unavailable_error</label>
+        <link refid="classcuvis_1_1cuda__unavailable__error"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::runtime_error</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>cuvis::cuda_unavailable_error</label>
+        <link refid="classcuvis_1_1cuda__unavailable__error"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::runtime_error</label>
+      </node>
+    </collaborationgraph>
+    <location file="cuvis.cpp/interface/cuvis.hpp" line="869" column="3" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="870" bodyend="882"/>
+    <listofallmembers>
+      <member refid="classcuvis_1_1cuda__unavailable__error_1aed272ae8a22a46c86bce27100441065d" prot="private" virt="non-virtual"><scope>cuvis::cuda_unavailable_error</scope><name>_name</name></member>
+      <member refid="classcuvis_1_1cuda__unavailable__error_1a937332aea3991c45e46fdea41e40a512" prot="public" virt="non-virtual"><scope>cuvis::cuda_unavailable_error</scope><name>cuda_unavailable_error</name></member>
+      <member refid="classcuvis_1_1cuda__unavailable__error_1a09f873600ef5164270599131bd8fb1ab" prot="public" virt="non-virtual"><scope>cuvis::cuda_unavailable_error</scope><name>name</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

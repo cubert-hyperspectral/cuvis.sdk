@@ -1,0 +1,486 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="group__cuvis__cuda" kind="group">
+    <compoundname>cuvis_cuda</compoundname>
+    <title>Cuda Device Memory</title>
+    <innerclass refid="structcuvis__cuda__ipc__descriptor__t" prot="public">cuvis_cuda_ipc_descriptor_t</innerclass>
+    <innerclass refid="structcuvis__cuda__mem__view__t" prot="public">cuvis_cuda_mem_view_t</innerclass>
+    <innerclass refid="structcuvis__cuda__imbuffer__t" prot="public">cuvis_cuda_imbuffer_t</innerclass>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__cuvis__cuda_1ga06fc87d81c62e9abb8790b6e5713c55b" prot="public" static="no" strong="no">
+        <type></type>
+        <name></name>
+        <enumvalue id="group__cuvis__cuda_1gga06fc87d81c62e9abb8790b6e5713c55bad271441390b0d2b6081f31b5187d3396" prot="public">
+          <name>CUVIS_CUDA_IPC_BACKEND_AUTO</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__cuvis__cuda_1gga06fc87d81c62e9abb8790b6e5713c55baa6d93bf7b95f7a7c9c33a401ed5811d7" prot="public">
+          <name>CUVIS_CUDA_IPC_BACKEND_POOL</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__cuvis__cuda_1gga06fc87d81c62e9abb8790b6e5713c55bae0bb3a972d9f06d5f8d8a89a2ffbdf5f" prot="public">
+          <name>CUVIS_CUDA_IPC_BACKEND_LEGACY</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__cuvis__cuda_1gga06fc87d81c62e9abb8790b6e5713c55bad2e7fe20bf075c773d6e26d3c8618a33" prot="public">
+          <name>CUVIS_CUDA_IPC_BACKEND_VMM</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3400" column="1" bodyfile="docs/_api_sources/cuvis.h" bodystart="3401" bodyend="3406"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__cuvis__cuda_1gadf764cbdea00d65edcd07bb9953ad2b7" prot="public" static="no" strong="no">
+        <type></type>
+        <name></name>
+        <enumvalue id="group__cuvis__cuda_1ggadf764cbdea00d65edcd07bb9953ad2b7a915790fef4da839081d894133498d3db" prot="public">
+          <name>CUVIS_CUDA_IPC_HANDLE_NONE</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__cuvis__cuda_1ggadf764cbdea00d65edcd07bb9953ad2b7ae3ce655adae2bc9105d1ec1d0702cf73" prot="public">
+          <name>CUVIS_CUDA_IPC_HANDLE_WIN32</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__cuvis__cuda_1ggadf764cbdea00d65edcd07bb9953ad2b7a8008c08d1c7598403b6373ce7be744b4" prot="public">
+          <name>CUVIS_CUDA_IPC_HANDLE_WIN32_KMT</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__cuvis__cuda_1ggadf764cbdea00d65edcd07bb9953ad2b7a1f74a5a45fe9f931d98f43995b480df0" prot="public">
+          <name>CUVIS_CUDA_IPC_HANDLE_POSIX_FD</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3408" column="1" bodyfile="docs/_api_sources/cuvis.h" bodystart="3409" bodyend="3414"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__cuvis__cuda_1ga99fb83031ce9923c84392b4e92f956b5" prot="public" static="no" strong="no">
+        <type></type>
+        <name></name>
+        <enumvalue id="group__cuvis__cuda_1gga99fb83031ce9923c84392b4e92f956b5ae6e1591ab742f1fe266703710ba51a14" prot="public">
+          <name>CUVIS_CUDA_IPC_BLOB_MAX</name>
+          <initializer>= 64</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3417" column="1" bodyfile="docs/_api_sources/cuvis.h" bodystart="3418" bodyend="3420"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__cuvis__cuda_1gabc6126af1d45847bc59afa0aa3216b04" prot="public" static="no" strong="no">
+        <type></type>
+        <name></name>
+        <enumvalue id="group__cuvis__cuda_1ggabc6126af1d45847bc59afa0aa3216b04aecb6c062b5be1eb9220aa51aa8d3835f" prot="public">
+          <name>CUVIS_CUDA_IPC_PTR_BLOB_MAX</name>
+          <initializer>= 64</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3421" column="1" bodyfile="docs/_api_sources/cuvis.h" bodystart="3422" bodyend="3424"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="group__cuvis__cuda_1gaf2a82fb0c007859d276231c1ac294c31" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_cuda_mem_get_view</definition>
+        <argsstring>(CUVIS_CUDA_MEM i_mem, CUVIS_CUDA_MEM_VIEW *o_pView)</argsstring>
+        <name>cuvis_cuda_mem_get_view</name>
+        <param>
+          <type><ref refid="group__cuvis__cuda_1ga3ed66f1c955a1dde8c82207e093c6da8" kindref="member">CUVIS_CUDA_MEM</ref></type>
+          <declname>i_mem</declname>
+        </param>
+        <param>
+          <type><ref refid="group__cuvis__cuda_1gab107e79d1306b250d618b710d57caec0" kindref="member">CUVIS_CUDA_MEM_VIEW</ref> *</type>
+          <declname>o_pView</declname>
+        </param>
+        <briefdescription>
+<para>return the raw device pointer + size + device index for wrapping it in the same process. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_mem</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The cuda memory handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pView</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Returns device pointer + size + device index </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3465" column="33" declfile="docs/_api_sources/cuvis.h" declline="3465" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__cuda_1ga7c443a9b697b6d85c064e55489e88814" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_cuda_mem_copy_handle</definition>
+        <argsstring>(CUVIS_CUDA_MEM i_mem, CUVIS_CUDA_MEM *o_pCopy)</argsstring>
+        <name>cuvis_cuda_mem_copy_handle</name>
+        <param>
+          <type><ref refid="group__cuvis__cuda_1ga3ed66f1c955a1dde8c82207e093c6da8" kindref="member">CUVIS_CUDA_MEM</ref></type>
+          <declname>i_mem</declname>
+        </param>
+        <param>
+          <type><ref refid="group__cuvis__cuda_1ga3ed66f1c955a1dde8c82207e093c6da8" kindref="member">CUVIS_CUDA_MEM</ref> *</type>
+          <declname>o_pCopy</declname>
+        </param>
+        <briefdescription>
+<para>Make a copy of the supplied cuda memory handle. Afterwards both handles need to be freed for the underlying memory to be released. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_mem</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The cuda memory handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pCopy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new cuda memory handle </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3471" column="33" declfile="docs/_api_sources/cuvis.h" declline="3471" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__cuda_1ga279ee0bd5d74b193bec43010407f10c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS cuvis_measurement_get_data_image_cuda</definition>
+        <argsstring>(CUVIS_MESU i_mesu, const CUVIS_CHAR *i_key, CUVIS_CUDA_IMBUFFER *o_pBuf)</argsstring>
+        <name>cuvis_measurement_get_data_image_cuda</name>
+        <param>
+          <type><ref refid="cuvis_8h_1a79fa4e0f6faf8ddaabf6ee66dfa00d3e" kindref="member">CUVIS_MESU</ref></type>
+          <declname>i_mesu</declname>
+        </param>
+        <param>
+          <type>const <ref refid="cuvis_8h_1ad6fd13ac609b8cbfad5f49e5ff0e11d3" kindref="member">CUVIS_CHAR</ref> *</type>
+          <declname>i_key</declname>
+        </param>
+        <param>
+          <type><ref refid="group__cuvis__cuda_1ga941b2ef47cfd1e6fdb987d2bd7069309" kindref="member">CUVIS_CUDA_IMBUFFER</ref> *</type>
+          <declname>o_pBuf</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3491" column="23" declfile="docs/_api_sources/cuvis.h" declline="3491" declcolumn="23"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__cuda_1gae2f380c7b9f1217bdbad576e35b2bd19" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_cuda_ipc_handle_create</definition>
+        <argsstring>(CUVIS_CUDA_MEM i_mem, int i_backend, CUVIS_CUDA_IPC *o_pIpc)</argsstring>
+        <name>cuvis_cuda_ipc_handle_create</name>
+        <param>
+          <type><ref refid="group__cuvis__cuda_1ga3ed66f1c955a1dde8c82207e093c6da8" kindref="member">CUVIS_CUDA_MEM</ref></type>
+          <declname>i_mem</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>i_backend</declname>
+        </param>
+        <param>
+          <type><ref refid="group__cuvis__cuda_1gaa1fabfcef6c49434abef21e1295fd221" kindref="member">CUVIS_CUDA_IPC</ref> *</type>
+          <declname>o_pIpc</declname>
+        </param>
+        <briefdescription>
+<para>Registers an cuda memory allocation to be used with cudas IPC protocols. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is only supported for specific implementations. For the memory to be released both handles need to be freed. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_mem</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The cuda memory handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pIpc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new cuda ipc handle </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3501" column="33" declfile="docs/_api_sources/cuvis.h" declline="3501" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__cuda_1ga5c20ac048a247af67c0b8faba338ff99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_cuda_ipc_get_descriptor</definition>
+        <argsstring>(CUVIS_CUDA_IPC i_ipc, CUVIS_CUDA_IPC_DESCRIPTOR *o_pDesc)</argsstring>
+        <name>cuvis_cuda_ipc_get_descriptor</name>
+        <param>
+          <type><ref refid="group__cuvis__cuda_1gaa1fabfcef6c49434abef21e1295fd221" kindref="member">CUVIS_CUDA_IPC</ref></type>
+          <declname>i_ipc</declname>
+        </param>
+        <param>
+          <type><ref refid="group__cuvis__cuda_1ga23bd6229e3d22f60279d23eca0bcc1f6" kindref="member">CUVIS_CUDA_IPC_DESCRIPTOR</ref> *</type>
+          <declname>o_pDesc</declname>
+        </param>
+        <briefdescription>
+<para>Returns the IPC specific information of the underlying handle. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The meaning of the values differs depending on which cuda backend IPC protocol is used. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_mem</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The cuda memory handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pDesc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The IPC descriptor that is going to be filled </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3509" column="33" declfile="docs/_api_sources/cuvis.h" declline="3509" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__cuda_1gae4afaa2c02687b4d45847f8decab25ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_cuda_ipc_handle_free</definition>
+        <argsstring>(CUVIS_CUDA_IPC *i_ipc)</argsstring>
+        <name>cuvis_cuda_ipc_handle_free</name>
+        <param>
+          <type><ref refid="group__cuvis__cuda_1gaa1fabfcef6c49434abef21e1295fd221" kindref="member">CUVIS_CUDA_IPC</ref> *</type>
+          <declname>i_ipc</declname>
+        </param>
+        <briefdescription>
+<para>Frees a cuda ipc handle. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_ipc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The cuda memory handle </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3514" column="33" declfile="docs/_api_sources/cuvis.h" declline="3514" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__cuda_1gab7352ace441b1c776d6e53e3cec5a245" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_cuda_mem_free</definition>
+        <argsstring>(CUVIS_CUDA_MEM *i_mem)</argsstring>
+        <name>cuvis_cuda_mem_free</name>
+        <param>
+          <type><ref refid="group__cuvis__cuda_1ga3ed66f1c955a1dde8c82207e093c6da8" kindref="member">CUVIS_CUDA_MEM</ref> *</type>
+          <declname>i_mem</declname>
+        </param>
+        <briefdescription>
+<para>Frees a cuda memory hanlde. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_mem</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The cuda memory handle </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3519" column="33" declfile="docs/_api_sources/cuvis.h" declline="3519" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuvis__cuda_1gaa20aaee52ad8eb6e8731b675f1ff2ead" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cuvis_8h_1a069509dd952058b6b34d4a7bea70e01a" kindref="member">SDK_CAPI</ref> <ref refid="cuvis_8h_1afa3513af9e8156b171948745800b4ede" kindref="member">CUVIS_STATUS</ref> <ref refid="cuvis_8h_1a2364de41f8e53b2a5240dc71b82d7375" kindref="member">SDK_CCALL</ref></type>
+        <definition>SDK_CAPI CUVIS_STATUS SDK_CCALL cuvis_cuda_ipc_backend_available</definition>
+        <argsstring>(int i_backend, int *o_pAvailable)</argsstring>
+        <name>cuvis_cuda_ipc_backend_available</name>
+        <param>
+          <type>int</type>
+          <declname>i_backend</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>o_pAvailable</declname>
+        </param>
+        <briefdescription>
+<para>Check if a specific IPC backend is available. Support of the different IPC backends varies. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i_backend</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The backend to be checked. See CUVIS_CUDA_IPC_BACKEND_ for supported values </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">o_pAvailable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates if the request IPC backend is available </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3526" column="33" declfile="docs/_api_sources/cuvis.h" declline="3526" declcolumn="33"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="group__cuvis__cuda_1ga23bd6229e3d22f60279d23eca0bcc1f6" prot="public" static="no">
+        <name>CUVIS_CUDA_IPC_DESCRIPTOR</name>
+        <initializer>struct <ref refid="structcuvis__cuda__ipc__descriptor__t" kindref="compound">cuvis_cuda_ipc_descriptor_t</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3442" column="9" bodyfile="docs/_api_sources/cuvis.h" bodystart="3442" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__cuvis__cuda_1ga3ed66f1c955a1dde8c82207e093c6da8" prot="public" static="no">
+        <name>CUVIS_CUDA_MEM</name>
+        <initializer><ref refid="cuvis_8h_1adaa003c7b896017aa5f34c3aa446f650" kindref="member">CUVIS_HANDLE</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>handle to a shareable CUDA device buffer </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3445" column="9" bodyfile="docs/_api_sources/cuvis.h" bodystart="3445" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__cuvis__cuda_1gaa1fabfcef6c49434abef21e1295fd221" prot="public" static="no">
+        <name>CUVIS_CUDA_IPC</name>
+        <initializer><ref refid="cuvis_8h_1adaa003c7b896017aa5f34c3aa446f650" kindref="member">CUVIS_HANDLE</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>handle to an active ipc export registration; </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3448" column="9" bodyfile="docs/_api_sources/cuvis.h" bodystart="3448" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__cuvis__cuda_1gab107e79d1306b250d618b710d57caec0" prot="public" static="no">
+        <name>CUVIS_CUDA_MEM_VIEW</name>
+        <initializer>struct <ref refid="structcuvis__cuda__mem__view__t" kindref="compound">cuvis_cuda_mem_view_t</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3459" column="9" bodyfile="docs/_api_sources/cuvis.h" bodystart="3459" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__cuvis__cuda_1ga941b2ef47cfd1e6fdb987d2bd7069309" prot="public" static="no">
+        <name>CUVIS_CUDA_IMBUFFER</name>
+        <initializer>struct <ref refid="structcuvis__cuda__imbuffer__t" kindref="compound">cuvis_cuda_imbuffer_t</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3489" column="9" bodyfile="docs/_api_sources/cuvis.h" bodystart="3489" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

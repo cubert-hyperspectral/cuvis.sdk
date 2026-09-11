@@ -1,0 +1,531 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classcuvis_1_1ProcessingContext" kind="class" language="C++" prot="public">
+    <compoundname>cuvis::ProcessingContext</compoundname>
+    <includes refid="cuvis_8hpp" local="no">cuvis.hpp</includes>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="classcuvis_1_1ProcessingContext_1a9de4a9533dff2ecc0919852d4c05a67b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">class</ref></type>
+        <definition>friend class Worker</definition>
+        <argsstring></argsstring>
+        <name>Worker</name>
+        <qualifiedname>cuvis::ProcessingContext::Worker</qualifiedname>
+        <param>
+          <type><ref refid="classcuvis_1_1Worker" kindref="compound">Worker</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1364" column="18" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1364" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcuvis_1_1ProcessingContext_1aa9ede7c44581ecdf71692a13dc9b8b09" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="structcuvis_1_1image__t" kindref="compound">CUVIS_PROC_CONT</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;CUVIS_PROC_CONT&gt; cuvis::ProcessingContext::_procCont</definition>
+        <argsstring></argsstring>
+        <name>_procCont</name>
+        <qualifiedname>cuvis::ProcessingContext::_procCont</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1491" column="21" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1491" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcuvis_1_1ProcessingContext_1a65396956b396ee3b72b203f9247e864c" prot="private" static="no" mutable="no">
+        <type><ref refid="structcuvis_1_1ProcessingArgs" kindref="compound">ProcessingArgs</ref></type>
+        <definition>ProcessingArgs cuvis::ProcessingContext::_procArgs</definition>
+        <argsstring></argsstring>
+        <name>_procArgs</name>
+        <qualifiedname>cuvis::ProcessingContext::_procArgs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1492" column="20" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1492" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcuvis_1_1ProcessingContext_1a657b11d3dd9827f89628d88befa2200a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>cuvis::ProcessingContext::ProcessingContext</definition>
+        <argsstring>(Calibration const &amp;calib)</argsstring>
+        <name>ProcessingContext</name>
+        <qualifiedname>cuvis::ProcessingContext::ProcessingContext</qualifiedname>
+        <param>
+          <type><ref refid="classcuvis_1_1Calibration" kindref="compound">Calibration</ref> <ref refid="structcuvis_1_1image__t" kindref="compound">const</ref> &amp;</type>
+          <declname>calib</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1368" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1ProcessingContext_1ab10103105a1cdd471fd2ca74ac373168" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>cuvis::ProcessingContext::ProcessingContext</definition>
+        <argsstring>(Measurement const &amp;mesu, bool load_references=true)</argsstring>
+        <name>ProcessingContext</name>
+        <qualifiedname>cuvis::ProcessingContext::ProcessingContext</qualifiedname>
+        <param>
+          <type><ref refid="classcuvis_1_1Measurement" kindref="compound">Measurement</ref> <ref refid="structcuvis_1_1image__t" kindref="compound">const</ref> &amp;</type>
+          <declname>mesu</declname>
+        </param>
+        <param>
+          <type><ref refid="structcuvis_1_1image__t" kindref="compound">bool</ref></type>
+          <declname>load_references</declname>
+          <defval><ref refid="structcuvis_1_1image__t" kindref="compound">true</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1369" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1ProcessingContext_1a9c02c940675b60c192899361209ccfa1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>cuvis::ProcessingContext::ProcessingContext</definition>
+        <argsstring>(SessionFile const &amp;session, bool load_references=true)</argsstring>
+        <name>ProcessingContext</name>
+        <qualifiedname>cuvis::ProcessingContext::ProcessingContext</qualifiedname>
+        <param>
+          <type><ref refid="classcuvis_1_1SessionFile" kindref="compound">SessionFile</ref> <ref refid="structcuvis_1_1image__t" kindref="compound">const</ref> &amp;</type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type><ref refid="structcuvis_1_1image__t" kindref="compound">bool</ref></type>
+          <declname>load_references</declname>
+          <defval><ref refid="structcuvis_1_1image__t" kindref="compound">true</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1370" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1ProcessingContext_1ab918cc37614cdab2d4dbbee135716a49" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classcuvis_1_1Measurement" kindref="compound">Measurement</ref> &amp;</type>
+        <definition>Measurement &amp; cuvis::ProcessingContext::apply</definition>
+        <argsstring>(Measurement &amp;mesu) const</argsstring>
+        <name>apply</name>
+        <qualifiedname>cuvis::ProcessingContext::apply</qualifiedname>
+        <param>
+          <type><ref refid="classcuvis_1_1Measurement" kindref="compound">Measurement</ref> &amp;</type>
+          <declname>mesu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1372" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1ProcessingContext_1aa9526cd487b20012a529c35ca6d872a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">bool</ref></type>
+        <definition>bool cuvis::ProcessingContext::calc_distance</definition>
+        <argsstring>(double distMM)</argsstring>
+        <name>calc_distance</name>
+        <qualifiedname>cuvis::ProcessingContext::calc_distance</qualifiedname>
+        <param>
+          <type><ref refid="structcuvis_1_1image__t" kindref="compound">double</ref></type>
+          <declname>distMM</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1373" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1ProcessingContext_1ab526692298cd72bae778a1308356032a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">void</ref></type>
+        <definition>void cuvis::ProcessingContext::set_reference</definition>
+        <argsstring>(Measurement const &amp;mesu, reference_type_t type)</argsstring>
+        <name>set_reference</name>
+        <qualifiedname>cuvis::ProcessingContext::set_reference</qualifiedname>
+        <param>
+          <type><ref refid="classcuvis_1_1Measurement" kindref="compound">Measurement</ref> <ref refid="structcuvis_1_1image__t" kindref="compound">const</ref> &amp;</type>
+          <declname>mesu</declname>
+        </param>
+        <param>
+          <type><ref refid="group__typedefs_1ga7bde8318cc1e26c47b452ce83ab57cee" kindref="member">reference_type_t</ref></type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>Set the reference for processing context. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mesu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>measurement The measurement to be used as explicit reference </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Type of reference to set </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1384" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1ProcessingContext_1a7095ba0aff6941d985cb33f50f7cab33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">void</ref></type>
+        <definition>void cuvis::ProcessingContext::set_reference_white_spectrum</definition>
+        <argsstring>(sensor_spectrum_t const &amp;spectrum)</argsstring>
+        <name>set_reference_white_spectrum</name>
+        <qualifiedname>cuvis::ProcessingContext::set_reference_white_spectrum</qualifiedname>
+        <param>
+          <type><ref refid="structcuvis_1_1sensor__spectrum__t" kindref="compound">sensor_spectrum_t</ref> <ref refid="structcuvis_1_1image__t" kindref="compound">const</ref> &amp;</type>
+          <declname>spectrum</declname>
+        </param>
+        <briefdescription>
+<para>Set an averaged sensor spectrum as the white reference. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Fills the Reference_WhiteSpectrum slot, which replaces a white reference measurement in the reflectance calculation. Setting the spectrum clears a previously set white measurement, and setting a white measurement clears the spectrum.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>spectrum</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>wavelengths [nm], raw counts (equally long and non-empty), effective bit depth (1 to 16) and integration time [ms] </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1397" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1ProcessingContext_1ad70431c6e6dba79cb83b1f4609f6de45" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">void</ref></type>
+        <definition>void cuvis::ProcessingContext::set_reference_target_spectrum</definition>
+        <argsstring>(target_spectrum_t const &amp;spectrum)</argsstring>
+        <name>set_reference_target_spectrum</name>
+        <qualifiedname>cuvis::ProcessingContext::set_reference_target_spectrum</qualifiedname>
+        <param>
+          <type><ref refid="structcuvis_1_1target__spectrum__t" kindref="compound">target_spectrum_t</ref> <ref refid="structcuvis_1_1image__t" kindref="compound">const</ref> &amp;</type>
+          <declname>spectrum</declname>
+        </param>
+        <briefdescription>
+<para>Set the reflectivity curve of the white target. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Fills the Reference_TargetSpectrum slot. When no target spectrum is set, a perfectly white target (reflectivity 1.0 everywhere) is assumed.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>spectrum</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>wavelengths [nm] and reflectivity fractions (1.0 = 100 percent), equally long and non-empty </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1408" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1ProcessingContext_1a05c9a116630e7a5117c096a21786cf6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">void</ref></type>
+        <definition>void cuvis::ProcessingContext::clear_reference</definition>
+        <argsstring>(reference_type_t type)</argsstring>
+        <name>clear_reference</name>
+        <qualifiedname>cuvis::ProcessingContext::clear_reference</qualifiedname>
+        <param>
+          <type><ref refid="group__typedefs_1ga7bde8318cc1e26c47b452ce83ab57cee" kindref="member">reference_type_t</ref></type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>Clear a reference measurement. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Type of reference to clear </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1415" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1ProcessingContext_1a0efdf9bb244d5eb0e53c0f0d8fabad57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">void</ref></type>
+        <definition>void cuvis::ProcessingContext::set_processingArgs</definition>
+        <argsstring>(ProcessingArgs const &amp;procArgs)</argsstring>
+        <name>set_processingArgs</name>
+        <qualifiedname>cuvis::ProcessingContext::set_processingArgs</qualifiedname>
+        <param>
+          <type><ref refid="structcuvis_1_1ProcessingArgs" kindref="compound">ProcessingArgs</ref> <ref refid="structcuvis_1_1image__t" kindref="compound">const</ref> &amp;</type>
+          <declname>procArgs</declname>
+        </param>
+        <briefdescription>
+<para>set the processing arguments for the processing context </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>procArgs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>arguments to set </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1421" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1ProcessingContext_1a59d2b1bb5c09d2f79bece0a94c0d5180" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="classcuvis_1_1Measurement" kindref="compound">Measurement</ref> &gt;</type>
+        <definition>std::optional&lt; Measurement &gt; cuvis::ProcessingContext::get_reference</definition>
+        <argsstring>(reference_type_t type) const</argsstring>
+        <name>get_reference</name>
+        <qualifiedname>cuvis::ProcessingContext::get_reference</qualifiedname>
+        <param>
+          <type><ref refid="group__typedefs_1ga7bde8318cc1e26c47b452ce83ab57cee" kindref="member">reference_type_t</ref></type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>get a specific reference from the processing context </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The processing context can hold explicit references (e.g. a dark), see ProcessingArgs.set_reference . These reference can be obtained by this functions </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1431" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1ProcessingContext_1a8b3686ad81c8389a742645c06a769df2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="structcuvis_1_1sensor__spectrum__t" kindref="compound">sensor_spectrum_t</ref> &gt;</type>
+        <definition>std::optional&lt; sensor_spectrum_t &gt; cuvis::ProcessingContext::get_reference_white_spectrum</definition>
+        <argsstring>() const</argsstring>
+        <name>get_reference_white_spectrum</name>
+        <qualifiedname>cuvis::ProcessingContext::get_reference_white_spectrum</qualifiedname>
+        <briefdescription>
+<para>get the white reference spectrum, if one is set </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns an owning copy, including the effective bit depth and integration time the spectrum was set with. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1439" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1ProcessingContext_1acf6b9618d455a63501ab86957d2dc236" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="structcuvis_1_1target__spectrum__t" kindref="compound">target_spectrum_t</ref> &gt;</type>
+        <definition>std::optional&lt; target_spectrum_t &gt; cuvis::ProcessingContext::get_reference_target_spectrum</definition>
+        <argsstring>() const</argsstring>
+        <name>get_reference_target_spectrum</name>
+        <qualifiedname>cuvis::ProcessingContext::get_reference_target_spectrum</qualifiedname>
+        <briefdescription>
+<para>get the target reflectivity spectrum, if one is set </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1444" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1ProcessingContext_1aecc5c4aace98b2159e1adf5862fac6a2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1ProcessingArgs" kindref="compound">ProcessingArgs</ref> <ref refid="structcuvis_1_1image__t" kindref="compound">const</ref> &amp;</type>
+        <definition>ProcessingArgs const  &amp; cuvis::ProcessingContext::get_processingArgs</definition>
+        <argsstring>() const</argsstring>
+        <name>get_processingArgs</name>
+        <qualifiedname>cuvis::ProcessingContext::get_processingArgs</qualifiedname>
+        <briefdescription>
+<para>get the arguments of the processing context </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1449" column="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1ProcessingContext_1ab5ad6291bc9634c85055303a98c93180" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">bool</ref></type>
+        <definition>bool cuvis::ProcessingContext::is_capable</definition>
+        <argsstring>(Measurement const &amp;mesu, ProcessingArgs const &amp;procArgs) const</argsstring>
+        <name>is_capable</name>
+        <qualifiedname>cuvis::ProcessingContext::is_capable</qualifiedname>
+        <param>
+          <type><ref refid="classcuvis_1_1Measurement" kindref="compound">Measurement</ref> <ref refid="structcuvis_1_1image__t" kindref="compound">const</ref> &amp;</type>
+          <declname>mesu</declname>
+        </param>
+        <param>
+          <type><ref refid="structcuvis_1_1ProcessingArgs" kindref="compound">ProcessingArgs</ref> <ref refid="structcuvis_1_1image__t" kindref="compound">const</ref> &amp;</type>
+          <declname>procArgs</declname>
+        </param>
+        <briefdescription>
+<para>Check if a processing mode is possible for a measurement. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Depending on the measurement, it&apos;s intrinsic references, the processing context&apos;s explicit references and the internal camera calibration itself the availability of a mode varies.</para>
+<para>Use this function, to check whether a specific mode is explicitly possible for a measurement. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1462" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1ProcessingContext_1a190f3dabab461b49b94970bdeaf94ea5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">bool</ref></type>
+        <definition>bool cuvis::ProcessingContext::has_reference</definition>
+        <argsstring>(reference_type_t type) const</argsstring>
+        <name>has_reference</name>
+        <qualifiedname>cuvis::ProcessingContext::has_reference</qualifiedname>
+        <param>
+          <type><ref refid="group__typedefs_1ga7bde8318cc1e26c47b452ce83ab57cee" kindref="member">reference_type_t</ref></type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>Check if an explicit reference was set. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>reference type to check for </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1469" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1ProcessingContext_1addec3bf1cad154dc181e8eea69aec9a6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string cuvis::ProcessingContext::get_calib_id</definition>
+        <argsstring>() const</argsstring>
+        <name>get_calib_id</name>
+        <qualifiedname>cuvis::ProcessingContext::get_calib_id</qualifiedname>
+        <briefdescription>
+<para>get the calibration id of the procession context </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1473" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1ProcessingContext_1a8a46efe5058fd920a5523401508166d7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">CUVIS_PROC_CONT</ref></type>
+        <definition>CUVIS_PROC_CONT cuvis::ProcessingContext::get_handle</definition>
+        <argsstring>() const</argsstring>
+        <name>get_handle</name>
+        <qualifiedname>cuvis::ProcessingContext::get_handle</qualifiedname>
+        <briefdescription>
+<para>Expert: Return the current handle of the wrapper class. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1476" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1ProcessingContext_1a1a1a2b2d0ced05d2e52e8b23c84f168b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">CUVIS_PROC_CONT</ref></type>
+        <definition>CUVIS_PROC_CONT cuvis::ProcessingContext::get_handle_copy</definition>
+        <argsstring>() const</argsstring>
+        <name>get_handle_copy</name>
+        <qualifiedname>cuvis::ProcessingContext::get_handle_copy</qualifiedname>
+        <briefdescription>
+<para>Expert: Create a copy of the current handle of the wrapper class and return it. This handle needs to be also freed before the resource will be released by the sdk. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1480" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1ProcessingContext_1a90eff03da4ceef1e4a1051573a765894" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>cuvis::ProcessingContext::ProcessingContext</definition>
+        <argsstring>(CUVIS_PROC_CONT handle)</argsstring>
+        <name>ProcessingContext</name>
+        <qualifiedname>cuvis::ProcessingContext::ProcessingContext</qualifiedname>
+        <param>
+          <type><ref refid="structcuvis_1_1image__t" kindref="compound">CUVIS_PROC_CONT</ref></type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+<para>Expert: Create a wrapper class around a handle. This only allowed once per handle, otherwise the handle could be freed before all instances of the wrapper class are deleted. This can be useful if a previously a handle has been copied and now should be wrapped at another place in a program. Most of the time this is not necesarry and the wrapper class can be copied just as well. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1488" column="5"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="cuvis.cpp/interface/cuvis.hpp" line="1362" column="3" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1363" bodyend="1493"/>
+    <listofallmembers>
+      <member refid="classcuvis_1_1ProcessingContext_1a65396956b396ee3b72b203f9247e864c" prot="private" virt="non-virtual"><scope>cuvis::ProcessingContext</scope><name>_procArgs</name></member>
+      <member refid="classcuvis_1_1ProcessingContext_1aa9ede7c44581ecdf71692a13dc9b8b09" prot="private" virt="non-virtual"><scope>cuvis::ProcessingContext</scope><name>_procCont</name></member>
+      <member refid="classcuvis_1_1ProcessingContext_1ab918cc37614cdab2d4dbbee135716a49" prot="public" virt="non-virtual"><scope>cuvis::ProcessingContext</scope><name>apply</name></member>
+      <member refid="classcuvis_1_1ProcessingContext_1aa9526cd487b20012a529c35ca6d872a2" prot="public" virt="non-virtual"><scope>cuvis::ProcessingContext</scope><name>calc_distance</name></member>
+      <member refid="classcuvis_1_1ProcessingContext_1a05c9a116630e7a5117c096a21786cf6e" prot="public" virt="non-virtual"><scope>cuvis::ProcessingContext</scope><name>clear_reference</name></member>
+      <member refid="classcuvis_1_1ProcessingContext_1addec3bf1cad154dc181e8eea69aec9a6" prot="public" virt="non-virtual"><scope>cuvis::ProcessingContext</scope><name>get_calib_id</name></member>
+      <member refid="classcuvis_1_1ProcessingContext_1a8a46efe5058fd920a5523401508166d7" prot="public" virt="non-virtual"><scope>cuvis::ProcessingContext</scope><name>get_handle</name></member>
+      <member refid="classcuvis_1_1ProcessingContext_1a1a1a2b2d0ced05d2e52e8b23c84f168b" prot="public" virt="non-virtual"><scope>cuvis::ProcessingContext</scope><name>get_handle_copy</name></member>
+      <member refid="classcuvis_1_1ProcessingContext_1aecc5c4aace98b2159e1adf5862fac6a2" prot="public" virt="non-virtual"><scope>cuvis::ProcessingContext</scope><name>get_processingArgs</name></member>
+      <member refid="classcuvis_1_1ProcessingContext_1a59d2b1bb5c09d2f79bece0a94c0d5180" prot="public" virt="non-virtual"><scope>cuvis::ProcessingContext</scope><name>get_reference</name></member>
+      <member refid="classcuvis_1_1ProcessingContext_1acf6b9618d455a63501ab86957d2dc236" prot="public" virt="non-virtual"><scope>cuvis::ProcessingContext</scope><name>get_reference_target_spectrum</name></member>
+      <member refid="classcuvis_1_1ProcessingContext_1a8b3686ad81c8389a742645c06a769df2" prot="public" virt="non-virtual"><scope>cuvis::ProcessingContext</scope><name>get_reference_white_spectrum</name></member>
+      <member refid="classcuvis_1_1ProcessingContext_1a190f3dabab461b49b94970bdeaf94ea5" prot="public" virt="non-virtual"><scope>cuvis::ProcessingContext</scope><name>has_reference</name></member>
+      <member refid="classcuvis_1_1ProcessingContext_1ab5ad6291bc9634c85055303a98c93180" prot="public" virt="non-virtual"><scope>cuvis::ProcessingContext</scope><name>is_capable</name></member>
+      <member refid="classcuvis_1_1ProcessingContext_1a657b11d3dd9827f89628d88befa2200a" prot="public" virt="non-virtual"><scope>cuvis::ProcessingContext</scope><name>ProcessingContext</name></member>
+      <member refid="classcuvis_1_1ProcessingContext_1ab10103105a1cdd471fd2ca74ac373168" prot="public" virt="non-virtual"><scope>cuvis::ProcessingContext</scope><name>ProcessingContext</name></member>
+      <member refid="classcuvis_1_1ProcessingContext_1a9c02c940675b60c192899361209ccfa1" prot="public" virt="non-virtual"><scope>cuvis::ProcessingContext</scope><name>ProcessingContext</name></member>
+      <member refid="classcuvis_1_1ProcessingContext_1a90eff03da4ceef1e4a1051573a765894" prot="public" virt="non-virtual"><scope>cuvis::ProcessingContext</scope><name>ProcessingContext</name></member>
+      <member refid="classcuvis_1_1ProcessingContext_1a0efdf9bb244d5eb0e53c0f0d8fabad57" prot="public" virt="non-virtual"><scope>cuvis::ProcessingContext</scope><name>set_processingArgs</name></member>
+      <member refid="classcuvis_1_1ProcessingContext_1ab526692298cd72bae778a1308356032a" prot="public" virt="non-virtual"><scope>cuvis::ProcessingContext</scope><name>set_reference</name></member>
+      <member refid="classcuvis_1_1ProcessingContext_1ad70431c6e6dba79cb83b1f4609f6de45" prot="public" virt="non-virtual"><scope>cuvis::ProcessingContext</scope><name>set_reference_target_spectrum</name></member>
+      <member refid="classcuvis_1_1ProcessingContext_1a7095ba0aff6941d985cb33f50f7cab33" prot="public" virt="non-virtual"><scope>cuvis::ProcessingContext</scope><name>set_reference_white_spectrum</name></member>
+      <member refid="classcuvis_1_1ProcessingContext_1a9de4a9533dff2ecc0919852d4c05a67b" prot="private" virt="non-virtual"><scope>cuvis::ProcessingContext</scope><name>Worker</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

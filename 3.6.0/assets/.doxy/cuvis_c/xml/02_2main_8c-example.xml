@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="02_2main_8c-example" kind="example">
+    <compoundname>02/main.c</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Example_2_Load_Measurement</para>
+<para>Load and analyse a recorded measurement. <programlisting filename="02/main.c"></programlisting> </para>
+    </detaileddescription>
+    <location file="docs/_api_sources/cuvis.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_461ad87a78e7eefd7882d4ef5ca214ae" kind="dir">
+    <compoundname>docs/_api_sources</compoundname>
+    <innerfile refid="cuvis_8h">cuvis.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="docs/_api_sources/"/>
+  </compounddef>
+</doxygen>

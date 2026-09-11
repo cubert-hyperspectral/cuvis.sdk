@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structcuvis__cuda__imbuffer__t" kind="struct" language="C++" prot="public">
+    <compoundname>cuvis_cuda_imbuffer_t</compoundname>
+    <includes refid="cuvis_8h" local="no">cuvis.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structcuvis__cuda__imbuffer__t_1a04558dcdcf5c74548a0d404fb2b07c46" prot="public" static="no" mutable="no">
+        <type><ref refid="group__cuvis__cuda_1ga3ed66f1c955a1dde8c82207e093c6da8" kindref="member">CUVIS_CUDA_MEM</ref></type>
+        <definition>CUVIS_CUDA_MEM cuvis_cuda_imbuffer_t::handle</definition>
+        <argsstring></argsstring>
+        <name>handle</name>
+        <qualifiedname>cuvis_cuda_imbuffer_t::handle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3480" column="18" bodyfile="docs/_api_sources/cuvis.h" bodystart="3480" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__cuda__imbuffer__t_1aa2c4429e493597d7237b10f6dd7392c5" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t cuvis_cuda_imbuffer_t::bytes</definition>
+        <argsstring></argsstring>
+        <name>bytes</name>
+        <qualifiedname>cuvis_cuda_imbuffer_t::bytes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3481" column="12" bodyfile="docs/_api_sources/cuvis.h" bodystart="3481" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__cuda__imbuffer__t_1ab883bcb9d5df17a29d746250413726fc" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t cuvis_cuda_imbuffer_t::length</definition>
+        <argsstring></argsstring>
+        <name>length</name>
+        <qualifiedname>cuvis_cuda_imbuffer_t::length</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3482" column="12" bodyfile="docs/_api_sources/cuvis.h" bodystart="3482" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__cuda__imbuffer__t_1aff1008c2d8b186ed2f790a6c49fdf818" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t cuvis_cuda_imbuffer_t::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>cuvis_cuda_imbuffer_t::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3483" column="12" bodyfile="docs/_api_sources/cuvis.h" bodystart="3483" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__cuda__imbuffer__t_1a153293acc797ee31788f93b78682aaf9" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t cuvis_cuda_imbuffer_t::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>cuvis_cuda_imbuffer_t::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3484" column="12" bodyfile="docs/_api_sources/cuvis.h" bodystart="3484" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__cuda__imbuffer__t_1a537b10f4e6ba3a6f792ae4732cdce041" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t cuvis_cuda_imbuffer_t::channels</definition>
+        <argsstring></argsstring>
+        <name>channels</name>
+        <qualifiedname>cuvis_cuda_imbuffer_t::channels</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3485" column="12" bodyfile="docs/_api_sources/cuvis.h" bodystart="3485" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__cuda__imbuffer__t_1ac1abc9a677b2dd6d490546b84ea3f592" prot="public" static="no" mutable="no">
+        <type><ref refid="cuvis_8h_1a533ed589211c0af15cd042dba625a775" kindref="member">CUVIS_IMBUFFER_FORMAT</ref></type>
+        <definition>CUVIS_IMBUFFER_FORMAT cuvis_cuda_imbuffer_t::format</definition>
+        <argsstring></argsstring>
+        <name>format</name>
+        <qualifiedname>cuvis_cuda_imbuffer_t::format</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3486" column="25" bodyfile="docs/_api_sources/cuvis.h" bodystart="3486" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__cuda__imbuffer__t_1a7e00a272bb856716e92850920e07b46c" prot="public" static="no" mutable="no">
+        <type>const uint32_t *</type>
+        <definition>const uint32_t* cuvis_cuda_imbuffer_t::wavelength</definition>
+        <argsstring></argsstring>
+        <name>wavelength</name>
+        <qualifiedname>cuvis_cuda_imbuffer_t::wavelength</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3487" column="18" bodyfile="docs/_api_sources/cuvis.h" bodystart="3487" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="docs/_api_sources/cuvis.h" line="3478" column="1" bodyfile="docs/_api_sources/cuvis.h" bodystart="3479" bodyend="3488"/>
+    <listofallmembers>
+      <member refid="structcuvis__cuda__imbuffer__t_1aa2c4429e493597d7237b10f6dd7392c5" prot="public" virt="non-virtual"><scope>cuvis_cuda_imbuffer_t</scope><name>bytes</name></member>
+      <member refid="structcuvis__cuda__imbuffer__t_1a537b10f4e6ba3a6f792ae4732cdce041" prot="public" virt="non-virtual"><scope>cuvis_cuda_imbuffer_t</scope><name>channels</name></member>
+      <member refid="structcuvis__cuda__imbuffer__t_1ac1abc9a677b2dd6d490546b84ea3f592" prot="public" virt="non-virtual"><scope>cuvis_cuda_imbuffer_t</scope><name>format</name></member>
+      <member refid="structcuvis__cuda__imbuffer__t_1a04558dcdcf5c74548a0d404fb2b07c46" prot="public" virt="non-virtual"><scope>cuvis_cuda_imbuffer_t</scope><name>handle</name></member>
+      <member refid="structcuvis__cuda__imbuffer__t_1a153293acc797ee31788f93b78682aaf9" prot="public" virt="non-virtual"><scope>cuvis_cuda_imbuffer_t</scope><name>height</name></member>
+      <member refid="structcuvis__cuda__imbuffer__t_1ab883bcb9d5df17a29d746250413726fc" prot="public" virt="non-virtual"><scope>cuvis_cuda_imbuffer_t</scope><name>length</name></member>
+      <member refid="structcuvis__cuda__imbuffer__t_1a7e00a272bb856716e92850920e07b46c" prot="public" virt="non-virtual"><scope>cuvis_cuda_imbuffer_t</scope><name>wavelength</name></member>
+      <member refid="structcuvis__cuda__imbuffer__t_1aff1008c2d8b186ed2f790a6c49fdf818" prot="public" virt="non-virtual"><scope>cuvis_cuda_imbuffer_t</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

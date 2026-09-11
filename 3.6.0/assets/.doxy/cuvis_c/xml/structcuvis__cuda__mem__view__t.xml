@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structcuvis__cuda__mem__view__t" kind="struct" language="C++" prot="public">
+    <compoundname>cuvis_cuda_mem_view_t</compoundname>
+    <includes refid="cuvis_8h" local="no">cuvis.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structcuvis__cuda__mem__view__t_1a5812fd48cedc08864303fe0b712284eb" prot="public" static="no" mutable="no">
+        <type>const void *</type>
+        <definition>const void* cuvis_cuda_mem_view_t::device_ptr</definition>
+        <argsstring></argsstring>
+        <name>device_ptr</name>
+        <qualifiedname>cuvis_cuda_mem_view_t::device_ptr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3455" column="14" bodyfile="docs/_api_sources/cuvis.h" bodystart="3455" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__cuda__mem__view__t_1a5a3305eef562dd866dec45aa0dc83b48" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t cuvis_cuda_mem_view_t::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <qualifiedname>cuvis_cuda_mem_view_t::size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3456" column="12" bodyfile="docs/_api_sources/cuvis.h" bodystart="3456" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__cuda__mem__view__t_1a1b5d4750ddc8e4954e3f78959be008d0" prot="public" static="no" mutable="no">
+        <type>int32_t</type>
+        <definition>int32_t cuvis_cuda_mem_view_t::device_ordinal</definition>
+        <argsstring></argsstring>
+        <name>device_ordinal</name>
+        <qualifiedname>cuvis_cuda_mem_view_t::device_ordinal</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3457" column="11" bodyfile="docs/_api_sources/cuvis.h" bodystart="3457" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Raw device pointer + size + device for wrapping in-process (e.g. as a torch tensor via <bold>cuda_array_interface</bold> / DLPack). Does NOT create an IPC handle. The device_ptr is read-only from the SDK&apos;s side; external code that maps it may still write the memory. </para>
+    </detaileddescription>
+    <location file="docs/_api_sources/cuvis.h" line="3453" column="1" bodyfile="docs/_api_sources/cuvis.h" bodystart="3454" bodyend="3458"/>
+    <listofallmembers>
+      <member refid="structcuvis__cuda__mem__view__t_1a1b5d4750ddc8e4954e3f78959be008d0" prot="public" virt="non-virtual"><scope>cuvis_cuda_mem_view_t</scope><name>device_ordinal</name></member>
+      <member refid="structcuvis__cuda__mem__view__t_1a5812fd48cedc08864303fe0b712284eb" prot="public" virt="non-virtual"><scope>cuvis_cuda_mem_view_t</scope><name>device_ptr</name></member>
+      <member refid="structcuvis__cuda__mem__view__t_1a5a3305eef562dd866dec45aa0dc83b48" prot="public" virt="non-virtual"><scope>cuvis_cuda_mem_view_t</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

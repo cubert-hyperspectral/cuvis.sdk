@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structcuvis__cuda__ipc__descriptor__t" kind="struct" language="C++" prot="public">
+    <compoundname>cuvis_cuda_ipc_descriptor_t</compoundname>
+    <includes refid="cuvis_8h" local="no">cuvis.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structcuvis__cuda__ipc__descriptor__t_1a126b069c1628084c61f659b69e20d7ad" prot="public" static="no" mutable="no">
+        <type>int32_t</type>
+        <definition>int32_t cuvis_cuda_ipc_descriptor_t::backend</definition>
+        <argsstring></argsstring>
+        <name>backend</name>
+        <qualifiedname>cuvis_cuda_ipc_descriptor_t::backend</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3429" column="11" bodyfile="docs/_api_sources/cuvis.h" bodystart="3429" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__cuda__ipc__descriptor__t_1a883c97a9ef88d8c0e887682c835647f1" prot="public" static="no" mutable="no">
+        <type>int32_t</type>
+        <definition>int32_t cuvis_cuda_ipc_descriptor_t::device_ordinal</definition>
+        <argsstring></argsstring>
+        <name>device_ordinal</name>
+        <qualifiedname>cuvis_cuda_ipc_descriptor_t::device_ordinal</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3430" column="11" bodyfile="docs/_api_sources/cuvis.h" bodystart="3430" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__cuda__ipc__descriptor__t_1a82a32578aef0d8fc9f51ba159295ce7f" prot="public" static="no" mutable="no">
+        <type>int32_t</type>
+        <definition>int32_t cuvis_cuda_ipc_descriptor_t::handle_type</definition>
+        <argsstring></argsstring>
+        <name>handle_type</name>
+        <qualifiedname>cuvis_cuda_ipc_descriptor_t::handle_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3431" column="11" bodyfile="docs/_api_sources/cuvis.h" bodystart="3431" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__cuda__ipc__descriptor__t_1a855313a86f4d647158e6f9f8c1487322" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t cuvis_cuda_ipc_descriptor_t::blob_len</definition>
+        <argsstring></argsstring>
+        <name>blob_len</name>
+        <qualifiedname>cuvis_cuda_ipc_descriptor_t::blob_len</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3432" column="12" bodyfile="docs/_api_sources/cuvis.h" bodystart="3432" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__cuda__ipc__descriptor__t_1a30752915d54a8752c62ebb73d84f62a0" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t cuvis_cuda_ipc_descriptor_t::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <qualifiedname>cuvis_cuda_ipc_descriptor_t::size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3433" column="12" bodyfile="docs/_api_sources/cuvis.h" bodystart="3433" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__cuda__ipc__descriptor__t_1ab893afbfcfbff26b78046facaf78b387" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t cuvis_cuda_ipc_descriptor_t::alloc_size</definition>
+        <argsstring></argsstring>
+        <name>alloc_size</name>
+        <qualifiedname>cuvis_cuda_ipc_descriptor_t::alloc_size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3434" column="12" bodyfile="docs/_api_sources/cuvis.h" bodystart="3434" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__cuda__ipc__descriptor__t_1a970c657b4d7a36bdf567966fe485bab4" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t cuvis_cuda_ipc_descriptor_t::offset</definition>
+        <argsstring></argsstring>
+        <name>offset</name>
+        <qualifiedname>cuvis_cuda_ipc_descriptor_t::offset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3435" column="12" bodyfile="docs/_api_sources/cuvis.h" bodystart="3435" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__cuda__ipc__descriptor__t_1af1cd2fad310d091e8bd5e91a844bb5a4" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t cuvis_cuda_ipc_descriptor_t::exporter_pid</definition>
+        <argsstring></argsstring>
+        <name>exporter_pid</name>
+        <qualifiedname>cuvis_cuda_ipc_descriptor_t::exporter_pid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3436" column="12" bodyfile="docs/_api_sources/cuvis.h" bodystart="3436" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__cuda__ipc__descriptor__t_1a3735c49879c63531c44187ac130cd649" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t cuvis_cuda_ipc_descriptor_t::blob[CUVIS_CUDA_IPC_BLOB_MAX]</definition>
+        <argsstring>[CUVIS_CUDA_IPC_BLOB_MAX]</argsstring>
+        <name>blob</name>
+        <qualifiedname>cuvis_cuda_ipc_descriptor_t::blob</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3437" column="11" bodyfile="docs/_api_sources/cuvis.h" bodystart="3437" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__cuda__ipc__descriptor__t_1a4697ee440e5aab3d71d6adf64448cc44" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t cuvis_cuda_ipc_descriptor_t::ptr_blob_len</definition>
+        <argsstring></argsstring>
+        <name>ptr_blob_len</name>
+        <qualifiedname>cuvis_cuda_ipc_descriptor_t::ptr_blob_len</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3438" column="12" bodyfile="docs/_api_sources/cuvis.h" bodystart="3438" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__cuda__ipc__descriptor__t_1ab0a8bd06af5827ecf8004bba759fcdd4" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t cuvis_cuda_ipc_descriptor_t::_pad</definition>
+        <argsstring></argsstring>
+        <name>_pad</name>
+        <qualifiedname>cuvis_cuda_ipc_descriptor_t::_pad</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3439" column="12" bodyfile="docs/_api_sources/cuvis.h" bodystart="3439" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__cuda__ipc__descriptor__t_1a6f09bd76bf9efbe8f2d43c649c4fb802" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t cuvis_cuda_ipc_descriptor_t::ptr_blob[CUVIS_CUDA_IPC_PTR_BLOB_MAX]</definition>
+        <argsstring>[CUVIS_CUDA_IPC_PTR_BLOB_MAX]</argsstring>
+        <name>ptr_blob</name>
+        <qualifiedname>cuvis_cuda_ipc_descriptor_t::ptr_blob</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="3440" column="11" bodyfile="docs/_api_sources/cuvis.h" bodystart="3440" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="docs/_api_sources/cuvis.h" line="3427" column="1" bodyfile="docs/_api_sources/cuvis.h" bodystart="3428" bodyend="3441"/>
+    <listofallmembers>
+      <member refid="structcuvis__cuda__ipc__descriptor__t_1ab0a8bd06af5827ecf8004bba759fcdd4" prot="public" virt="non-virtual"><scope>cuvis_cuda_ipc_descriptor_t</scope><name>_pad</name></member>
+      <member refid="structcuvis__cuda__ipc__descriptor__t_1ab893afbfcfbff26b78046facaf78b387" prot="public" virt="non-virtual"><scope>cuvis_cuda_ipc_descriptor_t</scope><name>alloc_size</name></member>
+      <member refid="structcuvis__cuda__ipc__descriptor__t_1a126b069c1628084c61f659b69e20d7ad" prot="public" virt="non-virtual"><scope>cuvis_cuda_ipc_descriptor_t</scope><name>backend</name></member>
+      <member refid="structcuvis__cuda__ipc__descriptor__t_1a3735c49879c63531c44187ac130cd649" prot="public" virt="non-virtual"><scope>cuvis_cuda_ipc_descriptor_t</scope><name>blob</name></member>
+      <member refid="structcuvis__cuda__ipc__descriptor__t_1a855313a86f4d647158e6f9f8c1487322" prot="public" virt="non-virtual"><scope>cuvis_cuda_ipc_descriptor_t</scope><name>blob_len</name></member>
+      <member refid="structcuvis__cuda__ipc__descriptor__t_1a883c97a9ef88d8c0e887682c835647f1" prot="public" virt="non-virtual"><scope>cuvis_cuda_ipc_descriptor_t</scope><name>device_ordinal</name></member>
+      <member refid="structcuvis__cuda__ipc__descriptor__t_1af1cd2fad310d091e8bd5e91a844bb5a4" prot="public" virt="non-virtual"><scope>cuvis_cuda_ipc_descriptor_t</scope><name>exporter_pid</name></member>
+      <member refid="structcuvis__cuda__ipc__descriptor__t_1a82a32578aef0d8fc9f51ba159295ce7f" prot="public" virt="non-virtual"><scope>cuvis_cuda_ipc_descriptor_t</scope><name>handle_type</name></member>
+      <member refid="structcuvis__cuda__ipc__descriptor__t_1a970c657b4d7a36bdf567966fe485bab4" prot="public" virt="non-virtual"><scope>cuvis_cuda_ipc_descriptor_t</scope><name>offset</name></member>
+      <member refid="structcuvis__cuda__ipc__descriptor__t_1a6f09bd76bf9efbe8f2d43c649c4fb802" prot="public" virt="non-virtual"><scope>cuvis_cuda_ipc_descriptor_t</scope><name>ptr_blob</name></member>
+      <member refid="structcuvis__cuda__ipc__descriptor__t_1a4697ee440e5aab3d71d6adf64448cc44" prot="public" virt="non-virtual"><scope>cuvis_cuda_ipc_descriptor_t</scope><name>ptr_blob_len</name></member>
+      <member refid="structcuvis__cuda__ipc__descriptor__t_1a30752915d54a8752c62ebb73d84f62a0" prot="public" virt="non-virtual"><scope>cuvis_cuda_ipc_descriptor_t</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

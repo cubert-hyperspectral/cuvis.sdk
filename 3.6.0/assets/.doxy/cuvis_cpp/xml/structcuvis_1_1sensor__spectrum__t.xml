@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structcuvis_1_1sensor__spectrum__t" kind="struct" language="C++" prot="public">
+    <compoundname>cuvis::sensor_spectrum_t</compoundname>
+    <includes refid="cuvis_8hpp" local="no">cuvis.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structcuvis_1_1sensor__spectrum__t_1ae34bea052d02d3e8ee17d2d4aa35fc7d" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structcuvis_1_1image__t" kindref="compound">float</ref> &gt;</type>
+        <definition>std::vector&lt;float&gt; cuvis::sensor_spectrum_t::wavelengths</definition>
+        <argsstring></argsstring>
+        <name>wavelengths</name>
+        <qualifiedname>cuvis::sensor_spectrum_t::wavelengths</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1341" column="17" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1341" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis_1_1sensor__spectrum__t_1af3c7210cba2646d882ec35ec008cce99" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::uint16_t &gt;</type>
+        <definition>std::vector&lt;std::uint16_t&gt; cuvis::sensor_spectrum_t::values</definition>
+        <argsstring></argsstring>
+        <name>values</name>
+        <qualifiedname>cuvis::sensor_spectrum_t::values</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>raw sensor counts </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1343" column="17" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1343" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis_1_1sensor__spectrum__t_1a861b6ec36289190ba1c0bdf94175a49d" prot="public" static="no" mutable="no">
+        <type>std::uint16_t</type>
+        <definition>std::uint16_t cuvis::sensor_spectrum_t::effective_bit_depth</definition>
+        <argsstring></argsstring>
+        <name>effective_bit_depth</name>
+        <qualifiedname>cuvis::sensor_spectrum_t::effective_bit_depth</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>bit depth the counts are interpreted against (1 to 16) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1345" column="19" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1345" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis_1_1sensor__spectrum__t_1ad803a88fbbba30f6c380efdf8ecfbf6d" prot="public" static="no" mutable="no">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">double</ref></type>
+        <definition>double cuvis::sensor_spectrum_t::integration_time</definition>
+        <argsstring></argsstring>
+        <name>integration_time</name>
+        <qualifiedname>cuvis::sensor_spectrum_t::integration_time</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>integration time the counts were recorded with [ms] </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1347" column="12" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1347" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>An averaged spectrum of raw sensor counts, usable in place of a white reference measurement. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The owning analogue of the C interface&apos;s cuvis_sensor_spectrum_t: one struct carries the samples and the acquisition context that makes counts interpretable. Wavelengths are nanometres. Both vectors carry one entry per sample and must be equally long. </para>
+    </detaileddescription>
+    <location file="cuvis.cpp/interface/cuvis.hpp" line="1339" column="3" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1340" bodyend="1348"/>
+    <listofallmembers>
+      <member refid="structcuvis_1_1sensor__spectrum__t_1a861b6ec36289190ba1c0bdf94175a49d" prot="public" virt="non-virtual"><scope>cuvis::sensor_spectrum_t</scope><name>effective_bit_depth</name></member>
+      <member refid="structcuvis_1_1sensor__spectrum__t_1ad803a88fbbba30f6c380efdf8ecfbf6d" prot="public" virt="non-virtual"><scope>cuvis::sensor_spectrum_t</scope><name>integration_time</name></member>
+      <member refid="structcuvis_1_1sensor__spectrum__t_1af3c7210cba2646d882ec35ec008cce99" prot="public" virt="non-virtual"><scope>cuvis::sensor_spectrum_t</scope><name>values</name></member>
+      <member refid="structcuvis_1_1sensor__spectrum__t_1ae34bea052d02d3e8ee17d2d4aa35fc7d" prot="public" virt="non-virtual"><scope>cuvis::sensor_spectrum_t</scope><name>wavelengths</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
