@@ -60,6 +60,18 @@ jobs:
           STRICT=$([ "$PRERELEASE" = true ] || echo --strict)
           python3 scripts/release_assets.py stage --version "$SDK" $STRICT
 
+      - uses: astral-sh/setup-uv@v4
+
+      # The share must carry the notes: they are both a published asset and the body of
+      # the release. A share without them is incomplete, so this fails rather than
+      # publishing a release that says nothing about the SDK.
+      - name: Extract the SDK release notes from the share
+        env:
+          SDK: ${{ steps.meta.outputs.sdk }}
+        run: |
+          uv run --extra release python scripts/release_notes.py --version "$SDK" > "$RUNNER_TEMP/sdk-notes.md"
+          cat "$RUNNER_TEMP/sdk-notes.md"
+
       - id: notes
         if: steps.meta.outputs.prerelease == 'false'
         uses: cubert-hyperspectral/cuvis.docker/.github/actions/changelog@main
@@ -67,12 +79,29 @@ jobs:
           mode: extract
           version: ${{ steps.meta.outputs.sdk }}
 
+      # What the SDK changed comes first; what this repository changed follows it.
+      - name: Assemble the release body
+        id: body
+        if: steps.meta.outputs.prerelease == 'false'
+        env:
+          CHANGELOG: ${{ steps.notes.outputs.body }}
+        run: |
+          {
+            echo 'text<<RELEASE_BODY'
+            cat "$RUNNER_TEMP/sdk-notes.md"
+            echo
+            echo '## `cuvis.sdk` repo Changes'
+            echo
+            echo "$CHANGELOG"
+            echo RELEASE_BODY
+          } >> "$GITHUB_OUTPUT"
+
       - name: Create the draft release
         if: steps.meta.outputs.prerelease == 'false'
         uses: softprops/action-gh-release@v2
         with:
           name: Cuvis SDK ${{ steps.meta.outputs.sdk }}
-          body: ${{ steps.notes.outputs.body }}
+          body: ${{ steps.body.outputs.text }}
           files: _assets/.staging/v${{ steps.meta.outputs.sdk }}/*
           draft: true
           prerelease: false

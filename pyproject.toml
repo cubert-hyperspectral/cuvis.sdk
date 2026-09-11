@@ -16,7 +16,8 @@ docs = [
     "mkdocstrings[python]>=0.25.0",
     "mike>=2.0.0",
 ]
-test = ["pytest>=7"]
+test = ["pytest>=7", "pypdf>=6.1.3"]
+release = ["pypdf>=6.1.3"]
 
 [tool.uv]
 package = false
