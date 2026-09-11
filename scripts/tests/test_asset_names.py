@@ -105,12 +105,38 @@ def test_barren_reports_a_folder_whose_build_produced_nothing(tmp_path):
     assert barren(tmp_path) == [FOLDERS_360[1]]
 
 
-def test_docs_selector_accepts_every_published_name():
-    """The selector keeps its own copy of the pattern; it must still accept what we publish."""
+def selector_pattern() -> re.Pattern[str]:
+    """The copy of Pattern A the docs selector parses the Releases API with."""
     selector = Path(__file__).resolve().parents[2] / "docs/javascripts/sdk-installer.js"
     literal = re.search(r"RX_INSTALLER\s*=\s*/(?P<body>.+)/;", selector.read_text(encoding="utf-8"))
     assert literal, "RX_INSTALLER not found in the selector"
-
     # JavaScript spells a named group (?<name>...), Python (?P<name>...).
-    pattern = re.compile(re.sub(r"\(\?<(?=[A-Za-z])", "(?P<", literal["body"]))
+    return re.compile(re.sub(r"\(\?<(?=[A-Za-z])", "(?P<", literal["body"]))
+
+
+def test_docs_selector_accepts_every_published_name():
+    pattern = selector_pattern()
     assert all(pattern.fullmatch(name) for name in NAMED.values())
+
+
+def test_every_share_folder_becomes_a_complete_selectable_option(tmp_path):
+    """Names that parse are not enough: each variant must offer a usable download."""
+    windows, ubuntu = ["Cuvis_C_SDK_Installer_3.6.0.exe"], ["libcuvis_3.6.0-0.deb", "cuviscommon_3.6.0-0.deb"]
+    for folder in FOLDERS_360:
+        share(tmp_path, [folder], windows if folder.startswith("Windows") else ubuntu)
+
+    pattern = selector_pattern()
+    parsed = [pattern.fullmatch(name) for name in staged(tmp_path, "3.6.0").values()]
+    assert all(parsed), "the selector cannot parse a name the stager produced"
+
+    # osBucket() and cudaLabel() in docs/javascripts/sdk-installer.js.
+    offered: dict[tuple[str, str, str], set[str]] = {}
+    for match in parsed:
+        key = (match["os"], match["arch"], match["cuda"])
+        offered.setdefault(key, set()).add(match["pkg"])
+
+    assert len(offered) == len(FOLDERS_360)
+    assert all(cuda != "cudano" for _, _, cuda in offered), "cudano would render as a literal dropdown label"
+    for (os_name, _, _), packages in offered.items():
+        expected = {"Cuvis_C_SDK_Installer"} if os_name == "Windows" else {"libcuvis", "cuviscommon"}
+        assert packages == expected, f"{os_name} offers {packages}"
