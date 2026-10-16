@@ -85,7 +85,7 @@ def blocks(body: list[str]) -> list[str]:
 def markdown(body: list[str]) -> str:
     """One sentence per line, the convention the changelog and these notes already follow."""
     rendered = "\n".join(
-        block
+        f"{block}\n"
         if block.startswith("## ")
         else "\n  ".join(f"- {s}" if i == 0 else s for i, s in enumerate(SENTENCE.split(block)))
         for block in blocks(body)

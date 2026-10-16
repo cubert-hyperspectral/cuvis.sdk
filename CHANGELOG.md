@@ -8,11 +8,21 @@ Pre-releases (`a*`, `b*`, `rc*`) stage and lint the assets without creating a Gi
 
 ## [Unreleased]
 
+## [3.6.1] - 2026-10-16
+
+Publishes cuvis SDK 3.6.1.
+
 ### Added
 
 - `scripts/release_notes.py` - lifts the SDK's own release notes for the version out of `Release Notes.pdf` on the share and renders them as Markdown, restoring the spacing and the backticks around verbatim spans that the PDF's text layer drops.
 - `CI` - the release body is now assembled from those notes followed by this repository's changelog section, instead of the changelog alone.
   A share with no release notes, or notes with no section for the version being released, fails the release.
+
+### Changed
+
+- Submodule `cuvis.python` updated to 3.6.1.0, whose `cuvis-il` requirement is `>=3.6.1,<3.7.0`.
+  The other submodules stay at their SDK 3.6.0 state.
+- `CI` - the docs workflows build in `cubertgmbh/cuvis_pyil:3.6.1-ubuntu24.04`.
 
 ## [3.6.0] - 2026-09-11
 
