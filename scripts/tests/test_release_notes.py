@@ -44,8 +44,8 @@ def test_hyphenated_wrap_is_rejoined(document):
 
 def test_markdown_shape(document):
     rendered = markdown(section(document, "3.6.0"))
-    assert rendered.startswith("## Changes\n")
-    assert "\n\n## Resolved Issues\n" in rendered
+    assert rendered.startswith("## Changes\n\n- ")
+    assert "\n\n## Resolved Issues\n\n- " in rendered
     assert rendered.count("- ") == 3
 
 
