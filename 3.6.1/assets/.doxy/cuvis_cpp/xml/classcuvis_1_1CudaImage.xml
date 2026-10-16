@@ -1,0 +1,323 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classcuvis_1_1CudaImage" kind="class" language="C++" prot="public">
+    <compoundname>cuvis::CudaImage</compoundname>
+    <includes refid="cuvis_8hpp" local="no">cuvis.hpp</includes>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="classcuvis_1_1CudaImage_1abcda2127a6a2b28c8ff5077d33d14bca" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">class</ref></type>
+        <definition>friend class Measurement</definition>
+        <argsstring></argsstring>
+        <name>Measurement</name>
+        <qualifiedname>cuvis::CudaImage::Measurement</qualifiedname>
+        <param>
+          <type><ref refid="classcuvis_1_1Measurement" kindref="compound">Measurement</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="986" column="18" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="986" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcuvis_1_1CudaImage_1a47b330aca2aa48312ffcd6521ddee005" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="group__cuda_1gac9c1777259d3af0f09c4e6f5d98991e2" kindref="member">cuda_mem_t</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;cuda_mem_t&gt; cuvis::CudaImage::_mem</definition>
+        <argsstring></argsstring>
+        <name>_mem</name>
+        <qualifiedname>cuvis::CudaImage::_mem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1017" column="21" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1017" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcuvis_1_1CudaImage_1a99f2d90628ddb431bd60bcaa7fce0f05" prot="private" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t cuvis::CudaImage::_width</definition>
+        <argsstring></argsstring>
+        <name>_width</name>
+        <qualifiedname>cuvis::CudaImage::_width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1018" column="17" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1018" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcuvis_1_1CudaImage_1a6dd97dcd66f18134ba575b3a64a6aebb" prot="private" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t cuvis::CudaImage::_height</definition>
+        <argsstring></argsstring>
+        <name>_height</name>
+        <qualifiedname>cuvis::CudaImage::_height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1019" column="17" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1019" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcuvis_1_1CudaImage_1a58a8e9ae54d0a6f22e45a0a66ad6f4cc" prot="private" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t cuvis::CudaImage::_channels</definition>
+        <argsstring></argsstring>
+        <name>_channels</name>
+        <qualifiedname>cuvis::CudaImage::_channels</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1020" column="17" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1020" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcuvis_1_1CudaImage_1af7266bb04c0c95f9b8c00af8ac575902" prot="private" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t cuvis::CudaImage::_bytes</definition>
+        <argsstring></argsstring>
+        <name>_bytes</name>
+        <qualifiedname>cuvis::CudaImage::_bytes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1021" column="17" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1021" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcuvis_1_1CudaImage_1a69bfa56187eeb9c70418b965e4265fe4" prot="private" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t cuvis::CudaImage::_length</definition>
+        <argsstring></argsstring>
+        <name>_length</name>
+        <qualifiedname>cuvis::CudaImage::_length</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1022" column="17" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1022" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcuvis_1_1CudaImage_1a0632cc839856ae390697687e089cc847" prot="private" static="no" mutable="no">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">cuvis_imbuffer_format_t</ref></type>
+        <definition>cuvis_imbuffer_format_t cuvis::CudaImage::_format</definition>
+        <argsstring></argsstring>
+        <name>_format</name>
+        <qualifiedname>cuvis::CudaImage::_format</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1023" column="29" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1023" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcuvis_1_1CudaImage_1a0c182e1f1fc898f8a09c8ff20dc27168" prot="private" static="no" mutable="no">
+        <type>std::uint32_t <ref refid="structcuvis_1_1image__t" kindref="compound">const</ref>  *</type>
+        <definition>std::uint32_t const* cuvis::CudaImage::_wavelength</definition>
+        <argsstring></argsstring>
+        <name>_wavelength</name>
+        <qualifiedname>cuvis::CudaImage::_wavelength</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1024" column="25" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1024" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcuvis_1_1CudaImage_1a6b7c4146c3b6255c0df7d11b7a7f4e56" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t cuvis::CudaImage::width</definition>
+        <argsstring>() const</argsstring>
+        <name>width</name>
+        <qualifiedname>cuvis::CudaImage::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="989" column="17" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="989" bodyend="989"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1CudaImage_1a074595df5200973738b6abc8526f63c5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t cuvis::CudaImage::height</definition>
+        <argsstring>() const</argsstring>
+        <name>height</name>
+        <qualifiedname>cuvis::CudaImage::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="990" column="17" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="990" bodyend="990"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1CudaImage_1ac82b0c2cca4aeec9e86d9f042a303bb5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t cuvis::CudaImage::channels</definition>
+        <argsstring>() const</argsstring>
+        <name>channels</name>
+        <qualifiedname>cuvis::CudaImage::channels</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="991" column="17" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="991" bodyend="991"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1CudaImage_1a59782299bdb98ebe49b220c57fa16bd1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t cuvis::CudaImage::bytes_per_element</definition>
+        <argsstring>() const</argsstring>
+        <name>bytes_per_element</name>
+        <qualifiedname>cuvis::CudaImage::bytes_per_element</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>bytes per element </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="994" column="17" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="994" bodyend="994"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1CudaImage_1a1936a4af9cd0c9152ea415752058a5c2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t cuvis::CudaImage::size_in_bytes</definition>
+        <argsstring>() const</argsstring>
+        <name>size_in_bytes</name>
+        <qualifiedname>cuvis::CudaImage::size_in_bytes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>total bytes of the device buffer </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="997" column="17" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="997" bodyend="997"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1CudaImage_1af91dc7c6da4bf9a0aa1150f1922b729e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structcuvis_1_1image__t" kindref="compound">cuvis_imbuffer_format_t</ref></type>
+        <definition>cuvis_imbuffer_format_t cuvis::CudaImage::format</definition>
+        <argsstring>() const</argsstring>
+        <name>format</name>
+        <qualifiedname>cuvis::CudaImage::format</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="999" column="29" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="999" bodyend="999"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1CudaImage_1aa0da353cfb844a1494ced04c978b767a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::uint32_t <ref refid="structcuvis_1_1image__t" kindref="compound">const</ref> *</type>
+        <definition>std::uint32_t const  * cuvis::CudaImage::wavelength</definition>
+        <argsstring>() const</argsstring>
+        <name>wavelength</name>
+        <qualifiedname>cuvis::CudaImage::wavelength</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>wavelength vector, nullptr or an array of <ref refid="classcuvis_1_1CudaImage_1ac82b0c2cca4aeec9e86d9f042a303bb5" kindref="member">channels</ref> entries in nano meter </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1002" column="25" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1002" bodyend="1002"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1CudaImage_1abe1909e766c7b97771ca45552119d2f0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__cuda_1gafe60cf4e7dbccc2a3cca23565feca412" kindref="member">cuda_mem_view_t</ref></type>
+        <definition>cuda_mem_view_t cuvis::CudaImage::view</definition>
+        <argsstring>() const</argsstring>
+        <name>view</name>
+        <qualifiedname>cuvis::CudaImage::view</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1007" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classcuvis_1_1CudaImage_1a6fb0d5017569c764cf47df6332199ed3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classcuvis_1_1CudaIpcExport" kindref="compound">CudaIpcExport</ref></type>
+        <definition>CudaIpcExport cuvis::CudaImage::make_ipc</definition>
+        <argsstring>(cuda_ipc_backend_t backend) const</argsstring>
+        <name>make_ipc</name>
+        <qualifiedname>cuvis::CudaImage::make_ipc</qualifiedname>
+        <param>
+          <type><ref refid="group__cuda_1gac9862b73c6842cd7a3d8d636ff909210" kindref="member">cuda_ipc_backend_t</ref></type>
+          <declname>backend</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1012" column="19"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classcuvis_1_1CudaImage_1ae78b1af1b7c6b83e938d74917c56f0de" prot="private" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>cuvis::CudaImage::CudaImage</definition>
+        <argsstring>(cuda_imbuffer_t const &amp;buffer)</argsstring>
+        <name>CudaImage</name>
+        <qualifiedname>cuvis::CudaImage::CudaImage</qualifiedname>
+        <param>
+          <type><ref refid="group__cuda_1gacd9f8a056f01bac93d83baf930a89a08" kindref="member">cuda_imbuffer_t</ref> <ref refid="structcuvis_1_1image__t" kindref="compound">const</ref> &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1015" column="14"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Image data from a measurement that stays resident in CUDA device memory. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Obtained from <ref refid="classcuvis_1_1Measurement_1afe742ef20e78d4cbacc522fc4e4020ea" kindref="member">Measurement::cuda_image</ref>. Mirrors <ref refid="structcuvis_1_1image__t" kindref="compound">image_t</ref>, except the host pointer is replaced by a device buffer reachable through <ref refid="classcuvis_1_1CudaImage_1abe1909e766c7b97771ca45552119d2f0" kindref="member">view</ref> (same process) or <ref refid="classcuvis_1_1CudaImage_1a6fb0d5017569c764cf47df6332199ed3" kindref="member">make_ipc</ref> (another process). </para>
+    </detaileddescription>
+    <location file="cuvis.cpp/interface/cuvis.hpp" line="984" column="3" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="985" bodyend="1025"/>
+    <listofallmembers>
+      <member refid="classcuvis_1_1CudaImage_1af7266bb04c0c95f9b8c00af8ac575902" prot="private" virt="non-virtual"><scope>cuvis::CudaImage</scope><name>_bytes</name></member>
+      <member refid="classcuvis_1_1CudaImage_1a58a8e9ae54d0a6f22e45a0a66ad6f4cc" prot="private" virt="non-virtual"><scope>cuvis::CudaImage</scope><name>_channels</name></member>
+      <member refid="classcuvis_1_1CudaImage_1a0632cc839856ae390697687e089cc847" prot="private" virt="non-virtual"><scope>cuvis::CudaImage</scope><name>_format</name></member>
+      <member refid="classcuvis_1_1CudaImage_1a6dd97dcd66f18134ba575b3a64a6aebb" prot="private" virt="non-virtual"><scope>cuvis::CudaImage</scope><name>_height</name></member>
+      <member refid="classcuvis_1_1CudaImage_1a69bfa56187eeb9c70418b965e4265fe4" prot="private" virt="non-virtual"><scope>cuvis::CudaImage</scope><name>_length</name></member>
+      <member refid="classcuvis_1_1CudaImage_1a47b330aca2aa48312ffcd6521ddee005" prot="private" virt="non-virtual"><scope>cuvis::CudaImage</scope><name>_mem</name></member>
+      <member refid="classcuvis_1_1CudaImage_1a0c182e1f1fc898f8a09c8ff20dc27168" prot="private" virt="non-virtual"><scope>cuvis::CudaImage</scope><name>_wavelength</name></member>
+      <member refid="classcuvis_1_1CudaImage_1a99f2d90628ddb431bd60bcaa7fce0f05" prot="private" virt="non-virtual"><scope>cuvis::CudaImage</scope><name>_width</name></member>
+      <member refid="classcuvis_1_1CudaImage_1a59782299bdb98ebe49b220c57fa16bd1" prot="public" virt="non-virtual"><scope>cuvis::CudaImage</scope><name>bytes_per_element</name></member>
+      <member refid="classcuvis_1_1CudaImage_1ac82b0c2cca4aeec9e86d9f042a303bb5" prot="public" virt="non-virtual"><scope>cuvis::CudaImage</scope><name>channels</name></member>
+      <member refid="classcuvis_1_1CudaImage_1ae78b1af1b7c6b83e938d74917c56f0de" prot="private" virt="non-virtual"><scope>cuvis::CudaImage</scope><name>CudaImage</name></member>
+      <member refid="classcuvis_1_1CudaImage_1af91dc7c6da4bf9a0aa1150f1922b729e" prot="public" virt="non-virtual"><scope>cuvis::CudaImage</scope><name>format</name></member>
+      <member refid="classcuvis_1_1CudaImage_1a074595df5200973738b6abc8526f63c5" prot="public" virt="non-virtual"><scope>cuvis::CudaImage</scope><name>height</name></member>
+      <member refid="classcuvis_1_1CudaImage_1a6fb0d5017569c764cf47df6332199ed3" prot="public" virt="non-virtual"><scope>cuvis::CudaImage</scope><name>make_ipc</name></member>
+      <member refid="classcuvis_1_1CudaImage_1abcda2127a6a2b28c8ff5077d33d14bca" prot="private" virt="non-virtual"><scope>cuvis::CudaImage</scope><name>Measurement</name></member>
+      <member refid="classcuvis_1_1CudaImage_1a1936a4af9cd0c9152ea415752058a5c2" prot="public" virt="non-virtual"><scope>cuvis::CudaImage</scope><name>size_in_bytes</name></member>
+      <member refid="classcuvis_1_1CudaImage_1abe1909e766c7b97771ca45552119d2f0" prot="public" virt="non-virtual"><scope>cuvis::CudaImage</scope><name>view</name></member>
+      <member refid="classcuvis_1_1CudaImage_1aa0da353cfb844a1494ced04c978b767a" prot="public" virt="non-virtual"><scope>cuvis::CudaImage</scope><name>wavelength</name></member>
+      <member refid="classcuvis_1_1CudaImage_1a6b7c4146c3b6255c0df7d11b7a7f4e56" prot="public" virt="non-virtual"><scope>cuvis::CudaImage</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

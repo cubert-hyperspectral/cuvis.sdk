@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structcuvis__target__spectrum__t" kind="struct" language="C++" prot="public">
+    <compoundname>cuvis_target_spectrum_t</compoundname>
+    <includes refid="cuvis_8h" local="no">cuvis.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structcuvis__target__spectrum__t_1a6929013e610146cf5b9abc6171267a25" prot="public" static="no" mutable="no">
+        <type>float const  *</type>
+        <definition>float const* cuvis_target_spectrum_t::wavelengths</definition>
+        <argsstring></argsstring>
+        <name>wavelengths</name>
+        <qualifiedname>cuvis_target_spectrum_t::wavelengths</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>wavelengths in nanometers, array of length <ref refid="structcuvis__target__spectrum__t_1a039042c4264e230b2c177fe7308e78a9" kindref="member">count</ref> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="999" column="15" bodyfile="docs/_api_sources/cuvis.h" bodystart="999" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__target__spectrum__t_1ae535ca325d839e3a2a174ffff33fdbb0" prot="public" static="no" mutable="no">
+        <type>float const  *</type>
+        <definition>float const* cuvis_target_spectrum_t::values</definition>
+        <argsstring></argsstring>
+        <name>values</name>
+        <qualifiedname>cuvis_target_spectrum_t::values</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>reflectance values as fractions (1.0 for 100%), array of length <ref refid="structcuvis__target__spectrum__t_1a039042c4264e230b2c177fe7308e78a9" kindref="member">count</ref> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1002" column="15" bodyfile="docs/_api_sources/cuvis.h" bodystart="1002" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis__target__spectrum__t_1a039042c4264e230b2c177fe7308e78a9" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t cuvis_target_spectrum_t::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <qualifiedname>cuvis_target_spectrum_t::count</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>number of samples </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="docs/_api_sources/cuvis.h" line="1005" column="12" bodyfile="docs/_api_sources/cuvis.h" bodystart="1005" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>The reflectance spectrum of the white target used in the scene. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Values are fractions: 0.0 for 0% and 1.0 for 100% reflectivity. A dimensionless curve, so it carries no acquisition context. Pointer validity as in <ref refid="structcuvis__sensor__spectrum__t" kindref="compound">cuvis_sensor_spectrum_t</ref>. Used as the target reference, see <ref refid="group__cuvis__proc_1gabe19a040c876e2bbca0883b0d6780044" kindref="member">cuvis_proc_cont_set_reference_target_spectrum</ref>. </para>
+    </detaileddescription>
+    <location file="docs/_api_sources/cuvis.h" line="996" column="1" bodyfile="docs/_api_sources/cuvis.h" bodystart="997" bodyend="1006"/>
+    <listofallmembers>
+      <member refid="structcuvis__target__spectrum__t_1a039042c4264e230b2c177fe7308e78a9" prot="public" virt="non-virtual"><scope>cuvis_target_spectrum_t</scope><name>count</name></member>
+      <member refid="structcuvis__target__spectrum__t_1ae535ca325d839e3a2a174ffff33fdbb0" prot="public" virt="non-virtual"><scope>cuvis_target_spectrum_t</scope><name>values</name></member>
+      <member refid="structcuvis__target__spectrum__t_1a6929013e610146cf5b9abc6171267a25" prot="public" virt="non-virtual"><scope>cuvis_target_spectrum_t</scope><name>wavelengths</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

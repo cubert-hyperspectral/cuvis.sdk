@@ -1,0 +1,239 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="group__cuda" kind="group">
+    <compoundname>cuda</compoundname>
+    <title>CUDA device memory</title>
+    <innerclass refid="classcuvis_1_1cuda__unavailable__error" prot="public">cuvis::cuda_unavailable_error</innerclass>
+    <innerclass refid="classcuvis_1_1CudaIpcExport" prot="public">cuvis::CudaIpcExport</innerclass>
+    <innerclass refid="classcuvis_1_1CudaImage" prot="public">cuvis::CudaImage</innerclass>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__cuda_1gac9862b73c6842cd7a3d8d636ff909210" prot="public" static="no" strong="yes">
+        <type>int</type>
+        <name>cuda_ipc_backend_t</name>
+        <qualifiedname>cuvis::cuda_ipc_backend_t</qualifiedname>
+        <enumvalue id="group__cuda_1ggac9862b73c6842cd7a3d8d636ff909210a2bd9c0ed00116be1258e0cc66617d7c8" prot="public">
+          <name>automatic</name>
+          <initializer>= CUVIS_CUDA_IPC_BACKEND_AUTO</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__cuda_1ggac9862b73c6842cd7a3d8d636ff909210ab10a8c0bede9eb4ea771b04db3149f28" prot="public">
+          <name>pool</name>
+          <initializer>= CUVIS_CUDA_IPC_BACKEND_POOL</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__cuda_1ggac9862b73c6842cd7a3d8d636ff909210a228c70bfc5589c58c044e03fff0e17eb" prot="public">
+          <name>legacy</name>
+          <initializer>= CUVIS_CUDA_IPC_BACKEND_LEGACY</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__cuda_1ggac9862b73c6842cd7a3d8d636ff909210a8e91fa94a50a4248b3a837eed98de4a2" prot="public">
+          <name>vmm</name>
+          <initializer>= CUVIS_CUDA_IPC_BACKEND_VMM</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>IPC transport backing a device buffer export. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="851" column="3" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="852" bodyend="857"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__cuda_1gac1c42327379557e7140eafa9cdfb78e8" prot="public" static="no" strong="yes">
+        <type>int</type>
+        <name>cuda_ipc_handle_type_t</name>
+        <qualifiedname>cuvis::cuda_ipc_handle_type_t</qualifiedname>
+        <enumvalue id="group__cuda_1ggac1c42327379557e7140eafa9cdfb78e8a334c4a4c42fdb79d7ebc3e73b517e6f8" prot="public">
+          <name>none</name>
+          <initializer>= CUVIS_CUDA_IPC_HANDLE_NONE</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__cuda_1ggac1c42327379557e7140eafa9cdfb78e8a9c4f88f706dedde3bc0ebb66e34963e5" prot="public">
+          <name>win32</name>
+          <initializer>= CUVIS_CUDA_IPC_HANDLE_WIN32</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__cuda_1ggac1c42327379557e7140eafa9cdfb78e8a4426c2ea8be6b50a6286de6a0974bafe" prot="public">
+          <name>win32_kmt</name>
+          <initializer>= CUVIS_CUDA_IPC_HANDLE_WIN32_KMT</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__cuda_1ggac1c42327379557e7140eafa9cdfb78e8acd73cba58b75e5743af738f455d332b9" prot="public">
+          <name>posix_fd</name>
+          <initializer>= CUVIS_CUDA_IPC_HANDLE_POSIX_FD</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Kind of OS handle carried in a descriptor&apos;s blob. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="860" column="3" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="861" bodyend="866"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__cuda_1gac9c1777259d3af0f09c4e6f5d98991e2" prot="public" static="no">
+        <type>CUVIS_HANDLE</type>
+        <definition>using cuvis::cuda_mem_t = typedef CUVIS_HANDLE</definition>
+        <argsstring></argsstring>
+        <name>cuda_mem_t</name>
+        <qualifiedname>cuvis::cuda_mem_t</qualifiedname>
+        <briefdescription>
+<para>handle to a shareable CUDA device buffer </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="825" column="3" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="825" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__cuda_1ga6f72e6ba2ccf75fa2d22cd56c82ac571" prot="public" static="no">
+        <type>CUVIS_HANDLE</type>
+        <definition>using cuvis::cuda_ipc_t = typedef CUVIS_HANDLE</definition>
+        <argsstring></argsstring>
+        <name>cuda_ipc_t</name>
+        <qualifiedname>cuvis::cuda_ipc_t</qualifiedname>
+        <briefdescription>
+<para>handle to an active ipc export registration </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="828" column="3" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="828" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__cuda_1gafe60cf4e7dbccc2a3cca23565feca412" prot="public" static="no">
+        <type>cuvis_cuda_mem_view_t</type>
+        <definition>using cuvis::cuda_mem_view_t = typedef cuvis_cuda_mem_view_t</definition>
+        <argsstring></argsstring>
+        <name>cuda_mem_view_t</name>
+        <qualifiedname>cuvis::cuda_mem_view_t</qualifiedname>
+        <briefdescription>
+<para>Raw device pointer, size and device index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="831" column="3" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="831" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__cuda_1gacd9f8a056f01bac93d83baf930a89a08" prot="public" static="no">
+        <type>cuvis_cuda_imbuffer_t</type>
+        <definition>using cuvis::cuda_imbuffer_t = typedef cuvis_cuda_imbuffer_t</definition>
+        <argsstring></argsstring>
+        <name>cuda_imbuffer_t</name>
+        <qualifiedname>cuvis::cuda_imbuffer_t</qualifiedname>
+        <briefdescription>
+<para>Image buffer described by a device handle. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="834" column="3" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="834" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__cuda_1gaaf6261c28181dfef86e600afd687fa06" prot="public" static="no">
+        <type>cuvis_cuda_ipc_descriptor_t</type>
+        <definition>using cuvis::cuda_ipc_descriptor_t = typedef cuvis_cuda_ipc_descriptor_t</definition>
+        <argsstring></argsstring>
+        <name>cuda_ipc_descriptor_t</name>
+        <qualifiedname>cuvis::cuda_ipc_descriptor_t</qualifiedname>
+        <briefdescription>
+<para>Everything a consumer needs to map an exported buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="837" column="3" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="837" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="group__cuda_1ga0576a45e94e9883c202c0a10d7fd4c2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool cuvis::cuda_supported</definition>
+        <argsstring>()</argsstring>
+        <name>cuda_supported</name>
+        <qualifiedname>cuvis::cuda_supported</qualifiedname>
+        <briefdescription>
+<para>Whether the loaded cuvis library provides every CUDA entry point. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Answers only the library question and never touches the device. Cheap and cached; safe to call before <ref refid="classcuvis_1_1General_1ac7dc567169f37cc6d985bfc3abc8f097" kindref="member">General::init</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="889" column="8" declfile="cuvis.cpp/interface/cuvis.hpp" declline="889" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuda_1ga0f55923c8393627b11fa0a491220f616" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::string &gt; const &amp;</type>
+        <definition>std::vector&lt; std::string &gt; const  &amp; cuvis::cuda_missing_symbols</definition>
+        <argsstring>()</argsstring>
+        <name>cuda_missing_symbols</name>
+        <qualifiedname>cuvis::cuda_missing_symbols</qualifiedname>
+        <briefdescription>
+<para>The CUDA entry points the loaded cuvis library did not provide. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Empty when <ref refid="group__cuda_1ga0576a45e94e9883c202c0a10d7fd4c2c" kindref="member">cuda_supported</ref> is true. Naming them is the only field diagnostic that separates an old SDK from a device that cannot do IPC. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="896" column="21" declfile="cuvis.cpp/interface/cuvis.hpp" declline="896" declcolumn="21"/>
+      </memberdef>
+      <memberdef kind="function" id="group__cuda_1ga582e6d6a241ea2042011832c5fd4c666" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool cuvis::cuda_ipc_backend_available</definition>
+        <argsstring>(cuda_ipc_backend_t backend)</argsstring>
+        <name>cuda_ipc_backend_available</name>
+        <qualifiedname>cuvis::cuda_ipc_backend_available</qualifiedname>
+        <param>
+          <type>cuda_ipc_backend_t</type>
+          <declname>backend</declname>
+        </param>
+        <briefdescription>
+<para>Whether this device and driver support one IPC backend. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns false rather than throwing when the library provides no CUDA API, so a caller can ask both questions with one call.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="904" column="8" declfile="cuvis.cpp/interface/cuvis.hpp" declline="904" declcolumn="8"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The CUDA entry points are looked up in the loaded cuvis library at first use instead of being imported at link time, so an older library is a degraded run rather than a dead process. The declarations still come from cuvis.h, so the header must have the CUDA block even when the library turns out not to export it. Two questions are kept apart because they fail for different reasons: <ref refid="group__cuda_1ga0576a45e94e9883c202c0a10d7fd4c2c" kindref="member">cuda_supported</ref> asks whether the library provides the functions, <ref refid="group__cuda_1ga582e6d6a241ea2042011832c5fd4c666" kindref="member">cuda_ipc_backend_available</ref> asks whether this device and driver support a transport.</para>
+<para>Nothing here needs the CUDA toolkit. The device pointer is handed out as an opaque address for a consumer to wrap. </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

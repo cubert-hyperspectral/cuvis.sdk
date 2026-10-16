@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="group__cuvis__handle" kind="group">
+    <compoundname>cuvis_handle</compoundname>
+    <title>Handles</title>
+    <briefdescription>
+<para>The SDK is handle-based, i.e to access an internal data object you will require a handle. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The main concepts of the SDK which use handles are the <ref refid="group__cuvis__mesu" kindref="compound">Measurement</ref>, the <ref refid="group__cuvis__calib" kindref="compound">Calibration</ref>, the <ref refid="group__cuvis__session" kindref="compound">Session File</ref>, the <ref refid="group__cuvis__acq" kindref="compound">Acquisition Context</ref>, the <ref refid="group__cuvis__proc" kindref="compound">Processing Context</ref>, the <ref refid="group__cuvis__viewer" kindref="compound">Viewer</ref>, the <ref refid="group__cuvis__exporter" kindref="compound">Export API</ref> and the <ref refid="group__cuvis__worker" kindref="compound">Worker</ref>. On how to obtain a handle of the individual components of the SDK, see the respective Pages for the individual components.</para>
+<para>For example, a handle wich represents a <ref refid="group__cuvis__mesu" kindref="compound">Measurement</ref> can be obtained by either loading (<ref refid="group__cuvis__mesu_1ga1750ee4b61354f7d28d57b612ed24327" kindref="member">cuvis_measurement_load</ref>) or by recording (<ref refid="group__cuvis__acq_1ga1ca8cccaedc19f542c67805124fa271d" kindref="member">cuvis_acq_cont_capture</ref> or <ref refid="group__cuvis__acq_1gac3e12f1c8d3b7063678b40a1ede5c9ef" kindref="member">cuvis_acq_cont_get_next_measurement</ref>) a measurement. <linebreak/>
+A measurement is equivalent to a data-cube and would be called a frame in a traditional Camera-Setup. The handle then refers to measurement in the SDK context.</para>
+<para>Each handle should be freed after it is no longer needed. This can be done via the respective free function. Calling the free-function does not necessarily free up the used memory immediately, because there could be multiple handles referring to the same object. </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

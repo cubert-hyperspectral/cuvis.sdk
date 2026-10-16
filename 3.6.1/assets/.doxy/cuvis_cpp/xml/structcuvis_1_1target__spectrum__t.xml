@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structcuvis_1_1target__spectrum__t" kind="struct" language="C++" prot="public">
+    <compoundname>cuvis::target_spectrum_t</compoundname>
+    <includes refid="cuvis_8hpp" local="no">cuvis.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structcuvis_1_1target__spectrum__t_1a86ddd9e6070c1c0b6f5197c3895da5bd" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structcuvis_1_1image__t" kindref="compound">float</ref> &gt;</type>
+        <definition>std::vector&lt;float&gt; cuvis::target_spectrum_t::wavelengths</definition>
+        <argsstring></argsstring>
+        <name>wavelengths</name>
+        <qualifiedname>cuvis::target_spectrum_t::wavelengths</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1358" column="17" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1358" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcuvis_1_1target__spectrum__t_1aa20471fa82892b85de575a4ec8e782e9" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structcuvis_1_1image__t" kindref="compound">float</ref> &gt;</type>
+        <definition>std::vector&lt;float&gt; cuvis::target_spectrum_t::values</definition>
+        <argsstring></argsstring>
+        <name>values</name>
+        <qualifiedname>cuvis::target_spectrum_t::values</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cuvis.cpp/interface/cuvis.hpp" line="1359" column="17" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1359" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>The reflectivity curve of the white target used for reflectance calculation. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Wavelengths are nanometres; values are reflectivity as a fraction, 1.0 meaning 100 percent. Both vectors carry one entry per sample and must be equally long. </para>
+    </detaileddescription>
+    <location file="cuvis.cpp/interface/cuvis.hpp" line="1356" column="3" bodyfile="cuvis.cpp/interface/cuvis.hpp" bodystart="1357" bodyend="1360"/>
+    <listofallmembers>
+      <member refid="structcuvis_1_1target__spectrum__t_1aa20471fa82892b85de575a4ec8e782e9" prot="public" virt="non-virtual"><scope>cuvis::target_spectrum_t</scope><name>values</name></member>
+      <member refid="structcuvis_1_1target__spectrum__t_1a86ddd9e6070c1c0b6f5197c3895da5bd" prot="public" virt="non-virtual"><scope>cuvis::target_spectrum_t</scope><name>wavelengths</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
