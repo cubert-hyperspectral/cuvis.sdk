@@ -13,6 +13,7 @@ Nothing runs on a developer machine, and no PowerShell or Nextcloud credential i
   cuvis.docker and cuvis.pyil read the same share, so it is usually already correct by the time this repository releases.
 - The submodules on `main` point at the wrapper releases for this SDK.
 - `CHANGELOG.md` has a `## [<version>] - <date>` section and an empty `## [Unreleased]` above it.
+- The share carries `Release Notes.pdf` and it has a section for this version. The release fails without it.
 
 ## Publish a new version
 
@@ -24,9 +25,37 @@ git push origin v3.6.0
 
 The workflow then validates the tag against `CHANGELOG.md` and confirms it is on `main`, downloads the
 share zip for that version, stages the installers into the flat asset names, lints them, and opens a
-**draft** Release whose body is the changelog section.
+**draft** Release whose body is assembled as described below.
 
 Check the asset list, then publish the Release. `release-asset-lint.yml` lints it again on publish.
+
+## Release notes
+
+The body is assembled, not written: the SDK's own notes for this version first, then a
+"cuvis.sdk repo Changes" heading, then this repository's changelog section.
+
+`scripts/release_notes.py` lifts the SDK half out of `Release Notes.pdf` on the share, which is the
+same file published as the `RELEASE-NOTES_v<version>.pdf` asset. The PDF is cumulative, so only the
+section for the version being released is taken; a version it does not cover fails the release, as
+does a share with no notes at all.
+
+Two properties of that PDF's text layer are worth knowing, because they look like bugs in the output
+and are not:
+
+- LaTeX emits no space around a verbatim span, so `the use_compressed_lut settings` arrives as one
+  word. The spans carry their own typewriter font, which is how the spacing is restored and how they
+  end up fenced in backticks.
+- Paragraphs are hard-wrapped with hyphenation, so `pro-` and `cessing` arrive on separate lines and
+  are rejoined.
+
+Anything the notes render as prose rather than verbatim stays prose. The Release is a draft, so
+copy-edit it there if a term wants backticks the PDF did not mark up.
+
+To see what the body will be without tagging:
+
+```bash
+python scripts/release_notes.py --version X.Y.Z --source _assets
+```
 
 ## Dry-running a share
 
