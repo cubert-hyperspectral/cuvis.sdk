@@ -4,7 +4,13 @@ on:
   push:
     tags:
       - "v*.*.*"
-      
+  # Redeploys an already released version from the dispatched ref, e.g. to ship dependency fixes without a new tag
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Released version to redeploy, e.g. 3.6.1"
+        required: true
+
 permissions:
   contents: write
 
@@ -50,11 +56,13 @@ jobs:
       - name: Build docs (strict)
         run: uv run mkdocs build --strict
 
-      - name: Get version from tag
+      - name: Get version from tag or input
         id: get_version
+        env:
+          VERSION: ${{ inputs.version || github.ref_name }}
         run: |
-          VERSION="${{ github.ref_name }}"
           VERSION="${VERSION#v}"
+          echo "${VERSION}" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$' || { echo "Invalid version: ${VERSION}"; exit 1; }
           echo "VERSION=${VERSION}" >> "$GITHUB_OUTPUT"
 
       - name: Deploy docs with mike

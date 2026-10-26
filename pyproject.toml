@@ -8,6 +8,7 @@ dependencies = []
 [project.optional-dependencies]
 docs = [
     "urllib3>=2.8.0",
+    "certifi>=2026.10.19",
     "mkdocs>=1.5.0",
     "mkdocs-material>=9.7.7",
     "mkdocs-macros-plugin>=1.0.0",
@@ -16,8 +17,8 @@ docs = [
     "mkdocstrings[python]>=0.25.0",
     "mike>=2.0.0",
 ]
-test = ["pytest>=7", "pypdf>=6.19.0"]
-release = ["pypdf>=6.19.0"]
+test = ["pytest>=7", "pypdf>=6.21.2"]
+release = ["pypdf>=6.21.2"]
 
 [tool.uv]
 package = false
