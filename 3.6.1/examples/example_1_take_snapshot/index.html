@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../assets/cubert_icon_light.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -31,7 +31,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -976,30 +976,30 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">cuvis</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cuvis Python SDK Example 1&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Cuvis Python SDK Example 1"</span><span class="p">)</span>
 
 <span class="c1"># Initialize the Cuvis SDK using a settings-directory</span>
 <span class="c1"># This is optional (all settings have defaults),</span>
-<span class="c1"># but enables you to optimize Cuvis&#39; performance on your system using the settings</span>
+<span class="c1"># but enables you to optimize Cuvis' performance on your system using the settings</span>
 <span class="c1"># Your camera and the default Cuvis installation both provide these settings files</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Initializing Cuvis&quot;</span><span class="p">)</span>
-<span class="n">cuvis</span><span class="o">.</span><span class="n">General</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="s2">&quot;./settings&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Initializing Cuvis"</span><span class="p">)</span>
+<span class="n">cuvis</span><span class="o">.</span><span class="n">General</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="s2">"./settings"</span><span class="p">)</span>
 
 <span class="c1"># Snapshot setup / User input</span>
 <span class="c1"># Enter your data here!</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
 <span class="n">snapshot_integration_time_ms</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">save_directory</span> <span class="o">=</span> <span class="s2">&quot;./output&quot;</span> <span class="c1"># set to a location where you want to save the data</span>
+<span class="n">save_directory</span> <span class="o">=</span> <span class="s2">"./output"</span> <span class="c1"># set to a location where you want to save the data</span>
 
 <span class="n">has_camera</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># Set to True if you have a camera connected</span>
-<span class="n">camera_serial_number_str</span> <span class="o">=</span> <span class="s2">&quot;Your camera serial here&quot;</span>
+<span class="n">camera_serial_number_str</span> <span class="o">=</span> <span class="s2">"Your camera serial here"</span>
 
 <span class="c1"># If using demo data instead of a physical camera, change this to your download location:</span>
-<span class="n">demo_session_file</span> <span class="o">=</span> <span class="s2">&quot;./SDK_Training_Example_Data/WinterUlm_X20P.cu3s&quot;</span>
-<span class="k">assert</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">demo_session_file</span><span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;Demo session file not found: </span><span class="si">{</span><span class="n">demo_session_file</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">demo_session_file</span> <span class="o">=</span> <span class="s2">"./SDK_Training_Example_Data/WinterUlm_X20P.cu3s"</span>
+<span class="k">assert</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">demo_session_file</span><span class="p">),</span> <span class="sa">f</span><span class="s2">"Demo session file not found: </span><span class="si">{</span><span class="n">demo_session_file</span><span class="si">}</span><span class="s2">"</span>
 
-<span class="n">camera_calibration_file_path</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;./factory/</span><span class="si">{</span><span class="n">camera_serial_number_str</span><span class="si">}</span><span class="s2">.cu3c&quot;</span>
+<span class="n">camera_calibration_file_path</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">"./factory/</span><span class="si">{</span><span class="n">camera_serial_number_str</span><span class="si">}</span><span class="s2">.cu3c"</span>
 </code></pre></div>
 <hr />
 <h4 id="calibration-files-cu3c">Calibration Files (.cu3c)</h4>
@@ -1014,7 +1014,7 @@ The <strong>.cu3c</strong> camera calibration file format is a special form of t
 </ul>
 <div class="highlight"><pre><span></span><code><span class="c1"># Skip this if working without a physical camera</span>
 <span class="k">if</span> <span class="n">has_camera</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Load camera calibration file&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Load camera calibration file"</span><span class="p">)</span>
     <span class="n">calib</span> <span class="o">=</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">SessionFile</span><span class="p">(</span><span class="n">camera_calibration_file_path</span><span class="p">)</span>
 </code></pre></div>
 <hr />
@@ -1024,7 +1024,7 @@ Using <em>SessionFiles</em> to save measurements, is highly recommended, as it c
 all in one file, allowing you to re-process the measurements after the fact.
 This enables you to fine-tune the final product, convert the output format and even fix some mistakes made during data acquisition.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Setup the Cube Exporter for saving the measurements to disk in the SessionFile format (.cu3s)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Create CubeExporter&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Create CubeExporter"</span><span class="p">)</span>
 <span class="n">save_config</span> <span class="o">=</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">FileWriteSettings</span><span class="o">.</span><span class="n">SaveArgs</span><span class="p">(</span><span class="n">export_dir</span><span class="o">=</span><span class="n">save_directory</span><span class="p">)</span>
 <span class="n">exporter</span> <span class="o">=</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">CubeExporter</span><span class="p">(</span><span class="n">save_config</span><span class="p">)</span>
 </code></pre></div>
@@ -1041,15 +1041,15 @@ All other cameras/devices are ignored.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Skip this if working without a physical camera</span>
 <span class="k">if</span> <span class="n">has_camera</span><span class="p">:</span>
     <span class="c1"># Create an AcquisitionContext to connect to the camera</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Loading Acquisition Context&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Loading Acquisition Context"</span><span class="p">)</span>
     <span class="n">acq</span> <span class="o">=</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">AcquisitionContext</span><span class="p">(</span><span class="n">calib</span><span class="p">)</span>
 
     <span class="c1"># Wait for camera connection to be established</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Connecting with camera&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Connecting with camera"</span><span class="p">)</span>
     <span class="k">while</span><span class="p">(</span><span class="ow">not</span> <span class="n">acq</span><span class="o">.</span><span class="n">ready</span><span class="p">):</span>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Camera connected!&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"."</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Camera connected!"</span><span class="p">)</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
 
     <span class="c1"># Set camera to software trigger</span>
@@ -1070,11 +1070,11 @@ Some methods/attributes don't have any effect, as they cannot relay changes to a
     <span class="n">acq</span> <span class="o">=</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">AcquisitionContext</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">simulate</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Wait for the Acquisition Context to load the demo session file</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Wait for Acqusition Context to be ready...&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Wait for Acqusition Context to be ready..."</span><span class="p">)</span>
 <span class="k">while</span><span class="p">(</span><span class="ow">not</span> <span class="n">acq</span><span class="o">.</span><span class="n">ready</span><span class="p">):</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Simulated camera loaded!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"."</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Simulated camera loaded!"</span><span class="p">)</span>
 
 <span class="c1"># Set simulated camera to software trigger</span>
 <span class="n">acq</span><span class="o">.</span><span class="n">operation_mode</span> <span class="o">=</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">OperationMode</span><span class="o">.</span><span class="n">Software</span>
@@ -1085,7 +1085,7 @@ Some methods/attributes don't have any effect, as they cannot relay changes to a
 Taking a snapshot requires some time, so, to prevent the call to <code>capture()</code> from blocking execution, an <em>AsyncMesu</em> is returned.
 To await the completion of the snapshot, use the <code>get()</code> method on the <em>AsyncMesu</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Optional: Name the recording</span>
-<span class="n">acq</span><span class="o">.</span><span class="n">session_info</span> <span class="o">=</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">SessionData</span><span class="p">(</span><span class="s2">&quot;My_Measurement&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">acq</span><span class="o">.</span><span class="n">session_info</span> <span class="o">=</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">SessionData</span><span class="p">(</span><span class="s2">"My_Measurement"</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># With the camera connection established, a measurement can be triggered using the capture() method.</span>
 <span class="c1"># This returns an AsyncMesu object</span>
@@ -1093,14 +1093,14 @@ To await the completion of the snapshot, use the <code>get()</code> method on th
 
 <span class="c1"># To get the actual measurement, wait on the AsyncMesu using the get() method.</span>
 <span class="n">mesu</span><span class="p">,</span> <span class="n">status</span> <span class="o">=</span> <span class="n">async_mesu</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">timeout_ms</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;Measurement reports: </span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">"Measurement reports: </span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="c1"># Export the measurement - write the data to the disk in SessionFile format using the CubeExporter</span>
 <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">Async</span><span class="o">.</span><span class="n">AsyncResult</span><span class="o">.</span><span class="n">done</span><span class="p">:</span>
     <span class="n">exporter</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">mesu</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Measurement exported!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Measurement exported!"</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Something went wrong!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Something went wrong!"</span><span class="p">)</span>
 </code></pre></div>
 
 
@@ -1162,7 +1162,7 @@ To await the completion of the snapshot, use the <code>get()</code> method on th
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../javascripts/sdk-installer.js"></script>
       

@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../assets/cubert_icon_light.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -31,7 +31,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -1001,27 +1001,27 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">cuvis</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cuvis Python SDK Example 4&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Cuvis Python SDK Example 4"</span><span class="p">)</span>
 
 <span class="c1"># Initialize the Cuvis SDK using a settings-directory</span>
 <span class="c1"># This is optional (all settings have defaults),</span>
-<span class="c1"># but enables you to optimize Cuvis&#39; performance on your system using the settings</span>
+<span class="c1"># but enables you to optimize Cuvis' performance on your system using the settings</span>
 <span class="c1"># Your camera and the default Cuvis installation both provide these settings files</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Initializing Cuvis&quot;</span><span class="p">)</span>
-<span class="n">cuvis</span><span class="o">.</span><span class="n">General</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="s2">&quot;./settings&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Initializing Cuvis"</span><span class="p">)</span>
+<span class="n">cuvis</span><span class="o">.</span><span class="n">General</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="s2">"./settings"</span><span class="p">)</span>
 
 <span class="c1"># Enter a path to the SessionFile you want to use</span>
-<span class="n">session_file_path</span> <span class="o">=</span> <span class="s2">&quot;./SDK_Training_Example_Data/WinterUlm_X20P.cu3s&quot;</span>
+<span class="n">session_file_path</span> <span class="o">=</span> <span class="s2">"./SDK_Training_Example_Data/WinterUlm_X20P.cu3s"</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="k">assert</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">session_file_path</span><span class="p">),</span> <span class="sa">F</span><span class="s2">&quot;Session file &#39;</span><span class="si">{</span><span class="n">session_file_path</span><span class="si">}</span><span class="s2">&#39; not found&quot;</span>
+<span class="k">assert</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">session_file_path</span><span class="p">),</span> <span class="sa">F</span><span class="s2">"Session file '</span><span class="si">{</span><span class="n">session_file_path</span><span class="si">}</span><span class="s2">' not found"</span>
 
 <span class="c1"># Load the SessionFile</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;Loading Session File &#39;</span><span class="si">{</span><span class="n">session_file_path</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">"Loading Session File '</span><span class="si">{</span><span class="n">session_file_path</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
 <span class="n">session</span> <span class="o">=</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">SessionFile</span><span class="p">(</span><span class="n">session_file_path</span><span class="p">)</span>
 
 <span class="c1"># Load the first measurement of the file</span>
 <span class="n">mesu</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get_measurement</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;Loaded measurement at index 0 as </span><span class="si">{</span><span class="n">mesu</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">"Loaded measurement at index 0 as </span><span class="si">{</span><span class="n">mesu</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 <hr />
 <h4 id="cube-exporter-settings-saveargs">Cube Exporter - Settings (<em>SaveArgs</em>)</h4>
@@ -1048,7 +1048,7 @@ The <em>SaveArgs</em> class is used to communicate the settings to the <em>CubeE
 <div class="highlight"><pre><span></span><code><span class="c1"># Create a CubeExporter with custom settings.</span>
 <span class="c1"># Notably: full_export = True </span>
 <span class="n">save_args_full</span> <span class="o">=</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">SaveArgs</span><span class="p">(</span>
-    <span class="n">export_dir</span><span class="o">=</span><span class="s2">&quot;cube_export&quot;</span><span class="p">,</span> <span class="c1"># Default: &quot;.&quot;</span>
+    <span class="n">export_dir</span><span class="o">=</span><span class="s2">"cube_export"</span><span class="p">,</span> <span class="c1"># Default: "."</span>
     <span class="n">allow_overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>     <span class="c1"># Default: False</span>
     <span class="n">allow_drop</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>         <span class="c1"># Default: False</span>
     <span class="n">allow_info_file</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>     <span class="c1"># Default: True</span>
@@ -1087,10 +1087,10 @@ The <em>SaveArgs</em> class is used to communicate the settings to the <em>CubeE
 <li><code>format</code>: Which TIFF export mode to use. Default: <code>TiffFormat.MultiChannel</code></li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create a tiff exporter with custom settings</span>
-<span class="c1"># Here: Export only the channels between 600nm and 800nm as separate files with compression to directory &quot;tiff_export&quot;</span>
+<span class="c1"># Here: Export only the channels between 600nm and 800nm as separate files with compression to directory "tiff_export"</span>
 <span class="n">save_args_tiff</span> <span class="o">=</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">TiffExportSettings</span><span class="p">(</span>
-    <span class="n">export_dir</span><span class="o">=</span><span class="s2">&quot;tiff_export&quot;</span><span class="p">,</span>                       <span class="c1"># Default: &quot;.&quot;</span>
-    <span class="n">channel_selection</span><span class="o">=</span><span class="s2">&quot;600-800&quot;</span><span class="p">,</span>                    <span class="c1"># Default: &quot;all&quot;</span>
+    <span class="n">export_dir</span><span class="o">=</span><span class="s2">"tiff_export"</span><span class="p">,</span>                       <span class="c1"># Default: "."</span>
+    <span class="n">channel_selection</span><span class="o">=</span><span class="s2">"600-800"</span><span class="p">,</span>                    <span class="c1"># Default: "all"</span>
     <span class="n">compression_mode</span><span class="o">=</span><span class="n">cuvis</span><span class="o">.</span><span class="n">TiffCompressionMode</span><span class="o">.</span><span class="n">LZW</span><span class="p">,</span> <span class="c1"># Default: TiffCompressionMode.Nothing</span>
     <span class="nb">format</span><span class="o">=</span><span class="n">cuvis</span><span class="o">.</span><span class="n">TiffFormat</span><span class="o">.</span><span class="n">Single</span><span class="p">)</span>                 <span class="c1"># Default: TiffFormat.MultiChannel</span>
 
@@ -1111,8 +1111,8 @@ The <em>SaveArgs</em> class is used to communicate the settings to the <em>CubeE
 <code>export_dir</code> and <code>channel_selection</code> apply the same as for <em>TiffExportSettings</em> above.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create an ENVI exporter with custom settings</span>
 <span class="n">save_args_envi</span> <span class="o">=</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">EnviExportSettings</span><span class="p">(</span>
-    <span class="n">export_dir</span><span class="o">=</span><span class="s2">&quot;envi_export&quot;</span><span class="p">,</span> <span class="c1"># Default: &quot;.&quot;</span>
-    <span class="n">channel_selection</span><span class="o">=</span><span class="s2">&quot;all&quot;</span>   <span class="c1"># Default: &quot;all&quot;</span>
+    <span class="n">export_dir</span><span class="o">=</span><span class="s2">"envi_export"</span><span class="p">,</span> <span class="c1"># Default: "."</span>
+    <span class="n">channel_selection</span><span class="o">=</span><span class="s2">"all"</span>   <span class="c1"># Default: "all"</span>
 <span class="p">)</span>
 
 <span class="n">envi_exporter</span> <span class="o">=</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">EnviExporter</span><span class="p">(</span><span class="n">save_args_envi</span><span class="p">)</span>
@@ -1146,12 +1146,12 @@ You can find the XML schema in your Cuvis installation under <code>Cuvis/user/pl
 For further information on <em>UserPlugins</em>, their syntax and the available operators, please refer to the <em>Cuvis User Plug-Ins manual</em> PDF included with your Cuvis installation.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create a view exporter with custom settings</span>
 <span class="n">save_args_view</span> <span class="o">=</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">ViewExportSettings</span><span class="p">(</span>
-    <span class="n">export_dir</span><span class="o">=</span><span class="s2">&quot;view_export&quot;</span><span class="p">,</span> <span class="c1"># Default: &quot;.&quot;</span>
-    <span class="n">channel_selection</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span>  <span class="c1"># Default: &quot;all&quot;</span>
+    <span class="n">export_dir</span><span class="o">=</span><span class="s2">"view_export"</span><span class="p">,</span> <span class="c1"># Default: "."</span>
+    <span class="n">channel_selection</span><span class="o">=</span><span class="s2">"all"</span><span class="p">,</span>  <span class="c1"># Default: "all"</span>
     <span class="n">pan_failback</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>        <span class="c1"># Default: True</span>
     <span class="c1"># Please enter the path to your Cuvis installation below</span>
-    <span class="c1">#userplugin=&quot;Your Cuvis Install here&quot; + &quot;/user/plugin/raw/00_RGB.xml&quot;) # Default: &quot;&quot;</span>
-    <span class="n">userplugin</span><span class="o">=</span><span class="s2">&quot;C:/Program Files/Cuvis/user/plugin/raw/00_RGB.xml&quot;</span><span class="p">)</span> <span class="c1"># Default: &quot;&quot;</span>
+    <span class="c1">#userplugin="Your Cuvis Install here" + "/user/plugin/raw/00_RGB.xml") # Default: ""</span>
+    <span class="n">userplugin</span><span class="o">=</span><span class="s2">"C:/Program Files/Cuvis/user/plugin/raw/00_RGB.xml"</span><span class="p">)</span> <span class="c1"># Default: ""</span>
 
 <span class="n">view_exporter</span> <span class="o">=</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">ViewExporter</span><span class="p">(</span><span class="n">save_args_view</span><span class="p">)</span>
 
@@ -1184,8 +1184,8 @@ For further information on <em>UserPlugins</em>, their syntax and the available 
 </ul>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create a view exporter with pansharpening enabled</span>
 <span class="n">save_args_pansharpen</span> <span class="o">=</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">ViewExportSettings</span><span class="p">(</span>
-    <span class="n">export_dir</span><span class="o">=</span><span class="s2">&quot;pansharpen_export&quot;</span><span class="p">,</span>                <span class="c1"># Default: &quot;.&quot;</span>
-    <span class="n">channel_selection</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span>                       <span class="c1"># Default: &quot;all&quot;</span>
+    <span class="n">export_dir</span><span class="o">=</span><span class="s2">"pansharpen_export"</span><span class="p">,</span>                <span class="c1"># Default: "."</span>
+    <span class="n">channel_selection</span><span class="o">=</span><span class="s2">"all"</span><span class="p">,</span>                       <span class="c1"># Default: "all"</span>
     <span class="n">pan_scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>                                 <span class="c1"># Default: 0.0</span>
     <span class="n">pan_sharpening_interpolation_type</span><span class="o">=</span><span class="n">cuvis</span><span class="o">.</span><span class="n">PanSharpeningInterpolationType</span><span class="o">.</span><span class="n">Cubic</span><span class="p">,</span> <span class="c1"># Default: Linear </span>
     <span class="n">pan_sharpening_algorithm</span><span class="o">=</span><span class="n">cuvis</span><span class="o">.</span><span class="n">PanSharpeningAlgorithm</span><span class="o">.</span><span class="n">CubertPanRatio</span><span class="p">,</span> <span class="c1"># Default: CubertMacroPixel</span>
@@ -1193,8 +1193,8 @@ For further information on <em>UserPlugins</em>, their syntax and the available 
     <span class="n">add_pan</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>                                 <span class="c1"># Default: False</span>
     <span class="n">pan_failback</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>                             <span class="c1"># Default: True</span>
     <span class="c1"># Please enter the path to your Cuvis installation below</span>
-    <span class="c1">#userplugin=&quot;Your Cuvis Install here&quot; + &quot;/user/plugin/raw/00_RGB.xml&quot;) # Default: &quot;&quot;</span>
-    <span class="n">userplugin</span><span class="o">=</span><span class="s2">&quot;C:/Program Files/Cuvis/user/plugin/raw/00_RGB.xml&quot;</span><span class="p">)</span> <span class="c1"># Default: &quot;&quot;</span>
+    <span class="c1">#userplugin="Your Cuvis Install here" + "/user/plugin/raw/00_RGB.xml") # Default: ""</span>
+    <span class="n">userplugin</span><span class="o">=</span><span class="s2">"C:/Program Files/Cuvis/user/plugin/raw/00_RGB.xml"</span><span class="p">)</span> <span class="c1"># Default: ""</span>
 
 <span class="n">pansharpen_exporter</span> <span class="o">=</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">ViewExporter</span><span class="p">(</span><span class="n">save_args_pansharpen</span><span class="p">)</span>
 
@@ -1267,7 +1267,7 @@ For further information on <em>UserPlugins</em>, their syntax and the available 
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../javascripts/sdk-installer.js"></script>
       

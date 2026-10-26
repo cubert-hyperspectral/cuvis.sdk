@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../assets/cubert_icon_light.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -1030,8 +1030,8 @@ non-prerelease), and <code>--include-prerelease</code>.</p>
 <h3 id="urls-json-dict-of-role-url"><code>urls</code> — JSON dict of role → URL</h3>
 <div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>scripts/cuvis_sdk_url.py<span class="w"> </span>urls<span class="w"> </span>--os<span class="w"> </span>Ubuntu24.04
 <span class="c1"># {</span>
-<span class="c1">#   &quot;libcuvis&quot;:    &quot;https://.../v3.5.3/libcuvis_3.5.3-0_Ubuntu24.04_amd64_nocuda.deb&quot;,</span>
-<span class="c1">#   &quot;cuviscommon&quot;: &quot;https://.../v3.5.3/cuviscommon_3.5.3-0_Ubuntu24.04_amd64_nocuda.deb&quot;</span>
+<span class="c1">#   "libcuvis":    "https://.../v3.5.3/libcuvis_3.5.3-0_Ubuntu24.04_amd64_nocuda.deb",</span>
+<span class="c1">#   "cuviscommon": "https://.../v3.5.3/cuviscommon_3.5.3-0_Ubuntu24.04_amd64_nocuda.deb"</span>
 <span class="c1"># }</span>
 </code></pre></div>
 <h3 id="url-single-asset-url-plain-text"><code>url</code> — single asset URL (plain text)</h3>
@@ -1056,9 +1056,9 @@ on the former.</p>
 <h3 id="metadata-pattern-b-release-artifacts"><code>metadata</code> — Pattern-B release artifacts</h3>
 <div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>scripts/cuvis_sdk_url.py<span class="w"> </span>metadata<span class="w"> </span>--version<span class="w"> </span>v3.5.1
 <span class="c1"># {</span>
-<span class="c1">#   &quot;RELEASE-NOTES_v3.5.1.pdf&quot;:          &quot;https://.../RELEASE-NOTES_v3.5.1.pdf&quot;,</span>
-<span class="c1">#   &quot;Application-Notes_Cuvis-SDK_Linux.pdf&quot;: &quot;https://.../Application-Notes_Cuvis-SDK_Linux.pdf&quot;,</span>
-<span class="c1">#   &quot;SHA256SUMS.txt&quot;:                    &quot;https://.../SHA256SUMS.txt&quot;</span>
+<span class="c1">#   "RELEASE-NOTES_v3.5.1.pdf":          "https://.../RELEASE-NOTES_v3.5.1.pdf",</span>
+<span class="c1">#   "Application-Notes_Cuvis-SDK_Linux.pdf": "https://.../Application-Notes_Cuvis-SDK_Linux.pdf",</span>
+<span class="c1">#   "SHA256SUMS.txt":                    "https://.../SHA256SUMS.txt"</span>
 <span class="c1"># }</span>
 </code></pre></div>
 <p>Returns release-notes PDFs, application-notes PDFs, and <code>SHA256SUMS.txt</code>.
@@ -1111,10 +1111,10 @@ public functions to register them as mkdocs-macros for the <code>&lt;noscript&gt
 fallback. Anyone working inside the repo can do the same:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/path/to/cuvis.sdk/scripts&quot;</span><span class="p">)))</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s2">"/path/to/cuvis.sdk/scripts"</span><span class="p">)))</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">cuvis_sdk_url</span><span class="w"> </span><span class="kn">import</span> <span class="n">sdk_url</span><span class="p">,</span> <span class="n">sdk_urls</span><span class="p">,</span> <span class="n">install_command</span>
-<span class="n">sdk_urls</span><span class="p">(</span><span class="n">os</span><span class="o">=</span><span class="s2">&quot;Ubuntu24.04&quot;</span><span class="p">,</span> <span class="n">cuda</span><span class="o">=</span><span class="s2">&quot;cuda12.6&quot;</span><span class="p">)</span>
+<span class="n">sdk_urls</span><span class="p">(</span><span class="n">os</span><span class="o">=</span><span class="s2">"Ubuntu24.04"</span><span class="p">,</span> <span class="n">cuda</span><span class="o">=</span><span class="s2">"cuda12.6"</span><span class="p">)</span>
 </code></pre></div>
 <p>External Python projects shouldn't depend on this — there's no PyPI
 release. If you find yourself wanting one, you're better off writing a
@@ -1187,7 +1187,7 @@ the cache keeps even tight loops well clear.</p>
       <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../javascripts/sdk-installer.js"></script>
       

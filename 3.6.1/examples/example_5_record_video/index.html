@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../assets/cubert_icon_light.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -31,7 +31,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -990,14 +990,14 @@ The <em>Worker</em> class is introduced, which enables efficient use of the clas
 <span class="kn">import</span><span class="w"> </span><span class="nn">ipywidgets</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">widgets</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span> <span class="k">as</span> <span class="n">PILImage</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cuvis Python SDK Example 5&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Cuvis Python SDK Example 5"</span><span class="p">)</span>
 
 <span class="c1"># Initialize the Cuvis SDK using a settings-directory</span>
 <span class="c1"># This is optional (all settings have defaults),</span>
-<span class="c1"># but enables you to optimize Cuvis&#39; performance on your system using the settings</span>
+<span class="c1"># but enables you to optimize Cuvis' performance on your system using the settings</span>
 <span class="c1"># Your camera and the default Cuvis installation both provide these settings files</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Initializing Cuvis&quot;</span><span class="p">)</span>
-<span class="n">cuvis</span><span class="o">.</span><span class="n">General</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="s2">&quot;./settings&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Initializing Cuvis"</span><span class="p">)</span>
+<span class="n">cuvis</span><span class="o">.</span><span class="n">General</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="s2">"./settings"</span><span class="p">)</span>
 
 <span class="c1"># Video recording setup / User input</span>
 <span class="c1"># Enter your data here!</span>
@@ -1005,21 +1005,21 @@ The <em>Worker</em> class is introduced, which enables efficient use of the clas
 <span class="n">video_fps</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">video_number</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># For naming the video files</span>
 <span class="n">video_processing_mode</span> <span class="o">=</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">ProcessingMode</span><span class="o">.</span><span class="n">Raw</span>
-<span class="n">visualization_user_plugin_path</span> <span class="o">=</span> <span class="s2">&quot;./plugins/00_RGB.xml&quot;</span>
+<span class="n">visualization_user_plugin_path</span> <span class="o">=</span> <span class="s2">"./plugins/00_RGB.xml"</span>
 <span class="n">enable_pansharpening</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">save_directory</span> <span class="o">=</span> <span class="s2">&quot;./output/&quot;</span> <span class="c1"># directory to save the measurements to here</span>
+<span class="n">save_directory</span> <span class="o">=</span> <span class="s2">"./output/"</span> <span class="c1"># directory to save the measurements to here</span>
 
-<span class="n">video_filename</span> <span class="o">=</span> <span class="s2">&quot;MyHyperspectralVideo&quot;</span>
-<span class="n">camera_serial_number_str</span> <span class="o">=</span> <span class="s2">&quot;Your Cameras Serial Number&quot;</span>
+<span class="n">video_filename</span> <span class="o">=</span> <span class="s2">"MyHyperspectralVideo"</span>
+<span class="n">camera_serial_number_str</span> <span class="o">=</span> <span class="s2">"Your Cameras Serial Number"</span>
 
 <span class="c1"># If using demo data instead of a physical camera, change this to your download location:</span>
 <span class="n">has_camera</span> <span class="o">=</span> <span class="kc">False</span>
 
-<span class="n">demo_session_file</span> <span class="o">=</span> <span class="s2">&quot;./SDK_Training_Example_Data/WinterUlm_X20P.cu3s&quot;</span>
+<span class="n">demo_session_file</span> <span class="o">=</span> <span class="s2">"./SDK_Training_Example_Data/WinterUlm_X20P.cu3s"</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="k">assert</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">demo_session_file</span><span class="p">),</span> <span class="sa">F</span><span class="s2">&quot;Demo session file not found: </span><span class="si">{</span><span class="n">demo_session_file</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">assert</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">demo_session_file</span><span class="p">),</span> <span class="sa">F</span><span class="s2">"Demo session file not found: </span><span class="si">{</span><span class="n">demo_session_file</span><span class="si">}</span><span class="s2">"</span>
 
-<span class="n">camera_calibration_file_path</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;./factory/</span><span class="si">{</span><span class="n">camera_serial_number_str</span><span class="si">}</span><span class="s2">.cu3c&quot;</span>
+<span class="n">camera_calibration_file_path</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">"./factory/</span><span class="si">{</span><span class="n">camera_serial_number_str</span><span class="si">}</span><span class="s2">.cu3c"</span>
 </code></pre></div>
 <hr />
 <h4 id="set-up-camera">Set up Camera</h4>
@@ -1034,24 +1034,24 @@ The <em>Worker</em> class is introduced, which enables efficient use of the clas
     <span class="n">calib</span> <span class="o">=</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">SessionFile</span><span class="p">(</span><span class="n">camera_calibration_file_path</span><span class="p">)</span>
     <span class="n">acq_cont</span> <span class="o">=</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">AcquisitionContext</span><span class="p">(</span><span class="n">calib</span><span class="p">)</span>
 
-<span class="c1"># If you don&#39;t have a physical camera and want to simulate one, use these two lines. Uncomment the above</span>
+<span class="c1"># If you don't have a physical camera and want to simulate one, use these two lines. Uncomment the above</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">calib</span> <span class="o">=</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">SessionFile</span><span class="p">(</span><span class="n">demo_session_file</span><span class="p">)</span>
     <span class="n">acq_cont</span> <span class="o">=</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">AcquisitionContext</span><span class="p">(</span><span class="n">calib</span><span class="p">,</span> <span class="n">simulate</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Wait for camera connection to be established</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Connecting with camera&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Connecting with camera"</span><span class="p">)</span>
 <span class="k">while</span><span class="p">(</span><span class="ow">not</span> <span class="n">acq_cont</span><span class="o">.</span><span class="n">ready</span><span class="p">):</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Camera connected!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"."</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Camera connected!"</span><span class="p">)</span>
 <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="c1"># Set up recording parameters</span>
 <span class="n">acq_cont</span><span class="o">.</span><span class="n">operation_mode</span> <span class="o">=</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">OperationMode</span><span class="o">.</span><span class="n">Internal</span>
 <span class="n">acq_cont</span><span class="o">.</span><span class="n">set_continuous</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># Pause video stream for now</span>
 <span class="n">acq_cont</span><span class="o">.</span><span class="n">integration_time</span> <span class="o">=</span> <span class="n">video_integration_time_ms</span>
 <span class="n">acq_cont</span><span class="o">.</span><span class="n">fps</span> <span class="o">=</span> <span class="n">video_fps</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Camera ready!&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Camera ready!"</span><span class="p">)</span>
 </code></pre></div>
 <hr />
 <h4 id="set-up-processingcontext-and-export">Set up ProcessingContext and Export</h4>
@@ -1060,10 +1060,10 @@ The <em>Worker</em> class is introduced, which enables efficient use of the clas
 <li>Create and configure <em>CubeExporter</em></li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create ProcessingContext</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Loading processing context...&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Loading processing context..."</span><span class="p">)</span>
 <span class="n">proc_cont</span> <span class="o">=</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">ProcessingContext</span><span class="p">(</span><span class="n">calib</span><span class="p">)</span>
 <span class="n">proc_cont</span><span class="o">.</span><span class="n">processing_mode</span> <span class="o">=</span> <span class="n">video_processing_mode</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done!&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Done!"</span><span class="p">)</span>
 
 <span class="c1"># Create CubeExporter</span>
 <span class="n">save_args</span> <span class="o">=</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">SaveArgs</span><span class="p">(</span>
@@ -1135,7 +1135,7 @@ Using settings files and parameters in its constructor, you can define some char
 <span class="n">worker</span><span class="o">.</span><span class="n">set_viewer</span><span class="p">(</span><span class="n">viewer</span><span class="p">)</span>
 
 <span class="c1"># Helper Function</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">show_next_frame</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;jpeg&#39;</span><span class="p">,</span> <span class="n">jpeg_quality</span><span class="o">=</span><span class="mi">85</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">show_next_frame</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">'jpeg'</span><span class="p">,</span> <span class="n">jpeg_quality</span><span class="o">=</span><span class="mi">85</span><span class="p">):</span>
     <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">arr</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
         <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="mi">3</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -1145,10 +1145,10 @@ Using settings files and parameters in its constructor, you can define some char
         <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
 
     <span class="n">buf</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">fmt</span> <span class="o">==</span> <span class="s1">&#39;jpeg&#39;</span><span class="p">:</span>
-        <span class="n">PILImage</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;JPEG&#39;</span><span class="p">,</span> <span class="n">quality</span><span class="o">=</span><span class="n">jpeg_quality</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">fmt</span> <span class="o">==</span> <span class="s1">'jpeg'</span><span class="p">:</span>
+        <span class="n">PILImage</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">'JPEG'</span><span class="p">,</span> <span class="n">quality</span><span class="o">=</span><span class="n">jpeg_quality</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">PILImage</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;PNG&#39;</span><span class="p">)</span>
+        <span class="n">PILImage</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">'PNG'</span><span class="p">)</span>
     <span class="n">img</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">buf</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
 </code></pre></div>
 <hr />
@@ -1168,18 +1168,18 @@ Using settings files and parameters in its constructor, you can define some char
 <div class="highlight"><pre><span></span><code><span class="c1"># Video duration in seconds</span>
 <span class="n">video_duration_s</span> <span class="o">=</span> <span class="mi">10</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Starting pipeline...&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Starting pipeline..."</span><span class="p">)</span>
 <span class="n">worker</span><span class="o">.</span><span class="n">start_processing</span><span class="p">()</span>
 <span class="c1"># Name the video</span>
 <span class="n">acq_cont</span><span class="o">.</span><span class="n">session_info</span> <span class="o">=</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">SessionData</span><span class="p">(</span><span class="n">video_filename</span><span class="p">,</span> <span class="n">video_number</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">acq_cont</span><span class="o">.</span><span class="n">set_continuous</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Show image in notebook</span>
-<span class="n">img</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;jpeg&#39;</span><span class="p">)</span>  <span class="c1"># or &#39;png&#39;</span>
-<span class="n">img</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">border</span><span class="o">=</span><span class="s1">&#39;1px solid #ddd&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">'jpeg'</span><span class="p">)</span>  <span class="c1"># or 'png'</span>
+<span class="n">img</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">border</span><span class="o">=</span><span class="s1">'1px solid #ddd'</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">'auto'</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Acquiring...&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Acquiring..."</span><span class="p">)</span>
 <span class="c1"># Run recording for video_duration_s seconds</span>
 <span class="n">start_time_ns</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time_ns</span><span class="p">()</span>
 <span class="n">end_time_ns</span> <span class="o">=</span> <span class="n">start_time_ns</span> <span class="o">+</span> <span class="n">video_duration_s</span> <span class="o">*</span> <span class="mf">1e9</span> <span class="c1"># convert to ns</span>
@@ -1192,19 +1192,19 @@ Using settings files and parameters in its constructor, you can define some char
     <span class="k">else</span><span class="p">:</span>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stopping pipeline...&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Stopping pipeline..."</span><span class="p">)</span>
 <span class="n">acq_cont</span><span class="o">.</span><span class="n">set_continuous</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">worker</span><span class="o">.</span><span class="n">stop_processing</span><span class="p">()</span>
 <span class="n">worker</span><span class="o">.</span><span class="n">drop_all_queued</span><span class="p">()</span>
 
 <span class="c1"># Check recorded file</span>
-<span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">save_directory</span><span class="p">,</span> <span class="n">video_filename</span> <span class="o">+</span> <span class="sa">F</span><span class="s2">&quot;_</span><span class="si">{</span><span class="n">video_number</span><span class="si">:</span><span class="s2">03</span><span class="si">}</span><span class="s2">.cu3s&quot;</span><span class="p">)</span>
+<span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">save_directory</span><span class="p">,</span> <span class="n">video_filename</span> <span class="o">+</span> <span class="sa">F</span><span class="s2">"_</span><span class="si">{</span><span class="n">video_number</span><span class="si">:</span><span class="s2">03</span><span class="si">}</span><span class="s2">.cu3s"</span><span class="p">)</span>
 <span class="n">video_number</span> <span class="o">+=</span> <span class="mi">1</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Video file not found...&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Video file not found..."</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">sess</span> <span class="o">=</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">SessionFile</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;Recorded </span><span class="si">{</span><span class="n">sess</span><span class="o">.</span><span class="n">get_size</span><span class="p">()</span><span class="si">}</span><span class="s2"> measurements in file: </span><span class="si">{</span><span class="n">filepath</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">"Recorded </span><span class="si">{</span><span class="n">sess</span><span class="o">.</span><span class="n">get_size</span><span class="p">()</span><span class="si">}</span><span class="s2"> measurements in file: </span><span class="si">{</span><span class="n">filepath</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 
 
@@ -1266,7 +1266,7 @@ Using settings files and parameters in its constructor, you can define some char
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../javascripts/sdk-installer.js"></script>
       

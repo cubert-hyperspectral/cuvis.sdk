@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../assets/cubert_icon_light.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -31,7 +31,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -911,14 +911,14 @@ The measurement's data and meta-data are accessed. </p>
 <span class="kn">import</span><span class="w"> </span><span class="nn">cuvis</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cuvis Python SDK Example 2&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Cuvis Python SDK Example 2"</span><span class="p">)</span>
 
 <span class="c1"># Initialize the Cuvis SDK using a settings-directory</span>
 <span class="c1"># This is optional (all settings have defaults),</span>
-<span class="c1"># but enables you to optimize Cuvis&#39; performance on your system using the settings</span>
+<span class="c1"># but enables you to optimize Cuvis' performance on your system using the settings</span>
 <span class="c1"># Your camera and the default Cuvis installation both provide these settings files</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Initializing Cuvis&quot;</span><span class="p">)</span>
-<span class="n">cuvis</span><span class="o">.</span><span class="n">General</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="s2">&quot;./settings&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Initializing Cuvis"</span><span class="p">)</span>
+<span class="n">cuvis</span><span class="o">.</span><span class="n">General</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="s2">"./settings"</span><span class="p">)</span>
 </code></pre></div>
 <hr />
 <h4 id="sessionfile">SessionFile</h4>
@@ -933,32 +933,32 @@ It simplifies dealing with the calibration files, reference measurement and actu
 </ul>
 <div class="highlight"><pre><span></span><code><span class="c1"># Enter a path applicable to your setup here</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="n">session_file_path</span> <span class="o">=</span> <span class="s2">&quot;./SDK_Training_Example_Data/WinterUlm_X20P.cu3s&quot;</span>
-<span class="k">assert</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">session_file_path</span><span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;Demo session file not found: </span><span class="si">{</span><span class="n">session_file_path</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">session_file_path</span> <span class="o">=</span> <span class="s2">"./SDK_Training_Example_Data/WinterUlm_X20P.cu3s"</span>
+<span class="k">assert</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">session_file_path</span><span class="p">),</span> <span class="sa">f</span><span class="s2">"Demo session file not found: </span><span class="si">{</span><span class="n">session_file_path</span><span class="si">}</span><span class="s2">"</span>
 
 <span class="c1"># Load the SessionFile</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;Loading Session File &#39;</span><span class="si">{</span><span class="n">session_file_path</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">"Loading Session File '</span><span class="si">{</span><span class="n">session_file_path</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
 <span class="n">session</span> <span class="o">=</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">SessionFile</span><span class="p">(</span><span class="n">session_file_path</span><span class="p">)</span>
 
 <span class="c1"># Read and output some session file meta-data</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;Session File &#39;</span><span class="si">{</span><span class="n">session_file_path</span><span class="si">}</span><span class="s2">&#39; meta-data:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">"Session File '</span><span class="si">{</span><span class="n">session_file_path</span><span class="si">}</span><span class="s2">' meta-data:"</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;Number of measurements: </span><span class="si">{</span><span class="n">session</span><span class="o">.</span><span class="n">get_size</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">"Number of measurements: </span><span class="si">{</span><span class="n">session</span><span class="o">.</span><span class="n">get_size</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Recorded with operation mode: &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Recorded with operation mode: "</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
 <span class="n">recording_mode</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">operation_mode</span>
 
 <span class="k">if</span> <span class="n">recording_mode</span> <span class="o">==</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">OperationMode</span><span class="o">.</span><span class="n">Software</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Software / Snapshot&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Software / Snapshot"</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">recording_mode</span> <span class="o">==</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">OperationMode</span><span class="o">.</span><span class="n">Internal</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Internal / Video&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Internal / Video"</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;External / Hardware Trigger&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"External / Hardware Trigger"</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="n">recording_mode</span> <span class="o">==</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">OperationMode</span><span class="o">.</span><span class="n">Internal</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;Session recorded at a framerate of: </span><span class="si">{</span><span class="n">session</span><span class="o">.</span><span class="n">fps</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">"Session recorded at a framerate of: </span><span class="si">{</span><span class="n">session</span><span class="o">.</span><span class="n">fps</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;Session File stores </span><span class="si">{</span><span class="n">session</span><span class="o">.</span><span class="n">get_size</span><span class="p">(</span><span class="n">cuvis</span><span class="o">.</span><span class="n">SessionItemType</span><span class="o">.</span><span class="n">references</span><span class="p">)</span><span class="si">}</span><span class="s2"> reference measurements&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">"Session File stores </span><span class="si">{</span><span class="n">session</span><span class="o">.</span><span class="n">get_size</span><span class="p">(</span><span class="n">cuvis</span><span class="o">.</span><span class="n">SessionItemType</span><span class="o">.</span><span class="n">references</span><span class="p">)</span><span class="si">}</span><span class="s2"> reference measurements"</span><span class="p">)</span>
 </code></pre></div>
 <hr />
 <h4 id="measurement">Measurement</h4>
@@ -978,24 +978,24 @@ It simplifies dealing with the calibration files, reference measurement and actu
 <span class="n">measurement</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get_measurement</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># Read and print some meta-data from the measurement</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;Measurement meta-data for measurement </span><span class="si">{</span><span class="n">measurement</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">"Measurement meta-data for measurement </span><span class="si">{</span><span class="n">measurement</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">:"</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;Captured at: </span><span class="si">{</span><span class="n">measurement</span><span class="o">.</span><span class="n">capture_time</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;Captured with exposure / integration time of: </span><span class="si">{</span><span class="n">measurement</span><span class="o">.</span><span class="n">integration_time</span><span class="si">}</span><span class="s2"> ms&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;Captured with camera: </span><span class="si">{</span><span class="n">measurement</span><span class="o">.</span><span class="n">product_name</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">measurement</span><span class="o">.</span><span class="n">serial_number</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;Captured with software version: </span><span class="si">{</span><span class="n">measurement</span><span class="o">.</span><span class="n">assembly</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;Captured to: </span><span class="si">{</span><span class="n">measurement</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">"Captured at: </span><span class="si">{</span><span class="n">measurement</span><span class="o">.</span><span class="n">capture_time</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">"Captured with exposure / integration time of: </span><span class="si">{</span><span class="n">measurement</span><span class="o">.</span><span class="n">integration_time</span><span class="si">}</span><span class="s2"> ms"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">"Captured with camera: </span><span class="si">{</span><span class="n">measurement</span><span class="o">.</span><span class="n">product_name</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">measurement</span><span class="o">.</span><span class="n">serial_number</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">"Captured with software version: </span><span class="si">{</span><span class="n">measurement</span><span class="o">.</span><span class="n">assembly</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">"Captured to: </span><span class="si">{</span><span class="n">measurement</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="c1"># Access some meta-data from the sensor of the camera at the time of recording.</span>
-<span class="c1"># The raw sensor image of the hyperspectral sensor is called &quot;IMAGE&quot; by convention.</span>
-<span class="c1"># Each sensors meta-data is the sensor name + &quot;_info&quot; suffix.</span>
+<span class="c1"># The raw sensor image of the hyperspectral sensor is called "IMAGE" by convention.</span>
+<span class="c1"># Each sensors meta-data is the sensor name + "_info" suffix.</span>
 <span class="c1"># You can iterate over the measurements data attribute to see all available data fields</span>
-<span class="n">sensor_data</span> <span class="o">=</span> <span class="n">measurement</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;IMAGE_info&quot;</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;Sensor pixel format: </span><span class="si">{</span><span class="n">sensor_data</span><span class="o">.</span><span class="n">pixel_format</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;Sensor readout timestamp: </span><span class="si">{</span><span class="n">sensor_data</span><span class="o">.</span><span class="n">readout_time</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;Sensor gain value: </span><span class="si">{</span><span class="n">sensor_data</span><span class="o">.</span><span class="n">gain</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;Raw sensor size (WxH): (</span><span class="si">{</span><span class="n">sensor_data</span><span class="o">.</span><span class="n">width</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">sensor_data</span><span class="o">.</span><span class="n">height</span><span class="si">}</span><span class="s2">) pixel&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;Sensor temperature: </span><span class="si">{</span><span class="n">sensor_data</span><span class="o">.</span><span class="n">temperature</span><span class="si">}</span><span class="s2"> °C&quot;</span><span class="p">)</span>
+<span class="n">sensor_data</span> <span class="o">=</span> <span class="n">measurement</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"IMAGE_info"</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">"Sensor pixel format: </span><span class="si">{</span><span class="n">sensor_data</span><span class="o">.</span><span class="n">pixel_format</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">"Sensor readout timestamp: </span><span class="si">{</span><span class="n">sensor_data</span><span class="o">.</span><span class="n">readout_time</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">"Sensor gain value: </span><span class="si">{</span><span class="n">sensor_data</span><span class="o">.</span><span class="n">gain</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">"Raw sensor size (WxH): (</span><span class="si">{</span><span class="n">sensor_data</span><span class="o">.</span><span class="n">width</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">sensor_data</span><span class="o">.</span><span class="n">height</span><span class="si">}</span><span class="s2">) pixel"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">"Sensor temperature: </span><span class="si">{</span><span class="n">sensor_data</span><span class="o">.</span><span class="n">temperature</span><span class="si">}</span><span class="s2"> °C"</span><span class="p">)</span>
 
 <span class="c1"># Access the hyperspectral cube</span>
 
@@ -1019,9 +1019,9 @@ It simplifies dealing with the calibration files, reference measurement and actu
 <span class="c1"># cube = Cube(50, 50, 20)</span>
 
 <span class="c1"># Access some fundamental information about the cube</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;Cube wavelength range: </span><span class="si">{</span><span class="n">cube</span><span class="o">.</span><span class="n">wavelength</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">nm to </span><span class="si">{</span><span class="n">cube</span><span class="o">.</span><span class="n">wavelength</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">nm&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;Cube spatial resolution (WxH): (</span><span class="si">{</span><span class="n">cube</span><span class="o">.</span><span class="n">width</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">cube</span><span class="o">.</span><span class="n">height</span><span class="si">}</span><span class="s2">) pixel&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;Cube spectral resolution: </span><span class="si">{</span><span class="n">cube</span><span class="o">.</span><span class="n">channels</span><span class="si">}</span><span class="s2"> channels @ ~</span><span class="si">{</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">wavelength</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">cube</span><span class="o">.</span><span class="n">wavelength</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">cube</span><span class="o">.</span><span class="n">channels</span><span class="w"> </span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">nm per channel&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">"Cube wavelength range: </span><span class="si">{</span><span class="n">cube</span><span class="o">.</span><span class="n">wavelength</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">nm to </span><span class="si">{</span><span class="n">cube</span><span class="o">.</span><span class="n">wavelength</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">nm"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">"Cube spatial resolution (WxH): (</span><span class="si">{</span><span class="n">cube</span><span class="o">.</span><span class="n">width</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">cube</span><span class="o">.</span><span class="n">height</span><span class="si">}</span><span class="s2">) pixel"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">"Cube spectral resolution: </span><span class="si">{</span><span class="n">cube</span><span class="o">.</span><span class="n">channels</span><span class="si">}</span><span class="s2"> channels @ ~</span><span class="si">{</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">wavelength</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">cube</span><span class="o">.</span><span class="n">wavelength</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">cube</span><span class="o">.</span><span class="n">channels</span><span class="w"> </span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">nm per channel"</span><span class="p">)</span>
 
 <span class="c1"># Access a point spectrum (center pixel)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">width</span> <span class="o">//</span> <span class="mi">2</span>
@@ -1030,9 +1030,9 @@ It simplifies dealing with the calibration files, reference measurement and actu
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">wavelength</span><span class="p">,</span> <span class="n">spectrum</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Wavelength&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Counts&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Spectrum at (x=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, y=</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Wavelength"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Counts"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Spectrum at (x=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, y=</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
@@ -1042,14 +1042,14 @@ It simplifies dealing with the calibration files, reference measurement and actu
 
 <span class="c1"># Start with middle channel image</span>
 <span class="n">mid_channel</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">channels</span> <span class="o">//</span> <span class="mi">2</span>
-<span class="n">im</span> <span class="o">=</span> <span class="n">ax_img</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">array</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">mid_channel</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-<span class="n">ax_img</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Click a pixel to see its spectrum (channel </span><span class="si">{</span><span class="n">mid_channel</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">ax_img</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">array</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">mid_channel</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">)</span>
+<span class="n">ax_img</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Click a pixel to see its spectrum (channel </span><span class="si">{</span><span class="n">mid_channel</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
 
 <span class="c1"># Empty plot for spectrum</span>
 <span class="p">(</span><span class="n">line</span><span class="p">,)</span> <span class="o">=</span> <span class="n">ax_spec</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
-<span class="n">ax_spec</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Wavelength&quot;</span><span class="p">)</span>
-<span class="n">ax_spec</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Counts&quot;</span><span class="p">)</span>
-<span class="n">ax_spec</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Spectrum&quot;</span><span class="p">)</span>
+<span class="n">ax_spec</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Wavelength"</span><span class="p">)</span>
+<span class="n">ax_spec</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Counts"</span><span class="p">)</span>
+<span class="n">ax_spec</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Spectrum"</span><span class="p">)</span>
 <span class="n">ax_spec</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
 
 <span class="c1"># Click event handler</span>
@@ -1061,11 +1061,11 @@ It simplifies dealing with the calibration files, reference measurement and actu
         <span class="n">line</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">wavelength</span><span class="p">,</span> <span class="n">spectrum</span><span class="p">)</span>
         <span class="n">ax_spec</span><span class="o">.</span><span class="n">relim</span><span class="p">()</span>
         <span class="n">ax_spec</span><span class="o">.</span><span class="n">autoscale_view</span><span class="p">()</span>
-        <span class="n">ax_spec</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Spectrum at (x=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, y=</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+        <span class="n">ax_spec</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Spectrum at (x=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, y=</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
         <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw_idle</span><span class="p">()</span>
 
 <span class="c1"># Connect click event</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">mpl_connect</span><span class="p">(</span><span class="s1">&#39;button_press_event&#39;</span><span class="p">,</span> <span class="n">onclick</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">mpl_connect</span><span class="p">(</span><span class="s1">'button_press_event'</span><span class="p">,</span> <span class="n">onclick</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1076,8 +1076,8 @@ It simplifies dealing with the calibration files, reference measurement and actu
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">header_visible</span> <span class="o">=</span> <span class="kc">False</span>
 
-<span class="n">im</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">channel_image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Channel </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">channel_image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"gray"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Channel </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.046</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.04</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
@@ -1091,8 +1091,8 @@ It simplifies dealing with the calibration files, reference measurement and actu
     <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">header_visible</span> <span class="o">=</span> <span class="kc">False</span>
 
-    <span class="n">im</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">channel_image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Channel </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">channel_image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"gray"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Channel </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.046</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.04</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
@@ -1106,18 +1106,18 @@ It simplifies dealing with the calibration files, reference measurement and actu
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
 <span class="n">mid_channel</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">channels</span> <span class="o">//</span> <span class="mi">2</span>
-<span class="n">im</span> <span class="o">=</span> <span class="n">ax_img</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">array</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">mid_channel</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-<span class="n">marker</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax_img</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span> <span class="s2">&quot;r+&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">ax_img</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Channel </span><span class="si">{</span><span class="n">mid_channel</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">ax_img</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">array</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">mid_channel</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">)</span>
+<span class="n">marker</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax_img</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span> <span class="s2">"r+"</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax_img</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Channel </span><span class="si">{</span><span class="n">mid_channel</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="p">(</span><span class="n">line</span><span class="p">,)</span> <span class="o">=</span> <span class="n">ax_spec</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
-<span class="n">vline</span> <span class="o">=</span> <span class="n">ax_spec</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">wavelength</span><span class="p">[</span><span class="n">mid_channel</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">ax_spec</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Wavelength&quot;</span><span class="p">)</span>
-<span class="n">ax_spec</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Counts&quot;</span><span class="p">)</span>
-<span class="n">ax_spec</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Spectrum&quot;</span><span class="p">)</span>
+<span class="n">vline</span> <span class="o">=</span> <span class="n">ax_spec</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">wavelength</span><span class="p">[</span><span class="n">mid_channel</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">"r"</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">"--"</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax_spec</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Wavelength"</span><span class="p">)</span>
+<span class="n">ax_spec</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Counts"</span><span class="p">)</span>
+<span class="n">ax_spec</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Spectrum"</span><span class="p">)</span>
 <span class="n">ax_spec</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
 
-<span class="n">selected_pixel</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+<span class="n">selected_pixel</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"x"</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
 
 <span class="c1"># --- Channel slider setup (define before callbacks) ---</span>
 <span class="n">channel_slider</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span>
@@ -1125,7 +1125,7 @@ It simplifies dealing with the calibration files, reference measurement and actu
     <span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
     <span class="nb">max</span><span class="o">=</span><span class="n">cube</span><span class="o">.</span><span class="n">channels</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
     <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Channel&quot;</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s2">"Channel"</span><span class="p">,</span>
     <span class="n">continuous_update</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 <span class="p">)</span>
 
@@ -1134,7 +1134,7 @@ It simplifies dealing with the calibration files, reference measurement and actu
     <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">inaxes</span> <span class="o">==</span> <span class="n">ax_img</span> <span class="ow">and</span> <span class="n">event</span><span class="o">.</span><span class="n">xdata</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">event</span><span class="o">.</span><span class="n">ydata</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">xdata</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">ydata</span><span class="p">)</span>
         <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">cube</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">cube</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
-            <span class="n">selected_pixel</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">],</span> <span class="n">selected_pixel</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+            <span class="n">selected_pixel</span><span class="p">[</span><span class="s2">"x"</span><span class="p">],</span> <span class="n">selected_pixel</span><span class="p">[</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
             <span class="n">marker</span><span class="o">.</span><span class="n">set_data</span><span class="p">([</span><span class="n">x</span><span class="p">],</span> <span class="p">[</span><span class="n">y</span><span class="p">])</span>
 
             <span class="n">spectrum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="p">:])</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
@@ -1146,32 +1146,32 @@ It simplifies dealing with the calibration files, reference measurement and actu
             <span class="n">ch</span> <span class="o">=</span> <span class="n">channel_slider</span><span class="o">.</span><span class="n">value</span>
             <span class="n">vline</span><span class="o">.</span><span class="n">set_xdata</span><span class="p">([</span><span class="n">cube</span><span class="o">.</span><span class="n">wavelength</span><span class="p">[</span><span class="n">ch</span><span class="p">]])</span>
             <span class="n">ax_spec</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;Spectrum at (x=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, y=</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">) — value=</span><span class="si">{</span><span class="n">cube</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">ch</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">"Spectrum at (x=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, y=</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">) — value=</span><span class="si">{</span><span class="n">cube</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">ch</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span>
             <span class="p">)</span>
             <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw_idle</span><span class="p">()</span>
 
 
-<span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">mpl_connect</span><span class="p">(</span><span class="s2">&quot;button_press_event&quot;</span><span class="p">,</span> <span class="n">onclick</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">mpl_connect</span><span class="p">(</span><span class="s2">"button_press_event"</span><span class="p">,</span> <span class="n">onclick</span><span class="p">)</span>
 
 <span class="c1"># --- Slider handler ---</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">on_channel_change</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">change</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span>
-        <span class="n">ch</span> <span class="o">=</span> <span class="n">change</span><span class="p">[</span><span class="s2">&quot;new&quot;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">change</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"value"</span><span class="p">:</span>
+        <span class="n">ch</span> <span class="o">=</span> <span class="n">change</span><span class="p">[</span><span class="s2">"new"</span><span class="p">]</span>
         <span class="n">im</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">array</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">ch</span><span class="p">])</span>
-        <span class="n">ax_img</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Channel </span><span class="si">{</span><span class="n">ch</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">ax_img</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Channel </span><span class="si">{</span><span class="n">ch</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
         <span class="n">vline</span><span class="o">.</span><span class="n">set_xdata</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">wavelength</span><span class="p">[</span><span class="n">ch</span><span class="p">])</span>
         <span class="c1"># keep marker visible even when no click yet</span>
-        <span class="k">if</span> <span class="n">selected_pixel</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">selected_pixel</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">],</span> <span class="n">selected_pixel</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">selected_pixel</span><span class="p">[</span><span class="s2">"x"</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">selected_pixel</span><span class="p">[</span><span class="s2">"x"</span><span class="p">],</span> <span class="n">selected_pixel</span><span class="p">[</span><span class="s2">"y"</span><span class="p">]</span>
             <span class="n">marker</span><span class="o">.</span><span class="n">set_data</span><span class="p">([</span><span class="n">x</span><span class="p">],</span> <span class="p">[</span><span class="n">y</span><span class="p">])</span> 
             <span class="n">ax_spec</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;Spectrum at (x=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, y=</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">) — value=</span><span class="si">{</span><span class="n">cube</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">ch</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">"Spectrum at (x=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, y=</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">) — value=</span><span class="si">{</span><span class="n">cube</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">ch</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span>
             <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">marker</span><span class="o">.</span><span class="n">set_data</span><span class="p">([],</span> <span class="p">[])</span> 
         <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw_idle</span><span class="p">()</span>
 
-<span class="n">channel_slider</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">on_channel_change</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">)</span>
+<span class="n">channel_slider</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">on_channel_change</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="s2">"value"</span><span class="p">)</span>
 
 <span class="n">display</span><span class="p">(</span><span class="n">channel_slider</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1236,7 +1236,7 @@ It simplifies dealing with the calibration files, reference measurement and actu
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../javascripts/sdk-installer.js"></script>
       

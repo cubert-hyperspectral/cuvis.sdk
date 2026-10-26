@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/cubert_icon_light.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -964,27 +964,27 @@
 // load the info channel to cube_info_layer_buffer
 CUVIS_IMBUFFER cube_info_layer_buffer;
 cuvis_measurement_get_data_image(mesu, CUVIS_MESU_CUBE_INFO_KEY, &amp;cube_info_layer_buffer);
-//now load pixel x=15, y=17&#39; s flag information
+//now load pixel x=15, y=17' s flag information
 int x = 15, y = 17;
 uint16_t info_ptr = (const uint16_t*)(cube_info_layer_buffer.raw);
 cube_info_layer_buffer pixel_info = IMBUFFER_GET(info_ptr, x, y, 0, imbuf);
 //check if the pixel is ok
 if (pixel_info == CUVIS_MESU_INFO_OK)
-    printf(&quot;pixel 15|17 ok \n&quot;);
+    printf("pixel 15|17 ok \n");
 else
 {
     // multiple flags can be set
     if ((pixel_info  &amp; CUVIS_MESU_INFO_BAD_PIXEL) != 0)
-        printf(&quot;pixel 15|17 is over-illuminated \n&quot;);
+        printf("pixel 15|17 is over-illuminated \n");
 
     if ((pixel_info  &amp; CUVIS_MESU_INFO_OVERILLUMINATED) != 0)
-        printf(&quot;pixel 15|17 is a bad pixel \n&quot;);
+        printf("pixel 15|17 is a bad pixel \n");
     // ...
 }
 </code></pre></div>
 <h2 id="macro-definition-documentation">Macro Definition Documentation</h2>
 <h3 id="define-cuvis_mesu_cube_info_key">define CUVIS_MESU_CUBE_INFO_KEY</h3>
-<div class="highlight"><pre><span></span><code>#define CUVIS_MESU_CUBE_INFO_KEY `&quot;cube_info_layer&quot;`
+<div class="highlight"><pre><span></span><code>#define CUVIS_MESU_CUBE_INFO_KEY `"cube_info_layer"`
 </code></pre></div>
 <p>name of the info channel of its respective cube. </p>
 <hr>
@@ -1038,7 +1038,7 @@ else
 <hr>
 
 <h3 id="define-cuvis_mesu_pan_info_key">define CUVIS_MESU_PAN_INFO_KEY</h3>
-<div class="highlight"><pre><span></span><code>#define CUVIS_MESU_PAN_INFO_KEY `&quot;pan_info_layer&quot;`
+<div class="highlight"><pre><span></span><code>#define CUVIS_MESU_PAN_INFO_KEY `"pan_info_layer"`
 </code></pre></div>
 <p>name of the info channel of its respective pan image. </p>
 <hr>
@@ -1104,7 +1104,7 @@ else
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../javascripts/sdk-installer.js"></script>
       

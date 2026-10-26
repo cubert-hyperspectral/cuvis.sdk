@@ -46,8 +46,8 @@ Loading installer selector…
 JavaScript is disabled, so the selector can't run. The default install command for \*\*Ubuntu 24.04 / amd64 / no CUDA\*\* (built into the page at deploy time):
 
 ```
-curl -O https://github.com/cubert-hyperspectral/cuvis.sdk/releases/download/v3.6.0/cuviscommon_3.6.0-0_Ubuntu24.04_amd64_nocuda.deb
-curl -O https://github.com/cubert-hyperspectral/cuvis.sdk/releases/download/v3.6.0/libcuvis_3.6.0-0_Ubuntu24.04_amd64_nocuda.deb
+curl -O https://github.com/cubert-hyperspectral/cuvis.sdk/releases/download/v3.6.1/cuviscommon_3.6.1-0_Ubuntu24.04_amd64_nocuda.deb
+curl -O https://github.com/cubert-hyperspectral/cuvis.sdk/releases/download/v3.6.1/libcuvis_3.6.1-0_Ubuntu24.04_amd64_nocuda.deb
 sudo dpkg -i cuviscommon_*.deb libcuvis_*.deb
 ```
 

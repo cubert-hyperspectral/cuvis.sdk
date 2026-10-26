@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../assets/cubert_icon_light.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -31,7 +31,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -1000,42 +1000,42 @@ The measurement is reprocessed into different processing modes, explaining their
 <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cuvis Python SDK Example 3&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Cuvis Python SDK Example 3"</span><span class="p">)</span>
 
 <span class="c1"># Initialize the Cuvis SDK using a settings-directory</span>
 <span class="c1"># This is optional (all settings have defaults),</span>
-<span class="c1"># but enables you to optimize Cuvis&#39; performance on your system using the settings</span>
+<span class="c1"># but enables you to optimize Cuvis' performance on your system using the settings</span>
 <span class="c1"># Your camera and the default Cuvis installation both provide these settings files</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Initializing Cuvis&quot;</span><span class="p">)</span>
-<span class="n">cuvis</span><span class="o">.</span><span class="n">General</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="s2">&quot;./settings&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Initializing Cuvis"</span><span class="p">)</span>
+<span class="n">cuvis</span><span class="o">.</span><span class="n">General</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="s2">"./settings"</span><span class="p">)</span>
 
 <span class="c1"># Enter paths applicable to your setup here</span>
-<span class="n">session_file_path</span> <span class="o">=</span> <span class="s2">&quot;./SDK_Training_Example_Data/WinterUlm_X20P.cu3s&quot;</span>
-<span class="n">dark_reference_file_path</span> <span class="o">=</span> <span class="n">session_file_path</span> <span class="c1">#&quot;path/to/reference measurement.cu3s&quot;</span>
-<span class="n">white_reference_file_path</span> <span class="o">=</span> <span class="n">session_file_path</span> <span class="c1">#&quot;path/to/reference measurement.cu3s&quot;</span>
+<span class="n">session_file_path</span> <span class="o">=</span> <span class="s2">"./SDK_Training_Example_Data/WinterUlm_X20P.cu3s"</span>
+<span class="n">dark_reference_file_path</span> <span class="o">=</span> <span class="n">session_file_path</span> <span class="c1">#"path/to/reference measurement.cu3s"</span>
+<span class="n">white_reference_file_path</span> <span class="o">=</span> <span class="n">session_file_path</span> <span class="c1">#"path/to/reference measurement.cu3s"</span>
 
 <span class="c1"># Load the SessionFile</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;Loading Session File &#39;</span><span class="si">{</span><span class="n">session_file_path</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">"Loading Session File '</span><span class="si">{</span><span class="n">session_file_path</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
 <span class="n">session</span> <span class="o">=</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">SessionFile</span><span class="p">(</span><span class="n">session_file_path</span><span class="p">)</span>
 <span class="c1"># Fetch the first measurement from the session file</span>
 <span class="n">measurement</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get_measurement</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># Load dark reference measurement</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;Loading Dark reference file &#39;</span><span class="si">{</span><span class="n">dark_reference_file_path</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">"Loading Dark reference file '</span><span class="si">{</span><span class="n">dark_reference_file_path</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
 <span class="n">dark_sess</span> <span class="o">=</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">SessionFile</span><span class="p">(</span><span class="n">dark_reference_file_path</span><span class="p">)</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">dark_mesu</span> <span class="o">:=</span> <span class="n">dark_sess</span><span class="o">.</span><span class="n">get_reference</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">ReferenceType</span><span class="o">.</span><span class="n">Dark</span><span class="p">))</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using Dark reference from Session File&quot;</span><span class="p">)</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Using Dark reference from Session File"</span><span class="p">)</span> 
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using first measurement as Dark reference&quot;</span><span class="p">)</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Using first measurement as Dark reference"</span><span class="p">)</span> 
     <span class="n">dark_mesu</span> <span class="o">=</span> <span class="n">dark_sess</span><span class="o">.</span><span class="n">get_measurement</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># Load white reference measurement</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;Loading White reference file &#39;</span><span class="si">{</span><span class="n">white_reference_file_path</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">"Loading White reference file '</span><span class="si">{</span><span class="n">white_reference_file_path</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
 <span class="n">white_sess</span> <span class="o">=</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">SessionFile</span><span class="p">(</span><span class="n">white_reference_file_path</span><span class="p">)</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">white_mesu</span> <span class="o">:=</span> <span class="n">white_sess</span><span class="o">.</span><span class="n">get_reference</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">ReferenceType</span><span class="o">.</span><span class="n">White</span><span class="p">))</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using White reference from Session File&quot;</span><span class="p">)</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Using White reference from Session File"</span><span class="p">)</span> 
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using first measurement as White reference&quot;</span><span class="p">)</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Using first measurement as White reference"</span><span class="p">)</span> 
     <span class="n">white_mesu</span> <span class="o">=</span> <span class="n">white_sess</span><span class="o">.</span><span class="n">get_measurement</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># Helper functions</span>
@@ -1044,21 +1044,21 @@ The measurement is reprocessed into different processing modes, explaining their
 <span class="k">def</span><span class="w"> </span><span class="nf">print_processing_mode</span><span class="p">(</span><span class="n">measurement</span><span class="p">):</span>
     <span class="n">procmode</span> <span class="o">=</span> <span class="n">measurement</span><span class="o">.</span><span class="n">processing_mode</span>
     <span class="k">if</span> <span class="n">procmode</span> <span class="o">==</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">ProcessingMode</span><span class="o">.</span><span class="n">Preview</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Measurement does not have a hyperspectral cube: Preview Mode&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Measurement does not have a hyperspectral cube: Preview Mode"</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">procmode</span> <span class="o">==</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">ProcessingMode</span><span class="o">.</span><span class="n">Raw</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Measurement has a hyperspectral cube with raw counts: Raw Mode&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Measurement has a hyperspectral cube with raw counts: Raw Mode"</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">procmode</span> <span class="o">==</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">ProcessingMode</span><span class="o">.</span><span class="n">DarkSubtract</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Measurement has a hyperspectral cube with raw counts: Dark Subtract Mode&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Measurement has a hyperspectral cube with raw counts: Dark Subtract Mode"</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">procmode</span> <span class="o">==</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">ProcessingMode</span><span class="o">.</span><span class="n">Reflectance</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Measurement has a hyperspectral cube with reflectance values: Reflectance Mode&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Measurement has a hyperspectral cube with reflectance values: Reflectance Mode"</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">procmode</span> <span class="o">==</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">ProcessingMode</span><span class="o">.</span><span class="n">SpectralRadiance</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Measurement has a hyperspectral cube with Spectral Radiance values: Spectral Radiance Mode&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Measurement has a hyperspectral cube with Spectral Radiance values: Spectral Radiance Mode"</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Unknown processing mode&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Unknown processing mode"</span><span class="p">)</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">show_spectrum_and_channel</span><span class="p">(</span><span class="n">measurement</span><span class="p">,</span> <span class="n">i_x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">i_y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">i_c</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="n">cube</span> <span class="o">=</span> <span class="n">measurement</span><span class="o">.</span><span class="n">cube</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;Cube dimensions: </span><span class="si">{</span><span class="n">cube</span><span class="o">.</span><span class="n">width</span><span class="si">}</span><span class="s2"> x </span><span class="si">{</span><span class="n">cube</span><span class="o">.</span><span class="n">height</span><span class="si">}</span><span class="s2"> x </span><span class="si">{</span><span class="n">cube</span><span class="o">.</span><span class="n">channels</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">"Cube dimensions: </span><span class="si">{</span><span class="n">cube</span><span class="o">.</span><span class="n">width</span><span class="si">}</span><span class="s2"> x </span><span class="si">{</span><span class="n">cube</span><span class="o">.</span><span class="n">height</span><span class="si">}</span><span class="s2"> x </span><span class="si">{</span><span class="n">cube</span><span class="o">.</span><span class="n">channels</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
     <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">width</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="k">if</span> <span class="n">i_x</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">i_x</span>
     <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">height</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="k">if</span> <span class="n">i_y</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">i_y</span>
@@ -1066,16 +1066,16 @@ The measurement is reprocessed into different processing modes, explaining their
 
     <span class="n">procmode</span> <span class="o">=</span> <span class="n">measurement</span><span class="o">.</span><span class="n">processing_mode</span>
     <span class="k">if</span> <span class="n">procmode</span> <span class="o">==</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">ProcessingMode</span><span class="o">.</span><span class="n">Preview</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Measurement does not have a hyperspectral cube: Preview Mode&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Measurement does not have a hyperspectral cube: Preview Mode"</span><span class="p">)</span>
         <span class="k">return</span>
     <span class="k">elif</span> <span class="n">procmode</span> <span class="ow">in</span> <span class="p">(</span><span class="n">cuvis</span><span class="o">.</span><span class="n">ProcessingMode</span><span class="o">.</span><span class="n">Raw</span><span class="p">,</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">ProcessingMode</span><span class="o">.</span><span class="n">DarkSubtract</span><span class="p">):</span>
-        <span class="n">ylabel</span> <span class="o">=</span> <span class="s2">&quot;Counts&quot;</span>
+        <span class="n">ylabel</span> <span class="o">=</span> <span class="s2">"Counts"</span>
     <span class="k">elif</span> <span class="n">procmode</span> <span class="o">==</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">ProcessingMode</span><span class="o">.</span><span class="n">Reflectance</span><span class="p">:</span>
-        <span class="n">ylabel</span> <span class="o">=</span> <span class="s2">&quot;Reflectance [%]&quot;</span>
+        <span class="n">ylabel</span> <span class="o">=</span> <span class="s2">"Reflectance [%]"</span>
     <span class="k">elif</span> <span class="n">procmode</span> <span class="o">==</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">ProcessingMode</span><span class="o">.</span><span class="n">SpectralRadiance</span><span class="p">:</span>
-        <span class="n">ylabel</span> <span class="o">=</span> <span class="s2">&quot;Spectral Radiance [W / m² / sr / µm]&quot;</span>
+        <span class="n">ylabel</span> <span class="o">=</span> <span class="s2">"Spectral Radiance [W / m² / sr / µm]"</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Unknown processing mode&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Unknown processing mode"</span><span class="p">)</span>
         <span class="k">return</span>
 
     <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax0</span><span class="p">,</span> <span class="n">ax1</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1086,15 +1086,15 @@ The measurement is reprocessed into different processing modes, explaining their
         <span class="n">spectrum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">spectrum</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
         <span class="n">spectrum</span> <span class="o">/=</span> <span class="mi">100</span>
     <span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">wavelength</span><span class="p">,</span> <span class="n">spectrum</span><span class="p">)</span>
-    <span class="n">ax0</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Wavelength&quot;</span><span class="p">)</span>
+    <span class="n">ax0</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Wavelength"</span><span class="p">)</span>
     <span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">ylabel</span><span class="p">)</span>
-    <span class="n">ax0</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;Spectrum at (x=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, y=</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="n">ax0</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">F</span><span class="s2">"Spectrum at (x=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, y=</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
     <span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
 
     <span class="c1"># Single channel image</span>
     <span class="n">channel_image</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">array</span><span class="p">[:,:,</span><span class="n">c</span><span class="p">]</span>
-    <span class="n">im</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">channel_image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
-    <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;Channel </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">channel_image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"gray"</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">F</span><span class="s2">"Channel </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.046</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.04</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax0</span><span class="p">,</span> <span class="n">ax1</span><span class="p">)</span>
@@ -1111,7 +1111,7 @@ As a SessionFile contains the camera calibration, it is used to construct the <e
 <p>When initializing a <em>ProcessingContext</em> from a <em>SessionFile</em>, the reference <em>Measurements</em> stored in the <em>SessionFile</em> are automatically loaded and set within the <em>ProcessingContext</em>.
 Using the method <code>set_reference</code>, different measurements can be set for each reference type.</p>
 <div class="highlight"><pre><span></span><code><span class="n">processing_context</span> <span class="o">=</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">ProcessingContext</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Processing mode is&quot;</span><span class="p">,</span> <span class="n">processing_context</span><span class="o">.</span><span class="n">processing_mode</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Processing mode is"</span><span class="p">,</span> <span class="n">processing_context</span><span class="o">.</span><span class="n">processing_mode</span><span class="p">)</span>
 </code></pre></div>
 <hr />
 <h4 id="processing-mode-raw">Processing Mode RAW</h4>
@@ -1219,7 +1219,7 @@ The reference should contain high-contrast data over the relevant spectral chann
 <span class="c1"># Note: The Viewer is explained in detail in Example 5</span>
 <span class="c1"># It is used here to generate an RGB view of the measurement as</span>
 <span class="c1"># the effect of Distance calibration is not visible by only observing a single channel</span>
-<span class="n">viewer</span> <span class="o">=</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">Viewer</span><span class="p">(</span><span class="n">cuvis</span><span class="o">.</span><span class="n">ViewerSettings</span><span class="p">(</span><span class="n">userplugin</span><span class="o">=</span><span class="s2">&quot;./plugins/00_RGB.xml&quot;</span><span class="p">))</span>
+<span class="n">viewer</span> <span class="o">=</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">Viewer</span><span class="p">(</span><span class="n">cuvis</span><span class="o">.</span><span class="n">ViewerSettings</span><span class="p">(</span><span class="n">userplugin</span><span class="o">=</span><span class="s2">"./plugins/00_RGB.xml"</span><span class="p">))</span>
 <span class="n">view_nodistance</span> <span class="o">=</span> <span class="n">viewer</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">measurement</span><span class="p">)</span>
 
 <span class="c1"># Set distance reference</span>
@@ -1231,9 +1231,9 @@ The reference should contain high-contrast data over the relevant spectral chann
 
 <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax0</span><span class="p">,</span> <span class="n">ax1</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax0</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">view_nodistance</span><span class="o">.</span><span class="n">array</span><span class="p">)</span>
-<span class="n">ax0</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;No Distance&quot;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"No Distance"</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">view_withdistance</span><span class="o">.</span><span class="n">array</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;With Distance&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"With Distance"</span><span class="p">)</span>
 
 <span class="c1"># Interactive visualization of different processing modes</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -1246,14 +1246,14 @@ The reference should contain high-contrast data over the relevant spectral chann
 <span class="c1"># --- Dropdown for selecting processing mode ---</span>
 <span class="n">mode_dropdown</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
     <span class="n">options</span><span class="o">=</span><span class="p">[</span>
-        <span class="p">(</span><span class="s2">&quot;Preview&quot;</span><span class="p">,</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">ProcessingMode</span><span class="o">.</span><span class="n">Preview</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">&quot;Raw&quot;</span><span class="p">,</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">ProcessingMode</span><span class="o">.</span><span class="n">Raw</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">&quot;DarkSubtract&quot;</span><span class="p">,</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">ProcessingMode</span><span class="o">.</span><span class="n">DarkSubtract</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">&quot;Reflectance&quot;</span><span class="p">,</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">ProcessingMode</span><span class="o">.</span><span class="n">Reflectance</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">&quot;SpectralRadiance&quot;</span><span class="p">,</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">ProcessingMode</span><span class="o">.</span><span class="n">SpectralRadiance</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">"Preview"</span><span class="p">,</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">ProcessingMode</span><span class="o">.</span><span class="n">Preview</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">"Raw"</span><span class="p">,</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">ProcessingMode</span><span class="o">.</span><span class="n">Raw</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">"DarkSubtract"</span><span class="p">,</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">ProcessingMode</span><span class="o">.</span><span class="n">DarkSubtract</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">"Reflectance"</span><span class="p">,</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">ProcessingMode</span><span class="o">.</span><span class="n">Reflectance</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">"SpectralRadiance"</span><span class="p">,</span> <span class="n">cuvis</span><span class="o">.</span><span class="n">ProcessingMode</span><span class="o">.</span><span class="n">SpectralRadiance</span><span class="p">),</span>
     <span class="p">],</span>
     <span class="n">value</span><span class="o">=</span><span class="n">cuvis</span><span class="o">.</span><span class="n">ProcessingMode</span><span class="o">.</span><span class="n">Raw</span><span class="p">,</span>
-    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Mode:&quot;</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s2">"Mode:"</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="c1"># --- Processing and plotting function ---</span>
@@ -1271,18 +1271,18 @@ The reference should contain high-contrast data over the relevant spectral chann
     <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
     <span class="n">mid_channel</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">channels</span> <span class="o">//</span> <span class="mi">2</span>
-    <span class="n">im</span> <span class="o">=</span> <span class="n">ax_img</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">array</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">mid_channel</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
-    <span class="n">marker</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax_img</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span> <span class="s2">&quot;r+&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">ax_img</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Channel </span><span class="si">{</span><span class="n">mid_channel</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">ax_img</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">array</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">mid_channel</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"gray"</span><span class="p">)</span>
+    <span class="n">marker</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax_img</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span> <span class="s2">"r+"</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax_img</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Channel </span><span class="si">{</span><span class="n">mid_channel</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
     <span class="p">(</span><span class="n">line</span><span class="p">,)</span> <span class="o">=</span> <span class="n">ax_spec</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
-    <span class="n">vline</span> <span class="o">=</span> <span class="n">ax_spec</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">wavelength</span><span class="p">[</span><span class="n">mid_channel</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">ax_spec</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Wavelength&quot;</span><span class="p">)</span>
-    <span class="n">ax_spec</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Counts&quot;</span><span class="p">)</span>
-    <span class="n">ax_spec</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Spectrum&quot;</span><span class="p">)</span>
+    <span class="n">vline</span> <span class="o">=</span> <span class="n">ax_spec</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">wavelength</span><span class="p">[</span><span class="n">mid_channel</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">"r"</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">"--"</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax_spec</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Wavelength"</span><span class="p">)</span>
+    <span class="n">ax_spec</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Counts"</span><span class="p">)</span>
+    <span class="n">ax_spec</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Spectrum"</span><span class="p">)</span>
     <span class="n">ax_spec</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
 
-    <span class="n">selected_pixel</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+    <span class="n">selected_pixel</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"x"</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
 
     <span class="c1"># --- Channel slider ---</span>
     <span class="n">channel_slider</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span>
@@ -1290,7 +1290,7 @@ The reference should contain high-contrast data over the relevant spectral chann
         <span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
         <span class="nb">max</span><span class="o">=</span><span class="n">cube</span><span class="o">.</span><span class="n">channels</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
         <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Channel&quot;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">"Channel"</span><span class="p">,</span>
         <span class="n">continuous_update</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="p">)</span>
 
@@ -1299,7 +1299,7 @@ The reference should contain high-contrast data over the relevant spectral chann
         <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">inaxes</span> <span class="o">==</span> <span class="n">ax_img</span> <span class="ow">and</span> <span class="n">event</span><span class="o">.</span><span class="n">xdata</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">event</span><span class="o">.</span><span class="n">ydata</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">xdata</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">ydata</span><span class="p">)</span>
             <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">cube</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">cube</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
-                <span class="n">selected_pixel</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">],</span> <span class="n">selected_pixel</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+                <span class="n">selected_pixel</span><span class="p">[</span><span class="s2">"x"</span><span class="p">],</span> <span class="n">selected_pixel</span><span class="p">[</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
                 <span class="n">marker</span><span class="o">.</span><span class="n">set_data</span><span class="p">([</span><span class="n">x</span><span class="p">],</span> <span class="p">[</span><span class="n">y</span><span class="p">])</span>
 
                 <span class="n">spectrum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="p">:])</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
@@ -1311,37 +1311,37 @@ The reference should contain high-contrast data over the relevant spectral chann
                 <span class="n">ch</span> <span class="o">=</span> <span class="n">channel_slider</span><span class="o">.</span><span class="n">value</span>
                 <span class="n">vline</span><span class="o">.</span><span class="n">set_xdata</span><span class="p">([</span><span class="n">cube</span><span class="o">.</span><span class="n">wavelength</span><span class="p">[</span><span class="n">ch</span><span class="p">]])</span>
                 <span class="n">ax_spec</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span>
-                    <span class="sa">f</span><span class="s2">&quot;Spectrum at (x=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, y=</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">) — value=</span><span class="si">{</span><span class="n">cube</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">ch</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="sa">f</span><span class="s2">"Spectrum at (x=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, y=</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">) — value=</span><span class="si">{</span><span class="n">cube</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">ch</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span>
                 <span class="p">)</span>
                 <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw_idle</span><span class="p">()</span>
 
-    <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">mpl_connect</span><span class="p">(</span><span class="s2">&quot;button_press_event&quot;</span><span class="p">,</span> <span class="n">onclick</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">mpl_connect</span><span class="p">(</span><span class="s2">"button_press_event"</span><span class="p">,</span> <span class="n">onclick</span><span class="p">)</span>
 
     <span class="c1"># --- Slider handler ---</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">on_channel_change</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">change</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span>
-            <span class="n">ch</span> <span class="o">=</span> <span class="n">change</span><span class="p">[</span><span class="s2">&quot;new&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">change</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"value"</span><span class="p">:</span>
+            <span class="n">ch</span> <span class="o">=</span> <span class="n">change</span><span class="p">[</span><span class="s2">"new"</span><span class="p">]</span>
             <span class="n">im</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">array</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">ch</span><span class="p">])</span>
-            <span class="n">ax_img</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Channel </span><span class="si">{</span><span class="n">ch</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">ax_img</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Channel </span><span class="si">{</span><span class="n">ch</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
             <span class="n">vline</span><span class="o">.</span><span class="n">set_xdata</span><span class="p">([</span><span class="n">cube</span><span class="o">.</span><span class="n">wavelength</span><span class="p">[</span><span class="n">ch</span><span class="p">]])</span>
 
-            <span class="k">if</span> <span class="n">selected_pixel</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">selected_pixel</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">],</span> <span class="n">selected_pixel</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">selected_pixel</span><span class="p">[</span><span class="s2">"x"</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">selected_pixel</span><span class="p">[</span><span class="s2">"x"</span><span class="p">],</span> <span class="n">selected_pixel</span><span class="p">[</span><span class="s2">"y"</span><span class="p">]</span>
                 <span class="n">marker</span><span class="o">.</span><span class="n">set_data</span><span class="p">([</span><span class="n">x</span><span class="p">],</span> <span class="p">[</span><span class="n">y</span><span class="p">])</span>
                 <span class="n">ax_spec</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span>
-                    <span class="sa">f</span><span class="s2">&quot;Spectrum at (x=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, y=</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">) — value=</span><span class="si">{</span><span class="n">cube</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">ch</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="sa">f</span><span class="s2">"Spectrum at (x=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, y=</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">) — value=</span><span class="si">{</span><span class="n">cube</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">ch</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span>
                 <span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">marker</span><span class="o">.</span><span class="n">set_data</span><span class="p">([],</span> <span class="p">[])</span>
             <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw_idle</span><span class="p">()</span>
 
-    <span class="n">channel_slider</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">on_channel_change</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">)</span>
+    <span class="n">channel_slider</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">on_channel_change</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="s2">"value"</span><span class="p">)</span>
 
     <span class="n">display</span><span class="p">(</span><span class="n">channel_slider</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 <span class="c1"># --- Link dropdown to processing ---</span>
-<span class="n">mode_dropdown</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">process_and_plot</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">)</span>
+<span class="n">mode_dropdown</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">process_and_plot</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="s2">"value"</span><span class="p">)</span>
 
 <span class="c1"># Display the dropdown for the first time</span>
 <span class="n">display</span><span class="p">(</span><span class="n">mode_dropdown</span><span class="p">)</span>
@@ -1407,7 +1407,7 @@ The reference should contain high-contrast data over the relevant spectral chann
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../javascripts/sdk-installer.js"></script>
       
