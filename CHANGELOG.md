@@ -8,6 +8,12 @@ Pre-releases (`a*`, `b*`, `rc*`) stage and lint the assets without creating a Gi
 
 ## [Unreleased]
 
+### Added
+
+- `CI` - `.github/workflows/replace-release-assets.yml` re-publishes the assets of an existing release from its share when the SDK is rebuilt under the same version.
+  It requires a reason, which is appended to the release body under `## Asset Updates` with the date and a link to the run; the existing text, name and draft state stay untouched.
+  Assets the share no longer produces are removed and the published checksums are verified.
+
 ## [3.6.1] - 2026-10-16
 
 Publishes cuvis SDK 3.6.1.
