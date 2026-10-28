@@ -1,0 +1,122 @@
+name: Replace Release Assets
+
+# Re-publishes the SDK installers of an existing release from its public share, for a rebuild
+# that keeps the version number. Assets the share no longer produces are removed. Name and
+# draft state stay untouched; the body keeps its text and gains one dated line under
+# '## Asset Updates' carrying the reason, so the swap is visible on the release page.
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing release tag whose assets to replace (e.g. v3.6.1)
+        required: true
+        type: string
+      reason:
+        description: Why the assets are replaced; published on the release page
+        required: true
+        type: string
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  replace:
+    name: Replace release assets
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TAG: ${{ inputs.tag }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - id: meta
+        uses: cubert-hyperspectral/cuvis.docker/.github/actions/release-meta@main
+        with:
+          version: ${{ inputs.tag }}
+
+      - name: The release exists and is final
+        env:
+          PRERELEASE: ${{ steps.meta.outputs.prerelease }}
+        run: |
+          if [ "$PRERELEASE" = true ]; then
+            echo "::error::${TAG} is a pre-release tag; pre-releases have no GitHub Release."
+            exit 1
+          fi
+          gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json name,isDraft \
+            --jq '"Replacing the assets of \(.name) (draft: \(.isDraft))"'
+
+      - name: Download the SDK release
+        env:
+          SDK: ${{ steps.meta.outputs.sdk }}
+        run: |
+          url="https://cloud.cubert-gmbh.de/s/cuvis_sdk_release_ver_${SDK//./}/download"
+          if ! curl -fsSL -o "$RUNNER_TEMP/sdk.zip" "$url"; then
+            echo "::error::cuvis SDK ${SDK} is not available at ${url}."
+            exit 1
+          fi
+          unzip -q "$RUNNER_TEMP/sdk.zip" -d _assets
+
+      - name: Stage and lint the assets
+        env:
+          SDK: ${{ steps.meta.outputs.sdk }}
+        run: python3 scripts/release_assets.py stage --version "$SDK" --strict
+
+      # The notes are a published asset too, so a share without them would drop the PDF.
+      - name: The share carries the release notes
+        env:
+          SDK: ${{ steps.meta.outputs.sdk }}
+        run: test -f "_assets/.staging/v${SDK}/RELEASE-NOTES_v${SDK}.pdf"
+
+      - name: Show what changes
+        env:
+          SDK: ${{ steps.meta.outputs.sdk }}
+        run: |
+          gh release download "$TAG" --repo "$GITHUB_REPOSITORY" --pattern SHA256SUMS.txt --output "$RUNNER_TEMP/old-sums.txt" \
+            || : > "$RUNNER_TEMP/old-sums.txt"
+          diff <(sort -k2 "$RUNNER_TEMP/old-sums.txt") <(sort -k2 "_assets/.staging/v${SDK}/SHA256SUMS.txt") || true
+
+      - name: Upload the new assets
+        env:
+          SDK: ${{ steps.meta.outputs.sdk }}
+        run: gh release upload "$TAG" --repo "$GITHUB_REPOSITORY" --clobber _assets/.staging/v${SDK}/*
+
+      - name: Remove assets the share no longer produces
+        env:
+          SDK: ${{ steps.meta.outputs.sdk }}
+        run: |
+          gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json assets --jq '.assets[].name' \
+            | grep -vxF -f <(ls "_assets/.staging/v${SDK}") \
+            | xargs -r -I{} gh release delete-asset "$TAG" {} --repo "$GITHUB_REPOSITORY" --yes
+
+      - name: Lint the published assets
+        run: python3 scripts/release_assets.py lint --tag "$TAG" --repo "$GITHUB_REPOSITORY"
+
+      - name: Verify the published checksums
+        env:
+          SDK: ${{ steps.meta.outputs.sdk }}
+        run: |
+          mkdir "$RUNNER_TEMP/published"
+          gh release download "$TAG" --repo "$GITHUB_REPOSITORY" --dir "$RUNNER_TEMP/published"
+          cd "$RUNNER_TEMP/published" && sha256sum --check --strict SHA256SUMS.txt
+
+      - name: Record the reason on the release
+        env:
+          REASON: ${{ inputs.reason }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          if [ -z "${REASON//[[:space:]]/}" ]; then
+            echo "::error::reason is empty."
+            exit 1
+          fi
+          gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json body --jq .body > "$RUNNER_TEMP/body.md"
+          {
+            grep -qx '## Asset Updates' "$RUNNER_TEMP/body.md" || printf '\n## Asset Updates\n\n'
+            echo "- $(date -u +%F) - ${REASON} ([run](${RUN_URL}))"
+          } >> "$RUNNER_TEMP/body.md"
+          gh release edit "$TAG" --repo "$GITHUB_REPOSITORY" --notes-file "$RUNNER_TEMP/body.md"
