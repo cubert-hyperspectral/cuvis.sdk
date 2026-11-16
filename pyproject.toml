@@ -2,13 +2,14 @@
 name = "cuvis-sdk-docs"
 version = "0.1.0"
 description = "Cuvis SDK documentation site"
-requires-python = ">=3.10"
+requires-python = ">=3.11.5"
 dependencies = []
 
 [project.optional-dependencies]
 docs = [
     "urllib3>=2.8.0",
     "certifi>=2026.10.19",
+    "soupsieve>=4.0.0",
     "mkdocs>=1.5.0",
     "mkdocs-material>=9.7.7",
     "mkdocs-macros-plugin>=1.0.0",
@@ -17,8 +18,8 @@ docs = [
     "mkdocstrings[python]>=0.25.0",
     "mike>=2.0.0",
 ]
-test = ["pytest>=7", "pypdf>=6.21.2"]
-release = ["pypdf>=6.21.2"]
+test = ["pytest>=7", "pypdf>=6.21.4"]
+release = ["pypdf>=6.21.4"]
 
 [tool.uv]
 package = false
